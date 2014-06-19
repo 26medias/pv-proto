@@ -1,0 +1,29 @@
+@import url(http://fonts.googleapis.com/css?family=Archivo+Black);
+@import url(http://fonts.googleapis.com/css?family=EB+Garamond);
+
+body {font-family: 'EB Garamond', serif; font-weight: 400; font-size: 18px; line-height: 1;}
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {font-family: 'Archivo Black', sans-serif; font-weight: 400;}
+
+#header .navbar-brand,
+#home,
+#contact .holder .header .navbar-brand {font-family: 'Archivo Black', sans-serif; font-weight: 400;}
+
+#header .navbar-brand {font-size: 25px;}
+#home {font-size: 20px;}
+
+.navbar-nav > li {font-family: 'Archivo Black', sans-serif; font-weight: 400;}
+#gallery .nav-tabs > li,
+#gallery .head {font-family: 'Archivo Black', sans-serif; font-weight: 400;}
+
+#gallery .holder .thumb .caption {font-size: 18px;}
+
+.contact_form * {font-family: 'EB Garamond', serif; font-weight: 400;}
+
+#gallery .nav-tabs > li, 
+#gallery .head {font-size: 14px;}
+

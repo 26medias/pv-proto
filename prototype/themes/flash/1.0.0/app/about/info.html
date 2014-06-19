@@ -1,0 +1,102 @@
+<!-- Wrap Properties
+    ================================================== -->
+    <div id="wrap">
+        
+        <!-- Info
+        ================================================== -->
+		<div id="info">
+        
+        	<div class="main">
+            
+            	<div class="col left">
+                    {{if data.location or data.phone or data.email}}
+                    	<h2>{$"Contact"|i18n(pageInfo.theme_settings.Lang)}</h2>
+                        {{ if data.phone }}
+                        <address>
+                        	<strong>{$"Telephone"|i18n(pageInfo.theme_settings.Lang)}:</strong>{$data.phone}
+                            {{ if data.isPhoneValid }}
+                            	<div class="call">
+                                	<a href="tel:{$data.phone}" onclick="_gaq.push(['_trackEvent', 'Contact', 'Call', 'Click-To-Call']);">Call</a>
+                                </div><!-- /.call -->
+                            {{endif}}
+                        </address>
+                        
+                        {{endif}}
+                        {{ if data.email }}
+                        <address>
+                        	<strong>{$"Email"|i18n(pageInfo.theme_settings.Lang)}:</strong><a href="mailto:{$data.email}">{$data.email}</a>
+                        </address>
+                        {{endif}}
+                        {{ if data.location }}
+                        <address>
+                        	<strong>{$"Address"|i18n(pageInfo.theme_settings.Lang)}:</strong>{$data.locationcommas}
+                        </address>
+                        {{endif}}
+                    {{endif}}
+                    
+                    <form id="contact_form" action="" method="post">
+                        <div class="contact_form">
+                            <h2>{$'Message'|i18n(pageInfo.theme_settings.Lang)}</h2>
+                            {{ if data.msg }}
+                                <span class="message">{$data.msg|i18n(pageInfo.theme_settings.Lang)}</span>
+                            {{ endif }}
+                            <ul>
+                                <li><input name="p_name" type="text" placeholder="{$'Name'|i18n(pageInfo.theme_settings.Lang)}" class="required" /></li>
+                                <li><input name="p_email" type="text" placeholder="{$'Email'|i18n(pageInfo.theme_settings.Lang)}" class="required email" /></li>
+                                <li><textarea name="p_message" cols="" rows="" placeholder="{$'Message'|i18n(pageInfo.theme_settings.Lang)}" class="required"></textarea></li>
+                                <li class="txt_center"><input name="p_send" type="submit" value="{$'Send'|i18n(pageInfo.theme_settings.Lang)}" class="btn" onclick="_gaq.push(['_trackEvent', 'Contact', 'Message', 'Send Button']);" /></li>
+                            </ul>
+                        </div>
+                    </form>
+                </div><!-- /.col.left -->
+                
+            	<div class="col right">
+                	{{ set profile_check = 1 }}
+                	{{ for album in data.albums.data }}
+                    
+                      {{ if album.name == "Profile Pictures" and profile_check }}
+                      	{{ set profile_check = 0}}
+                        {{ for photo in album.photos.data if loop.index <= 1 }}
+                        	<div class="img_holder"><img src="{$photo.source}" title="{$data.name}"></div><!-- /.img_holder -->
+                        {{endfor}}
+                      {{endif}}
+                    {{endfor}}
+                	<div class="caption">
+                    	{{if(data.about)}}
+                    	<h2>{$"About"|i18n(pageInfo.theme_settings.Lang)}</h2>
+                        <p>{$data.about|nl2br}</p>
+                        {{endif}}
+                        {{if(data.mission)}}
+                    	<h2>{$"Mission"|i18n(pageInfo.theme_settings.Lang)}</h2>
+                        <p>{{ autoescape false }}{{if data.mission }}{$data.mission|nl2br}{{ endif }}{{ endautoescape }}</p>
+                        {{endif}}
+                        {{if(data.company_overview)}}
+                        <h2>{$"Company Overview"|i18n(pageInfo.theme_settings.Lang)}</h2>
+                        <p>{{ autoescape false }}{{if data.company_overview }}{$data.company_overview|nl2br}{{ endif }}{{ endautoescape }}</p>
+                        {{endif}}
+                        {{if(data.description)}}
+                        <h2>{$"Description"|i18n(pageInfo.theme_settings.Lang)}</h2>
+                        <p>{{ autoescape false }}{{if data.description }}{$data.description|nl2br}{{ endif }}{{ endautoescape }}</p>
+                        {{endif}}
+                        {{if(data.general_info)}}
+                        <h2>{$"General Information"|i18n(pageInfo.theme_settings.Lang)}</h2>
+                        <p>{{ autoescape false }}{{if data.general_info }}{$data.general_info|nl2br}{{ endif }}{{ endautoescape }}</p>
+                        {{endif}}
+                        {{if(data.bio)}}
+                        <h2>{$"Bio"|i18n(pageInfo.theme_settings.Lang)}</h2>
+                        <p>{{ autoescape false }}{{if data.bio }}{$data.bio|nl2br}{{ endif }}{{ endautoescape }}</p>
+                        {{endif}}
+                        {{if(data.culinary_team)}}
+                        <h2>{$"Culinary Team"|i18n(pageInfo.theme_settings.Lang)}</h2>
+                        <p>{{ autoescape false }}{{if data.culinary_team }}{$data.culinary_team|nl2br}{{ endif }}{{ endautoescape }}</p>
+                        {{endif}}
+                    </div><!-- /.caption -->
+                </div><!-- /.col.right -->
+            
+            </div><!-- /.main -->
+        
+        </div>
+        
+        <div id="push"></div><!-- just for Pushing the footer -->
+        
+    </div>

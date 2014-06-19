@@ -1,0 +1,207 @@
+/*!
+		* Custom Responsive for Site.
+ */
+ 
+	/* Large desktop */
+	@media (min-width: 1200px) {
+		
+		
+		}
+	 
+	 
+	/* Portrait tablet to landscape and desktop */
+	@media (min-width: 768px) and (max-width : 1199px) { 
+	
+		#header .navbar {text-align: center;}
+		#header .navbar-header {width: 100%; float: none; margin-bottom: 20px;}
+		#header .navbar-brand {float: none; margin: 0;}
+		#header .navbar-nav {float: none!important; display: inline-block;}
+	
+		#header .home-content,
+		#header .head-title {padding: 75px 150px 20px;}
+		
+		#content .gallery.album .back {width: 100%;	left: 0; text-align: center;}	
+				
+		 }
+		 
+	
+	@media (min-width: 768px) and (max-width : 979px) {
+		
+		#header .home-content,
+		#header .head-title {padding: 75px 75px 20px;}
+		
+		#blog ul.blog-post li .post .right img {width: 100%;}
+		
+		#content .about .left {padding-right: 40px;}
+		
+		#content .gallery .thumbnail {height: 315px;}
+		#content .gallery .thumbnail .img-holder,
+		#content .gallery.album .thumbnail {height: 275px;}
+		
+		#content .event ul li {width: 240px;}
+		#content .event-list {min-height: 220px;}
+		#content .event-list .img-holder {height: 160px;}
+		#content .event-list .img-holder a {height: 160px;}
+		
+		#blog ul.blog-post li .post .right .img-holder img.portfolio {width: 100%!important;}
+
+		}
+		
+
+/*  #Mobile (Portrait)
+================================================== */
+
+    /* Note: Design for a width of 320px */
+
+    @media only screen and (max-width: 767px) {
+		
+		body {font-size: 16px;}
+		h1 {font-size: 30px;}
+		h2 {font-size: 26px;}
+		h3 {font-size: 22px;}
+		h4 {font-size: 18px;}
+		h5 {font-size: 16px;}
+		h6 {font-size: 14px;}
+		
+		#wrap {margin: 0;}
+		
+		#header .navbar {text-align: center;}
+		#header .navbar-header {width: 100%; float: none; margin-bottom: 20px;}
+		#header .navbar-brand {float: none; margin: 0 0 40px; display: block;}
+		#header .navbar-nav {float: none!important; display: inline-block;}
+		#header .navbar-nav > li {display: block;}
+		#header .container > .navbar-header, 
+		#header .container > .navbar-collapse {margin: 0;}
+		#header .navbar-toggle {float: none; background: url(../img/icon_collapse.png) no-repeat scroll 13px 11px; border: 1px solid #bebebe; width: 25px; height: 20px; margin: 0; padding: 12px 25px 25px;}
+		#header .navbar-toggle:hover {background-position: 13px -19px; border: 1px solid #d9d9d9;}
+		#header .navbar-collapse {border: none; box-shadow: none;}
+		#header .navbar-nav {margin: 20px -15px 5px;}
+		
+		#header .home-content,
+		#header .head-title {padding: 15px 30px 20px;}
+		#header .home-content h2 {font-size: 24px;}
+		
+		#header .navbar .dropdown-menu:before,
+		#header .navbar.home .dropdown-menu:before {top: 34px;}
+		
+		#blog {padding: 40px 0;}
+		#blog ul.blog-post li .post .left {padding: 0; margin-bottom: 20px;}
+		#blog ul.blog-post li .post .right .img-holder {padding: 0;}
+		#blog ul.blog-post li .post .right img {width: 100%;}
+		
+		#content .about .left {padding-right: 15px; margin-bottom: 50px;}
+		#content .gallery .thumbnail .img-holder {height: 400px;}
+		
+		#content .gallery.album .thumbnail {height: auto;}
+		#content .gallery.album .back {text-align: center;}
+		
+		#push {display: none;}
+		#footer {height: auto;}
+		#footer .left,
+		#footer .right {text-align: center;}
+		#footer .left {margin-bottom: 20px;}
+		#footer .left span {float: none; margin: 0; display: inline-block;}
+		
+		#content .gallery.album .back {width: 100%;	left: 0; text-align: center;}
+		
+		#content .event ul li {float: none; padding: 0 15px; width: 300px; margin: 0 auto 30px;}
+		
+		#content .event.desc {text-align: center;}
+		#content .event.desc .map {margin-top: 50px;}
+			
+		#content .contact .gutter {margin-bottom: 30px;}
+		
+		.call {text-align: left; margin-bottom: 30px; display: block;}
+		.call a {background: url(../img/but-call.png) no-repeat; width: 138px; height: 40px; display: inline-block; text-indent: -9999px;}
+		
+		#content .gallery.album .back, #content .event.desc .back {width: 100%; left: 0;}
+		
+		#blog ul.blog-post li .post .right .img-holder img.portfolio {width: 100%!important;}
+		
+		.col-xs-offset-2 {margin-left: 0;}
+.widget-type-widget_text .content p {text-align: left;}
+		.widget-type-widget_text .content h1,
+		.widget-type-widget_text .content h2,
+		.widget-type-widget_text .content h3,
+		.widget-type-widget_text .content h4,
+		.widget-type-widget_text .content h5,
+		.widget-type-widget_text .content h6 {text-align: left;}
+									
+		#header .navbar .dropdown-menu {left: 0; margin-left: 0;}
+
+.modal {padding: 0 10%;}
+		.modal-body {padding: 0;}
+		.modal-dialog {margin: 10px 0;}
+		.modal .inquire-holder .rel-img {width: 100%; margin: 0;}
+		.modal .inquire-holder .inquire-form {margin-bottom: 40px;}
+		.modal .inquire-holder h2 {text-align: center;}
+									
+		}
+		
+
+/* Smartphones (portrait) ----------- */
+	@media (max-width: 480px) {
+
+		#content .gallery .thumbnail .img-holder {height: 360px;}
+		#header .home-content h2 {font-size: 20px;}
+
+		#content .event-list {min-height: 200px;}
+		#content .event ul {width: 100%;}
+		#content .event ul li {width: 100%;}
+		#content .event-list .img-holder,
+		#content .event-list .img-holder a {height: 180px;}
+		
+
+		}	
+		
+		
+/* Smartphones (portrait) ----------- */
+	@media only screen and (max-width: 360px) {
+
+		#content .gallery .thumbnail .img-holder {height: 260px;}
+		#header .home-content h2 {font-size: 20px;}
+
+		#content .event-list {min-height: 200px;}
+		#content .event ul {width: 100%;}
+		#content .event ul li {width: 100%;}
+		#content .event-list .img-holder,
+		#content .event-list .img-holder a {height: 180px;}
+
+		}	
+	
+
+/* Smartphones (portrait) ----------- */
+	@media (max-width: 320px) {
+
+		#content .gallery .thumbnail .img-holder {height: 180px;}
+		#header .home-content h2 {font-size: 18px;}
+
+		#content .event-list {min-height: 200px;}
+		#content .event ul {width: 100%;}
+		#content .event ul li {width: 100%;}
+		#content .event-list .img-holder,
+		#content .event-list .img-holder a {height: 140px;}
+
+		}	
+	
+	
+/* #Print Website
+================================================== */
+
+	@media print {
+		* {background: transparent !important;color: black !important;box-shadow:none !important;text-shadow: none !important;filter:none !important;-ms-filter: none !important;} /* Black prints faster: h5bp.com/s */
+		a, a:visited { text-decoration: underline; }
+		a[href]:after { content: " (" attr(href) ")"; }
+		abbr[title]:after { content: " (" attr(title) ")"; }
+		 .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {content: "";}  /* Don't show links for images, or javascript/internal links */
+		pre, blockquote {border: 1px solid #999;page-break-inside: avoid;}
+		thead { display: table-header-group; } /* h5bp.com/t */
+		tr, img { page-break-inside: avoid; }
+		img { max-width: 100% !important; }
+		 @page {margin: 0.5cm;}
+		p, h2, h3 {orphans: 3;widows: 3;}
+		h2, h3 { page-break-after: avoid; }
+	}
+	
+
+

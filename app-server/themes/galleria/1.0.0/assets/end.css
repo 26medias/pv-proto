@@ -1,0 +1,202 @@
+
+
+/* ==|== non-semantic helper classes ========================================
+   Please define your styles before this section.
+   ========================================================================== */
+
+/* For image replacement */
+.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; }
+.ir br { display: none; }
+
+/* Hide from both screenreaders and browsers: h5bp.com/u */
+.hidden { display: none !important; visibility: hidden; }
+
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+/* Contain floats: h5bp.com/q */ 
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+
+
+/* ==|== media queries ======================================================
+   PLACEHOLDER Media Queries for Responsive Design.
+   These override the primary ('mobile first') styles
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 480px) {
+  /* Style adjustments for viewports 480px and over go here */
+
+}
+
+@media only screen and (min-width: 768px) {
+  /* Style adjustments for viewports 768px and over go here */
+
+}
+
+
+/* #Tablet (Landscape)
+================================================== */
+
+    /* Note: Design for a width of 1080px */
+
+	@media only screen and (min-width : 768px) and (max-width : 1024px) {
+		
+		#wrapper {width: 974px;}
+		.container_24 {width: 974px;}
+		.res_7 {width: 224px!important;}
+		.res_5 {width: 184px!important;}
+		.foot_2,
+		.foot_3 {width: 100%!important; float: none; margin-bottom: 10px; display: inline-block; padding: 0; margin-left: 0!important; margin-right: 0!important;}
+		
+	}
+
+/* #Tablet (Portrait)
+================================================== */
+
+    /* Note: Design for a width of 768px */
+
+    @media only screen and (min-width: 768px) and (max-width: 959px) {
+
+		#wrapper {width: 738px; margin: 0 15px 0 15px;}
+		.container_24 {width: 738px!important;}
+		.res_7 {width: 184px!important;}
+		ul#nav li {font-size: 20px;}
+		div.footer .top p {font-size: 16px;}
+		.foot_2,
+		.foot_3 {width: 100%!important; float: none; margin-bottom: 10px; display: inline-block; padding: 0; margin-left: 0!important; margin-right: 0!important;}
+		.res_15 {width: 554px!important;}
+		.row {margin-left: 40px;}
+		.res_2 {width: 60px!important;}
+		.res_12 {width: 454px!important;}
+		ul#news li .date {width: 50px;}
+		ul#news li .desc {width: 384px;}
+		ul#events li:last-child {margin: 0;}
+		.res_center {text-align: center;}
+		ul#gallery {display: inline-block; zoom: 1;}
+		ul#gallery li {float: none; margin: 0 0 30px 0; overflow: hidden}
+		.item {width: 384px!important;}
+		ul#gallery li .thumb { width: 374px !important;}
+		.center {text-align: center;}
+		ul#events {display: inline-block; zoom: 1;}
+		ul#events li {display: inline-block; float: none;}
+		ul#events li:nth-child(2n+2) {margin-right: 0px!important;}
+		ul#events li:nth-child(3n+3) {margin-right: 30px;}
+
+	}
+	
+	
+
+/*  #Mobile (Portrait)
+================================================== */
+
+    /* Note: Design for a width of 320px */
+
+    @media only screen and (max-width: 767px) {
+		
+		#wrapper {width: auto; padding: 30px 3% 30px; margin-left: 0!important;}
+		.container_24 {width: 100%;}
+		.res_7, .res_15 {width: 100%!important; float: none; display: block;}
+		.row {margin: 0;}
+		div.header .logo {width: auto!important; margin-bottom: 10px; float: none; text-align: center; font-size: 40px;}
+		div.header .social {width: auto!important; float: none; text-align: center;}
+		.res_center {text-align: center;}
+		.res_5 {width: 100%!important; float: none!important; display: block;}
+		ul#nav {display: none; zoom: 1;}
+		ul#nav li {font-size: 20px;}
+		div.footer .top p {text-align: center;}
+		.title h2 {text-align: center; margin: 0;}
+		.res_2 {float: none!important; margin: 0 auto 10px; display: block;}
+		.res_12 {width: 100%!important; float: none; display: block;}
+		ul#news li .desc {width: auto!important; text-align: center;}
+		.row h2 {text-align: center;}
+		.row p {text-align: center;}
+		ul#gallery li {margin: 0 0 20px; float: none!important; display: inline-block;}
+		ul#gallery li .item {width: 226px;}
+		ul#gallery li .thumb { width: 215px !important;}
+		iframe {width: 100%!important;}
+		
+/*		added later*/		
+		a#pull {padding:15px 0 0; display: block; outline: none; color: #5F5F5F; font-size: 18px; font-weight: 500; 
+		text-transform:	uppercase;  color: #FFFFFF; font-family: 'Milf',sans-serif; font-weight: 300; margin-bottom: 20px;}	
+
+		.center {text-align: center;}
+		ul#events {display: inline-block; zoom: 1;}
+		ul#events li {display: block; float: none;  margin: 0 0 30px !important; overflow: auto;}
+		ul#events li:nth-child(2n+2) {margin-right: 0!important;}
+		ul#events li:nth-child(3n+3) {margin-right: 0;}
+		
+			}
+
+
+/* #Mobile (Landscape)
+================================================== */
+
+    /* Note: Design for a width of 480px */
+
+    @media only screen and (min-width: 480px) and (max-width: 767px) {
+		
+		#wrapper {width: auto; padding: 30px 3% 30px; margin-left: 0!important;}
+		.container_24 {width: 100%;}
+		.res_7, .res_15 {width: 100%!important; float: none; display: block;}
+		.row {margin: 0;}
+		div.header .logo {width: auto!important; margin-bottom: 10px; float: none; text-align: center; font-size: 40px;}
+		div.header .social {width: auto!important; float: none; text-align: center;}
+		.res_center {text-align: center;}
+		.res_5 {width: 100%!important; float: none!important; display: block;}
+		ul#nav {display:none; zoom: 1;}
+		ul#nav li {font-size: 20px;}
+		div.footer .top p {text-align: center;}
+		.title h2 {text-align: center; margin: 0;}
+		.res_2 {float: none!important; margin: 0 auto 10px; display: block;}
+		.res_12 {width: 100%!important; float: none; display: block;}
+		ul#news li .desc {width: auto!important; text-align: center;}
+		.row h2 {text-align: center;}
+		.row p {text-align: center;}
+		ul#gallery {display: inline-block; zoom: 1;}
+		ul#gallery li {margin: 0 17px 20px 0; float: none!important; display: inline-block;}
+		ul#gallery li .item {width: 175px;}
+		ul#gallery li .thumb { width: 165px !important;}
+		iframe {width: 100%!important;}
+		
+/*		added later*/		
+		a#pull {padding:15px 0 0; display: block; outline: none; color: #5F5F5F; font-size: 18px; font-weight: 500; 
+		text-transform:	uppercase;  color: #FFFFFF; font-family: 'Milf',sans-serif; font-weight: 300; margin-bottom: 20px;}
+		
+		.center {text-align: center;}
+		ul#events {display: inline-block; zoom: 1;}
+		ul#events li {display: inline-block; float: none;}
+		ul#events li:nth-child(2n+2) {margin-right: 0px!important;}
+		ul#events li:nth-child(3n+3) {margin-right: 0;}
+    }
+
+
+
+/* ==|== print styles =======================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+ 
+@media print {
+  * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
+  a, a:visited { text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* h5bp.com/t */
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}

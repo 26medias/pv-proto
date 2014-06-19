@@ -1,0 +1,59 @@
+{{ if data.isEvent }}
+<div class="events">
+    <h2 class="hidden-xs">{$data.eventOnly.name}</h2>
+    <div class="back"><a href="{$root}events" title="back">{$"back to all events"|i18n(pageInfo.theme_settings.Lang)}</a></div><!-- /.back -->
+    <ul class="desc">
+            {{ if data.eventOnly.cover.source }}
+        <li>
+            <div class="img_holder"><img src="{$data.eventOnly.cover.source}"></div><!-- /.img_holder -->
+        </li>
+        {{ endif }}
+        <li>
+            <h2>{$data.eventOnly.location}</h2>
+            <p><span class="date">{$data.eventOnly.start_time|date("F d, Y - h:ia")}</span></p>
+            <p>{$data.eventOnly.description}</p>
+            <p><a href="http://facebook.com/events/{$data.eventOnly.id}/" class="rsvp" target="_blank" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Events', 'RSVP']);">Click to RSVP</a></p>
+        </li>
+        <li>
+            <h2>location</h2>
+            <p>{$data.eventOnly.location}</p>
+            <div class="img_holder">
+                    {{ if data.eventOnly.venue.latitude }}
+                <iframe width="404" scrolling="no" height="280" frameborder="0" src="https://maps.google.com/?q={$data.eventOnly.venue.street}+{$data.eventOnly.venue.city}+{$data.eventOnly.venue.state}&hl=en&sll={$data.eventOnly.venue.latitude},{$data.eventOnly.venue.longitude}&amp;output=embed" marginwidth="0" marginheight="0"></iframe>
+                <!--<div class="title"><a href="https://maps.google.com/?q={$data.eventOnly.venue.street}+{$data.eventOnly.venue.city}+{$data.eventOnly.venue.state}&hl=en&sll={$data.eventOnly.venue.latitude},{$data.eventOnly.venue.longitude}" style="text-align:left" target="_blank">View Larger Map</a></div>-->
+            {{ endif }}
+            </div><!-- /.img_holder -->
+        </li>
+    </ul><!-- /.desc -->
+</div>
+
+{{ else }}
+
+<div class="events">
+    <h2 class="hidden-xs">{$widgets.pages.events.label|i18n(pageInfo.theme_settings.Lang)}</h2>
+    {{ if data.events }}
+        <ul class="thumbs">
+        {{ autoescape false }}
+        {{ set count = 0 }}
+        {{ for event in data.events.data if loop.index <=100}}
+                {{ if event.name }} 
+                <li>
+                    <div class="img_holder" style="background:url({{if event.cover.source}}{$event.cover.source}{{else}}{$assets}img/event.png{{endif}}) center center no-repeat rgba(255,255,255,.2); background-size: inherit; height: 200px;">
+                            <a href="{$root}events?event={$count}" title="Title"><img src="{$assets}/img/spacer.gif"></a>
+                    </div><!-- /.img_holder -->
+                    <div class="caption">
+                        <div class="date"><a href="{$root}events?event={$count}">{$event.start_time|date("m/d/Y - h:ia")}</a></div>
+                        <p>{$event.name}</p>
+                    </div><!-- /.caption -->
+                </li>  
+                {{ endif }}
+                {{ set count = loop.index }}
+            {{ endfor }}
+          {{ endautoescape }}
+        </ul><!-- /.thumbs -->
+    {{ else }}
+    <p>{$"There are currently no upcoming events. Please check back later!"|i18n(pageInfo.theme_settings.Lang)}</p>
+    {{ endif }}
+</div>
+{{ endif }}
+

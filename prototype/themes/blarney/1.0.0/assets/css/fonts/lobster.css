@@ -1,0 +1,23 @@
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans);
+
+
+body {font-family: 'Josefin Sans', sans-serif; font-weight: 400;}
+#widget_cont h1,
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {font-family: 'Lobster', cursive; font-weight: 400;}
+
+#header .logo,
+#header {font-family: 'Lobster', cursive !important; font-weight: 400 !important;}
+
+#sidebar *,
+.footer * {font-family: 'Oswald', sans-serif; font-weight: 300;}
+
+#main .content a.rsvp {font-family: 'Oswald', sans-serif; font-weight: 700;}
+
+#main .content .gallery .nav-tabs {font-family: 'Lobster', cursive; font-weight: 400;}
+

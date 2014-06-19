@@ -1,0 +1,27 @@
+@import url(http://fonts.googleapis.com/css?family=Imprima);
+@import url(http://fonts.googleapis.com/css?family=Cantata+One);
+
+body {font-family: 'Imprima', sans-serif; font-weight: 400; font-size: 16px; line-height: 1;}
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {font-family: 'Cantata One', serif; font-weight: 400;}
+
+#header .navbar-brand,
+#home,
+#contact .holder .header .navbar-brand {font-family: 'Cantata One', serif; font-weight: 400;}
+
+#header .navbar-brand {font-size: 25px;}
+#home {font-size: 20px;}
+
+.navbar-nav > li {font-family: 'Cantata One', serif; font-weight: 400; font-size: 16px;}
+#gallery .nav-tabs > li,
+#gallery .head {font-family: 'Cantata One', serif; font-weight: 400;}
+
+#footer,
+#gallery .holder .thumb .caption {font-size: 16px;}
+
+.contact_form * {font-family: 'Imprima', sans-serif; font-weight: 400;}
+

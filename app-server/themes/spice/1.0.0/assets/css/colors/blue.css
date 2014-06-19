@@ -1,0 +1,48 @@
+/*!
+		* Custom Coloring for Site.
+ */
+
+a,
+a:hover,
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {color: #00D9D9;}
+
+.btn-success,
+.btn-success:hover, 
+.btn-success:focus, 
+.btn-success:active, 
+.btn-success.active, 
+.open .dropdown-toggle.btn-success,
+#header .dropdown,
+#header .dropdown .dropdown-menu {background: #00D9D9;}
+
+#header .nav>li>a:hover, 
+#header .nav>li>a:focus, 
+#header .nav>li>a.active {border-bottom: 5px solid #00D9D9;}
+
+#mid_section .title {background-color: #00FFFF;}
+#content .pages ul.events li ul.inner li .left .img_holder .fill {background-color: #00D9D9;}
+
+.contact_form .btn {background: #00FFFF;}
+
+#content .pages ul.news-new li.with-pic .left,
+#content .pages ul.news-new li.without-pic .right {color: #00D9D9;}
+
+#header .navbar .dropdown-menu.inner>li>a {color: #00D9D9;}
+
+#header .navbar .dropdown-menu.inner>li>a:hover, 
+#header .navbar .dropdown-menu.inner>li>a:focus {color: #6ef0f0;}
+
+#header .navbar .dropdown-menu.inner {border-top: 5px solid #00D9D9;}
+#header .navbar .dropdown-menu.inner:before {border-top: 8px solid #00D9D9;}
+
+@media only screen and (max-width: 767px) {
+
+}
+
+.modal .inquire-header {background: url(../../img/bg_ban.png) repeat #00FFFF;}
+.modal .inquire-holder .btn {background: #00FFFF;}

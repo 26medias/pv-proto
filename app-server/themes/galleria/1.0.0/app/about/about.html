@@ -1,0 +1,108 @@
+<!-- About Properties
+================================================== -->
+<div id="about" class="for_about_padding">
+
+    <h1>
+    	<span>{$widgets.pages.about.label|i18n(pageInfo.theme_settings.Lang)}</span>
+        <div class="social hidden-sm hidden-xs">
+            <a href="http://facebook.com/{$pageInfo.pageid}" title="facebook" target="_blank" onClick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Facebook Icon']);" class="facebook">facebook</a>
+            {{ if data.site_settings.socialicons_switch == 1}}
+                {{if data.site_settings.twitter_link}}
+                <a href="{$data.site_settings.twitter_link}" target="_blank" title="twitter" onClick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Twitter Icon']);" class="twitter">twitter</a>
+                {{endif}}
+                {{if data.site_settings.pinterest_link}}
+                <a href="{$data.site_settings.pinterest_link}" target="_blank" title="pinterest" onClick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Pinterest Icon']);" class="pinterest">pinterest</a>
+                {{endif}}
+                {{if data.site_settings.instagram_link}}
+                <a href="{$data.site_settings.instagram_link}" target="_blank" title="instagram" onClick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Instagram Icon']);" class="instagram">instagram</a>
+                {{endif}}
+                {{if data.site_settings.tumblr_link}}
+                <a href="{$data.site_settings.tumblr_link}" target="_blank" title="tumblr" onClick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Tumblr Icon']);" class="tumblr">tumblr</a>
+                {{endif}}
+                {{if data.site_settings.flickr_link}}
+                <a href="{$data.site_settings.flickr_link}" target="_blank" title="flickr" onClick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Flickr Icon']);" class="flickr">flickr</a>
+                {{endif}}
+                {{if data.site_settings.youtube_link}}
+                <a href="{$data.site_settings.youtube_link}" target="_blank" title="youtube" onClick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Youtube Icon']);" class="youtube">youtube</a>
+                {{endif}}
+            {{endif}}
+        </div>
+    </h1>
+    
+    <div class="side_content hidden-xs">
+            {{ for album in data.albums.data }}
+              {{ if album.name == "Profile Pictures" }}
+                {{ for photo in album.photos.data if loop.index <= 1 }}
+                    <div class="img-responsive" style="background: url('{$photo.source}'); background-repeat: no-repeat; background-position: center; background-size: cover;"></div>
+                {{endfor}}
+              {{endif}}
+            {{endfor}}
+    </div><!-- /.side_content -->
+    
+    <div class="side_content visible-xs">
+            {{ for album in data.albums.data }}
+              {{ if album.name == "Profile Pictures" }}
+                {{ for photo in album.photos.data if loop.index <= 1 }}
+                    <div><img src="{$photo.source}" /></div>
+                {{endfor}}
+              {{endif}}
+            {{endfor}}
+    </div><!-- /.side_content -->
+    
+    <div class="content">
+        <div class="box_holder">
+            {{ autoescape false }}
+            {{ if data.about }}    
+            <h2>{$data.name}</h2>
+            <p>{$data.about|nl2br}</p>
+            {{ endif }}
+            {{ endautoescape}}
+                    
+            {{ autoescape false }}
+            {{ if data.description }}     	
+            <h2>{$"Description"|i18n(pageInfo.theme_settings.Lang)}</h2>
+            <p>{$data.description|nl2br}</p>
+            {{ endif }}
+            {{ endautoescape}}
+                
+            {{ autoescape false }}
+            {{if data.mission}}        
+            <h2>{$"Mission"|i18n(pageInfo.theme_settings.Lang)}</h2>
+            <p>{$data.mission|nl2br}</p>
+            {{endif}}
+            {{ endautoescape}}    
+    
+            {{ autoescape false }}
+            {{if data.company_overview}}        
+            <h2>{$"Company Overview"|i18n(pageInfo.theme_settings.Lang)}</h2>
+            <p>{$data.company_overview|nl2br}</p>
+            {{endif}}
+            {{ endautoescape}}
+    
+            {{ autoescape false }}
+            {{if data.general_info}}        
+            <h2>{$"General Information"|i18n(pageInfo.theme_settings.Lang)}</h2>
+            <p>{$data.general_info|nl2br}</p>
+            {{endif}}
+            {{ endautoescape}}
+    
+            {{ autoescape false }}
+            {{if data.bio}}        
+            <h2>{$"Bio"|i18n(pageInfo.theme_settings.Lang)}</h2>
+            <p>{$data.bio|nl2br}</p>
+            {{endif}}
+            {{ endautoescape}}
+    
+            {{ autoescape false }}
+            {{if data.culinary_team}}        
+            <h2>{$"Culinary Team"|i18n(pageInfo.theme_settings.Lang)}</h2>
+            <p>{$data.culinary_team|nl2br}</p>
+            {{endif}}
+            {{ endautoescape}}
+        </div><!-- /.box_holder -->
+    </div><!-- /.content -->
+    
+    <div class="top_cover"></div>
+    <div class="bottom_cover"></div>
+            
+</div>

@@ -1,0 +1,66 @@
+
+/*** NAVIGATION BAR ***/
+
+body,
+#header .navbar-inverse {background: #000;}
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6, 
+p {color: #fff;}
+
+a {color: #fff;}
+a:hover {color: #B2B2B2;}
+
+#loader { background: url(../../img/3.gif) no-repeat; }
+#loader img {display: none;}
+
+#header .container {border-bottom: 1px solid #fff;}
+
+#header .navbar-brand,
+#footer .right a {color: #fff;}
+#header .navbar-brand:hover {color: #999;}
+#header .navbar-inverse .navbar-nav>li>a {color: #fff;}
+#header .navbar-inverse .navbar-nav>li>a:hover, 
+#header .navbar-inverse .navbar-nav>li>a:focus, 
+#header .navbar-inverse .navbar-nav>li>a.active {color: #999;}
+
+#grid_gallery .modal-footer ul.social li a, 
+.fancybox-title	.modal-footer ul.social li a,
+#blog ul.social li a {background: url(../../img/social_sprite_dark.png) no-repeat;}
+
+.fancybox-overlay {background: url(../../img/fancybox_overlay_dark.png);}
+.fancybox-skin	{	background: #000;
+					border-radius: 0; -moz-border-radius: 0; -webkit-border-radius: 0;}
+.fancybox-prev span {background: url(../../img/arrow_left_dark.png) no-repeat;}
+.fancybox-next span {background: url(../../img/arrow_right_dark.png) no-repeat;}
+.fancybox-title .modal-footer .close_icon a {background: url(../../img/icon_close_dark.png) 0 0 no-repeat;}
+
+#header .dropdown-menu,
+.menuAlbumInner {border-color: #fff; background: #000;}
+#header .dropdown-menu>li>a {border-bottom: 1px solid #fff; color: #fff;}
+#header .dropdown-menu>li>a:hover, 
+#header .dropdown-menu>li>a:focus {color: #fff; font-style: italic;}
+
+#grid_gallery .maso_container .box {background: #000;}
+#grid_gallery .maso_container .box .title {background: rgba(0,0,0,.6); color: #fff;}
+#grid_gallery .maso_container .box .border {border: 1px solid #fff;}
+
+#blog a {color: #fff;}
+#blog ul li {border-bottom: 1px solid #fff;}
+#blog ul li .desc .caption p,
+#blog .post .main .col.desc p {color: #fff;}
+#blog .post .goback a:before {background: url(../../img/back_sprite_dark.png) no-repeat;}
+
+#info h2,
+#info address,
+#info p,
+#info a {color: #fff;}
+#info a:hover {color: #999;}
+
+#footer {border-top: 1px solid #fff; color: #fff;}
+
+.buynow_button {color: #000 !important;}

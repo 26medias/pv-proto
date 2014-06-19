@@ -1,0 +1,48 @@
+
+@import url(http://fonts.googleapis.com/css?family=Archivo+Black);
+@import url(http://fonts.googleapis.com/css?family=EB+Garamond);
+
+/*** LOGO ***/
+
+body > .container_24 > div.header .logo a {
+	font-family: 'Archivo Black';
+	font-weight: 500;
+	font-size: 65px;
+	font-height: 45px;
+}
+
+/*** Hompage Short About ***/
+
+#home p {
+	font-family: 'EB Garamond';
+}
+
+/*** Page Header ***/
+
+#content_holder h2, #gallery h2, .box > .header > .label {
+	font-family: 'Archivo Black';
+}
+
+/*** Subheader ***/
+
+#content_holder h3, #gallery h3 {
+	font-family: 'EB Garamond';
+}
+
+/*** Standard Text ***/
+
+body {
+	font-family: 'EB Garamond';
+}
+
+/*** Album Titles ***/
+
+#gallery ul li p {
+	font-family: 'EB Garamond';
+}
+
+/*** Contact Section Titles ***/
+
+#content_holder p span.contact_title {
+	font-family: 'EB Garamond';
+}

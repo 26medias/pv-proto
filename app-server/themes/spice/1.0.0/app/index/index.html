@@ -1,0 +1,29 @@
+<!-- Banner
+================================================== -->
+<div id="banner">
+    {{ for album in data.albums.data }}
+        {{ if album.name == "Cover Photos" }}
+            {{ for cover in album.photos.data if loop.index <= 1 }}
+                  {{if cover.images }}
+                    <img src="{$cover.images}" alt="{$data.name}" />
+                  {{ else }}
+                    <img src="{$cover.source}" alt="{$data.name}" />
+                  {{ endif }}
+            {{ endfor }}
+        {{ endif }}
+    {{ endfor }}
+    <!--<div class="bg"></div> /.bg -->
+</div>
+
+<!-- Content
+================================================== -->
+<div id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="home"><h1>{{ autoescape false }}{{ if data.about }}{$data.about} {{ endif}}{{ endautoescape}}</h1></div><!-- /.home -->
+            </div>
+        </div>
+    </div>
+</div>
+

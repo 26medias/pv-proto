@@ -1,0 +1,87 @@
+
+@import url(http://fonts.googleapis.com/css?family=Niconne);
+
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:600);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:600italic);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:700);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:700italic);
+
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:700);
+
+body,
+#header .dropdown-menu,
+#banner .info .txt {font-family: 'Josefin Sans', sans-serif; font-weight: 600; font-size: 20px;}
+
+#footer,
+#main h2 span,
+#main .events ul.thumbs li .caption {font-family: 'Josefin Sans', sans-serif; font-weight: 600;}
+#main .events ul.thumbs li .caption {font-size: 16px;}
+#main h2 span {font-size: 20px;}
+
+#header {font-family: 'Niconne', cursive; font-weight: normal;}
+.font_change {font-family: 'Niconne', cursive!important; font-weight: normal!important; font-size: 50px!important;}
+
+#header .navbar-inverse .navbar-nav > li > a {font-size: 25px;}
+.navbar-inverse .navbar-nav>li>a:hover {font-weight: normal; font-style: normal;}
+
+#main .home h2 {font-family: 'Josefin Sans', sans-serif !important; font-weight: 600; font-style: italic;}
+#main h2 {font-size: 50px;}
+#main h3 {font-size: 40px;}
+#main h5 {font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-style: italic; text-transform: uppercase; font-size: 20px;}
+
+.navbar-brand {font-family: 'Josefin Sans', sans-serif; font-weight: 700;}
+
+#banner .info .txt {font-size: 18px;}
+
+#main .info ul li .title {font-size: 30px;}
+#main .gallery ul li .caption {font-size: 18px;}
+
+#widget_cont h1,
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6,
+#main .info ul li .title {font-family: 'Niconne', cursive !important; font-weight: normal !important; text-transform: lowercase!important;}
+
+#main .events ul.desc li h2 {font-size: 30px!important;}
+
+.contact_form .btn {font-family: 'Niconne', cursive !important; font-weight: normal !important; text-transform: uppercase;}
+
+.dropdown-menu {top: 60px;}
+.dropdown-menu>li>a {font-family: 'Niconne', cursive; font-size: 24px; font-weight: normal;}
+.dropdown-menu>li>a:hover {font-style: normal;}
+.dropdown-menu>li>a:hover, 
+.dropdown-menu>li>a:focus {font-size: 24px;}
+
+	.widget-container h1,
+	.widget-container h2,
+	.widget-container h3,
+	.widget-container h4,
+	.widget-container h5,
+	.widget-container h6 {font-family: 'Niconne', cursive !important; font-weight: 700!important; text-transform: none!important;}
+	
+	.widget-container .content h1 {font-size: 50px !important;}
+	.widget-container .content h2 {font-size: 45px !important;}
+	.widget-container .content h3 {font-size: 40px !important;}
+	.widget-container .content h4 {font-size: 35px !important;}
+	.widget-container .content h5 {font-size: 30px !important;}
+	.widget-container .content h6 {font-size: 25px !important;}
+	
+	
+@media only screen and (max-width: 767px) {
+	
+	.navbar-nav > li a.active,
+	.header_title {}
+	.navbar-inverse .navbar-nav>li>a {}
+	
+	.widget-container .content h1 {font-size: 35px !important;}
+	.widget-container .content h2 {font-size: 30px !important;}
+	.widget-container .content h3 {font-size: 25px !important;}
+	.widget-container .content h4 {font-size: 20px !important;}
+	.widget-container .content h5 {font-size: 16px !important;}
+	.widget-container .content h6 {font-size: 12px !important;}
+	
+}

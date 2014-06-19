@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- 
+	This is the main layout.
+	-->
+	<head>
+		<meta charset="utf-8">
+		<title>{$shared.title}{$data.name}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {{ for metaname, metavalue in shared.metas }}
+            <meta name="{$metaname}" content="{$metavalue}" />
+        {{ endfor }}
+		<meta name="author" content="">
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        
+        <!-- styles -->
+        <link href='http://fonts.googleapis.com/css?family=Gudea|Muli|Roboto:400,500' rel='stylesheet' type='text/css'>    
+        <!--<link href="{$assets}css/bootstrap.css" rel="stylesheet">-->
+        <link href="{$assets}css/bootstrap.min.css" rel="stylesheet">
+        <link href="{$assets}css/font-awesome.min.css" rel="stylesheet">
+        <link href="{$assets}css/custom.css" rel="stylesheet">
+        <link href="{$assets}css/responsive.css" rel="stylesheet">
+        <link href="{$assets}css/modify.css?ver=1.0" rel="stylesheet">
+        <!--[if IE 7]>
+            <link rel="stylesheet" href="{$assets}css/font-awesome-ie7.min.css">
+        <![endif]-->
+        <!--[if lt IE 9]>
+            <link rel="stylesheet" media="all" type="text/css" href="{$assets}css/ie.css" />
+        <![endif]-->
+    
+    
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="{$assets}js/html5shiv.js"></script>
+          <script src="{$assets}js/respond.min.js"></script>
+        <![endif]-->
+    
+        <!-- Fav and touch icons -->
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{$assets}ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{$assets}ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{$assets}ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="{$assets}ico/apple-touch-icon-57-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="{$assets}ico/apple-touch-icon-precomposed.png">
+        <link rel="shortcut icon" href="{$assets}ico/favicon.png">
+        
+        
+
+		<!-- Here I will include the css files from the styles selected by the user -->
+        {{ for file in pageInfo.theme_styles }}
+        <link href="{$assets}{$file}" rel="stylesheet/less" type="text/css">
+        {{ endfor }}
+
+        <!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-42761096-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+                {{if data.site_settings.embed }}
+        {$data.site_settings.embed|raw}
+    {{endif}}
+    </head>
+	<body>
+    
+    	<!-- Header
+        ================================================== -->
+        <div id="header">
+        
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+              <div class="container">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"></button>
+                  <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
+                  <a class="navbar-brand logo-nav" href="index.html">RANDOM PERSON PHOTOGRAPHY</a>
+                </div>
+        
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                  <ul class="nav navbar-nav navbar-right">  
+                    {{ set count = 0 }}
+                    {{ for pagename,pageinfo in widgets.pages_menu }}
+                        {{if pageinfo.label !=  "" }}
+                        <li class="{{if pageinfo.label=='Gallery'}}dropdown{{endif}}">
+                            {{if pageinfo.label=='Gallery'}}
+                                <a href="{{if pageinfo.type == 'e'}}{$pagename}{{else}}{$root}{$pagename}{{endif}}" class="dropdown-toggle disabled js-activated {{if app.name==pagename}}active{{endif}}">{$pageinfo.label|i18n(pageInfo.theme_settings.Lang)}</a>
+                                <div class="menuAlbum" style="position:absolute;width:205px; left: 18px;">
+                                <div class="menuAlbumInner" >
+                                <ul class="dropdown-menu" style="top:0;border:none;">
+                                    <!--<li><a class="slider-prev" href="#"><img src="{$assets}img/scroll_up.gif" alt="Prev" /></a></li>-->
+                                    <!--<div class="moveable" style="position: relative; height: 185px; overflow: hidden;">-->
+                                    {{ set count = 0 }}
+                                    {{ for pagename,pageinfo in pageinfo.children }}
+                                        <li>
+                                            <a href="{{if pageinfo.type == 'e'}}{$pagename}{{else}}{$root}{$pagename}{{endif}}" {{if app.name==pagename}}class="active"{{endif}} id="widget{$loop.index}">{$pageinfo.label|i18n(pageInfo.theme_settings.Lang)}</a>
+                                        </li>
+                                    {{ endfor }}
+                                    {{ for album in data.albums.data if loop.index <=100 }}
+                                        {{ if (album.name != 'Timeline Photos') and (album.name != 'Cover Photos') and (album.name != 'Profile Pictures') }}
+                                        <li>
+                                            <a href="{$root}gallery?album={$album.id}">{{autoescape false}}{$album.name|i18n(pageInfo.theme_settings.Lang)}{{endautoescape}}</a>
+                                        </li>
+                                        {{ set count = loop.index }}
+                                        {{ endif }}
+                                    {{ endfor}}
+                                    
+                                    <!--</div>-->
+                                    <!--<li><a class="slider-next" href="#"><img src="{$assets}img/scroll_down.gif" alt="Prev" /></a></li>-->
+                                </ul></div>
+                                
+                                </div>
+                            {{else}}
+                                {{ if pageinfo.children is empty }} 
+                                    <a href="{{if pageinfo.type == 'e'}}{$pagename}{{else}}{$root}{$pagename}{{endif}}" {{if app.name==pagename}}class="active"{{endif}} id="widget{$loop.index}">{$pageinfo.label|i18n(pageInfo.theme_settings.Lang)}</a>
+                                {{ else }}
+                                    <a href="{{if pageinfo.type == 'e'}}{$pagename}{{else}}{$root}{$pagename}{{endif}}" class="dropdown-toggle disabled js-activated {{if app.name==pagename}}active{{endif}}">{$pageinfo.label|i18n(pageInfo.theme_settings.Lang)}</a>
+                                <div class="menuAlbum" style="position:absolute;width:205px; left: 18px;">
+                                <div class="menuAlbumInner" >
+                                <ul class="dropdown-menu" style="top:0;border:none;">
+                                    <!--<li><a class="slider-prev" href="#"><img src="{$assets}img/scroll_up.gif" alt="Prev" /></a></li>-->
+                                    <!--<div class="moveable" style="position: relative; height: 185px; overflow: hidden;">-->
+                                    {{ for pagename,pageinfo in pageinfo.children }}
+                                        <li>
+                                            <a href="{{if pageinfo.type == 'e'}}{$pagename}{{else}}{$root}{$pagename}{{endif}}" {{if app.name==pagename}}class="active"{{endif}} id="widget{$loop.index}">{$pageinfo.label|i18n(pageInfo.theme_settings.Lang)}</a>
+                                        </li>
+                                    {{ endfor }}
+                                    
+                                    <!--</div>-->
+                                    <!--<li><a class="slider-next" href="#"><img src="{$assets}img/scroll_down.gif" alt="Prev" /></a></li>-->
+                                </ul></div>  
+                                </div>
+                                {{endif}}
+                            {{endif}}
+                         </li>
+                         {{ set count = loop.index }}
+                         {{endif}}
+                    {{ endfor }}  
+                  </ul>
+                </div><!-- /.navbar-collapse -->
+              </div><!-- /.container -->
+            </nav>
+            
+        </div>
+        
+        
+        <!-- Wrap Properties
+        ================================================== -->
+        <div id="wrap">
+            
+            <!-- Grid Gallery
+            ================================================== -->
+            <div id="grid_gallery">
+            
+                 <div id="hover-cap-4col" class="maso_container">
+                 	{{if data.isalbumdac == 1 }}
+                    	{{ set iCount = 0 }}
+                        {{ for photo in data.albumsOnly.photos.data }}
+                            <div class="box">
+                                 <div class="article">
+                                    <img alt="{$photo.name|i18n(pageInfo.theme_settings.Lang)}" src="{$photo.source}">
+                                    <!--<div class="hover_caption"><a href="#" data-toggle="modal" data-target="#model{$count}">Click Here</a></div>-->
+                                 </div>
+                             </div><!-- /.box -->
+                        {{ set iCount = loop.index }}
+                        {{ endfor }}
+                    {{endif}}
+                    
+                    {{if data.isalbumdac == 0 }}
+                        <!-- Modal -->
+                        {{ set count = 0 }}
+                        {{ for album in data.albums.data if loop.index <=25 }} 
+                            <div class="modal fade" id="model{$count}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                
+                                    <div class="modal-body">
+                                    
+                                        <div id="carousel-example-generic{$count}" class="carousel slide" data-ride="carousel">
+                                        
+                                          <!-- Wrapper for slides -->
+                                          <div class="carousel-inner">
+                                            {{ set iCount = 0 }}
+                                            {{ for photo in album.photos.data }}
+                                            <div class="item {{if iCount == 0 }}active{{endif}} ">
+                                              <img src="{$photo.source}" alt="{$album.name|i18n(pageInfo.theme_settings.Lang)}">
+                                            </div>
+                                            {{ set iCount = loop.index }}
+                                            {{ endfor }}
+                                          </div>
+                                        
+                                          <!-- Controls -->
+                                          <a class="left carousel-control" href="#carousel-example-generic{$count}" data-slide="prev">
+                                            &nbsp;
+                                          </a>
+                                          <a class="right carousel-control" href="#carousel-example-generic{$count}" data-slide="next">
+                                            &nbsp;
+                                          </a>
+                                        </div><!-- /.carousel -->                           
+                                    
+                                  </div><!-- /.modal-bod -->
+                                
+                                <div class="modal-footer">
+                                <ul class="social">
+                                    <li><a href="#" class="facebook">facebook</a></li>
+                                    <li><a href="#" class="twitter">twiiter</a></li>
+                                    <li><a href="#" class="mail">mail</a></li>
+                                </ul><!-- /.social -->
+                                <div class="close_icon"><a href="#" data-dismiss="modal">Close</a></div><!-- /.close_icon -->
+                              </div>
+                                </div><!-- /.modal-content -->
+                                </div><!-- /.modal-dialog -->		
+                              </div>
+                        {{ set count = loop.index }}
+                        {{ endfor}} 
+                         
+                        
+                        {{ set count = 0 }}
+                        {{ for album in data.albums.data if loop.index <=25 }}        	
+                            
+                                {{ set has_cover = false }}
+                                {{if album.cover_photo }}
+                                    {{ for photo in album.photos.data }}      
+                                        {{if album.cover_photo == photo.id}}
+                                        {{ set has_cover = true }} 
+                                        <div class="box">
+                                             <div class="article">
+                                                <img alt="{$album.name|i18n(pageInfo.theme_settings.Lang)}" src="{$photo.source}">
+                                                <div class="hover_caption"><a href="#" data-toggle="modal" data-target="#model{$count}">Click Here</a></div>
+                                             </div>
+                                         </div><!-- /.box -->
+                                        {{endif}}
+                                    {{ endfor }}
+                                {{endif}} 
+                                {{ set firstimage = false }}
+                                {{if has_cover == false}}
+                                    {{ for photo in album.photos.data if loop.index<2 }} 
+                                        {{ set firstimage = photo.id }} 
+                                        <div class="box">
+                                             <div class="article">
+                                                <img alt="{$album.name|i18n(pageInfo.theme_settings.Lang)}" src="{$photo.source}">
+                                                <div class="hover_caption"><a href="#" data-toggle="modal" data-target="#2873462387463746">Click Here</a></div><!-- /.hover_caption -->
+                                             </div>
+                                         </div><!-- /.box -->
+                                    {{ endfor }}
+                                {{endif}}
+                                {{ set count = loop.index }}
+                        {{ endfor}} 
+                    {{endif}}
+                  </div> <!-- /.maso_container -->
+              
+            </div>
+            
+            <div id="push"></div><!-- just for Pushing the footer -->
+            
+        </div>
+        
+        <!-- Footer
+        ================================================== -->
+        <div id="footer">
+            <div class="left">&copy; {$data.name}</div><!-- /.left -->
+            {{if data.site_settings.whitelabel_switch == 0}}
+            <div class="right">{$"Powered by"|i18n(pageInfo.theme_settings.Lang)} <a href="http://www.pagevamp.com" title="Pagevamp">Pagevamp</a></div><!-- /.right -->
+            {{else}}
+            <div class="right">{$data.site_settings.whitelabel}</div><!-- /.right -->
+            {{endif}}
+        </div>
+    
+        <!-- Javascript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="{$assets}js/jquery-1.7.2.min.js"></script>
+        <script src="{$assets}js/jquery.js"></script>
+        <script src="{$assets}js/jquery.mousewheel.js?ver=1.1"></script>
+        <script src="{$assets}js/jquery.jscrollpane.min.js?ver=1.1"></script>
+        <script src="{$assets}js/bootstrap.min.js"></script>
+        <script src="{$assets}js/bootstrap-hover-dropdown.js"></script> 
+        <script src="{$assets}js/jquery.easing.min.js"></script>
+        <script src="{$assets}js/jquery.masonry.min.js"></script>
+        <script src="{$assets}js/base.js"></script>
+        <script src="{$assets}js/custom.js?ver=1.2"></script>
+        <script>$('.carousel').carousel()</script>
+        
+</body>
+</html>

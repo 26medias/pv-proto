@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="home">
+                {{ if data.about }}{{ autoescape false }}<p>{$data.about}</p>{{ endautoescape}}{{ endif}}
+            </div>
+        </div>
+    </div>
+</div>
+ 
+{{ if data.posts}}       
+<!-- Title
+================================================== -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-7 col-md-8 col-sm-10 centering">
+            <div id="title" class="home"><h3>{$widgets.pages.news.label|i18n(pageInfo.theme_settings.Lang)}</h3></div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-7 col-md-8 col-sm-10 centering">
+            <div id="news" class="home">
+            	{{ for post in data.posts.data if loop.index <= 3 and (post.show) }}
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="date">{$post.created_time|date("M")|i18n(pageInfo.theme_settings.Lang)} {$post.created_time|date("d")}</div><!-- /.date-->
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="desc">
+                        	{{ if (post.picture and post.source is empty)}}
+                                <div class="img-holder">
+                                	<img src="{$post.picture}" align="{$post.name}" />
+                                </div>
+                            {{endif}}
+                            {{ if (post.soundcloud.html or post.source)}}
+                                {$post.soundcloud.html|raw}
+                                {{if (post.source and post.soundcloud.html is empty)}}
+                                 	<iframe width="100%" height="{$post.iframeheight}" src="{$post.source}" frameborder="0" allowfullscreen></iframe>
+                                 {{endif}}
+                          	{{endif}}
+                            {{ autoescape false }}
+                                {{if (post.message)}}   
+                                    <p>{$post.message|raw|nl2br}</p>
+                                 {{ endif }}
+                            {{ endautoescape }}  
+                        </div><!-- /.desc -->
+                    </div>
+                </div>
+                {{endfor}}
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ endif }}

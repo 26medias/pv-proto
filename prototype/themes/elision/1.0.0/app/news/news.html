@@ -1,0 +1,107 @@
+<!--<script src="http://test.pagevamp.com/themes/blarney/1.0.0/assets/js/jquery.backstretch.js"></script>-->
+<script type="text/javascript">	
+	function last_msg_funtion() 
+	{	   
+		var totnum_li=$('.news > .row').length;
+		
+		//$('#loader').fadeIn();
+		$('#loader').css('display','inline-block');
+		var ID=$(".news-holder:last").attr("id");
+		var st = parseInt(ID)+1;
+		for(a=st;a<(st+5);a++)
+		{
+			$('#'+a).addClass("news-holder");
+			$('#'+a).delay(2000).fadeIn('slow');
+		}			
+		$('#loader').delay(2000).fadeOut();
+		
+		newst = st+5;
+		//alert(totnum_li+' -- '+st+' -- '+newst);
+		if(totnum_li<newst)
+		{
+			$('#viewMore').delay(2000).fadeOut();
+		}
+	}
+</script>
+<!-- content starts -->
+<div id="content">
+                    	
+    <h2>{$widgets.pages.news.label|i18n(pageInfo.theme_settings.Lang)}</h2>
+    
+    <div class="news">
+    	
+        <div class="row">
+        	<div class="col-lg-8 centering">
+            
+    	{{ for post in data.posts.data if loop.index <= 100 and (post.show) }}
+            {{if loop.index<=5 }}
+            
+            <div class="row news-holder" id="{$loop.index}">
+                <div class="col-lg-2 col-md-2 col-sm-3"><span class="date">{$post.created_time|date("M")|i18n(pageInfo.theme_settings.Lang)}/{$post.created_time|date("d")}</span></div>
+                <div class="col-lg-10 col-md-10 col-sm-9">
+                    {{if post.picture and post.source is empty}}
+                        <div class="img-holder">                            
+                            <img src="{$post.picture}" />
+                        </div>
+                    {{endif}}
+                    {{ if (post.soundcloud.html or post.source)}} 
+                        {$post.soundcloud.html|raw}
+                        {{if (post.source and post.soundcloud.html is empty)}}
+                            <iframe width="100%" height="{$post.iframeheight}" src="{$post.source}" frameborder="0" allowfullscreen></iframe>
+                        {{endif}}
+                    {{endif}}
+                    
+                    {{ autoescape false }}
+                    {{if (post.message)}}   
+                    
+                        <p>{$post.message|raw|nl2br}</p>
+         
+                    {{ endif }}
+                    {{ endautoescape }}                    
+                </div>
+            </div><!-- /.news-holder -->
+                  	
+        	{{ else }}	
+            
+				<div class="row" style="display:none;" id="{$loop.index}">
+                    <div class="col-lg-2 col-md-2 col-sm-3"><span class="date">{$post.created_time|date("M")|i18n(pageInfo.theme_settings.Lang)}/{$post.created_time|date("d")}</span></div>
+                    <div class="col-lg-10 col-md-10 col-sm-9">
+                    	{{if post.picture and post.source is empty}}
+                    		<div class="img-holder">                            
+                                <img src="{$post.picture}" />
+                            </div>
+                        {{endif}}
+                        {{ if (post.soundcloud.html or post.source)}}
+                            {$post.soundcloud.html|raw}
+                            {{if (post.source and post.soundcloud.html is empty)}}
+                                <iframe width="100%" height="{$post.iframeheight}" src="{$post.source}" frameborder="0" allowfullscreen></iframe>
+                            {{endif}}
+                        {{endif}}
+                        {{ autoescape false }}
+                        {{if (post.message)}}   
+                        
+                           <p> {$post.message|raw|nl2br}</p>
+             
+                        {{ endif }}
+                        {{ endautoescape }}
+                        
+                    </div>
+                </div><!-- /.news-holder -->  
+                          
+			{{ endif }}
+		{{ endfor }}
+        
+        <div id="viewMore">
+            <div id="loader" style="display:none; float: left; margin-top: -8px;"><img src="http://www.pagevamp.com/uploads/ajax-loader.gif" width="40" /></div>
+            <div class="btn" onclick="last_msg_funtion();" style="display:inline-block;">{$"View More"|i18n(pageInfo.theme_settings.Lang)}</div>
+        </div>
+        
+            </div>
+        </div>
+        
+    </div><!-- /.news -->
+                        
+</div>
+                    
+                    
+                   

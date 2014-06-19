@@ -1,0 +1,61 @@
+CSS Class that should appear in all themes:
+
+ul.list
+	Format a list
+	Example:
+	<ul class="list">
+		<li>a</li>
+		<li>b</li>
+	</ul>
+	
+.form
+	Format a form.
+	Example:
+	<div class="form">
+		<div class="row">
+			<div class="label">Name:</div>
+			<div class="content">
+				<input type="text" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="label">Email:</div>
+			<div class="content">
+				<input type="text" />
+			</div>
+		</div>
+	</div>
+
+.button
+	Display a button
+	Example:
+	<div class="button">Click me</div>
+
+.text
+	Format a text.
+	<div class="text regular">Regular text</div>
+	<div class="text small">Small text</div>
+	<div class="text big">Bold text, bigger than regular</div>
+	<div class="text big2">Bigger than big</div>
+	<div class="text big3">Bigger that big2</div>
+	<div class="text title">Title</div>
+	<div class="text subtitle">Subtitle</div>
+	
+.box
+	Display a box with header
+	Example:
+	<div class="box">
+		<div class="header">
+			<div class="label">Title of the box</div>
+		</div>
+		<div class="content">Content</div>
+	</div>
+
+Grid:
+	The main layout should be based on the 960.gs grid system.
+	If you want your theme to be adaptive, you can change the 960 code at http://grids.heroku.com/.
+	If you want to manage columns inside a block, you can use this format (line 398, 960.css):
+	<div class="layout_12">
+		<div class="col_4">First col</div>
+		<div class="col_8">2nd col</div>
+	</div>

@@ -1,0 +1,218 @@
+/*!
+		* Custom Responsive for Site.
+ */
+ 
+	/* Large desktop */
+	@media (min-width: 1200px) {
+		
+		.container {margin-left: 0; margin-right: 0; max-width: 1170px;}
+		
+		}
+	 
+	 
+	/* Portrait tablet to landscape and desktop */
+	@media (min-width: 768px) and (max-width : 1199px) { 
+	
+		.container {margin-left: 0; margin-right: 0; max-width: 970px;}
+		#sidebar .navbar-inverse .navbar-collapse, 
+		#sidebar .navbar-inverse .navbar-form {margin-right: 100px;}
+		
+		#main .content {margin: 0 0 10px 20px;}
+		
+		#main .content .events ul li .thumbs .img-holder {height: 125px;}
+		
+		#main .content .gallery .holder .thumb {height: 230px;}
+		#main .content .gallery .holder .thumb .fill {height: 160px;}
+		#main .content .gallery .holder .thumb .thumbnail .fill {height: 180px;}
+		
+		.contact_form .top .right {width: 286px;}
+		
+		#wrap {height: auto; overflow: hidden;}
+		
+		 }
+		 
+	
+	@media (min-width: 768px) and (max-width : 979px) {
+		
+		.container {margin-left: 0; margin-right: 0; max-width: 100%; padding-right: 0;}
+		
+		#sidebar .navbar-inverse .navbar-collapse, 
+		#sidebar .navbar-inverse .navbar-form {margin-right: 0px; text-align: center;}
+		#sidebar .navbar-nav {width: 100%;}
+		#sidebar .navbar-inverse .navbar-nav>li>a {font-size: 20px;}
+		#sidebar .social {text-align: center;}
+		#sidebar .social ul li {float: left; margin: 0 4px 10px; float: none; display: inline-block;}
+		#sidebar .social ul li:first-child {margin: 0 4px 10px;}
+		
+		#main .content {margin: 0 0 10px 10px;}
+		
+		#main .news {margin: 0 0 10px 10px;}
+		
+		#main .content .events ul li {width: 50%;}
+		#main .content .events ul li .thumbs .img-holder {height: 140px;}
+		
+		#main .content .gallery .holder .thumb {height: 200px;}
+		#main .content .gallery .holder .thumb .fill {height: 125px;}
+		#main .content .gallery .holder .thumb .thumbnail .fill {height: 150px;}
+	
+		.contact_form .top .left {width: 40%; margin-right: 0; padding-right: 30px;}
+		.contact_form .top .right {width: 60%;}
+		
+		#sidebar .dropdown-menu {width: 100%; padding: 0 0 5px; float: none; margin: 0 auto;}
+		#sidebar .dropdown-menu > li > a {font-size: 16px; margin-left: 0;}
+		
+		}
+		
+
+/*  #Mobile (Portrait)
+================================================== */
+
+    /* Note: Design for a width of 320px */
+
+    @media only screen and (max-width: 767px) {
+		
+		.container {margin-left: auto; margin-right: auto; max-width: 100%;}
+		#wrap {padding: 30px 15px;}
+		#main {margin-left: 0;}
+		#header {margin: 0 15px 45px; text-align: center; padding-right: 0;}
+		#header .logo {word-wrap: break-word; font-size: 40px;}
+		#sidebar .navbar-inverse .navbar-toggle {background-color: #fff; width: 100%;}
+		#sidebar .navbar-toggle	{	border: none; margin: 0; padding: 10px 0; float: none; line-height: 1.5; text-transform: uppercase;
+									border-radius: 0; -moz-border-radius: 0; -webkit-border-radius: 0;}
+		#sidebar .navbar-inverse .navbar-toggle:hover, 
+		#sidebar .navbar-inverse .navbar-toggle:focus {border: none; outline: none; background-color: #fff;}
+		#sidebar .navbar-inverse .navbar-collapse, 
+		#sidebar .navbar-inverse .navbar-form {margin: 0 0 30px;}
+		#sidebar .navbar-collapse {padding: 0;}
+		#sidebar .navbar-nav>li {text-align: center;}
+		#sidebar .navbar-inverse .navbar-nav>li>a {font-size: 20px;}
+		
+		#sidebar .social,
+		#sidebar .location,
+		#sidebar .footer {text-align: center;}
+		
+		#sidebar .social ul li {float: left; margin: 0 4px 10px; float: none; display: inline-block;}
+		#sidebar .social ul li:first-child {margin: 0 4px 10px;}
+		
+		#sidebar .dropdown-menu {float: none; margin: 0 auto;}
+		
+		.footer {background: #fff; font-size: 16px; font-weight: 300; padding: 15px 20px; text-align: center; margin: 0 0 30px;}
+		.footer span {display: block; color: #000; margin: 0;}
+		.footer span.copyright {margin-bottom: 10px;}
+		.footer a {color: #000;}
+		.footer a:hover {color: #000;}
+		
+		.call {text-align: center; margin-bottom: 30px; padding-top: 15px;}
+		.call a {background: url(../img/but-call.png) no-repeat; width: 120px; height: 40px; display: inline-block; text-indent: -9999px;}	
+		
+		#main .content {margin: 0 0 10px; text-align: center;}
+		#main .content .events {margin: 0 0 0 -5px;}
+		
+		#main .news {margin: 0 0 10px; text-align: center;}
+		#main .news .date {display: inline-block; margin-bottom: 10px;}
+		
+		#main .content .events ul {display: inline-block;}
+		#main .content .events ul li {width: 250px; float: none;}
+		#main .content .events ul li .thumbs {width: 100%; height: 270px;}
+		#main .content .events ul li .thumbs .img-holder {height: 180px;}
+		
+		#main .content.title .back {text-align: center; margin-top: 10px;}
+		
+		#main .content .gallery .nav-tabs {display: inline-block;}
+		#main .content .gallery .holder .thumb {width: 300px; height: 250px;}
+		#main .content .gallery .holder .thumb .fill {height: 200px;}
+		#main .content .gallery .holder .thumb .thumbnail .fill {height: 200px;}
+		
+		#main .content .gallery .holder .video {text-align: center;}
+		
+		.contact_form .top .left,
+		.contact_form .top .right {width: 100%; float: none;}
+		.contact_form .top .left {margin-right: 0; padding-right: 0; margin-bottom: 26px;}
+		.contact_form .bottom {text-align: center;}
+		
+		#main .more {margin-bottom: 10px; text-align: center;}
+		
+		.customLogo {max-width: 100%; max-height: 150px;}
+		
+		iframe {height: 420px;}
+							
+		#sidebar .dropdown-menu {width: 100%; padding: 0 0 5px;}
+		#sidebar .dropdown-menu > li > a {font-size: 16px; margin-left: 0;}
+							
+		.modal {padding: 0 10%;}
+		.modal .inquire-holder .rel-img {width: 100%;}
+		.modal .inquire-holder .inquire-form {margin-bottom: 40px;}
+		.modal .inquire-holder h2 {text-align: center;}
+							
+		}
+		
+
+/* Smartphones (portrait) ----------- */
+	@media (max-width: 480px) {
+
+		#main .content .gallery .holder .thumb {width: 100%; height: 225px;}
+		#main .content .gallery .holder .thumb .fill {height: 180px;}
+		
+		.customLogo {max-width: 100%; max-height: 120px;}
+		
+		iframe {height: 260px;}
+
+		}	
+		
+		
+/* Smartphones (portrait) ----------- */
+	@media only screen and (max-width: 360px) {
+
+		#main .content .gallery .holder .thumb {width: 100%; height: 203px;}
+		#main .content .gallery .holder .thumb .fill {height: 155px;}
+
+		.customLogo {max-width: 100%; max-height: 120px;}
+		
+		#main .content .events ul li {width: 100%;}
+		#main .content .events ul li .thumbs {height: auto;}
+		
+		iframe {height: 190px;}
+							
+		}	
+	
+
+/* Smartphones (portrait) ----------- */
+	@media (max-width: 320px) {
+
+		#main .content .gallery .holder .thumb {width: 100%; height: 172px;}
+		#main .content .gallery .holder .thumb .fill {height: 125px;}
+		
+		#main .content .events {margin: 0;}
+		#main .content .events ul li {width: 100%;}
+		#main .content .events ul li .thumbs {height: auto;}
+		#main .content .events ul li .thumbs .img-holder {height: 140px;}
+
+		.customLogo {max-width: 100%; max-height: 100px;}
+		
+		iframe {height: 165px;}
+		
+		#main .content a.rsvp, .contact_form .bottom .btn {width: 100%; padding: 10px 10px;}
+		
+		}	
+	
+	
+/* #Print Website
+================================================== */
+
+	@media print {
+		* {background: transparent !important;color: black !important;box-shadow:none !important;text-shadow: none !important;filter:none !important;-ms-filter: none !important;} /* Black prints faster: h5bp.com/s */
+		a, a:visited { text-decoration: underline; }
+		a[href]:after { content: " (" attr(href) ")"; }
+		abbr[title]:after { content: " (" attr(title) ")"; }
+		 .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {content: "";}  /* Don't show links for images, or javascript/internal links */
+		pre, blockquote {border: 1px solid #999;page-break-inside: avoid;}
+		thead { display: table-header-group; } /* h5bp.com/t */
+		tr, img { page-break-inside: avoid; }
+		img { max-width: 100% !important; }
+		 @page {margin: 0.5cm;}
+		p, h2, h3 {orphans: 3;widows: 3;}
+		h2, h3 { page-break-after: avoid; }
+	}
+	
+
+

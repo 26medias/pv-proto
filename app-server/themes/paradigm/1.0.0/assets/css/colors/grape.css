@@ -1,0 +1,30 @@
+.navbar-collapse {background: #9176ff;}
+
+.navbar-nav > li.active > a {background: #7F00FF;}
+.navbar-nav > li > a {color: #fff; text-shadow: 1px 1px 1px #000;}
+ul#nav li > a, 
+ul#nav li .active > a:hover, 
+ul#nav li .active > a:active {color: #fff;}
+
+.nav > li > a:hover, 
+.nav > li > a:focus {background: #551A8B; color: #fff;}
+
+.contact_form input[type="text"], 
+.contact_form input[type="password"], 
+.contact_form textarea {border: 1px solid #9176ff;}
+
+.contact_form .bottom .btn {background: #7F00FF;}
+
+.modal .inquire-holder input[type="text"], 
+.modal .inquire-holder input[type="password"], 
+.modal .inquire-holder textarea,
+.modal .inquire-holder .rel-img {border: 1px solid #9176ff;}
+.modal .inquire-holder .btn {background: #7F00FF;}
+
+.nav .open>a, 
+.nav .open>a:hover, 
+.nav .open>a:focus {background: #7F00FF;}
+
+.dropdown-menu {background: #9176ff;}
+.dropdown-menu>li>a {color: #fff; text-shadow: 1px 1px 1px #000;}
+.dropdown-menu>li>a:hover {background: #7F00FF; color: #fff;}

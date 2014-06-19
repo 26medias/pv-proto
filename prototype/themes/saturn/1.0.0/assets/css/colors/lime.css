@@ -1,0 +1,39 @@
+
+/*** LOGO ***/
+#header .navbar-brand,
+.media .media_head {
+	color: #25DD01!important;
+	
+}
+
+#header .navbar-brand:focus,
+#header .navbar-brand:active {color: #000!important;}
+
+#header .navbar-inverse .navbar-nav>.active>a, 
+#header .navbar-inverse .navbar-nav>.active>a:hover, 
+#header .navbar-inverse .navbar-nav>.active>a:focus {color: #fff!important;}
+
+a:hover,
+a:focus,
+#header .nav>li>a:hover,
+.media .nav-tabs>li.active>a, 
+.media .nav-tabs>li.active>a:hover, 
+.media .nav-tabs>li.active>a:focus, 
+.media .nav-tabs>li>a:hover,
+.media .media_head a {
+	color: #25DD01!important;
+}
+
+a.active {
+/*color: #25DD01!important;*/
+}
+
+.contact_form textarea {border: 1px solid #C4C4C4;}
+.contact_form .btn {background: #25DD01;}
+
+.event li .info a:hover.rsvp {background: #25DD01;}
+.modal .inquire-holder .btn {background: #25DD01;}
+.navbar-inverse .navbar-nav .open .dropdown-menu>li>a:hover, 
+.navbar-inverse .navbar-nav .open .dropdown-menu>li>a:focus {color: #25DD01!important;}
+
+

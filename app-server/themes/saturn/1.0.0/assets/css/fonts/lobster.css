@@ -1,0 +1,62 @@
+
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans);
+
+/*** LOGO ***/
+
+#header .navbar-brand {
+	font-family: 'Lobster';
+	font-weight: 500;
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: 'Lobster'; text-transform: none;}
+/*** Hompage Short About ***/
+
+#home h1 {
+	font-family: 'Josefin Sans';
+}
+
+/*** Page Header ***/
+
+#content_holder h2, #gallery h2, .box > .header > .label {
+	font-family: 'Lobster';
+	text-transform: none;
+}
+
+/*** Subheader ***/
+
+#content .holder h3 {
+	font-family: 'Josefin Sans';
+}
+
+/*** Standard Text ***/
+
+body {
+	font-family: 'Josefin Sans';
+}
+
+/*** Album Titles ***/
+
+#gallery ul li p {
+	font-family: 'Josefin Sans';
+}
+
+/*** Contact Section Titles ***/
+
+#content_holder p span.contact_title {
+	font-family: 'Josefin Sans';
+}
+
+.contact_form * {font-family: 'Josefin Sans';}
+.contact_form .btn {font-family: 'Lobster'; letter-spacing: 1px;}
+
+.widget-container h1,
+.widget-container h2,
+.widget-container h3,
+.widget-container h4,
+.widget-container h5,
+.widget-container h6 {font-family: 'Lobster' !important; text-transform: none !important;}
+
+.event li a.more {padding: 12px 12px 7px;}
+
+

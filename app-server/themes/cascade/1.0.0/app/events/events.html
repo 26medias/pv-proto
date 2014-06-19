@@ -1,0 +1,86 @@
+<div class="head-title">
+    <h2>{$"Events"|i18n(pageInfo.theme_settings.Lang)}</h2>
+</div><!-- /.head-title -->
+
+</div>
+
+<div id="content">
+    {{ if data.isEvent }}
+    	<div class="event desc">
+            
+                <div class="container">
+                    <div class="row">
+                    
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="back"><a href="{$root}events" title="back">{$"Back to all events"|i18n(pageInfo.theme_settings.Lang)}</a></div>
+                                </div>
+                            </div>
+                        </div>            	
+            
+                        <div class="col-lg-6 col-lg-md col-sm-6">
+                        	<h2>{$data.eventOnly.name}</h2>
+                            <p>
+                            {{ if data.eventOnly.start_time }}
+                            	{$data.eventOnly.start_time|date("F d, Y")}<br>{$data.eventOnly.start_time|date("h:ia")}
+                            {{ endif }}
+                            {{ if data.eventOnly.location }}                                
+                                <br/>{$data.eventOnly.location}
+                            {{ endif }}
+                            <br/>{$data.eventOnly.venue.street} {$data.eventOnly.venue.city} {$data.eventOnly.venue.state}</p>
+                            
+                            {{ if data.eventOnly.description }}
+                                <p>{$data.eventOnly.description}</p>
+                            {{ endif }}
+                            <p><a href="http://facebook.com/events/{$data.eventOnly.id}/" class="rsvp" target="_blank" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Events', 'RSVP']);">RSVP</a></p>
+                        </div>
+                        <div class="col-lg-6 col-lg-md col-sm-6">
+                        	<div class="map">
+                            	{{ if data.eventOnly.venue.latitude }}
+                                    <iframe width="100%" scrolling="no" height="280" frameborder="0" src="https://maps.google.com/?q={$data.eventOnly.venue.street}+{$data.eventOnly.venue.city}+{$data.eventOnly.venue.state}&hl=en&sll={$data.eventOnly.venue.latitude},{$data.eventOnly.venue.longitude}&amp;output=embed" marginwidth="0" marginheight="0"></iframe>
+                                {{ endif }}
+                            </div><!-- /.map -->
+                        </div>
+                    </div>
+                </div>      
+                              	                    
+            </div>
+    {{ else }}
+    	<div class="event">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                	{{ if data.events }}
+                    <ul>
+                       {{ autoescape false }}
+                            {{ set count = 0 }}
+                            {{ for event in data.events.data if loop.index <=100}}
+                            	{{ if event.name }}     
+                        <li>
+                            <div class="event-list">
+                                <div class="img-holder" style="background:url({{if event.cover.source}}{$event.cover.source}{{else}}{$assets}img/event.png{{endif}}) center center no-repeat rgba(255,255,255,.2); {{if event.cover.source}}background-size: cover;{{else}}background-size:inherit;{{endif}}"><a href="{$root}events?event={$count}"><img src="{$assets}img/blank.png" /></a></div>
+                                <div class="caption">
+                                    <p><a href="{$root}events?event={$count}">{$event.name}</a></p>
+                                    <p>{$event.start_time|date("F d, Y - h:ia")}</p>
+                                </div>
+                            </div><!-- /.event-list -->
+                        </li>
+                         {{ endif }}
+                                
+                            	{{ set count = loop.index }}
+                                
+                            {{ endfor }}
+                          	{{ endautoescape }}   
+                                                 
+                    </ul>
+                    {{ else }}
+                        	<p>{$"There are currently no upcoming events. Please check back later!"|i18n(pageInfo.theme_settings.Lang)}</p>
+                        {{ endif }}
+                </div>
+            </div>
+        </div>                    	                    
+    </div><!-- /.event -->
+    {{ endif }}
+                                            
+</div>

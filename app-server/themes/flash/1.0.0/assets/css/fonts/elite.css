@@ -1,0 +1,27 @@
+
+@import url(http://fonts.googleapis.com/css?family=Noto+Serif);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400);
+@import url(http://fonts.googleapis.com/css?family=Special+Elite);
+
+body,
+#header .dropdown-menu {font-family: 'Open Sans', sans-serif !important;}
+
+#header,
+#footer {font-family: 'Special Elite', cursive !important;}
+
+#header .navbar-inverse .navbar-nav>li>a {text-transform: none !important; font-size: 16px !important;}
+
+#header .navbar-brand {font-size: 20px !important;}
+
+#blog .post .goback {font-family: 'Special Elite', cursive !important;}
+
+#info h2 {text-transform: none !important;}
+
+#widget_cont h1,
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {font-family: 'Special Elite', cursive !important;}
+

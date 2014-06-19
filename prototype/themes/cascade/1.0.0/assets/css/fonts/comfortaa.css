@@ -1,0 +1,99 @@
+
+@import url(http://fonts.googleapis.com/css?family=Comfortaa);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+/*** LOGO ***/
+
+div.header .logo a, .contact .contact_wrap .logo a {
+	font-family: 'Comfortaa';
+}
+
+/*** NAVIGATION ***/
+
+ul#nav li a {
+	font-family: 'Comfortaa';
+}
+
+/*** Hompage Short About ***/
+
+h2 {
+	font-family: 'Open Sans';
+}
+
+/*** Homepage Subheader ***/
+
+h3 {
+	font-family: 'Comfortaa';
+}
+
+/*** Page Header ***/
+
+h4 {
+	font-family: 'Comfortaa';
+}
+
+/*** Subheader ***/
+
+h5 {
+	font-family: 'Open Sans';
+}
+
+/*** Standard Text ***/
+
+p {
+	font-family: 'Open Sans';
+	font-size: 14px;
+}
+
+Body {
+	font-family: 'Open Sans';
+	font-size: 14px;
+}
+
+.box > .header > .label {
+	font-family: 'Comfortaa';
+}
+
+
+@media only screen and (max-width: 767px) { 
+
+	body {font-size: 16px;}
+	h1 {font-size: 30px;}
+	h2 {font-size: 26px;}
+	h3 {font-size: 22px;}
+	h4 {font-size: 18px;}
+	h5 {font-size: 16px;}
+	h6 {font-size: 14px;}
+ 
+ 	#header .home-content h2,
+	#header h2,
+	#header .head-title h2 {font-size: 30px;}
+	
+	#blog ul.blog-post li .post .right h2 {font-size: 26px;}
+ 
+}
+
+@media (max-width: 480px) {
+
+	#header .home-content h2,
+	#header h2,
+	#header .head-title h2 {font-size: 24px;}
+
+}
+
+@media only screen and (max-width: 360px) {
+	
+	#header .home-content h2,
+	#header h2,
+	#header .head-title h2 {font-size: 24px;}
+	
+}
+
+@media (max-width: 320px) {
+
+	#header .home-content h2,
+	#header h2,
+	#header .head-title h2 {font-size: 20px;}
+	
+}
+

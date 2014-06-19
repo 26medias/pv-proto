@@ -1,0 +1,106 @@
+    <div class="home-content">
+        <h2>{{ autoescape false }}{{ if data.about }}{$data.about} {{ endif}}{{ endautoescape}}</h2>
+    </div><!-- /.home-content -->
+</div>
+        
+<!-- Blog
+================================================== -->
+<div id="blog">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+            
+                <ul class="blog-post">
+                
+                    {{ set count = 0 }}
+                        {{ for post in data.posts.data if loop.index <= 100 }}
+                        {{if (post.show)}}
+                            {{if loop.index<=50 }}
+                    
+                                <li>
+                                    <div class="post">
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                                <div class="left">
+                                                    {$"on"|i18n(pageInfo.theme_settings.Lang)} 
+                                                    <span>{$post.created_time|date("M")|i18n(pageInfo.theme_settings.Lang)} {$post.created_time|date("d")}</span>
+                                                    {{if (post.commentsCount)}}
+                                                        <br/>{$"with"|i18n(pageInfo.theme_settings.Lang)} <a href="{$root}post?post={$post.id}#commentSection"><span>{$post.commentsCount} {$"Comments"|i18n(pageInfo.theme_settings.Lang)}</span></a><br>
+                                                    {{endif}}
+                                                    {{if (post.likes.data|length)}}
+                                                      & <span>{$post.likes.data|length} {$"likes"|i18n(pageInfo.theme_settings.Lang)}</span></p>
+                                                    {{endif}}
+                                                </div><!-- /.left -->
+                                            </div>
+                                            <div class="col-lg-8 col-md-8 col-sm-9">
+                                                <div class="right">
+                                                {{ if (post.picture and post.source is empty)}}
+                                                    <div class="img-holder">
+                                                        <div class="item-image">
+                                                            
+                                                              <a href="{$root}post?post={$post.id}"><img class="portfolio" src="{$post.picture}" /></a>
+                                                            
+                                                            <span class="overlay"></span> 
+                                                            <a class="zoom-icon fancybox" title="{$post.name}" href="{$post.picture}">Zoom in</a> 
+                                                            <a class="more-icon" href="{$root}post?post={$post.id}">Read more</a> 
+                                                            
+                                                            
+                                                        </div><!-- /.item-image -->
+                                                    </div><!-- /.img-holder -->
+                                                    {{endif}}
+                                                    {{ if (post.soundcloud.html or post.source)}}
+                                                      <div class="mediapost">
+                                                        {$post.soundcloud.html|raw}
+                                                {{if (post.vimeoSource and post.soundcloud.html is empty)}}
+                                                         <iframe width="100%" height="{$post.iframeheight}" src="{$post.vimeoSource}" frameborder="0" allowfullscreen></iframe>
+                                                 {{elseif (post.youtubeSource and post.soundcloud.html is empty)}}
+                                                         <iframe width="100%" height="{$post.iframeheight}" src="{$post.youtubeSource}" frameborder="0" allowfullscreen></iframe>
+                                                        {{elseif (post.source and post.soundcloud.html is empty)}}
+                                                         <iframe width="100%" height="{$post.iframeheight}" src="{$post.source}" frameborder="0" allowfullscreen></iframe>
+                                                         {{endif}}
+                                                      </div>
+                                                      {{endif}}
+                                                    
+                                                    {{ if (post.postTitle)}}
+                                                      <h2><a href="{$root}post?post={$post.id}">{$post.postTitle}</a></h2>
+                                                    {{endif}}
+                                                    
+                                                    {{if (post.shortmessage or post.caption)}}
+                          <p>{$post.shortmessage|raw|nl2br}{{if (post.continueReading)}}...<a href="{$root}post?post={$post.id}">{$"Continue Reading"|i18n(pageInfo.theme_settings.Lang)}</a></p>{{endif}}
+                          {{endif}}
+                                                   
+                                                </div><!-- /.right -->
+                                            </div>
+                                        </div>
+                                    </div><!-- /.post -->
+                                    <div class="social">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <ul>
+                                                    <li><a title="Share by Email" href="https://www.addthis.com/tellfriend.php?v=300&winname=addthis&pub=no-pub-ad&source=men-300&lng=en&s=email&url={$root}post?post={$post.id}&title={$post.postURLname}&ate=AT-no-pub-ad/-/-/51fa7fd9137aae60/4/50348d2c87400843&uid=50348d2c87400843&ufbl=1&uud=1&ct=1&ui_email_to=&ui_email_from=&ui_email_note=&pre=http%3A%2F%2Fwww.addthis.com%2F&tt=0&captcha_provider=nucaptcha&at3frame=true" target="_blank">
+                                      <img class="socialIcon" src="{$assets}img/mail.png" /></a></li>
+                                     <li><a title="Share on Google+" href="https://plus.google.com/share?url={$root}post?post={$post.id}" target="_blank">
+                                      <img class="socialIcon" src="{$assets}img/google.png" /></a></li>
+                                     <li><a title="Share on Twitter" href="http://twitter.com/share?url={$root}post?post={$post.id}&text={$post.postURLname}&via=pagevamp" target="_blank">
+                                      <img class="socialIcon" src="{$assets}img/twitter.png" /></a></li>
+                                     <li><a title="Share on Facebook" href="http://www.facebook.com/sharer.php?s=100&p[title]={$post.postURLname}&p[summary]={$post.urlmessage}&p[url]={$root}post?post={$post.id}&p[images[0]={$post.picture}" target="_blank">
+                                      <img class="socialIcon" src="{$assets}img/facebook.png" /></a></li>
+                                                    
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div><!-- /.social -->
+                                </li>
+                    
+                            {{ endif }}
+                        {{ endif }}
+                        {{ set count = count + 1 }}
+      				{{ endfor }}
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>

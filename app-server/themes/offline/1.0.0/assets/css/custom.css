@@ -1,0 +1,53 @@
+/*!
+		* Custom Styling for Site.
+ */
+ 
+ 
+	/* General
+    -------------------------------------------------- */
+	* {/*-webkit-font-smoothing: antialiased; -webkit-text-size-adjust: 100%; text-rendering: optimizeLegibility;*/}
+	html,
+	body {height: 100%;}
+	body {font-family: 'Lato', sans-serif; font-size: 14px; font-weight: normal; line-height: 1; color: #7E7E8C;}
+	h1, h2, h3, h4, h5, h6 {font-family: 'Lato', sans-serif; font-weight: normal; margin: 0; padding: 0; line-height: 1;}
+	a:hover {text-decoration: none;}
+	
+	
+    /* Wrap
+    -------------------------------------------------- */
+	#wrap { min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -40px; position: relative; background: url('/system/libs/clientside/template-homepage/img/cityblur.jpg') no-repeat center center fixed; -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;}
+	
+	
+    /* Header
+    -------------------------------------------------- */
+	#header {background:url(../img/bg-header.png) repeat-x; min-height: 60px; padding-top: 105px; margin-bottom: 110px;}
+
+
+    /* Content
+    -------------------------------------------------- */
+	#content {height: 450px; background: rgba(0, 0, 0, 0.5); position: relative;}
+	#content span.intro {display: block; font-size: 25px; line-height: 1.5; padding-top: 170px; color: #fff;}
+	
+	#content .contact {border: 5px solid #F4F6FD; background: #fff; width: 505px; height: 530px; padding: 48px; position: absolute; right: 0; top: -40px;}
+	#content .contact h2 {font-weight: bold; font-size: 25px; color: #888888; text-transform: uppercase; text-align: center; margin-bottom: 35px;}
+	#content .contact ul {list-style-type: none; margin: 0; padding: 0;}
+	#content .contact ul li {margin-bottom: 30px;}
+	#content .contact input[type="text"],
+	#content .contact input[type="password"],
+	#content .contact textarea {background: #fff; border: 1px solid #DDDDDD; width: 100%; font-family: 'Lato', sans-serif; font-weight: 400; font-size: 15px; color: #AAAAAA; outline: none;}
+	#content .contact input[type="text"],
+	#content .contact input[type="password"] {height: 35px; padding: 6px 10px 0;}
+	#content .contact textarea {height: 150px; padding: 10px;}
+	#content .contact .btn	{	background: #4FBA73; width: 100%; height: 45px; color: #fff; font-family: 'Lato', sans-serif; font-weight: 400; font-size: 15px; text-transform: uppercase;
+								border-radius: 0; -moz-border-radius: 0; -webkit-border-radius: 0;}
+
+	
+    /* Footer
+    -------------------------------------------------- */
+	#push {height: 220px;}
+	
+	#footer {background:url(../img/bg-header.png) repeat-x; height: 40px; position: relative;}
+

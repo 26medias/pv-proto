@@ -1,0 +1,57 @@
+    
+	/* Squash Skin
+    -------------------------------------------------- */
+	body {background: #003040!important;}
+	#header,
+	#banner .info .txt {background: rgba(0,48,64,.6)!important;}
+	#banner .info .facebook.default_icon {display: none!important;}
+	#banner .info .facebook.sky_icon {display: block!important;}
+	
+	.social .facebook2 {background: url(../../img/facebook_icon_sky.png) 0 0 no-repeat;}
+	.social .twitter {background: url(../../img/twitter_icon_sky.png) 0 0 no-repeat;}
+	.social .pinterest {background: url(../../img/pinterest_icon_sky.png) 0 0 no-repeat;}
+	.social .instagram {background: url(../../img/instagram_icon_sky.png) 0 0 no-repeat;}
+	.social .tumblr {background: url(../../img/tumblr_icon_sky.png) 0 0 no-repeat;}
+	.social .flickr {background: url(../../img/flickr_icon_sky.png) 0 0 no-repeat;}
+	.social .youtube {background: url(../../img/youtube_icon_sky.png) 0 0 no-repeat;}
+	
+	.dropdown-menu {background: rgba(0,48,64,.6) !important;}	
+	.dropdown-menu>li>a {color: #fff!important;}
+
+@media only screen and (max-width: 767px) {
+	.navbar-inverse .navbar-collapse {
+		background: #003040;
+	}
+	.navbar-brand {
+		background: rgba(0,48,64,.6)!important;
+	}
+	
+		.social .facebook2 {background: url(../../img/facebook_icon_foot.png) 0 0 no-repeat !important; width: 10px!important; height: 20px!important; display: inline-block!important;}
+		.social .twitter {background: url(../../img/twitter_icon_foot.png) 0 0 no-repeat !important; width: 20px!important; height: 20px!important; display: inline-block!important;}
+		.social .pinterest {background: url(../../img/pinterest_icon_foot.png) 0 0 no-repeat !important; width: 17px!important; height: 20px!important; display: inline-block!important;}
+		.social .instagram {background: url(../../img/instagram_icon_foot.png) 0 0 no-repeat !important; width: 20px!important; height: 20px!important; display: inline-block!important;}
+		.social .tumblr {background: url(../../img/tumblr_icon_foot.png) 0 0 no-repeat !important; width: 11px!important; height: 20px!important; display: inline-block!important;}
+		.social .flickr {background: url(../../img/flickr_icon_foot.png) 0 0 no-repeat!important ; width: 31px!important; height: 20px!important; display: inline-block!important;}
+		.social .youtube {background: url(../../img/youtube_icon_foot.png) 0 0 no-repeat !important; width: 25px!important; height: 20px!important; display: inline-block!important;}
+	
+}
+
+	.contact_form input[type="text"],
+	.contact_form input[type="password"],
+	.contact_form textarea {border: 1px solid #82afbe; background: rgba(255,255,255,.5); color: #fff;}
+	.contact_form .btn {background: #fff; color: #003040; }
+	
+	::-webkit-input-placeholder {color: #fff;}
+	:-moz-placeholder 			{ /* Firefox 18- */color: #fff;}
+	::-moz-placeholder 			{  /* Firefox 19+ */color: #fff;}
+	:-ms-input-placeholder 		{color: #fff;}
+
+	.modal-content {border-radius: 8px !important; -moz-border-radius: 8px !important; -webkit-border-radius: 8px !important;}
+	.modal-body {background: #003040; border: 2px solid #82afbe !important;}
+	.modal .inquire-holder input[type="text"],
+	.modal .inquire-holder input[type="password"],
+	.modal .inquire-holder textarea {border: 1px solid #82afbe; background: rgba(255,255,255,.3); color: #fff;}
+	
+	.modal .inquire-holder .btn {background: #fff; color: #003040;}
+	.modal .inquire-holder .rel-img {background: rgba(255,255,255,.3)}
+	.fancybox-skin {background: #003040!important; border: 2px solid #82afbe !important; color: #fff!important;}

@@ -1,0 +1,63 @@
+<div id="content">
+    <div class="holder">
+    
+        <h2>{$widgets.pages.events.label|i18n(pageInfo.theme_settings.Lang)}</h2>
+            
+            <div class="row">
+                
+                <div class="col-md-12">
+                    <div class="event">
+                        {{ if data.events }}
+                        <ul>
+                            {{ autoescape false }}
+                            {{ set count = 0 }}
+                            {{ for event in data.events.data if loop.index <=100}}
+                                {{ if event.name }} 
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-md-2"><span class="date">{$event.start_time|date("M d")}</span></div>
+                                            <div class="col-md-10 event_section">
+                                                <h2>{$event.name}</h2>
+                                                <p>{$event.start_time|date("h:ia")}</p>
+                                                <div class="img-holder" style="background:url({{if event.cover.source}}{$event.cover.source}{{else}}{$assets}img/event.png{{endif}}) center center no-repeat rgba(0,0,0,.2);{{if event.cover.source}}background-size:cover;{{endif}}">
+                                                    <a href="{$root}events?event={$count}"><img src="{$assets}img/blank.png" /></a>
+                                                </div>
+                                                <div id="demo{$count}" class="info collapse">
+                                                    <p>{$event.description}</p>
+                                                    <p><a href="http://facebook.com/events/{$event.id}/" class="rsvp" target="_blank" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Events', 'RSVP']);">RSVP</a></p>
+                                                    <p>
+                                                    	<span class="location">{$"Location"|i18n(pageInfo.theme_settings.Lang)}</span><br/>
+                                                        {{ if event.location }}
+                                                        	{$event.location}<br/>
+                                                        {{ endif }}
+                                                        {$event.venue.street} {$event.venue.city} {$event.venue.state}
+                                                     </p>
+                                                    <div class="map">
+                                                        {{ if event.venue.latitude }}
+                                                            <iframe width="100%" scrolling="no" height="280" frameborder="0" src="https://maps.google.com/?q={$event.venue.street}+{$event.venue.city}+{$event.venue.state}&hl=en&sll={$event.venue.latitude},{$event.venue.longitude}&amp;output=embed" marginwidth="0" marginheight="0"></iframe>
+                                                        {{ endif }}
+                                                    </div><!-- /.map -->
+                                                </div><!-- /.info -->
+                                                <p><a href="javascript:void(0)" class="more collapsed" data-toggle="collapse" data-target="#demo{$count}">{$"More info"|i18n(pageInfo.theme_settings.Lang)}</a></p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                {{ endif }}
+                                
+                                {{ set count = loop.index }}
+                                
+                            {{ endfor }}
+                            {{ endautoescape }}                          
+                        
+                        </ul>
+                        {{ else }}
+                            <p>{$"There are currently no upcoming events. Please check back later!"|i18n(pageInfo.theme_settings.Lang)}</p>
+                        {{ endif }}
+                        
+                    </div><!-- /.event -->
+                </div>
+                
+            </div>
+        
+    </div><!-- /.holder -->
+</div><!--  /.content -->

@@ -1,0 +1,78 @@
+    
+	/* Squash Skin
+    -------------------------------------------------- */
+	body {background: #fff; color: #000;}
+	
+	#header,
+	#banner .info .txt {background: rgba(0,0,0,.6);}
+	#banner .info .facebook.default_icon {display: none!important;}
+	#banner .info .facebook.beige_icon {display: block!important;}
+	a,
+	#main,
+	#main .gallery ul li .caption a,
+	#main h2 span,
+	#main .info .map .title a,
+	#main .events ul.thumbs li .caption a,
+	#main .events .back a,
+	#main .events ul.desc li a.rsvp,
+	#footer,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6, .label, p {color: #000;}
+	#main .events .back a {background: url(../../img/icon_back_beige.png) 0 0 no-repeat !important;}
+
+	#main .events ul.thumbs li, 
+	#main .events ul.desc li, 
+	#main .events ul.desc li a.rsvp {border: 1px solid rgba(0, 0, 0, 0.1);}
+
+	#main .events ul.thumbs li:hover, 
+	#main .events ul.desc li a.rsvp:hover {border: 1px solid rgba(0, 0, 0, 0.5);}
+
+	#main .gallery ul li:hover .img_holder, #main .album ul li:hover .img_holder{
+		outline: 1px solid #999;
+	}
+
+	.navbar-toggle{background:url(../../img/arrow_down_white.png) transparent no-repeat right !important;}
+	
+	#main .events ul.thumbs li .img_holder {background-color: rgba(0,0,0,.1) !important;}
+	
+	.dropdown-menu {background: rgba(0,0,0,.6) !important;}	
+	.dropdown-menu>li>a {color: #fff!important;}
+
+@media only screen and (max-width: 767px) {
+	
+	.navbar-inverse .navbar-collapse {
+		background: #fff;
+		color: #000;
+	}
+	.navbar-inverse .navbar-nav>li>a{
+		color: #000!important;
+	}
+	.navbar-brand {
+		background: rgba(0,0,0,.6)!important;
+	}
+	
+}
+
+	.contact_form input[type="text"],
+	.contact_form input[type="password"],
+	.contact_form textarea {border: 1px solid #999; background: rgba(255,255,255,.3); color: #999;}
+	.contact_form .btn {background: #999;}
+
+	::-webkit-input-placeholder {color: #999;}
+	:-moz-placeholder 			{ /* Firefox 18- */color: #999;}
+	::-moz-placeholder 			{  /* Firefox 19+ */color: #999;}
+	:-ms-input-placeholder 		{color: #999;}
+
+	.modal-content {border-radius: 8px !important; -moz-border-radius: 8px !important; -webkit-border-radius: 8px !important;}
+	.modal-body {background: #fff; border: 2px solid #999 !important;}
+	.modal .inquire-holder input[type="text"],
+	.modal .inquire-holder input[type="password"],
+	.modal .inquire-holder textarea {border: 1px solid #999; background: rgba(255,255,255,.3); color: #999;}
+	
+	.modal .inquire-holder .btn {background: #999; color: #fff;}
+	.modal .inquire-holder .rel-img {background: rgba(0,0,0,.1);}
+	.fancybox-skin {background: #fff!important; border: 2px solid #999 !important; color: #000!important;}

@@ -1,0 +1,73 @@
+
+@import url(http://fonts.googleapis.com/css?family=Amatic+SC:700);
+
+@import url(http://fonts.googleapis.com/css?family=Raleway:400);
+@import url(http://fonts.googleapis.com/css?family=Raleway:500);
+@import url(http://fonts.googleapis.com/css?family=Raleway:600);
+
+body,
+#header .dropdown-menu,
+#banner .info .txt {font-family: 'Raleway', sans-serif; font-weight: 400; font-size: 18px;}
+
+#main h2 span,
+#main .events ul.thumbs li .caption {font-family: 'Raleway', sans-serif; font-weight: 500;}
+#main .events ul.thumbs li .caption {font-size: 14px;}
+#main h2 span {font-size: 20px;}
+
+#header {font-family: 'Amatic SC', cursive; font-weight: 700; text-transform: uppercase;}
+.font_change {font-family: 'Amatic SC', cursive !important; font-weight: 700 !important; text-transform: uppercase !important; font-size: 50px!important;}
+
+.navbar-nav {padding-bottom: 10px;}
+#header .navbar-inverse .navbar-nav > li > a {font-size: 30px;}
+.navbar-inverse .navbar-nav>li>a:hover {font-weight: normal; font-style: normal;}
+
+#main .home h2 {font-family: 'Raleway', sans-serif; font-weight: 400; font-style: normal;}
+#main h2 {font-size: 50px;}
+#main h3 {font-size: 30px;}
+#main h5 {font-family: 'Raleway', sans-serif; font-weight: 600; text-transform: uppercase!important; font-size: 18px;}
+
+.navbar-brand {font-family: 'Amatic SC', cursive; font-weight: 700; text-transform: uppercase;}
+
+#banner .info .txt {font-size: 16px;}
+
+#main .info ul li .title {font-size: 30px;}
+#main .gallery ul li .caption {font-size: 18px;}
+
+#widget_cont h1,
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6,
+#main .info ul li .title,
+#footer {font-family: 'Amatic SC', cursive; font-weight: 700; text-transform: uppercase;}
+#footer {font-size: 22px; padding: 5px 0;}
+
+#main .events ul.desc li h2 {font-size: 30px!important;}
+
+.contact_form .btn {font-family: 'Amatic SC', cursive; font-weight: 700; text-transform: uppercase; font-size: 20px;}
+
+.dropdown-menu {top: 62px;}
+.dropdown-menu>li>a {font-family: 'Amatic SC', cursive; font-size: 24px; font-weight: 700;}
+.dropdown-menu>li>a:hover {font-style: normal;}
+.dropdown-menu>li>a:hover, 
+.dropdown-menu>li>a:focus {font-size: 24px;}
+
+	.widget-container h1,
+	.widget-container h2,
+	.widget-container h3,
+	.widget-container h4,
+	.widget-container h5,
+	.widget-container h6 {font-family: 'Amatic SC', cursive!important; font-weight: 700!important; text-transform: none;}
+	.widget-container .content h2 {text-transform: uppercase!important;}
+
+
+@media only screen and (max-width: 767px) {
+	
+	.navbar-nav > li a.active,
+	.header_title {}
+	.navbar-inverse .navbar-nav>li>a {}
+	
+}
+

@@ -1,0 +1,111 @@
+<a href="{$root}gallery" class="back_to_album">&laquo; {$"Back to Albums"|i18n(pageInfo.theme_settings.Lang)}</a> 
+<!-- Slider
+================================================== -->
+<div>
+  <div id="prevthumb"></div>
+  <div id="nextthumb"></div>
+  
+  <!--Arrow Navigation--> 
+  <a id="prevslide" class="load-item" style="z-index: 100;"><i class="icon-chevron-left"></i></a> 
+  <a id="nextslide" class="load-item" style="z-index: 100;"><i class="icon-chevron-right"></i></a>
+  <div class="caption_wrapper" style="z-index: 100;">
+    <div class="buyWrapper">
+      <div class="buyButton" data-cp-url="">BUY PHOTO</div>
+    </div>
+    <div id="slidecaption"></div>
+  </div>
+  <div id="thumb-tray" class="load-item">
+    <div id="thumb-back"></div>
+    <div id="thumb-forward"></div>
+  </div>
+  
+  <!--Control Bar
+    <div id="controls-wrapper" class="load-item">
+        <div id="controls">
+                    
+            <div id="slidecounter" style="display: none;">
+                <span class="slidenumber"></span> / <span class="totalslides"></span>
+            </div>
+            
+            <div id="slidecaption" style="display: none;"></div>
+            
+            <ul id="slide-list"></ul>
+            
+        </div>
+    </div>--> 
+  
+  <!--Thumb Tray button--> 
+  <a id="tray-button"><i class="icon-reorder"></i></a> </div>
+<div id="tmp" style="display:block"></div>
+<script type="text/javascript">
+			
+	$(function(){
+		var name = "{{autoescape false}}{$photo.name}{{endautoescape}}";
+		name.replace("'",'&lsquo;');
+		
+		$.supersized({
+		
+			// Functionality
+			slide_interval          :   3000,		// Length between transitions
+			transition              :   1, 			// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
+			transition_speed		:	700,		// Speed of transition
+			pause_hover             :   1,										   
+			// Components							
+			slide_links				:	'blank',	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
+			slides 					:  	[
+			{{ for photo in data.albumsOnly.photos.data }}
+
+				{{if loop.last}}
+					{image : '{$photo.images}', thumb : '{$photo.picture}', url : '', title: '{$photo.name}', fit: 'cover'}]
+				{{else}}
+					{image : '{$photo.images}', thumb : '{$photo.picture}', url : '', title: '{$photo.name}', fit: 'cover'},
+				{{endif}}
+				
+			{{ endfor }}
+		});
+		
+		
+		
+	});
+	
+	
+	$(window).load(function(){
+		$('#tray-button').trigger('click');
+		$('.caption_wrapper').css('bottom',140).show();
+		$('#supersized').css('z-index', 1);
+	});
+	
+	$('#tray-button').on('click', function(){
+		
+		var bottomval;
+		if($('#tmp').is(":visible")) {
+			if($(window).width() < 768)
+				bottomval = 100;
+			else
+				bottomval = 140;
+			//$('.caption_wrapper').css('bottom',bottomval+'px');
+			$( ".caption_wrapper" ).animate({
+				bottom: bottomval+'px'
+			  }, 500, function() {
+				// Animation complete.
+			  });
+			$('#tmp').hide();
+		}
+		else {
+			if($(window).width() < 980)
+				bottomval = 0;
+			else
+				bottomval = 75;
+				
+			$('.caption_wrapper').css('bottom',bottomval+'px');
+			$( ".caption_wrapper" ).animate({
+				bottom: bottomval+'px'
+			  }, 500, function() {
+				// Animation complete.
+			  });
+			//$('.caption_wrapper').animate('bottom',75);
+			$('#tmp').show();
+		}
+	});
+	
+</script>

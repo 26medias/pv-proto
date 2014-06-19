@@ -1,0 +1,28 @@
+<div class="row">
+
+	<div class="holder gutter margin_10">
+		<h2>{$"Contact"|i18n(pageInfo.theme_settings.Lang)}</h2>
+        
+        <div class="contact">
+            {{ if data.phone }}
+                <p>{$"Phone"|i18n(pageInfo.theme_settings.Lang)}:{$data.phone}</p>
+                {{ if data.isPhoneValid }}
+                	<div class="call"><a href="tel:{$data.phone}">Call</a></div><!-- /.call -->
+                {{ endif }}
+            {{ endif }}
+            {{ if data.location }}    
+                <p>{$"Address"|i18n(pageInfo.theme_settings.Lang)}:<br>{$data.locationcommas}</p>
+            {{ endif }}asda
+        </div><!-- contact ends -->
+
+    </div>
+    
+    <div class="holder">
+        {{ if data.location.latitude }}
+            <iframe width="660" scrolling="no" height="300" frameborder="0" src="https://maps.google.com/?q={$data.location.street}+{$data.location.city}+{$data.location.state}&hl=en&sll={$data.location.latitude},{$data.location.longitude}&amp;output=embed" marginwidth="0" marginheight="0"></iframe>
+            <span class="view"><a href="https://maps.google.com/?q={$data.location.street}+{$data.location.city}+{$data.location.state}&hl=en&sll={$data.location.latitude},{$data.location.longitude}" style="text-align:left" target="_blank">View Larger Map</a></span>
+        {{ endif }}
+    </div>
+</div>
+
+

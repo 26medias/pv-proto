@@ -1,0 +1,149 @@
+<!-- Post Properties
+================================================== -->
+<div id="about" class="for_about_padding">
+
+    <h1>{{ if (data.postOnly.postTitle)}}
+          {$data.postOnly.postTitle}
+        {{endif}}
+        <div class="social hidden-sm hidden-xs">
+            <a href="http://facebook.com/{$pageInfo.pageid}" title="facebook" target="_blank" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Facebook Icon']);">
+                        <img alt="facebook" src="{$assets}images/facebook_icon.png">
+                    </a>
+                    {{ if data.site_settings.socialicons_switch == 1}}
+                        {{if data.site_settings.twitter_link}}
+                        <a href="{$data.site_settings.twitter_link}" target="_blank" title="twitter" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Twitter Icon']);">
+                            <img alt="twitter" src="{$assets}images/twitter_icon.png" >
+                        </a>
+                        {{endif}}
+                        {{if data.site_settings.pinterest_link}}
+                        <a href="{$data.site_settings.pinterest_link}" target="_blank" title="pinterest" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Pinterest Icon']);">
+                            <img alt="pinterest" src="{$assets}images/pinterest_icon.png" >
+                        </a>
+                        {{endif}}
+                        {{if data.site_settings.instagram_link}}
+                        <a href="{$data.site_settings.instagram_link}" target="_blank" title="instagram" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Instagram Icon']);">
+                            <img alt="pinterest" src="{$assets}images/instagram_icon.png" >
+                        </a>
+                        {{endif}}
+                        {{if data.site_settings.tumblr_link}}
+                        <a href="{$data.site_settings.tumblr_link}" target="_blank" title="tumblr" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Tumblr Icon']);">
+                            <img alt="tumblr" src="{$assets}images/tumblr_icon.png" >
+                        </a>
+                        {{endif}}
+                        {{if data.site_settings.flickr_link}}
+                        <a href="{$data.site_settings.flickr_link}" target="_blank" title="flickr" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Flickr Icon']);">
+                            <img alt="flickr" src="{$assets}images/flickr_icon.png" >
+                        </a>
+                        {{endif}}
+                        {{if data.site_settings.youtube_link}}
+                        <a href="{$data.site_settings.youtube_link}" target="_blank" title="youtube" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Youtube Icon']);">
+                            <img alt="youtube" src="{$assets}images/youtube_icon.png" >
+                        </a>
+                        {{endif}}
+                    {{endif}}
+        </div>
+    </h1>
+    
+    <div class="side_content">
+            {{ if (data.postOnly.bigpicture and data.postOnly.source is empty)}}
+            <a class="fancybox" href="{$data.postOnly.bigpicture}">
+            <img class="img-responsive" src="{$data.postOnly.bigpicture}" />
+            </a>
+            {{elseif (data.postOnly.picture and data.postOnly.source is empty)}}
+            <a class="fancybox" href="{$data.postOnly.picture}">
+            <img class="img-responsive" src="{$data.postOnly.picture}" />
+            </a>
+            {{endif}}
+            {{ if (data.postOnly.soundcloud.html or data.postOnly.source)}}
+            <div class="mediapost">
+              {$data.postOnly.soundcloud.html|raw}
+              {{if (data.postOnly.vimeoSource and data.postOnly.soundcloud.html is empty)}}
+               <iframe width="100%" height="100%" src="{$data.postOnly.vimeoSource}?wmode=transparent" frameborder="0" allowfullscreen></iframe>
+              {{elseif (data.postOnly.youtubeSource and data.postOnly.soundcloud.html is empty)}}
+               <iframe width="100%" height="100%" src="{$data.postOnly.youtubeSource}?wmode=transparent" frameborder="0" allowfullscreen></iframe>
+              {{elseif (data.postOnly.source and data.postOnly.soundcloud.html is empty)}}
+               <iframe width="100%" height="100%" src="{$data.postOnly.source}?wmode=transparent" frameborder="0" allowfullscreen></iframe>
+               {{endif}}
+            </div>
+            {{endif}}
+        </div><!-- /.side_content -->
+    
+    <div class="content">
+        <div class="box_holder">
+      <div class="row-fluid">
+          On {$data.postOnly.created_time|date("M d")}
+          {{if (data.postOnly.commentsCount)}}
+	  <br>
+              with <a href="#commentSection"><strong>{$data.postOnly.commentsCount} Comments</strong></a><br>
+          {{endif}}
+          {{if (data.postOnly.likesCount)}}
+              & <strong>{$data.postOnly.likesCount} likes</strong></p>
+          <br />
+	  {{endif}}
+          
+          {{if (data.postOnly.message)}}
+            <p style="color: #616161;">{$data.postOnly.message|raw|nl2br}</p>
+	    {{endif}}
+            {{if (data.postOnly.picture is empty)}}<h4 style="color: #616161;"><a href="{$data.postOnly.link}" target="_blank">{$data.postOnly.link}</a></h4>{{endif}}<br />
+            
+            
+      	<p><a href="{$root}blog">&laquo; Back to Blog</a></p>
+            
+<br />
+  <div class="whitebox">
+    <div>
+      
+                         <a title="Share by Email" href="https://www.addthis.com/tellfriend.php?v=300&winname=addthis&pub=no-pub-ad&source=men-300&lng=en&s=email&url={$root}post?post={$data.postOnly.id}&title={$data.postOnly.postURLname}&ate=AT-no-pub-ad/-/-/51fa7fd9137aae60/4/50348d2c87400843&uid=50348d2c87400843&ufbl=1&uud=1&ct=1&ui_email_to=&ui_email_from=&ui_email_note=&pre=http%3A%2F%2Fwww.addthis.com%2F&tt=0&captcha_provider=nucaptcha&at3frame=true" target="_blank">
+                          <img class="socialIcon" src="{$assets}images/icons/mail.png" /></a>
+                         <a title="Share on Google+" href="https://plus.google.com/share?url={$root}post?post={$data.postOnly.id}" target="_blank">
+                          <img class="socialIcon" src="{$assets}images/icons/google.png" /></a>
+                         <a title="Share on Twitter" href="http://twitter.com/share?url={$root}post?post={$data.postOnly.id}&text={$data.postOnly.postURLname}&via=pagevamp" target="_blank">
+                          <img class="socialIcon" src="{$assets}images/icons/twitter.png" /></a>
+                         <a title="Share on Facebook" href="http://www.facebook.com/sharer.php?s=100&p[title]={$data.postOnly.postURLname}&p[summary]={$data.postOnly.urlmessage}&p[url]={$root}post?post={$data.postOnly.id}&p[images[0]={$data.postOnly.picture}" target="_blank">
+                          <img class="socialIcon" src="{$assets}images/icons/facebook.png" /></a>
+      <br />
+      {{if (data.postOnly.commentsCount)}}
+      <div class="comments" id="commentSection">
+        <div class="col-lg-10 col-offset-2">
+          <h2 class="blogTitle">{$data.postOnly.commentsCount} Comments</h2>
+        </div>
+          {{ for comment in data.postOnly.comments.data if loop.index <= 100 }}
+            <div class="col-lg-10 col-offset-3">
+              <p class="commentDate">{$comment.from.name} , {$comment.created_time|date("M d")}</p>
+              <p class="commentText">{$comment.message}</p>
+              <br>
+            </div>
+          {{endfor}}
+          {{ if (data.postOnly.pictureLink)}}
+            <div class="col-lg-10 col-offset-3">
+              <a href="{$data.postOnly.link}" target="_blank"><p class="leaveComment">Leave a Comment</p></a>
+              </div>
+          </div>
+          {{else}}
+          <div class="col-lg-10 col-offset-3">
+              <a href="https://www.facebook.com/{$data.postOnly.id}" target="_blank"><p class="leaveComment">Leave a Comment</p></a>
+              </div>
+          </div>
+          {{endif}}
+      {{else}}
+          {{ if (data.postOnly.pictureLink)}}
+            <div class="col-lg-10 col-offset-2">
+              <a href="{$data.postOnly.link}" target="_blank"><p class="leaveComment">Leave a Comment</p></a>
+              </div>
+          </div>
+          {{else}}
+          <div class="">
+              <a href="https://www.facebook.com/{$data.postOnly.id}" target="_blank"><p class="leaveComment">Leave a Comment</p></a>
+              </div>
+          </div>
+          {{endif}}
+      {{endif}}
+    </div>
+    </div><!-- /.content -->
+    
+    <div class="top_cover"></div>
+    <div class="bottom_cover"></div>
+            
+</div>
+
+

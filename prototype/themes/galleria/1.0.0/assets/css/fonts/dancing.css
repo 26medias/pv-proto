@@ -1,0 +1,29 @@
+@import url(http://fonts.googleapis.com/css?family=Dancing+Script:400,700);
+@import url(http://fonts.googleapis.com/css?family=Ledger);
+
+h1 {font-family: 'Dancing Script', cursive !important; font-weight: 700; text-transform: none !important; font-size: 34px;}
+h2 {font-family: 'Dancing Script', cursive !important; font-weight: 700; text-transform: none !important; font-size: 25px !important;}
+h3 {font-family: 'Dancing Script', cursive !important; font-weight: 700; text-transform: none !important; font-size: 20px !important;}
+h4 {font-family: 'Dancing Script', cursive !important; font-weight: 700; text-transform: none !important;}
+h5 {font-family: 'Dancing Script', cursive !important; font-weight: 700; text-transform: none !important;}
+h6 {font-family: 'Dancing Script', cursive !important; font-weight: 700; text-transform: none !important;}
+
+.navbar>.container_nav .navbar-brand {
+	font-family: 'Dancing Script', cursive !important; font-weight: 700; text-transform: none !important; font-size: 34px;
+}
+
+.widget_title{font-family: 'Dancing Script', cursive !important; font-weight: 700; text-transform: none !important; font-size: 34px;}
+
+
+dt {font-family: 'Dancing Script', cursive !important; font-weight: 700; font-size: 24px !important;}
+
+p { font-family: 'Ledger', serif !important;}
+
+dd{ font-family: 'Ledger', serif !important; }
+
+.navbar-nav > li > a { font-family: 'Ledger', serif !important; text-transform: none !important; font-weight: 500; letter-spacing: 1px;}
+
+.dropdown-menu>li>a {font-family: 'Ledger', serif !important; font-weight: 500; text-transform: none;}
+
+.contact_form * {font-family: 'Ledger', serif !important; font-weight: 400;}
+.contact_form .btn {font-family: 'Dancing Script', cursive !important; font-weight: 700;}

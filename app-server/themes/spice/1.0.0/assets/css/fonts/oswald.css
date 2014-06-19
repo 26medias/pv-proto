@@ -1,0 +1,39 @@
+
+@import url(http://fonts.googleapis.com/css?family=Lora);
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+
+body {font-family: 'Lora', serif; font-weight: 400;}
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {font-family: 'Oswald', sans-serif; font-weight: 400;}
+
+address h6 {text-transform: uppercase;}
+
+#header,
+#footer,
+#top_section {font-family: 'Oswald', sans-serif; font-weight: 400;}
+
+#header .navbar-brand {text-transform: uppercase;}
+#header .navbar-nav>li {font-size: 16px;}
+
+#top_section ul.info {padding: 12px 0 5px; font-size: 14px;}
+
+#content .home h1 {font-family: 'Oswald', sans-serif; font-weight: 400; font-size: 30px;}
+
+#content .pages ul.events li .date {font-family: 'Oswald', sans-serif; font-weight: 400; text-transform: uppercase;}
+#content .pages ul.events li ul.inner li .left .rsvp a.btn {font-family: 'Oswald', sans-serif; font-weight: 400; font-size: 15px;}
+#content .pages .gallery .thumbnail .caption {font-family: 'Oswald', sans-serif; font-weight: 400; font-size: 16px;}
+#content .pages h6 {margin-bottom: 5px; font-size: 16px;}
+
+.contact_form * {font-family: 'Lora', serif; font-weight: 400;}
+.contact_form h6 {font-family: 'Oswald', sans-serif; font-weight: 400; text-transform: uppercase;}
+
+#content .pages ul.news-new li.with-pic .left,
+#content .pages ul.news-new li.without-pic .right {font-family: 'Oswald', sans-serif; font-weight: 400;}
+
+@media only screen and (max-width: 767px) {
+	
+}

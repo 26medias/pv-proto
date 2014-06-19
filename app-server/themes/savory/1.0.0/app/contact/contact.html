@@ -1,0 +1,101 @@
+<div class="info">
+    <h2 class="hidden-xs">{$widgets.pages.contact.label|i18n(pageInfo.theme_settings.Lang)}</h2>
+    <div class="map hidden-sm hidden-xs">
+        <div class="holder">
+        	{{ if data.location.latitude }}
+                <iframe width="404" scrolling="no" height="280" frameborder="0" src="https://maps.google.com/?q={$data.location.street}+{$data.location.city}+{$data.location.state}&hl=en&sll={$data.location.latitude},{$data.location.longitude}&amp;output=embed" marginwidth="0" marginheight="0"></iframe>
+                <div class="title"><a href="https://maps.google.com/?q={$data.location.street}+{$data.location.city}+{$data.location.state}&hl=en&sll={$data.location.latitude},{$data.location.longitude}" style="text-align:left" target="_blank">View Larger Map</a></div>
+            {{ endif }}
+        </div>
+    </div><!-- /.map -->
+    <ul>
+    	{{ if data.location }}
+        <li>
+            <div class="title">{$"address"|i18n(pageInfo.theme_settings.Lang)}</div>
+            <div class="desc">{$data.locationcommas}</div>
+        </li>
+        {{ endif }}
+        
+        {{ if data.phone }}
+        <li>
+            <div class="title">{$"phone"|i18n(pageInfo.theme_settings.Lang)}</div>
+            <div class="desc">{$data.phone}</div>
+        </li>
+        {{ endif }}
+        
+        {{if data.hours}}
+                
+        <li>
+            <div class="title">{$"hours"|i18n(pageInfo.theme_settings.Lang)}</div>
+            <div class="desc">
+                {{ if data.hours.mon_1_open }}
+                    <strong>{$"Monday"|i18n(pageInfo.theme_settings.Lang)}</strong>: {$data.hours.mon_1_open|date("g:ia")} - {$data.hours.mon_1_close|date("g:ia")}{{ if data.hours.mon_2_open }}, {$data.hours.mon_2_open|date("g:ia")} - {$data.hours.mon_2_close|date("g:ia")}{{ endif }}              
+                    <br />
+                    <br />
+                {{ endif }}
+                
+                {{ if data.hours.tue_1_open }}
+                    <strong>{$"Tuesday"|i18n(pageInfo.theme_settings.Lang)}</strong>: {$data.hours.tue_1_open|date("g:ia")} - {$data.hours.tue_1_close|date("g:ia")}{{ if data.hours.tue_2_open }}, {$data.hours.tue_2_open|date("g:ia")} - {$data.hours.tue_2_close|date("g:ia")}{{ endif }}
+                    <br />
+                    <br />
+                {{ endif }}
+                
+                {{ if data.hours.wed_1_open }}
+                    <strong>{$"Wednesday"|i18n(pageInfo.theme_settings.Lang)}</strong>: {$data.hours.wed_1_open|date("g:ia")} - {$data.hours.wed_1_close|date("g:ia")}{{ if data.hours.wed_2_open }}, {$data.hours.wed_2_open|date("g:ia")} - {$data.hours.wed_2_close|date("g:ia")}{{endif}}
+                    <br />
+                    <br />                              
+                {{ endif }}
+                
+                {{ if data.hours.thu_1_open }}
+                    <strong>{$"Thursday"|i18n(pageInfo.theme_settings.Lang)}</strong>: {$data.hours.thu_1_open|date("g:ia")} - {$data.hours.thu_1_close|date("g:ia")}{{ if data.hours.thu_2_open }}, {$data.hours.thu_2_open|date("g:ia")} - {$data.hours.thu_2_close|date("g:ia")}{{endif}}
+                    <br />
+                    <br />
+                {{ endif }}
+                
+                {{ if data.hours.fri_1_open }}
+                    <strong>{$"Friday"|i18n(pageInfo.theme_settings.Lang)}</strong>: {$data.hours.fri_1_open|date("g:ia")} - {$data.hours.fri_1_close|date("g:ia")}{{ if data.hours.fri_2_open }}, {$data.hours.fri_2_open|date("g:ia")} - {$data.hours.fri_2_close|date("g:ia")}{{endif}}
+                    <br />
+                    <br />
+                {{ endif }}
+                
+                {{ if data.hours.sat_1_open }}
+                    <strong>{$"Saturday"|i18n(pageInfo.theme_settings.Lang)}</strong>: {$data.hours.sat_1_open|date("g:ia")} - {$data.hours.sat_1_close|date("g:ia")}{{ if data.hours.sat_2_open }}, {$data.hours.sat_2_open|date("g:ia")} - {$data.hours.sat_2_close|date("g:ia")}{{endif}}
+                    <br />
+                    <br />
+                {{ endif }}
+                
+                {{ if data.hours.sun_1_open }}
+                    <strong>{$"Sunday"|i18n(pageInfo.theme_settings.Lang)}</strong>: {$data.hours.sun_1_open|date("g:ia")} - {$data.hours.sun_1_close|date("g:ia")}{{ if data.hours.sun_2_open }}, {$data.hours.sun_2_open|date("g:ia")} - {$data.hours.sun_2_close|date("g:ia")}{{endif}}
+                    <br />
+                {{ endif }}</div>
+        </li>
+        {{endif}}
+        <li>
+        	<div class="title">{$'message'|i18n(pageInfo.theme_settings.Lang)}</div>
+            <div class="desc">
+                <form id="contact_form" action="#contact_form" method="post">
+                    <div class="contact_form">
+                    	{{ if data.msg }}
+                            <span class="message">{$data.msg|i18n(pageInfo.theme_settings.Lang)}</span>
+                        {{ endif }}
+                        <ul>
+                            <li><input name="p_name" type="text" placeholder="{$'Name'|i18n(pageInfo.theme_settings.Lang)}" class="required" /></li>
+                            <li><input name="p_email" type="text" placeholder="{$'Email'|i18n(pageInfo.theme_settings.Lang)}" class="required email" /></li>
+                            <li><textarea name="p_message" cols="" rows="" placeholder="{$'Message'|i18n(pageInfo.theme_settings.Lang)}" class="required"></textarea></li>
+                            <li class="txt_center"><input name="p_send" type="submit" value="{$'Send'|i18n(pageInfo.theme_settings.Lang)}" class="btn" onclick="_gaq.push(['_trackEvent', 'Contact', 'Message', 'Send Button']);"/></li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </li>
+    </ul>
+    <p>&nbsp;</p>
+    <div class="map hidden-lg hidden-md">
+        <div class="holder">
+        	{{ if data.location.latitude }}
+                <iframe width="404" scrolling="no" height="280" frameborder="0" src="https://maps.google.com/?q={$data.location.street}+{$data.location.city}+{$data.location.state}&hl=en&sll={$data.location.latitude},{$data.location.longitude}&amp;output=embed" marginwidth="0" marginheight="0"></iframe>
+                <div class="title"><a href="https://maps.google.com/?q={$data.location.street}+{$data.location.city}+{$data.location.state}&hl=en&sll={$data.location.latitude},{$data.location.longitude}" style="text-align:left" target="_blank">View Larger Map</a></div>
+            {{ endif }}
+        </div>
+    </div><!-- /.map -->
+</div><!-- /.info -->

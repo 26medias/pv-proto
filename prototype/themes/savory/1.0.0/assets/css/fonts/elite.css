@@ -1,0 +1,45 @@
+
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:600);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:700);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:600italic);
+@import url(http://fonts.googleapis.com/css?family=Podkova:400);
+@import url(http://fonts.googleapis.com/css?family=Podkova:700);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:700);
+
+body,
+#header .dropdown-menu {font-family: 'Josefin Sans', sans-serif; font-weight: 600; font-size: 20px;}
+
+#header,
+#footer {font-family: 'Josefin Sans', sans-serif; font-weight: 600;}
+
+#header .navbar-inverse .navbar-nav > li > a {font-size: 25px;}
+.navbar-inverse .navbar-nav>li>a:hover {font-weight: 600;}
+
+#main .home h2 {font-family: 'Josefin Sans', sans-serif; font-weight: 600; font-style: italic;}
+
+/*#header .navbar-brand {font-size: 20px !important;}*/
+
+.navbar-brand {font-family: 'Podkova', serif; font-weight: 700;}
+
+#main .info ul li .title {text-transform: uppercase;}
+#main .gallery ul li .caption {font-size: 18px;}
+
+#widget_cont h1,
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6,
+#main .info ul li .title {font-family: 'Roboto Slab', serif; font-weight: 700; text-transform: uppercase;}
+
+.contact_form .btn {font-family: 'Roboto Slab', serif; font-weight: 700; text-transform: uppercase;}
+
+	.widget-container h1,
+	.widget-container h2,
+	.widget-container h3,
+	.widget-container h4,
+	.widget-container h5,
+	.widget-container h6 {font-family: 'Roboto Slab', serif !important; font-weight: 700!important; text-transform: uppercase!important;}
+

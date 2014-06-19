@@ -1,0 +1,120 @@
+<link href="{$assets}/css/jquery.fancybox.css" rel="stylesheet">
+
+    {{ if data.isalbumdac }}
+    	
+        <div class="album">
+        <h2><a href="gallery"><span class="hidden-xs font_change" style="font-size: 40px; font-family: 'Merriweather Sans', sans-serif;">{$widgets.pages.gallery.label|i18n(pageInfo.theme_settings.Lang)}</span></a><span>{$data.albumsOnly.name}</span></h2>
+        <ul>
+        	{{ set count = 0 }}
+        	{{ for photo in data.albumsOnly.photos.data }}
+            <li>
+            	<div class="img_holder" style="background:url({$photo.source}) no-repeat;">     
+                    <a href="{$photo.images}" title="{$photo.name}" class="fancybox" rel="{$data.name}"><img src="{$assets}/img/spacer.gif" /></a>
+                </div>
+            </li>
+            {{ set count = loop.index }}
+            {{ endfor}}
+        </ul>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    
+                        <div class="close_icon"><a href="#" data-dismiss="modal">Close</a></div><!-- /.close_icon -->
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                        {{ set count = 0 }}
+                        {{ for photo in data.albumsOnly.photos.data }}
+                            <div class="item {{if count == 0}} active {{endif}}">
+                              <img src="{$photo.source}" />
+                            </div>
+                        {{ set count = loop.index }}
+                        {{ endfor}}
+                        </div>
+                        
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">&nbsp;</a>
+                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">&nbsp;</a>
+                      
+                    </div><!-- /.carousel -->                           
+                
+              </div><!-- /.modal-bod -->
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->                
+    </div><!-- /.album -->
+    
+    {{ else }}
+    <div class="gallery">
+    <h2 class="hidden-xs font_change" style="font-size: 40px; font-family: 'Merriweather Sans', sans-serif;">{$widgets.pages.gallery.label|i18n(pageInfo.theme_settings.Lang)}</h2>
+    <div class="clearfix"></div>
+    <ul class="gallery_thumb">
+    {{ set count = 0 }}
+    {{ for album in data.albums.data}}
+        {{ if (album.name != 'Cover Photos' and album.name != 'Timeline Photos' and album.name != 'Mobile Uploads') }}                     
+            
+                {{ set has_cover = false }}
+                {{if album.cover_photo }}
+                    {{ for photo in album.photos.data }}      
+                        {{if album.cover_photo == photo.id}}
+                        {{ set has_cover = true }} 
+                            <li class="grid_8 aplha omega"> 
+                            	<div class="img_holder" style="background:url({$photo.source}) no-repeat;">     
+                                    <a href="{$root}gallery?album={$count}"><img src="{$assets}/img/spacer.gif" /></a>
+                                </div>
+                                <div class="caption"><a href="{$root}gallery?album={$count}">{{ autoescape false }}{$album.name|i18n(pageInfo.theme_settings.Lang)} {{ endautoescape }}</a></div>
+                            </li>
+                        {{endif}}
+                    {{ endfor }}
+                        
+                {{endif}} 
+                {{ set firstimage = false }}
+                {{if has_cover == false}}
+                    {{ for photo in album.photos.data if loop.index<2 }}  
+                        {{ set firstimage = photo.id }}             
+                        <li class="grid_8 aplha omega">
+                        	<div class="img_holder">
+                            <a href="{$root}gallery?album={$count}"><img src="{$photo.source}" /></a>
+                            </div>
+                            <div class="caption"><a href="{$root}gallery?album={$count}">{{ autoescape false }}{$album.name|i18n(pageInfo.theme_settings.Lang)} {{ endautoescape }}</a></div>
+                        </li>
+                    {{ endfor }}
+                {{endif}}
+        {{ endif }}
+               {{ set count = loop.index }}
+                              
+        {{ endfor}}
+
+    </ul>
+    </div><!-- /.gallery -->
+	{{ endif }}
+
+
+<script src="{$assets}js/jquery-1.7.2.min.js"></script>
+<script src="{$assets}js/bootstrap.min.js"></script>
+<script src="{$assets}js/custom.js"></script>
+
+{{ if pageInfo.theme_settings.Store == 'enabled'}}
+	<script src="{$assets}js/jquery.fancybox.js"></script>
+{{ else }}
+	<script src="{$assets}js/__jquery.fancybox.js"></script>
+{{ endif }}
+
+<script>
+$(".fancybox").fancybox({
+  prevEffect : 'none',
+  nextEffect : 'none',
+  helpers     : {
+   title: {
+    type: 'inside'
+   }
+  }
+});
+ 
+$(window).resize(function(){
+  $.fancybox.update(); 
+});
+</script>

@@ -1,0 +1,36 @@
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+@import url(http://fonts.googleapis.com/css?family=Lora);
+@theme-header: 			'Oswald';
+@theme-text: 			'Lora';
+
+body {font-family: @theme-text; font-weight: 100; font-size: 14px;}
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {font-family: @theme-header; font-weight: 400;}
+
+#header .navbar-default .navbar-brand {font-family: @theme-header; font-weight: 900;}
+
+#header .nav > li > a {font-family: 'Lato', sans-serif; font-weight: 300;}
+#header .seprator {font-family: 'Lato', sans-serif; font-weight: 100;}
+
+#gallery .nav-tabs > li {font-family: @theme-header; font-size: 15px;}
+
+#gallery .head {font-family: @theme-header; font-size: 15px;}
+
+#content h2 {font-size: 18px;}
+
+#gallery .holder .thumb .caption {font-weight: 400;}
+
+#gallery .nav-tabs > li,
+#gallery .head,
+#content .event-desc h4,
+#content .back a {font-weight: 400;}
+
+#content .event-list .caption h4 {font-weight: 400; font-size: 16px;}
+
+#content .contact .contact_form .btn {font-family: @theme-header; font-weight: 400;}
+
+#header .dropdown-menu > li > a {font-family: 'Lato', sans-serif;}

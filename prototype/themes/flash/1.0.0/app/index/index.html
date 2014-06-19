@@ -1,0 +1,40 @@
+    {{ autoescape false }}
+    <!-- Wrap Properties
+        ================================================== -->
+        <div id="wrap">
+        	<div id="loader"><!--<img src="{$assets}img/bigrotation2.gif" alt="Loading..." />--></div>
+        	<!-- Grid Gallery
+            ================================================== -->
+            <div id="grid_gallery" class="scroll-pane">
+            
+            	<div id="hover-cap-4col" class="maso_container">
+                	{{ set count = 0 }}
+                    {{ for images in data.homeImages if loop.index <=35 }} 
+                        <div class="box"  >
+                             <div class="article">
+                                <img alt="{$images.name}" src="{$images.source}">
+                                <div class="hover_caption">
+                                <!--<a href="#" class="albumImage" rel="{$count}">Click Here</a>-->
+                                <a href="{$images.image}" title="{$images.name}" class="fancybox" rel="photos" data-url='{$root}gallery?album={$images.album}'></a>
+                                </div><!-- /.hover_caption -->
+                                
+                             </div>
+                         </div><!-- /.box -->
+                        {{ set count = loop.index }}
+                    {{ endfor}} 
+                     
+                  </div> <!-- /.maso_container -->
+              
+            </div>
+            
+            <div id="push"></div><!-- just for Pushing the footer -->
+            
+        </div>
+    {{ endautoescape }}
+    
+    <script>
+		$(document).ready(function(){
+			$("#loader").show();	
+			$("#grid_gallery").hide();
+		});
+	</script>

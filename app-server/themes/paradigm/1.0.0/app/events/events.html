@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="title"><h3>{$widgets.pages.events.label|i18n(pageInfo.theme_settings.Lang)}</h3></div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+        
+            <div id="events">
+            	{{ if data.events }}
+                    <ul>
+                        {{ autoescape false }}
+                        {{ set count = 0 }}
+                        {{ for event in data.events.data if loop.index <=100}}
+                            {{ if event.name }}                                                         
+                                <li>
+                                    <div class="event-list clearfix">
+                                        <div class="caption">
+                                            <h2>{$event.name}</h2>
+                                            <p>{$event.start_time|date("F d, Y - h:ia")}</p>
+                                            <p>{$event.description}</p>
+                                        </div>
+                                        <div class="img_holder"><div class="fill" {{if event.cover.source}}style="background:url({$event.cover.source}) center center no-repeat rgba(255,255,255,.2); background-size: cover;"{{else}}style="background-size:contain;"{{endif}}></div></div>
+                                    </div><!-- /.event-list -->
+                                    <div class="map">
+                                        <div id="demo" class="info">
+                                            <a href="http://facebook.com/events/{$event.id}/" target="_blank" class="rsvp btn-default" title="{$event.name}" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Events', 'RSVP']);">RSVP</a>
+                                            <div class="map">
+                                                {{ if event.venue.latitude }}
+                                                    <iframe width="100%" scrolling="no" height="280" frameborder="0" src="" marginwidth="100" marginheight="0" data-src="https://maps.google.com/?q={$event.venue.street}+{$event.venue.city}+{$event.venue.state}&hl=en&sll={$event.venue.latitude},{$event.venue.longitude}&amp;z=14&amp;output=embed"></iframe>
+                                                {{ endif }}
+                                            </div>
+                                        </div>
+                                        <p><a href="javascript:void(0);" class="more" title="Title">{$"More info"|i18n(pageInfo.theme_settings.Lang)}</a></p>
+                                    </div>
+                                </li>
+                             {{ endif }}
+                                
+                            {{ set count = loop.index }}
+                            
+                        {{ endfor }}
+                        {{ endautoescape }}                  
+                        
+                                                         
+                    </ul>
+                {{ else }}
+                    <p class="text-center">{$"There are currently no upcoming events. Please check back later!"|i18n(pageInfo.theme_settings.Lang)}</p>       
+                {{ endif }}
+            </div><!-- /.event -->
+        
+        </div>
+    </div>
+</div>

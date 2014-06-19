@@ -1,0 +1,26 @@
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans);
+
+body {font-family: 'Josefin Sans', sans-serif; font-size: 18px; line-height: 1;}
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {font-family: 'Lobster', cursive; font-weight: 400;}
+
+#header .navbar-brand,
+#home,
+#contact .holder .header .navbar-brand {font-family: 'Lobster', cursive; font-weight: 400; text-transform: none;}
+
+#header .navbar-brand {font-size: 25px;}
+#home {font-size: 20px;}
+
+.navbar-nav > li {font-family: 'Lobster', cursive; font-weight: 400;}
+#gallery .nav-tabs > li,
+#gallery .head {font-family: 'Lobster', cursive; font-weight: 400; font-size: 14px;}
+
+.contact_form * {font-family: 'Josefin Sans', sans-serif; font-weight: 400;}
+
+#events ul li .caption h2 {font-family: 'Lobster', cursive; font-weight: 400; font-size: 18px;}
+#gallery .holder .thumb .caption {font-size: 18px;}

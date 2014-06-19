@@ -1,0 +1,80 @@
+    <div class="head-title">
+      <h2>{{ autoescape false }}{{ if data.about }}{$data.about} {{ endif}}{{ endautoescape}}</h2>
+    </div>
+    <!-- /.head-title -->
+</div>
+
+<!-- Blog
+================================================== -->
+<div id="content">
+  <div class="about">
+    <div class="container">
+      <div class="row">
+      
+        <div class="col-lg-4 col-md-4 col-sm-4 right visible-xs">
+        	{{ for album in data.albums.data }}
+              {{ if album.name == "Profile Pictures" }}
+                {{ for photo in album.photos.data if loop.index <= 1 }}				    
+                    <div class="img-holder"><img src="{$photo.source}" alt="{$photo.title}"></div>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                  {{endfor}}
+              {{endif}}
+            {{endfor}}          
+          <!-- /.img-holder --> 
+        </div>
+        
+        <div class="col-lg-8 col-md-8 col-sm-8 left">
+          {{ if data.mission }}
+            <h3>{$"Mission"|i18n(pageInfo.theme_settings.Lang)}</h3><br>
+            <p>{{ autoescape false }}{{if data.mission }}{$data.mission|nl2br}{{ endif }}{{ endautoescape }}</p>
+            <p>&nbsp;</p>
+          {{ endif}}
+
+          {{if data.company_overview}}
+            <h3>{$"Company Overview"|i18n(pageInfo.theme_settings.Lang)}</h3><br>
+            <p>{{ autoescape false }}{{if data.company_overview }}{$data.company_overview|nl2br}{{ endif }}{{ endautoescape }}</p>
+            <p>&nbsp;</p>
+          {{ endif}}
+
+          {{ if data.description }}
+            <h3>{$"Description"|i18n(pageInfo.theme_settings.Lang)}</h3><br>
+            <p>{{ autoescape false }}{{if data.description }}{$data.description|nl2br}{{ endif }}{{ endautoescape }}</p>
+            <p>&nbsp;</p>
+          {{ endif}}
+
+          {{ if data.general_info }}
+            <h3>{$"General Information"|i18n(pageInfo.theme_settings.Lang)}</h3><br>
+            <p>{{ autoescape false }}{{if data.general_info }}{$data.general_info|nl2br}{{ endif }}{{ endautoescape }}</p>
+            <p>&nbsp;</p>
+          {{ endif}}
+
+          {{ if data.bio }}
+            <h3>{$"Bio"|i18n(pageInfo.theme_settings.Lang)}</h3><br>
+            <p>{{ autoescape false }}{{if data.bio }}{$data.bio|nl2br}{{ endif }}{{ endautoescape }}</p>
+            <p>&nbsp;</p>
+          {{ endif}}
+
+          {{ if data.culinary_team }}
+            <h3>{$"Culinary Team"|i18n(pageInfo.theme_settings.Lang)}</h3><br>
+            <p>{{ autoescape false }}{{if data.culinary_team }}{$data.culinary_team|nl2br}{{ endif }}{{ endautoescape }}</p>
+        {{ endif}}
+        </div>
+        
+        <div class="col-lg-4 col-md-4 col-sm-4 right hidden-xs">
+        	{{ for album in data.albums.data }}
+              {{ if album.name == "Profile Pictures" }}
+                {{ for photo in album.photos.data if loop.index <= 1 }}				    
+                    <div class="img-holder"><img src="{$photo.source}" alt="{$photo.title}"></div>
+                  {{endfor}}
+              {{endif}}
+            {{endfor}}          
+          <!-- /.img-holder --> 
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <!-- /.about --> 
+  
+</div>

@@ -1,0 +1,189 @@
+<div class="title hidden-xs"><h2>{$widgets.pages.contact.label|i18n(pageInfo.theme_settings.Lang)}</h2></div><!-- /.title -->
+                                        
+<!-- Content
+================================================== -->
+<div id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="pages">
+                    
+                    <div class="contact">
+                    
+                        <div class="left hidden-sm hidden-xs" {{ if data.location.latitude == '' }} style="margin:0 auto; border-right:0; float:none;" {{ endif }}>
+                        	{{ if data.location }}
+                            <address>
+                                <h6>{$"Address"|i18n(pageInfo.theme_settings.Lang)}</h6>
+                                {{ if data.location.street }}
+                                	{$data.location.street} <br />
+                                {{ endif }}
+                                {{ if data.location.city }}
+                                	{$data.location.city} {$data.location.state} {$data.location.zip}
+                                {{ endif }}
+                                
+                                	
+                            </address>
+                            {{ endif }}
+                            {{ if data.phone }}
+                            <address>
+                                <h6>{$"Telephone"|i18n(pageInfo.theme_settings.Lang)}</h6>
+                                {$data.phone}
+                            </address>
+                            {{ endif }}
+                            
+                            {{if data.hours}}
+                
+                           <address>
+                                <h6>{$"Hours"|i18n(pageInfo.theme_settings.Lang)}</h6>
+                               
+                                {{ if data.hours.mon_1_open }}
+                	<strong>{$"Monday"|i18n(pageInfo.theme_settings.Lang)}:</strong> {$data.hours.mon_1_open|date("g:ia")} - {$data.hours.mon_1_close|date("g:ia")}{{ if data.hours.mon_2_open }}, {$data.hours.mon_2_open|date("g:ia")} - {$data.hours.mon_2_close|date("g:ia")}{{ endif }}              
+                	<br />
+                {{ endif }}
+                
+                {{ if data.hours.tue_1_open }}
+                	<strong>{$"Tuesday"|i18n(pageInfo.theme_settings.Lang)}:</strong> {$data.hours.tue_1_open|date("g:ia")} - {$data.hours.tue_1_close|date("g:ia")}{{ if data.hours.tue_2_open }}, {$data.hours.tue_2_open|date("g:ia")} - {$data.hours.tue_2_close|date("g:ia")}{{ endif }}
+                	<br />
+                {{ endif }}
+                
+                {{ if data.hours.wed_1_open }}
+                	<strong>{$"Wednesday"|i18n(pageInfo.theme_settings.Lang)}:</strong> {$data.hours.wed_1_open|date("g:ia")} - {$data.hours.wed_1_close|date("g:ia")}{{ if data.hours.wed_2_open }}, {$data.hours.wed_2_open|date("g:ia")} - {$data.hours.wed_2_close|date("g:ia")}{{endif}}
+                	<br />                            	
+                {{ endif }}
+                
+                {{ if data.hours.thu_1_open }}
+                	<strong>{$"Thursday"|i18n(pageInfo.theme_settings.Lang)}:</strong> {$data.hours.thu_1_open|date("g:ia")} - {$data.hours.thu_1_close|date("g:ia")}{{ if data.hours.thu_2_open }}, {$data.hours.thu_2_open|date("g:ia")} - {$data.hours.thu_2_close|date("g:ia")}{{endif}}
+                	<br />
+                {{ endif }}
+                
+                {{ if data.hours.fri_1_open }}
+                    <strong>{$"Friday"|i18n(pageInfo.theme_settings.Lang)}:</strong> {$data.hours.fri_1_open|date("g:ia")} - {$data.hours.fri_1_close|date("g:ia")}{{ if data.hours.fri_2_open }}, {$data.hours.fri_2_open|date("g:ia")} - {$data.hours.fri_2_close|date("g:ia")}{{endif}}
+                    <br />
+                {{ endif }}
+                
+                {{ if data.hours.sat_1_open }}
+                    <strong>{$"Saturday"|i18n(pageInfo.theme_settings.Lang)}:</strong> {$data.hours.sat_1_open|date("g:ia")} - {$data.hours.sat_1_close|date("g:ia")}{{ if data.hours.sat_2_open }}, {$data.hours.sat_2_open|date("g:ia")} - {$data.hours.sat_2_close|date("g:ia")}{{endif}}
+                    <br />
+                {{ endif }}
+                
+                {{ if data.hours.sun_1_open }}
+                	<strong>{$"Sunday"|i18n(pageInfo.theme_settings.Lang)}:</strong> {$data.hours.sun_1_open|date("g:ia")} - {$data.hours.sun_1_close|date("g:ia")}{{ if data.hours.sun_2_open }}, {$data.hours.sun_2_open|date("g:ia")} - {$data.hours.sun_2_close|date("g:ia")}{{endif}}
+                	<br />
+                {{ endif }}
+                            </address>
+                            {{endif}}
+                           
+                            <form id="contact_form" class="contactform" action="#contact_form" method="post">
+                                <div class="contact_form">
+                                    <h6>{$'Message'|i18n(pageInfo.theme_settings.Lang)}</h6>
+                                    {{ if data.msg }}
+                                        <span class="message">{$data.msg|i18n(pageInfo.theme_settings.Lang)}</span>
+                                    {{ endif }}
+                                    <ul>
+                                        <li><input name="p_name" type="text" placeholder="{$'Name'|i18n(pageInfo.theme_settings.Lang)}" class="required" /></li>
+                                        <li><input name="p_email" type="text" placeholder="{$'Email'|i18n(pageInfo.theme_settings.Lang)}" class="required email" /></li>
+                                        <li><textarea name="p_message" cols="" rows="" placeholder="{$'Message'|i18n(pageInfo.theme_settings.Lang)}" class="required"></textarea></li>
+                                        <li class="bottom"><input name="p_send" type="submit" value="{$'Send'|i18n(pageInfo.theme_settings.Lang)}" class="btn" onclick="_gaq.push(['_trackEvent', 'Contact', 'Message', 'Send Button']);"/></li>
+                                    </ul>
+                                </div><!-- /.contact_form -->
+                            </form>
+        
+                           
+                        </div><!-- /.left -->
+                        {{ if data.location.latitude }}
+                            <div class="right hidden-sm hidden-xs">                            
+                                <iframe width="609" scrolling="no" height="544" frameborder="0" src="https://maps.google.com/?q={$data.location.street}+{$data.location.city}+{$data.location.state}&hl=en&sll={$data.location.latitude},{$data.location.longitude}&amp;output=embed" marginwidth="0" marginheight="0"></iframe>
+                            </div><!-- /.right -->                        
+                        {{ endif }}
+                        <div class="left hidden-md hidden-lg" {{ if data.location.latitude == '' }} style="margin:0 auto; border-right:0; float:none;" {{ endif }} >
+                            {{ if data.location }}
+                            <address>
+                                <h6>{$"Address"|i18n(pageInfo.theme_settings.Lang)}</h6>
+                                {{ if data.location.street }}
+                                	{$data.location.street} <br />
+                                {{ endif }}
+                                {{ if data.location.city }}
+                                	{$data.location.city} {$data.location.state} {$data.location.zip}
+                                {{ endif }}
+                                
+                                	
+                            </address>
+                            {{ endif }}
+                            {{ if data.phone }}
+                            <address>
+                                <h6>{$"Telephone"|i18n(pageInfo.theme_settings.Lang)}</h6>
+                                {$data.phone}
+                            </address>
+                            {{ endif }}
+                            
+                            {{if data.hours}}
+                
+                           <address>
+                                <h6>{$"Hours"|i18n(pageInfo.theme_settings.Lang)}</h6>
+                               
+                                {{ if data.hours.mon_1_open }}
+                	{$"Monday"|i18n(pageInfo.theme_settings.Lang)}: {$data.hours.mon_1_open|date("g:ia")} - {$data.hours.mon_1_close|date("g:ia")}{{ if data.hours.mon_2_open }}, {$"Monday"|i18n(pageInfo.theme_settings.Lang)}: {$data.hours.mon_2_open|date("g:ia")} - {$data.hours.mon_2_close|date("g:ia")}{{ endif }}              
+                	<br />
+                {{ endif }}
+                
+                {{ if data.hours.tue_1_open }}
+                	{$"Tuesday"|i18n(pageInfo.theme_settings.Lang)}: {$data.hours.tue_1_open|date("g:ia")} - {$data.hours.tue_1_close|date("g:ia")}{{ if data.hours.tue_2_open }}, {$"Tuesday"|i18n(pageInfo.theme_settings.Lang)}: {$data.hours.tue_2_open|date("g:ia")} - {$data.hours.tue_2_close|date("g:ia")}{{ endif }}
+                	<br />
+                {{ endif }}
+                
+                {{ if data.hours.wed_1_open }}
+                	{$"Wednesday"|i18n(pageInfo.theme_settings.Lang)}: {$data.hours.wed_1_open|date("g:ia")} - {$data.hours.wed_1_close|date("g:ia")}{{ if data.hours.wed_2_open }}, {$"Wednesday"|i18n(pageInfo.theme_settings.Lang)}: {$data.hours.wed_2_open|date("g:ia")} - {$data.hours.wed_2_close|date("g:ia")}{{endif}}
+                	<br />                            	
+                {{ endif }}
+                
+                {{ if data.hours.thu_1_open }}
+                	{$"Thursday"|i18n(pageInfo.theme_settings.Lang)}: {$data.hours.thu_1_open|date("g:ia")} - {$data.hours.thu_1_close|date("g:ia")}{{ if data.hours.thu_2_open }}, {$"Thursday"|i18n(pageInfo.theme_settings.Lang)}: {$data.hours.thu_2_open|date("g:ia")} - {$data.hours.thu_2_close|date("g:ia")}{{endif}}
+                	<br />
+                {{ endif }}
+                
+                {{ if data.hours.fri_1_open }}
+                    {$"Friday"|i18n(pageInfo.theme_settings.Lang)}: {$data.hours.fri_1_open|date("g:ia")} - {$data.hours.fri_1_close|date("g:ia")}{{ if data.hours.fri_2_open }}, {$"Friday"|i18n(pageInfo.theme_settings.Lang)}: {$data.hours.fri_2_open|date("g:ia")} - {$data.hours.fri_2_close|date("g:ia")}{{endif}}
+                    <br />
+                {{ endif }}
+                
+                {{ if data.hours.sat_1_open }}
+                    {$"Saturday"|i18n(pageInfo.theme_settings.Lang)}: {$data.hours.sat_1_open|date("g:ia")} - {$data.hours.sat_1_close|date("g:ia")}{{ if data.hours.sat_2_open }}, {$"Saturday"|i18n(pageInfo.theme_settings.Lang)}: {$data.hours.sat_2_open|date("g:ia")} - {$data.hours.sat_2_close|date("g:ia")}{{endif}}
+                    <br />
+                {{ endif }}
+                
+                {{ if data.hours.sun_1_open }}
+                	{$"Sunday"|i18n(pageInfo.theme_settings.Lang)}: {$data.hours.sun_1_open|date("g:ia")} - {$data.hours.sun_1_close|date("g:ia")}{{ if data.hours.sun_2_open }}, {$"Sunday"|i18n(pageInfo.theme_settings.Lang)}: {$data.hours.sun_2_open|date("g:ia")} - {$data.hours.sun_2_close|date("g:ia")}{{endif}}
+                	<br />
+                {{ endif }}
+                            </address>
+                            {{endif}}
+                            
+                            <form id="contact__form" action="#contact__form" method="post">
+                                <div class="contact_form">
+                                    <h6>{$'Message'|i18n(pageInfo.theme_settings.Lang)}</h6>
+                                    {{ if data.msg }}
+                                        <span class="message">{$data.msg|i18n(pageInfo.theme_settings.Lang)}</span>
+                                    {{ endif }}
+                                    <ul>
+                                        <li><input name="p_name" type="text" placeholder="{$'Name'|i18n(pageInfo.theme_settings.Lang)}" class="required" /></li>
+                                        <li><input name="p_email" type="text" placeholder="{$'Email'|i18n(pageInfo.theme_settings.Lang)}" class="required email" /></li>
+                                        <li><textarea name="p_message" cols="" rows="" placeholder="{$'Message'|i18n(pageInfo.theme_settings.Lang)}" class="required"></textarea></li>
+                                        <li class="bottom"><input name="p_send" type="submit" value="{$'Send'|i18n(pageInfo.theme_settings.Lang)}" class="btn" onclick="_gaq.push(['_trackEvent', 'Contact', 'Message', 'Send Button']);"/></li>
+                                    </ul>
+                                </div><!-- /.contact_form -->
+                            </form>
+                            
+                        </div><!-- /.left -->
+                        {{ if data.location.latitude }}
+                        <div class="right hidden-lg hidden-md">                            
+                            <iframe width="609" scrolling="no" height="544" frameborder="0" src="https://maps.google.com/?q={$data.location.street}+{$data.location.city}+{$data.location.state}&hl=en&sll={$data.location.latitude},{$data.location.longitude}&amp;output=embed" marginwidth="0" marginheight="0"></iframe>
+                            
+                        </div><!-- /.right -->
+                        {{ endif }}
+                    </div><!-- /.contact -->
+                    
+                </div><!-- /.pages -->
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,85 @@
+<script src="{$assets}js/jquery.masonry.min.js"></script>
+<script src="{$assets}js/base.js"></script>
+
+<style>#.gallery_wrap {background-color: #4F4D57;} body {background-color: #4F4D57;} </style>
+
+
+<!-- Grid Gallery
+================================================== -->
+<div id="grid_gallery">
+
+ <div  id="hover-cap-6col" class="maso_container2">
+    {{ if data.isalbumdac }}
+        {{ for photo in data.albumsOnly.photos.data }}
+            <div class="box2">
+         <div class="article">
+            <img alt="" src="{$photo.source}">
+            <div class="hover_caption">
+                <div class="top">
+                    <span class="icon"><i class="icon-plus"></i></span>
+                    <a href="{$photo.images}" rel="prettyPhoto[gallery1]" title="{{autoescape false}}{$album.name}{{endautoescape}}" class="prettyPhoto"></a>
+                </div>
+                <div class="bottom">
+                    <h3>{{autoescape false}}{$album.name|i18n(pageInfo.theme_settings.Lang)}{{endautoescape}}</h3>
+                </div>
+            </div><!-- /.hover_caption -->
+         </div>
+     </div>
+        {{ endfor}}
+    {{ else }}
+        {{ set count = 0 }}
+        {{ for album in data.albums.data }}
+            {{ if (album.name != 'Timeline Photos') and (album.name != 'Cover Photos') and (album.name != 'Profile Pictures') }}            
+            
+                {{ set has_cover = false }}
+                {{if album.cover_photo }}
+                    {{ for photo in album.photos.data }}      
+                        {{if album.cover_photo == photo.id}}
+                        {{ set has_cover = true }}
+                        <div class="box2">
+         <div class="article">
+         <a href="{$root}album?album={$album.id}">
+            <img src="{$photo.source}">
+            <div class="hover_caption">
+                <div class="top">
+                    <span class="icon"><i class="icon-plus"></i></span>
+                </div>
+                <div class="bottom">
+                {{ if album.name != '' }}
+                    <h3>{{autoescape false}}{$album.name|i18n(pageInfo.theme_settings.Lang)}{{endautoescape}}</h3>
+                {{ endif }}
+                </div>
+            </div><!-- /.hover_caption -->
+            </a>
+         </div>
+     </div>
+                        {{endif}}
+                    {{ endfor }}
+                 {{endif}} 
+                 {{ set firstimage = false }}
+                 {{if has_cover == false}}
+                    {{ for photo in album.photos.data if loop.index<2 }} 
+                        {{ set firstimage = photo.id }} 
+                        <div class="box2">
+         <div class="article">
+            <img alt="" src="{$photo.source}">
+            <div class="hover_caption">
+                <div class="top">
+                    <span class="icon"><i class="icon-plus"></i></span>
+                    <a href="{$photo.source}" rel="prettyPhoto[gallery1]" title="{{autoescape false}}{$album.name}{{endautoescape}}" class="prettyPhoto"></a>
+                </div>
+                <div class="bottom">
+                    <h3>{{autoescape false}}{$album.name|i18n(pageInfo.theme_settings.Lang)}{{endautoescape}}</h3>
+                </div>
+            </div><!-- /.hover_caption -->
+         </div>
+     </div>
+                    
+    {{ endfor }}
+                    {{endif}}
+        {{ endif }}
+                   {{ set count = loop.index }}
+            {{ endfor}} 
+    </div> <!-- /.maso_container2 -->
+{{endif}}
+</div>

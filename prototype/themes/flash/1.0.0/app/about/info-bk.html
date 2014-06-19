@@ -1,0 +1,56 @@
+<div class="row">
+
+	<div class="holder gutter">
+        {{ autoescape false }}
+        {{ if data.about }}    
+    	<h2>{$data.name}</h2>
+        <p>{$data.about|nl2br}</p>
+        {{ endif }}
+        {{ endautoescape}}
+                
+        {{ autoescape false }}
+        {{ if data.description }}     	
+        <h2>{$"About"|i18n(pageInfo.theme_settings.Lang)}</h2>
+        <p>{$data.description|nl2br}</p>
+        {{ endif }}
+        {{ endautoescape}}
+            
+        {{ autoescape false }}
+        {{if data.mission}}        
+        <h2>{$"Mission"|i18n(pageInfo.theme_settings.Lang)}</h2>
+        <p>{$data.mission|nl2br}</p>
+        {{endif}}
+        {{ endautoescape}}    
+
+        {{ autoescape false }}
+        {{if data.company_overview}}        
+        <h2>{$"Company Overview"|i18n(pageInfo.theme_settings.Lang)}</h2>
+        <p>{$data.company_overview|nl2br}</p>
+        {{endif}}
+        {{ endautoescape}}
+
+        {{ autoescape false }}
+        {{if data.general_info}}        
+        <h2>{$"General Information"|i18n(pageInfo.theme_settings.Lang)}</h2>
+        <p>{$data.general_info|nl2br}</p>
+        {{endif}}
+        {{ endautoescape}}
+
+        {{ autoescape false }}
+        {{if data.bio}}        
+        <h2>{$"Bio"|i18n(pageInfo.theme_settings.Lang)}</h2>
+        <p>{$data.bio|nl2br}</p>
+        {{endif}}
+        {{ endautoescape}}
+
+        {{ autoescape false }}
+        {{if data.culinary_team}}        
+        <h2>{$"Culinary Team"|i18n(pageInfo.theme_settings.Lang)}</h2>
+        <p>{$data.culinary_team|nl2br}</p>
+        {{endif}}
+        {{ endautoescape}}
+    </div>
+
+</div>
+
+

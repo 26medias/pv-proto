@@ -1,0 +1,13 @@
+#wrap .green-overlay {
+	background: rgba(165, 30, 73, 0.8);
+}
+
+/*** LOGO AND HEADER ***/
+
+.fixed-head .logo a:hover, body > div.header .menu li a:hover {
+	color: rgb(165, 30, 73);
+}
+
+#gallery ul.thumb li .img-holder:hover {
+	border: 2px solid rgb(165, 30, 73);
+}

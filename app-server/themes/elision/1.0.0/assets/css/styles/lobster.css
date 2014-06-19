@@ -1,0 +1,34 @@
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans);
+@theme-header: 			'Lobster';
+@theme-text: 			'Josefin Sans';
+
+body {font-family: @theme-text; font-weight: 100; font-size: 18px;}
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {font-family: @theme-header; font-weight: 400;}
+
+#header .navbar-default .navbar-brand {font-family: @theme-header; font-weight: 900;}
+
+#header .nav > li > a {font-family: 'Lato', sans-serif; font-weight: 300;}
+#header .seprator {font-family: 'Lato', sans-serif; font-weight: 100;}
+
+#gallery .nav-tabs > li {font-family: @theme-header; font-size: 18px; font-weight: 400;}
+
+#gallery .head {font-family: @theme-header; font-size: 15px; font-weight: 400;}
+
+#content h2 {font-size: 18px;}
+
+#gallery .holder .thumb .caption {font-weight: 400; font-size: 18px;}
+#gallery .head {font-size: 18px;}
+
+#content .event-list .caption h4,
+#content .event-desc h4 {font-weight: 400; font-size: 18px;}
+#content .event-list .caption p {font-size: 18px;}
+
+#content .contact .contact_form .btn {font-family: @theme-header; font-size: 18px; font-weight: 400;}
+
+#header .dropdown-menu > li > a {font-family: 'Lato', sans-serif;}

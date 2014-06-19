@@ -1,0 +1,54 @@
+<div class="about">
+    <h2 class="hidden-xs" style="margin-bottom: 5px">{$widgets.pages.about.label|i18n(pageInfo.theme_settings.Lang)}</h2>
+  
+	    {{ autoescape false }}
+        {{ if data.description }}
+        <p>&nbsp;</p>     	
+        <h3>{$"About"|i18n(pageInfo.theme_settings.Lang)}</h3>
+        <p>{$data.description|nl2br}</p>
+        {{ endif }}
+        {{ endautoescape}}
+            
+        {{ autoescape false }}
+        {{if data.mission}}
+        <p>&nbsp;</p>        
+        <h3>{$"Mission"|i18n(pageInfo.theme_settings.Lang)}</h3>
+        <p>{$data.mission|nl2br}</p>
+        {{endif}}
+        {{ endautoescape}}    
+
+        {{ autoescape false }}
+        {{if data.company_overview}}        
+        <p>&nbsp;</p>        
+        <h3>{$"Company Overview"|i18n(pageInfo.theme_settings.Lang)}</h3>
+        <p>{$data.company_overview|nl2br}</p>
+        {{endif}}
+        {{ endautoescape}}
+
+        {{ autoescape false }}
+        {{if data.general_info}}        
+        <p>&nbsp;</p>        
+        <h3>{$"General Information"|i18n(pageInfo.theme_settings.Lang)}</h3>
+        <p>{$data.general_info|nl2br}</p>
+        {{endif}}
+        {{ endautoescape}}
+
+        {{ autoescape false }}
+        {{if data.bio}}        
+        <p>&nbsp;</p>        
+        <h3>{$"Bio"|i18n(pageInfo.theme_settings.Lang)}</h3>
+        <p>{$data.bio|nl2br}</p>
+        {{endif}}
+        {{ endautoescape}}
+
+        {{ autoescape false }}
+        {{if data.culinary_team}}        
+        <p>&nbsp;</p>        
+        <h3>{$"Culinary Team"|i18n(pageInfo.theme_settings.Lang)}</h3>
+        <p>{$data.culinary_team|nl2br}</p>
+        {{endif}}
+        {{ endautoescape}}
+    
+</div><!-- /.about -->
+
+<div id="push"></div>

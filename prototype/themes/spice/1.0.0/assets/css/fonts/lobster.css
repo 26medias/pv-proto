@@ -1,0 +1,43 @@
+
+@import url(http://fonts.googleapis.com/css?family=Comfortaa:400);
+@import url(http://fonts.googleapis.com/css?family=Comfortaa:300);
+@import url(http://fonts.googleapis.com/css?family=Comfortaa:700);
+@import url(http://fonts.googleapis.com/css?family=Lobster+Two:400);
+@import url(http://fonts.googleapis.com/css?family=Lobster+Two:400italic);
+
+body {font-family: 'Comfortaa', cursive; font-weight: 400;}
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {font-family: 'Lobster Two', cursive; font-weight: 400; font-style: italic; text-transform: none;}
+
+#header {font-family: 'Lobster Two', cursive; font-weight: 400; font-style: italic;}
+
+#header .navbar-brand {font-size: 30px;}
+#header .navbar-nav>li>a {text-transform: capitalize; font-size: 20px;}
+
+#footer,
+#top_section,
+#mid_section .title h2 {font-family: 'Comfortaa', cursive; font-weight: 400; font-style: normal;}
+
+#top_section ul.info {padding: 12px 0 5px; font-size: 14px;}
+
+#content .home h1 {font-family: 'Comfortaa', cursive; font-weight: 400; font-style: normal; font-size: 30px;}
+
+#content .pages ul.events li .date {font-family: 'Lobster Two', cursive; font-weight: 400; font-style: italic; font-size: 22px; text-transform: none;}
+#content .pages ul.events li ul.inner li .left .rsvp a.btn {font-family: 'Comfortaa', cursive; font-weight: 700; font-style: normal;}
+#content .pages .gallery .thumbnail .caption {font-family: 'Lobster Two', cursive; font-weight: 400; font-size: 16px; font-style: italic;}
+#content .pages h6 {margin-bottom: 5px; font-size: 18px;}
+#content .pages h3 {font-size: 22px; text-transform: capitalize;}
+
+.contact_form * {font-family: 'Comfortaa', cursive; font-weight: 400;}
+.contact_form h6 {font-family: 'Lobster Two', cursive; font-weight: 400; font-style: italic; text-transform: none;}
+
+#content .pages ul.news-new li.with-pic .left,
+#content .pages ul.news-new li.without-pic .right {font-family: 'Lobster Two', cursive; font-weight: 400;}
+
+@media only screen and (max-width: 767px) {
+	
+}

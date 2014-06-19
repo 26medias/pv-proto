@@ -1,0 +1,125 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="title"><h3>{$widgets.pages.gallery.label|i18n(pageInfo.theme_settings.Lang)}</h3></div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="gallery" class="gallery">
+            
+            	{{ if data.isalbumdac }}
+                    <div class="head">
+                            <div class="row">
+                                <div class="col-sm-6 col-xs-12">
+                                    <div class="left"><a href="{$root}gallery" title="Title">&laquo; {$"Return to Gallery"|i18n(pageInfo.theme_settings.Lang)}</a></div><!-- /.left -->
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                    <div class="right">{$data.albumsOnly.name}</div><!-- /.right -->
+                                </div>
+                            </div>
+                        </div><!-- /.head -->                                    
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                      <div class="tab-pane active" id="photos">
+                        <div class="holder">
+                            <div class="row">
+                            	{{ for photo in data.albumsOnly.photos.data }}
+                                <div class="col-lg-3 col-md-4 col-sm-6">
+                                    <div class="thumb album">
+                                        <a href="{$photo.images}" title="{$photo.name}" class="img-holder fancybox" rel="{$data.name}">
+                                            <div class="fill-hover"></div>
+                                            <div class="fill" style="background-image:url({$photo.source});"></div>
+                                        </a>
+                                    </div><!-- /.thumb -->
+                                </div>
+                                {{ endfor}}                                                                    
+                            </div>
+                        </div><!-- /.holder -->
+                      </div>
+                    </div>
+                {{ else }}<!-- Nav tabs -->
+                    <ul class="nav nav-tabs">
+                      <li class="active"><a href="#photos" data-toggle="tab">{$"Photos"|i18n(pageInfo.theme_settings.Lang)}</a></li>
+                      {{ if data.videos }}
+                      <li>|</li>
+                      <li><a href="#videos" data-toggle="tab">{$"Videos"|i18n(pageInfo.theme_settings.Lang)}</a></li>
+                      {{ endif}}
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                      <div class="tab-pane active" id="photos">
+                        <div class="holder">
+                            <div class="row">
+                                {{ set count = 0 }}
+                                {{ for album in data.albums.data}}
+                                    {{ if (album.name != 'Cover Photos') }}                     
+                                        
+                                        {{ set has_cover = false }}
+                                        {{if album.cover_photo }}
+                                            {{ for photo in album.photos.data }}      
+                                                {{if album.cover_photo == photo.id}}
+                                                    {{ set has_cover = true }} 
+                                                        <div class="col-lg-3 col-md-4 col-sm-6">
+                                                            <div class="thumb">
+                                                                <a href="{$root}gallery?album={$count}" title="Album Name" class="img-holder">
+                                                                    <div class="fill-hover"></div>
+                                                                    <div class="fill" style="background-image:url({$photo.source})"></div>
+                                                                </a>
+                                                                <div class="caption">
+                                                                    {{ autoescape false }}{$album.name|i18n(pageInfo.theme_settings.Lang)} {{ endautoescape }}
+                                                                </div>
+                                                            </div><!-- /.thumb -->
+                                                        </div>
+                                                    {{endif}}
+                                            {{ endfor }}
+                                                    
+                                        {{endif}} 
+                                        
+                                        {{ set firstimage = false }}
+                                        {{ if has_cover == false }}
+                                            {{ for photo in album.photos.data if loop.index<2 }}  
+                                                {{ set firstimage = photo.id }} 
+                                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                                        <div class="thumb">
+                                                            <a href="{$root}gallery?album={$count}" title="Album Name" class="img-holder">
+                                                                <div class="fill-hover"></div>
+                                                                <div class="fill" style="background-image:url({$photo.source})"></div>
+                                                            </a>
+                                                            <div class="caption">
+                                                                {{ autoescape false }}{$album.name|i18n(pageInfo.theme_settings.Lang)} {{ endautoescape }}
+                                                            </div>
+                                                        </div><!-- /.thumb -->
+                                                    </div>
+                                                {{ endfor }}
+                                       {{endif}}
+                                    {{ endif }}
+                                    {{ set count = loop.index }}
+                                {{ endfor}} 
+                                
+                            </div>
+                        </div><!-- /.holder -->
+                      </div>
+                      {{ if data.videos }}
+                      <div class="tab-pane" id="videos">
+                        {{ for video in data.videos.data if loop.index <= 6 }}
+                        <div class="holder">
+                            <div class="video">
+                                <h5>{{ autoescape false }}  {$video.name} {{ endautoescape }}</h5>
+                                {{ autoescape false }}
+                                    {$video.format[1].embed_html}
+                                {{ endautoescape }}
+                            </div><!-- /.video -->
+                        </div><!-- /.holder -->
+                        {{ endfor }}
+                      </div>
+                      {{ endif }}                
+                {{ endif }}
+                </div>
+            </div><!-- /.gallery -->
+        </div>
+    </div>
+</div>

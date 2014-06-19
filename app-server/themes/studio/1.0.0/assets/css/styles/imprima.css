@@ -1,0 +1,44 @@
+@import url(http://fonts.googleapis.com/css?family=Cantata+One);
+@import url(http://fonts.googleapis.com/css?family=Imprima);
+
+
+body > div.header .logo {
+	font-family:		'Cantata One';
+}
+
+.menu{
+	font-family:		'Cantata One';
+}
+
+#home p{
+	font-family:		'Cantata One';
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+	font-family:		'Cantata One';
+}
+
+#about .main p {
+	font-family:		'Imprima';
+}
+
+#news ul.news li{
+	font-family:		'Imprima';
+}
+
+#gallery ul.tab li{
+	font-family:		'Cantata One';
+}
+
+#gallery ul.thumb li p{
+	font-family:		'Imprima';
+}
+
+#contact p{
+	font-family:		'Cantata One';
+}
+
+p{
+	font-family:		'Imprima';
+}

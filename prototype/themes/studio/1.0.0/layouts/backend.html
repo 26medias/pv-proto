@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- 
+	This is the main layout.
+	-->
+	<head>
+		<meta charset="utf-8">
+		<title>{$title}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<!-- fancybox -->
+		<link href="{$assets}css/jquery.fancybox.css" rel="stylesheet">		
+        <!-- Thumbnail resizer -->		
+        <link href="{$assets}css/jquery.nailthumb.1.1.css" type="text/css" rel="stylesheet" />		
+		<!-- Reset -->
+		<link href="{$assets}css/reset.css" rel="stylesheet">
+		<!-- Grids -->
+		<link href="{$assets}css/960.css" rel="stylesheet">
+		<!-- Actual Style / LessCSS -->
+		<link href="{$assets}css/theme.css" rel="stylesheet/less" type="text/css">
+		<!-- End/Fix -->
+		<link href="{$assets}css/end.css" rel="stylesheet/less">
+		<link href="{$assets}css/style.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<!-- jQuery -->
+		<script src="{$assets}js/jquery-1.8.2.js"></script>
+		<!-- LessCSS -->
+		<script src="{$assets}js/less-1.3.0.min.js"></script>
+		<!-- Toogle Widget -->
+		
+		<script type="text/javascript" src="{$assets}js/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="{$assets}js/jquery.plusanchor.js"></script>
+		<!-- Thumbnail resize -->
+    	<script type="text/javascript" src="{$assets}js/jquery.nailthumb.1.1.js"></script>
+		<!-- Fancybox -->
+		<script src="{$assets}js/jquery.fancybox.js"></script>	
+        
+       <script>
+	   $(function(){
+				
+			var c = 0;
+			$('.extranav').each(function(){
+				c++;
+				$(this).attr('href','{$root}');
+			});
+			var c = 0;
+			$('.extrapage').each(function(){
+				c++;
+				$(this).find('.title').html($('#widget'+c).html());
+				$(this).attr('id','extra'+c);
+			});
+		});
+		</script>
+        <script src="{$assets}js/include.js"></script>
+       
+</head>
+	<body>
+   
+		<div class="header">
+        	<div class="container_24 top-head">
+            	<div class="fixed-head">
+                    <div class="grid_5 alpha omega logo"><div id="#home"><div class="logo"><a href="#home">{$data.name}</a></div></div></div>          <div class="holder">          
+                        <ul class="menu right">
+                            <li><a href="{$root}" title="About">About</a></li>
+                            <li><a href="{$root}" title="News/Events">News/Events</a></li>
+                            <li><a href="{$root}" title="Gallery">Gallery</a></li>
+                            {{ for pagename,pageinfo in widgets.pages }}
+								<li {{if app.name==pagename}}class="active"{{endif}}>
+                                	<a href="" id="widget{$loop.index}" class="extranav">{$pageinfo.label}</a>
+                                 </li>
+							{{ endfor }}                             
+                            <li><a href="{$root}" title="Contact">Contact</a></li>
+                            
+                        </ul>
+                    <div class="fix"></div>
+                    <a href="#" id="pull">Navigation</a><!--switching menus for mobile-->
+                </div><!--holder-->
+                </div> 
+            </div>
+		</div>
+        
+        <div class="main-wrap">
+        
+        	<div class="container_24 fixer" style="top:62px;">
+		
+				<div class="layout_12">
+					<div class="col_3">
+						<!-- We list the backend interfaces in the side menu -->
+						{{ for groupname, interfaces in backend }}
+						<div class="box">
+							<div class="header">
+								<div class="label">{$groupname}</div>
+							</div>
+							<div class="content">
+								<ul class="list menu">
+									{{ for appname,interface in interfaces }}
+									<li {{if app.name == appname}}class="active"{{endif}}>
+										<a href="{$root}{$appname}">{$interface.label}</a>
+									</li>
+									{{ endfor }}
+								</ul>
+							</div>
+						</div>
+						{{ endfor }}
+						
+					</div>
+					<div class="col_9">
+						<!-- The view will be included here -->
+						<!-- if we don't turn off "autoescape", the view's HTML would be encoded -->
+						{{ autoescape false }}
+						{$output}
+						{{ endautoescape }}
+					</div>
+				</div>
+			</div>
+        </div>
+		
+		<div class="clearfix"></div>
+		<div class="footer" id="footer">
+            
+			<div class="container_24 fixer">
+            
+            	
+            	<div class="container_24 foot">
+                    <div class="grid_4 alpha omega flt-left foot-left"><p>&copy; {$data.theme_settings.company_name}</p></div>
+                    <div class="grid_4 alpha omega float-right foot-right"><p class="align-right"><a href="http://pagevamp.com/">Powered by Pagevamp</a></p></div>
+                </div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="clearfix"></div>
+			
+	</body>
+</html>

@@ -1,0 +1,85 @@
+{{ for file in data.widgets.includes.less }}
+	<link href="{$file}" rel="stylesheet/less" type="text/css">
+{{ endfor }}
+{{ for file in data.widgets.includes.js }}
+	<script type="text/javascript" src="{$file}"></script>
+{{ endfor }}
+
+<div class="content gutter">
+    {{ for pagename,pageinfo in widgets.pages }}
+        {{if app.name==pagename}}
+                <h2>{$pageinfo.label|i18n(pageInfo.theme_settings.Lang)}</h2>
+        {{endif}}
+    {{ endfor }}    	
+    
+    <div class="container nopadding">
+    	<div class="grid-container"></div>           
+    </div>		
+</div>
+
+<script type="text/javascript">
+	
+	var widgets = {
+		created:	{$data.widgets.created|json_encode|raw},
+		available:	{$data.widgets.available|json_encode|raw},
+		options:	{$data.widgets.options|json_encode|raw}
+	};
+	
+	function dynamicHeight(){			
+		pHeight = 0;
+		pTop = 0;
+		maxHeight = 0;
+		
+		$('.widget-container').each(function(){
+			if($(this).position().top >= pTop){
+				pTop = $(this).position().top;
+			}
+		});
+		
+		$('.widget-container').each(function(){
+			if($(this).position().top == pTop){
+				if($(this).height() >= maxHeight)
+					maxHeight = $(this).height();
+			}
+		});
+		
+		pHeight = pTop + parseFloat(maxHeight) + 40;
+		$('.grid-container').parents('.container').css('min-height', pHeight+'px');
+	}
+	
+	function resetTimer(){
+		try {
+			var timer;
+			clearTimeout(timer);
+			timer = setTimeout(function() {
+				dynamicHeight(); }, 600);			
+		} catch (err) {
+			console.log(err);
+		}	
+	}
+	
+	$(function() {		
+		
+		//$( "#resizable" ).resizable();
+		
+		$(".grid-container").grid({
+			edit:		false,
+			authtoken:	'',
+			pageid:		false,
+			page:		false,
+			showsingle:  600,
+			cellheight:	50,
+			cols:		2,		// Number of columns
+			ratio:		1,		// Cell ratio: 1 = square
+			margin:		1,		// in %,
+			widgets:	widgets.available,
+			toload:		widgets.created
+		});
+		
+		dynamicHeight()
+	});
+	
+	$(window).resize(function(){
+		resetTimer();
+	});
+</script>

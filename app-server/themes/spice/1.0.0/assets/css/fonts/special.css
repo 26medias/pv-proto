@@ -1,0 +1,39 @@
+
+@import url(http://fonts.googleapis.com/css?family=Architects+Daughter);
+@import url(http://fonts.googleapis.com/css?family=Special+Elite);
+
+body {font-family: 'Architects Daughter', cursive; font-weight: 400; font-size: 16px;}
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {font-family: 'Special Elite', cursive; font-weight: 400;}
+
+address h6 {text-transform: uppercase;}
+
+#header,
+#footer,
+#top_section {font-family: 'Special Elite', cursive; font-weight: 400;}
+
+#header .navbar-brand {text-transform: uppercase;}
+#header .navbar-nav>li>a {text-transform: capitalize; font-size: 16px;}
+
+#top_section ul.info {padding: 12px 0 5px;}
+
+#content .home h1 {font-family: 'Architects Daughter', cursive; font-weight: 400; font-size: 30px;}
+
+#content .pages ul.events li .date {font-family: 'Special Elite', cursive; font-weight: 400; text-transform: uppercase;}
+#content .pages ul.events li ul.inner li .left .rsvp a.btn {font-family: 'Special Elite', cursive; font-weight: 400; font-size: 15px; padding: 2px 18px 0;}
+#content .pages .gallery .thumbnail .caption {font-family: 'Special Elite', cursive; font-weight: 400;}
+#content .pages h6 {margin-bottom: 5px; font-size: 16px;}
+
+.contact_form * {font-family: 'Architects Daughter', cursive; font-weight: 400;}
+.contact_form h6 {font-family: 'Special Elite', cursive; font-weight: 400; text-transform: uppercase;}
+
+#content .pages ul.news-new li.with-pic .left,
+#content .pages ul.news-new li.without-pic .right {font-family: 'Special Elite', cursive; font-weight: 400;}
+
+@media only screen and (max-width: 767px) {
+	
+}

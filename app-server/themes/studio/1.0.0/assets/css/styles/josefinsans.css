@@ -1,0 +1,46 @@
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans);
+@font-headers: 'Lobster';
+@font-text: 'Josefin Sans';
+
+
+body > div.header .logo {
+font-family: @font-headers;
+}
+
+.menu{
+	font-family:		@font-headers;
+}
+
+#home p{
+	font-family:		@font-text;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+	font-family:		@font-headers;
+}
+
+#about .main p {
+	font-family:		@font-text;
+}
+
+#news ul.news li{
+	font-family:		@font-text;
+}
+
+#gallery ul.tab li{
+	font-family:		@font-headers;
+}
+
+#gallery ul.thumb li p{
+	font-family:		@font-text;
+}
+
+#contact p{
+	font-family:		@font-text;
+}
+
+p{
+	font-family:		@font-text;
+}

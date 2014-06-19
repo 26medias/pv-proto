@@ -1,0 +1,62 @@
+<div id="content">        	
+    <div class="holder">
+    
+        <h2>{$widgets.pages.contact.label|i18n(pageInfo.theme_settings.Lang)}</h2>
+        
+        {{ if data.phone }}
+        <address>
+            <strong>{$"Phone"|i18n(pageInfo.theme_settings.Lang)}:</strong>{$data.phone}
+        </address>
+        {{ endif }}
+        
+        {{ if data.location }}
+        <address>
+            <strong>{$"Address"|i18n(pageInfo.theme_settings.Lang)}: </strong>
+                {$data.locationcommas}
+        </address>
+        {{ endif }}
+        
+        <form id="contact_form" action="#contact_form" method="post" class="hidden-md hidden-lg">
+        	<div class="contact_form">
+            	<h2>{$'Message'|i18n(pageInfo.theme_settings.Lang)}:</h2>
+                {{ if data.msg }}
+                    <span class="message">{$data.msg|i18n(pageInfo.theme_settings.Lang)}</span>
+                {{ endif }}
+            	<div class="top">
+                    <ul>
+                        <li><input name="p_name" type="text" placeholder="{$'Name'|i18n(pageInfo.theme_settings.Lang)}" class="required" /></li>
+                        <li><input name="p_email" type="text" placeholder="{$'Email'|i18n(pageInfo.theme_settings.Lang)}" class="required email" /></li>
+                        <li><textarea name="p_message" cols="" rows="" placeholder="{$'Message'|i18n(pageInfo.theme_settings.Lang)}" class="required"></textarea></li>
+                        <li class="bottom"><input name="p_send" type="submit" value="{$'Send'|i18n(pageInfo.theme_settings.Lang)}" class="btn" onclick="_gaq.push(['_trackEvent', 'Contact', 'Message', 'Send Button']);"/></li>
+                    </ul>
+                </div><!-- /.top -->
+            </div><!-- /.contact_form -->
+        </form>
+        
+        <div class="map_holder">
+            {{ if data.location.latitude }}
+                <iframe width="490" scrolling="no" height="350" frameborder="0" src="https://maps.google.com/?q={$data.location.street}+{$data.location.city}+{$data.location.state}&hl=en&sll={$data.location.latitude},{$data.location.longitude}&amp;output=embed" marginwidth="0" marginheight="0"></iframe>
+                <div class="caption"><a href="https://maps.google.com/?q={$data.location.street}+{$data.location.city}+{$data.location.state}&hl=en&sll={$data.location.latitude},{$data.location.longitude}" style="text-align:left" target="_blank">View Larger Map</a></div>
+            {{ endif }}
+        </div><!-- /.map_holder -->
+        
+        <form id="contact_form1" action="#contact_form" method="post" class="hidden-sm hidden-xs">
+        	<div class="contact_form">
+            	<h2>{$'Message'|i18n(pageInfo.theme_settings.Lang)}:</h2>
+                {{ if data.msg }}
+                    <span class="message">{$data.msg|i18n(pageInfo.theme_settings.Lang)}</span>
+                {{ endif }}
+            	<div class="top">
+                    <ul>
+                        <li><input name="p_name" type="text" placeholder="{$'Name'|i18n(pageInfo.theme_settings.Lang)}" class="required" /></li>
+                        <li><input name="p_email" type="text" placeholder="{$'Email'|i18n(pageInfo.theme_settings.Lang)}" class="required email" /></li>
+                        <li><textarea name="p_message" cols="" rows="" placeholder="{$'Message'|i18n(pageInfo.theme_settings.Lang)}" class="required"></textarea></li>
+                        <li class="bottom"><input name="p_send" type="submit" value="{$'Send'|i18n(pageInfo.theme_settings.Lang)}" class="btn" onclick="_gaq.push(['_trackEvent', 'Contact', 'Message', 'Send Button']);"/></li>
+                    </ul>
+                </div><!-- /.top -->
+            </div><!-- /.contact_form -->
+        </form>
+        
+    </div><!-- /.holder -->
+
+</div>

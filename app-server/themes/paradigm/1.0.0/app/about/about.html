@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="about-img">
+            	{{ for album in data.albums.data }}
+                    {{ if album.name == "Cover Photos" }}
+                        {{ for cover in album.photos.data if loop.index <= 1 }}
+                        
+                        <img src="{$cover.source}" alt="{$data.name}" />
+                        
+                        {{ endfor }}
+                    {{ endif }}
+                {{ endfor }}  
+            </div><!-- /.about-img -->
+        </div>
+    </div>
+</div>
+
+<!-- Title
+================================================== -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="title"><h3>{$widgets.pages.about.label|i18n(pageInfo.theme_settings.Lang)}</h3></div>
+        </div>
+    </div>
+</div>
+
+<!-- About
+================================================== -->
+<div id="about">
+    <div class="container">
+        <div class="row">
+        	{{ if data.mission or data.company_overview }}
+            <div class="col-md-6 col-sm-6 {{if not data.description and not data.bio and not data.general_info and not data.culinary_team}}centerabout{{endif}}">
+                <div class="left">
+                	 {{ if data.mission }}
+                        <h4>{$"Mission"|i18n(pageInfo.theme_settings.Lang)}</h4>
+                        <p>{{ autoescape false }}{{if data.mission }}{$data.mission|nl2br}{{ endif }}{{ endautoescape }}</p>
+                    {{ endif}}
+            
+            
+                    {{if data.company_overview}}        
+                        <h4>{$"Company Overview"|i18n(pageInfo.theme_settings.Lang)}</h4>
+                         <p>{{ autoescape false }}{{if data.company_overview }}{$data.company_overview|nl2br}{{ endif }}{{ endautoescape }}</p><br>
+                    {{ endif}}
+                	
+                    
+                </div><!-- /.left -->
+            </div>
+            {{endif}}
+            {{ if data.description or data.general_info or data.bio or data.culinary_team }}
+            <div class="col-md-6 col-sm-6 {{if not data.mission and not data.company_overview}}centerabout{{endif}}">
+                <div class="right">
+                    {{ if data.description }}
+                        <h4>{$"Description"|i18n(pageInfo.theme_settings.Lang)}</h4>
+                        <p>{{ autoescape false }}{{if data.description }}{$data.description|nl2br}{{ endif }}{{ endautoescape }}</p>
+                    {{ endif }}
+            
+                    {{ if data.general_info }}        
+                        <h4>{$"General Information"|i18n(pageInfo.theme_settings.Lang)}</h4>
+                        <p>{{ autoescape false }}{{if data.general_info }}{$data.general_info|nl2br}{{ endif }}{{ endautoescape }}</p>
+                    {{ endif }}
+            
+                    {{ if data.bio }}        
+                        <h4>{$"Bio"|i18n(pageInfo.theme_settings.Lang)}</h4>
+                        <p>{{ autoescape false }}{{if data.bio }}{$data.bio|nl2br}{{ endif }}{{ endautoescape }}</p>
+                    {{ endif }}
+            
+                    {{ if data.culinary_team }}        
+                        <h4>{$"Culinary Team"|i18n(pageInfo.theme_settings.Lang)}</h4>
+                        <p>{{ autoescape false }}{{if data.culinary_team }}{$data.culinary_team|nl2br}{{ endif }}{{ endautoescape }}</p>
+                    {{ endif }}
+                </div><!-- /.right -->
+            </div>
+            {{endif}}
+        </div>
+    </div>
+</div>

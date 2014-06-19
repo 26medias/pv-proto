@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- 
+	This is the main layout.
+	-->
+	<head>
+        <meta charset="utf-8">
+        <title>{$shared.title}{$data.name}</title>
+        <meta name="viewport" content="initial-scale = 1,user-scalable=no,maximum-scale=1.0">
+        {{ for metaname, metavalue in shared.metas }}
+            <meta name="{$metaname}" content="{$metavalue}" />
+        {{ endfor }}
+        
+        <!-- styles -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+        <link href="{$assets}css/bootstrap.min.css" rel="stylesheet">
+        <link href="{$assets}css/font-awesome.min.css" rel="stylesheet">
+        <link href="{$assets}css/custom.css" rel="stylesheet">
+        <link href="{$assets}css/responsive.css" rel="stylesheet">
+        <!--[if IE 7]>
+            <link rel="stylesheet" href="{$assets}css/font-awesome-ie7.min.css">
+        <![endif]-->
+        <!--[if lt IE 9]>
+            <link rel="stylesheet" media="all" type="text/css" href="{$assets}css/ie.css" />
+        <![endif]-->
+
+        {{ for file in pageInfo.theme_styles }}
+        <link href="{$assets}{$file}" rel="stylesheet/less" type="text/css">
+        {{ endfor }}
+        
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="{$assets}js/html5shiv.js"></script>
+          <script src="{$assets}js/respond.min.js"></script>
+        <![endif]-->        
+        <!-- Fav and touch icons -->
+        
+        <script src="{$assets}/js/jquery-1.7.2.min.js"></script>
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{$assets}/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{$assets}/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{$assets}/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="{$assets}/ico/apple-touch-icon-57-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="{$assets}/ico/apple-touch-icon-precomposed.png">
+        <link rel="shortcut icon" href="{$assets}/ico/favicon.png">
+        
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-42761096-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+
+        {{if data.site_settings.embed }}
+            {$data.site_settings.embed|raw}
+        {{endif}}
+        {{ if data.site_settings.analytics_switch == 1}}
+             {{if data.site_settings.analytics }}
+                {$data.site_settings.analytics|raw}
+            {{endif}}
+        {{endif}}
+    
+  	</head>
+	<body>
+    	
+        <!-- Header
+    ================================================== -->
+    <div class="fixed">
+    
+        <div id="header" class="bg_fixed addextra">
+        
+            <nav class="navbar" role="navigation">
+              <div class="container">
+              
+                <div class="navbar-header">
+                
+                  <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
+                  
+                {{if data.site_settings.logo_switch == 0}}	
+                	<a class="navbar-brand logo-nav" href="{$root}{$pagename}">{{ if data.name }}{$data.name}{{ endif }}</a>
+                {{else}}
+                    <div style="text-align: center;">
+                    <a href="{$root}">
+                    	<img title="{$data.name} logo" id="logoCustom" class="customLogo" src="{$data.site_settings.logo}"/>	
+                    </a>
+                    </div>
+                {{endif}}
+                  
+                </div>
+        
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-ex1-collapse hidden-md hidden-sm hidden-xs">
+               
+                  <ul class="nav navbar-nav navbar-right">
+                    {{ for pagename,pageinfo in widgets.pages_menu }}
+                        {{ if pageinfo.children is empty }} 
+                            <li>
+                                <a href="{{if pageinfo.type == 'e'}}{$pagename}{{else}}{$root}{$pagename}{{endif}}" id="widget{$loop.index}" {{if app.name==pagename}}class="active"{{endif}}><span>{$pageinfo.label|i18n(pageInfo.theme_settings.Lang)}</span></a>
+                             </li>
+                        {{ else }}
+                            <li>
+                                <a class="dropdown-toggle js-activated" data-toggle="dropdown" href="{{if pageinfo.type == 'e'}}{$pagename}{{else}}{$root}{$pagename}{{endif}}" id="widget{$loop.index}" {{if app.name==pagename}}class="active"{{endif}}><span>{$pageinfo.label|i18n(pageInfo.theme_settings.Lang)}</span></a>
+                                <ul class="dropdown-menu inner">
+                                    {{ for pagename,pageinfo in pageinfo.children }}
+                                        <li><a href="{{if pageinfo.type == 'e'}}{$pagename}{{else}}{$root}{$pagename}{{endif}}" id="widget{$loop.index}" {{if app.name==pagename}}class="active"{{endif}}><span>{$pageinfo.label|i18n(pageInfo.theme_settings.Lang)}</span></a></li>
+                                    {{ endfor }}
+                                </ul>
+                             </li>
+                        {{ endif }}
+                    {{ endfor }}
+                  </ul>
+                </div><!-- /.navbar-collapse -->                            
+                
+              </div><!-- /.container -->
+            </nav>
+            
+        </div>
+        
+    </div>               
+
+    <!-- Wrap Properties
+    ================================================== -->
+    <div id="wrap">
+
+        <!-- Main
+        ================================================== -->
+        <div id="main">
+        
+            <!-- Holder
+            ================================================== -->
+            <div id="holder">
+            
+                <!-- Top Section
+                ================================================== -->
+                <div id="top_section">
+                	<div class="container">
+                    	<div class="row">
+                        	<!--<div class="col-lg-11 col-md-11 col-sm-11">-->
+                            <div class="ts_left">
+                            	<ul class="info">
+                                	{{ if data.location }}
+                                        <li>{{ autoescape false }}{$data.locationcommas}{{ endautoescape}}</li>
+        							{{ endif }}
+                                	{{ if data.phone }}
+                                        <li>{{ autoescape false }}{$data.phone}{{ endautoescape}}</li>
+        							{{ endif }}
+                                </ul>
+                                {{ if data.phone and data.isPhoneValid }}<div class="call"><a href="tel:{$data.phone}" onclick="_gaq.push(['_trackEvent', 'Contact', 'Call', 'Click-To-Call']);">Call</a></div><!-- /.call -->{{endif}}
+                            </div>
+                        	<!--<div class="col-lg-1 col-md-1 col-sm-1 hidden-xs">-->
+                            <div class="ts_right hidden-xs">
+                            	<!--<div class="social"><a href="http://facebook.com/{$pageInfo.pageid}" class="facebook" title="{$data.name}" target="_blank">facebook</a></div>-->
+                                <div class="social">
+                                    <a href="http://facebook.com/{$pageInfo.pageid}" title="facebook" target="_blank" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Facebook Icon']);">
+                                        <img alt="facebook" src="{$assets}img/facebook_icon.png">
+                                    </a>
+                                    {{ if data.site_settings.socialicons_switch == 1}}
+                                        {{if data.site_settings.twitter_link}}
+                                        <a href="{$data.site_settings.twitter_link}" target="_blank" title="twitter" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Twitter Icon']);">
+                                            <img alt="twitter" src="{$assets}img/twitter_icon.png" >
+                                        </a>
+                                        {{endif}}
+                                        {{if data.site_settings.pinterest_link}}
+                                        <a href="{$data.site_settings.pinterest_link}" target="_blank" title="pinterest" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Pinterest Icon']);">
+                                            <img alt="pinterest" src="{$assets}img/pinterest_icon.png" >
+                                        </a>
+                                        {{endif}}
+                                        {{if data.site_settings.instagram_link}}
+                                        <a href="{$data.site_settings.instagram_link}" target="_blank" title="instagram" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Instagram Icon']);">
+                                            <img alt="pinterest" src="{$assets}img/instagram_icon.png" >
+                                        </a>
+                                        {{endif}}
+                                        {{if data.site_settings.tumblr_link}}
+                                        <a href="{$data.site_settings.tumblr_link}" target="_blank" title="tumblr" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Tumblr Icon']);">
+                                            <img alt="tumblr" src="{$assets}img/tumblr_icon.png" >
+                                        </a>
+                                        {{endif}}
+                                        {{if data.site_settings.flickr_link}}
+                                        <a href="{$data.site_settings.flickr_link}" target="_blank" title="flickr" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Flickr Icon']);">
+                                            <img alt="flickr" src="{$assets}img/flickr_icon.png" >
+                                        </a>
+                                        {{endif}}
+                                        {{if data.site_settings.youtube_link}}
+                                        <a href="{$data.site_settings.youtube_link}" target="_blank" title="youtube" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Youtube Icon']);">
+                                            <img alt="youtube" src="{$assets}img/youtube_icon.png" >
+                                        </a>
+                                        {{endif}}
+                                    {{endif}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mid Section
+                ================================================== -->
+                <div id="mid_section">
+                	
+                    <!-- Header
+                    ================================================== -->
+                    <div id="header" class="addextra">
+                    
+                        <nav class="navbar" role="navigation">
+                          <div class="container">
+                          
+                            <div class="navbar-header">
+                              <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
+                              {{if data.site_settings.logo_switch == 0}}	
+                                    <a class="navbar-brand logo-nav" href="{$root}{$pagename}">{{ if data.name }}{$data.name}{{ endif }}</a>
+                                {{else}}
+                                    <div style="text-align: center;">
+                                    <a href="{$root}">
+                                        <img title="{$data.name} logo" id="logoCustom" class="customLogo" src="{$data.site_settings.logo}"/>	
+                                    </a>
+                                    </div>
+                                {{endif}}
+                            </div>
+                     
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse navbar-ex1-collapse hidden-md hidden-sm hidden-xs">
+                              <ul class="nav navbar-nav navbar-right">
+                                {{ for pagename,pageinfo in widgets.pages_menu }}
+                                    {{ if pageinfo.children is empty }} 
+                                        <li>
+                                            <a href="{{if pageinfo.type == 'e'}}{$pagename}{{else}}{$root}{$pagename}{{endif}}" id="widget{$loop.index}" {{if app.name==pagename}}class="active"{{endif}}><span>{$pageinfo.label|i18n(pageInfo.theme_settings.Lang)}</span></a>
+                                         </li>
+                                    {{ else }}
+                                        <li>
+                                            <a class="dropdown-toggle js-activated" data-toggle="dropdown" href="{{if pageinfo.type == 'e'}}{$pagename}{{else}}{$root}{$pagename}{{endif}}" id="widget{$loop.index}" {{if app.name==pagename}}class="active"{{endif}}><span>{$pageinfo.label|i18n(pageInfo.theme_settings.Lang)}</span></a>
+                                            <ul class="dropdown-menu inner">
+                                                {{ for pagename,pageinfo in pageinfo.children }}
+                                                    <li><a href="{{if pageinfo.type == 'e'}}{$pagename}{{else}}{$root}{$pagename}{{endif}}" id="widget{$loop.index}" {{if app.name==pagename}}class="active"{{endif}}><span>{$pageinfo.label|i18n(pageInfo.theme_settings.Lang)}</span></a></li>
+                                                {{ endfor }}
+                                            </ul>
+                                         </li>
+                                    {{ endif }}
+                                {{ endfor }}
+                              </ul>
+                            </div><!-- /.navbar-collapse -->
+
+                            <div class="dropdown hidden-lg">
+                              <a class="page_title" data-toggle="dropdown" href="#">
+                              	<span class="name">
+                                {{ if(app.name == 'index') }}
+                                	Home
+                                {{ else }}
+                                    {{ for pagename,pageinfo in widgets.pages }}
+                                        {{if app.name==pagename}}
+                                            {$pageinfo.label}
+                                        {{endif}}
+                                    {{endfor}}
+                                {{ endif }}
+                                </span>
+                                <span class="arrow"><img src="{$assets}/img/arrow_down.png"></span>
+                              </a>
+                              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                {{ for pagename,pageinfo in widgets.pages_menu }}
+                                    {{ if pageinfo.children is empty }} 
+                                        <li>
+                                            <a href="{{if pageinfo.type == 'e'}}{$pagename}{{else}}{$root}{$pagename}{{endif}}" id="widget{$loop.index}" {{if app.name==pagename}}class="active"{{endif}}><span>{$pageinfo.label|i18n(pageInfo.theme_settings.Lang)}</span></a>
+                                         </li>
+                                    {{ else }}
+                                        <li>
+                                            <a class="dropdown-toggle js-activated" data-toggle="dropdown" href="{{if pageinfo.type == 'e'}}{$pagename}{{else}}{$root}{$pagename}{{endif}}" id="widget{$loop.index}" {{if app.name==pagename}}class="active"{{endif}}><span>{$pageinfo.label|i18n(pageInfo.theme_settings.Lang)}</span></a>
+                                            <ul class="dropdown-menu inner">
+                                                {{ for pagename,pageinfo in pageinfo.children }}
+                                                    <li><a href="{{if pageinfo.type == 'e'}}{$pagename}{{else}}{$root}{$pagename}{{endif}}" id="widget{$loop.index}" {{if app.name==pagename}}class="active"{{endif}}>{$pageinfo.label|i18n(pageInfo.theme_settings.Lang)}</a></li>
+                                                {{ endfor }}
+                                            </ul>
+                                         </li>
+                                    {{ endif }}
+                                {{ endfor }}
+                              </ul>
+                            </div>                            
+                            
+                          </div><!-- /.container -->
+                        </nav>
+                        
+                    </div>
+                    
+                    <div id="widget_content">
+                    {{ autoescape false }}
+                        {$output}
+                    {{ endautoescape }}
+                    </div>
+                    
+                </div>
+                
+                <div id="push"></div>
+                
+                
+            </div>
+            
+            <!-- Footer
+            ================================================== -->
+            <div id="footer">
+                <div class="ts_right visible-xs">
+                    <!--<div class="social"><a href="http://facebook.com/{$pageInfo.pageid}" class="facebook" title="{$data.name}" target="_blank">facebook</a></div>-->
+                    <div class="social social2">
+                        <a href="http://facebook.com/{$pageInfo.pageid}" title="facebook" target="_blank" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Facebook Icon']);">
+                            <img alt="facebook" src="{$assets}img/facebook_icon.png">
+                        </a>
+                        {{ if data.site_settings.socialicons_switch == 1}}
+                            {{if data.site_settings.twitter_link}}
+                            <a href="{$data.site_settings.twitter_link}" target="_blank" title="twitter" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Twitter Icon']);">
+                                <img alt="twitter" src="{$assets}img/twitter_icon.png" >
+                            </a>
+                            {{endif}}
+                            {{if data.site_settings.pinterest_link}}
+                            <a href="{$data.site_settings.pinterest_link}" target="_blank" title="pinterest" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Pinterest Icon']);">
+                                <img alt="pinterest" src="{$assets}img/pinterest_icon.png" >
+                            </a>
+                            {{endif}}
+                            {{if data.site_settings.instagram_link}}
+                            <a href="{$data.site_settings.instagram_link}" target="_blank" title="instagram" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Instagram Icon']);">
+                                <img alt="pinterest" src="{$assets}img/instagram_icon.png" >
+                            </a>
+                            {{endif}}
+                            {{if data.site_settings.tumblr_link}}
+                            <a href="{$data.site_settings.tumblr_link}" target="_blank" title="tumblr" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Tumblr Icon']);">
+                                <img alt="tumblr" src="{$assets}img/tumblr_icon.png" >
+                            </a>
+                            {{endif}}
+                            {{if data.site_settings.flickr_link}}
+                            <a href="{$data.site_settings.flickr_link}" target="_blank" title="flickr" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Flickr Icon']);">
+                                <img alt="flickr" src="{$assets}img/flickr_icon.png" >
+                            </a>
+                            {{endif}}
+                            {{if data.site_settings.youtube_link}}
+                            <a href="{$data.site_settings.youtube_link}" target="_blank" title="youtube" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Youtube Icon']);">
+                                <img alt="youtube" src="{$assets}img/youtube_icon.png" >
+                            </a>
+                            {{endif}}
+                        {{endif}}
+                    </div>
+                </div>
+            	&copy; {{ if data.name }}{$data.name}{{ endif }}<br>
+                {{if data.site_settings.whitelabel_switch == 0}}
+                    <a href="http://www.pagevamp.com">{$"Powered by"|i18n(pageInfo.theme_settings.Lang)} Pagevamp</a>
+                {{else}}
+                    {$data.site_settings.whitelabel}
+                {{endif}}
+               <!-- <div class="social visible-xs"><a href="#" class="facebook">facebook</a></div>-->
+            </div>
+        
+        </div>
+                
+    </div>
+    
+    <!-- Javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{$assets}/js/bootstrap.min.js"></script>
+    <script src="{$assets}/js/jquery.backstretch.js"></script>
+    <script src="{$assets}js/jquery.fancybox.js"></script>
+    <script src="{$assets}/js/custom.js"></script>
+    <script src="{$assets}js/bootstrap-hover-dropdown.js"></script>
+    <script>
+        // very simple to use!
+        $(document).ready(function() {
+          $('.js-activated').dropdownHover().dropdown();
+        });
+    </script>
+
+	</body>
+</html>

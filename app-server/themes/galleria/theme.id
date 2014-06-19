@@ -1,0 +1,104 @@
+{
+	"name":		"galleria",
+	"authors":	[
+		{
+			"name":		"Vincent, Pradip, and Sujan",
+			"url":		"http://www.pagevamp.com/",
+			"email":	"support@pagevamp.com"
+		}
+	],
+	"versions":	{
+		"1.0.0":	{
+			"styles":	 {
+				"Skin": {
+					"Light":	["css/colors/light.css"]
+				},
+				"Color": {
+					"Fuchsia":	["css/colors/fuchsia.css"],
+					"Tangerine":	["css/colors/tangerine.css"],
+					"Sky":	["css/colors/sky.css"],
+					"Scarlet":	["css/colors/scarlet.css"]
+				},
+				"Font": {
+					"Dancing":	["css/fonts/dancing.css"],
+					"Bitter":	["css/fonts/bitter.css"],
+					"Quattro":	["css/fonts/quattro.css"]
+				},
+				"Store": {
+					"enabled":		"enabled",
+					"disabled":		"disabled"
+				},
+				"Lang": {
+					"en_US": 	"en_US",
+					"es_ES": 	"es_ES",
+					"id_ID": 	"id_ID",
+					"pt_BR":	"pt_BR",
+					"ja_JP":	"ja_JP",
+					"vi_VN":	"vi_VN"
+				}
+			},
+			"pages":	 {
+				"index": {
+					"label":	"Home",
+					"layout":	"main.html",
+					"template":	"index/index.html",
+					"app":		"index/index.php"
+				},
+				"about": {
+					"label":	"About",
+					"layout":	"main.html",
+					"template":	"about/about.html",
+					"app":		"about/about.php"
+				},
+				"gallery": {
+					"label":	"Gallery",
+					"layout":	"main.html",
+					"template":	"gallery/gallery.html",
+					"app":		"gallery/gallery.php"
+				},
+				"album": {
+					"label":	"",
+					"layout":	"main.html",
+					"template":	"album/album.html",
+					"app":		"album/album.php"
+				},
+				"events": {
+					"label":	"Events",
+					"layout":	"main.html",
+					"template":	"events/events.html",
+					"app":		"events/events.php"
+				},
+				"news": {
+					"label":	"Blog",
+					"layout":	"main.html",
+					"template":	"news/news.html",
+					"app":		"news/news.php"
+				},
+				"post": {
+					"label": "",
+					"layout":	"main.html",
+					"template":	"post/post.html",
+					"app":		"post/post.php"
+				},
+				"contact": {
+					"label":	"Contact",
+					"layout":	"main.html",
+					"template":	"contact/contact.html",
+					"app":		"contact/contact.php"
+				}
+			},
+			"services":	{
+				"get_pictures": {
+					"app":		"admin/get_pictures.php",
+					"backend":	false
+				},
+				"theme_settings": {
+					"label":	"Theme Settings",
+					"template":	"admin/admin.html",
+					"app":		"admin/admin.php",
+					"backend":	true
+				}
+			}
+		}
+	}
+}

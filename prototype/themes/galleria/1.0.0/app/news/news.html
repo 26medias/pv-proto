@@ -1,0 +1,94 @@
+<script>
+	// iOS viewport scaling bug fix, by @mathias, @cheeaun and @jdalton
+	(function(doc){var addEvent='addEventListener',type='gesturestart',qsa='querySelectorAll',scales=[1,1],meta=qsa in doc?doc[qsa]('meta[name=viewport]'):[];function fix(){meta.content='width=device-width,minimum-scale='+scales[0]+',maximum-scale='+scales[1];doc.removeEventListener(type,fix,true);}if((meta=meta[meta.length-1])&&addEvent in doc){fix();scales=[.25,1.6];doc[addEvent](type,fix,true);}}(document));
+</script>
+
+<link rel="stylesheet" href="{$assets}fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<link rel="stylesheet" href="{$assets}fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+<link rel="stylesheet" href="{$assets}fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+
+<style>#wrap {background-color: #4F4D57;}</style>
+    
+<!-- Blogs
+================================================== -->
+<div id="blogs">
+    <div class="maso_container" id="hover-cap-4col">
+    {{ set count = 0 }}
+      {{ for post in data.posts.data if loop.index <= 50 and (post.show) }}
+      {{if (post.message or post.link or post.picture)}}
+          {{if loop.index<=50 }}
+            <div class="box">
+                <div class="article">
+                    {{ if (post.picture and post.soundcloud.html is empty and post.source is empty)}}
+                    <div class="img_holder">
+                        <a href="{$post.picture}" class="fancybox"><img class="mediapost" src="{$post.picture}" /></a>
+                        <div class="hover_caption fancybox" href="{$post.picture}">
+                            <div class="icon"><i class="icon-plus"></i></div>
+                        </div>
+                    </div>
+                    {{endif}}
+                    
+                    {{ if (post.soundcloud.html or post.source) }}
+                        <div class="img_holder">
+                        {$post.soundcloud.html|raw}
+                        {{if (post.source and post.soundcloud.html is empty)}}
+                         <iframe width="100%" src="{$post.source}?wmode=transparent" frameborder="0" allowfullscreen></iframe>
+                         {{endif}}
+                      </div>
+                    {{endif}}
+                    
+                    <div class="caption">
+                        <span class="icon_holder">
+                            {{if (post.picture is empty and post.source is empty and post.soundcloud.html is empty)}}
+                            <i class="icon-pencil"></i>
+                            {{endif}}
+                          
+                            {{ if (post.picture and (post.source is empty))}}
+                            <i class="icon-camera-retro"></i>
+                            {{endif}}
+                            {{ if (post.soundcloud.html or post.source) }}
+                            <i class="icon-play"></i>
+                            {{endif}}
+                        </span>
+                            <p>{{ autoescape false }}
+                    {{if (post.message)}}   
+                    
+                     {$post.message|raw|nl2br}
+         
+                    {{ endif }}
+                    {{ endautoescape }}</p>
+                        
+                        <ul class="list-unstyled">
+                            <li><span class="date">{$post.created_time|date("d")} {$post.created_time|date("M")|i18n(pageInfo.theme_settings.Lang)} {$post.created_time|date("Y")}</span></li>
+                <!--{{if (post.picture)}}
+                            <li>/</li>
+                            <li>{{if (post.likesCount)}} {$post.likesCount} {{else}} 0 {{endif}} <i class="icon-thumbs-up"></i></li>
+                            <li>/</li>
+                            <li>{{if (post.commentsCount)}} {$post.commentsCount} {{else}} 0 {{endif}} <i class="icon-comment"></i></li>
+                {{endif}}-->
+                        </ul>
+                    </div>
+                </div><!-- /.article -->
+            </div><!-- /.box -->
+    
+            {{ endif }}
+        {{ endif }}
+        {{ set count = count + 1 }}
+      {{ endfor }}
+        
+    </div><!-- /.maso_container -->
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+    $(".fancybox").fancybox();
+  });
+</script>
+
+<script type="text/javascript" src="{$assets}fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+<script type="text/javascript" src="{$assets}fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+<script type="text/javascript" src="{$assets}fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="{$assets}fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<script type="text/javascript" src="{$assets}fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script src="{$assets}js/jquery.masonry.min.js"></script>
+<script src="{$assets}js/base.js"></script>

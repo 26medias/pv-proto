@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>{$pageData.content.title} | {$pageData.name}</title>
+    <meta name="viewport" content="initial-scale = 1,user-scalable=no,maximum-scale=1.0">
+	{{ for metaname, metavalue in shared.metas }}
+        <meta name="{$metaname}" content="{$metavalue}" />
+    {{ endfor }}
+    
+	<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lekton' rel='stylesheet' type='text/css'>    
+    <link href="{$assets}css/bootstrap.min.css" rel="stylesheet">
+    <link href="{$assets}css/custom.css" rel="stylesheet">
+    <link href="{$assets}css/responsive.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" media="all" type="text/css" href="{$assets}css/ie.css" />
+    <![endif]-->
+    {{ for file in pageInfo.theme_styles }}
+        <link href="{$assets}{$file}" rel="stylesheet/less" type="text/css">
+    {{ endfor }}
+	<script src="{$assets}js/jquery-1.7.2.min.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="{$assets}js/html5shiv.js"></script>
+      <script src="{$assets}js/respond.min.js"></script>
+    <![endif]-->
+    
+    <script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-42761096-1']);
+		_gaq.push(['_trackPageview']);
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+    
+	{{if pageData.site_settings.embed }}
+        {$pageData.site_settings.embed|raw}
+    {{endif}}
+    {{ if pageData.site_settings.analytics_switch == 1}}
+         {{if pageData.site_settings.analytics }}
+            {$pageData.site_settings.analytics|raw}
+        {{endif}}
+    {{endif}}
+  </head>
+
+  <body>
+  
+  	<div>
+    	{{ for album in pageData.albums.data }}
+          {{ if album.name == "Cover Photos" }}
+            {{ for cover in album.photos.data if loop.index <= 4 }}
+              {{ if cover.images }}
+              	<img src="{$cover.images}" alt="Title" class="hidden">  
+              {{ else }}
+                <img src="{$cover.source}" alt="Title" class="hidden">
+              {{ endif }}
+            {{ endfor }}
+          {{ endif }}
+        {{ endfor }}
+    </div>
+  
+    <div class="cover"></div>
+    
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel carousel-fade slide">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">        	
+            {{ for album in pageData.albums.data }}
+              {{ if album.name == "Cover Photos" }}
+                {{ for cover in album.photos.data if loop.index <= 4 }}
+                  {{ if cover.images }}
+                    <div class="item {{if loop.index == 1}}active{{endif}}">
+                        <div class="fill" style="background-image: url({$cover.images});"></div>
+                    </div><!-- /.item -->
+                  {{ else }}
+                    <div class="item {{if loop.index == 1}}active{{endif}}">
+                        <div class="fill" style="background-image: url({$cover.source});"></div>
+                    </div><!-- /.item -->
+                  {{ endif }}
+                {{ endfor }}
+              {{ endif }}
+            {{ endfor }}            
+        </div>    
+    </div>    
+
+    <!-- Wrap Properties
+    ================================================== -->
+    <div id="wrap">
+    
+        <!-- Header
+        ================================================== -->
+        <div id="header">
+            {{if pageData.site_settings.logo_switch == 0}}
+            	<a href="{$root}" title="{$data.name}" class="logo">{$pageData.name}</a>
+    		{{else}}
+                <a href="{$root}"><img title="{$data.name} logo" class="customLogo" src="{$data.site_settings.logo}"/></a>
+    		{{endif}}
+        </div>
+
+        
+        <!-- Main
+        ================================================== -->
+		<div id="main">
+        	<div class="container">
+            	<div class="row">
+                	<div class="col-lg-4 col-md-4 col-sm-4">
+                        <!-- Sidebar
+                        ================================================== -->
+                        <div id="sidebar">
+                        
+                            <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+                                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                                  <ul class="nav navbar-nav">
+                                  	{{ for pagename,pageinfo in widgets.pages_menu }}
+                                        {{ if pageinfo.label }}
+                                            {{ if pageinfo.children is empty }}
+                                                <li {{if app.name==pagename}}class="active"{{endif}}>
+                                                    <a href="{{if pageinfo.type == 'e'}}{$pagename}{{else}}{$root}{$pagename}{{endif}}" id="widget{$loop.index}">{$pageinfo.label|i18n(pageInfo.theme_settings.Lang)}</a>
+                                                 </li>
+                                            {{ else }}
+                                                <li {{if app.name==pagename}}class="active"{{endif}}>
+                                                    <a class="dropdown-toggle disabled js-activated" data-toggle="dropdown" href="{{if pageinfo.type == 'e'}}{$pagename}{{else}}{$root}{$pagename}{{endif}}" id="widget{$loop.index}">{$pageinfo.label|i18n(pageInfo.theme_settings.Lang)}</a>
+                                                    <ul class="dropdown-menu">
+                                                        {{ for pagename,pageinfo in pageinfo.children }}
+                                                            <li><a href="{{if pageinfo.type == 'e'}}{$pagename}{{else}}{$root}{$pagename}{{endif}}">{$pageinfo.label|i18n(pageInfo.theme_settings.Lang)}</a></li>
+                                                        {{ endfor }}
+                                                    </ul>
+                                                </li>
+                                            {{ endif }}
+                                         {{ endif }}
+                                    {{ endfor }}
+                                  </ul>
+                                </div><!-- /.navbar-collapse -->
+                              
+                                <div class="navbar-header">
+                                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">Navigation</button>
+                                </div>
+                                        
+                            </nav><!-- /.nav -->
+                            
+                            <div class="social">
+                            	<ul class="clearfix">
+                                	<li><a href="http://facebook.com/{$pageInfo.pageid}" title="facebook" target="_blank" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Facebook Icon']);">
+                                        <img alt="facebook" src="{$assets}img/facebook_icon.png">
+                                    </a></li>
+                                    {{ if pageData.site_settings.socialicons_switch == 1}}
+                                        {{if data.site_settings.twitter_link}}
+                                        <li><a href="{$data.site_settings.twitter_link}" target="_blank" title="twitter" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Twitter Icon']);">
+                                            <img alt="twitter" src="{$assets}img/twitter_icon.png" >
+                                        </a></li>
+                                        {{endif}}
+                                        {{if pageData.site_settings.pinterest_link}}
+                                        <li><a href="{$data.site_settings.pinterest_link}" target="_blank" title="pinterest" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Pinterest Icon']);">
+                                            <img alt="pinterest" src="{$assets}img/pinterest_icon.png" >
+                                        </a></li>
+                                        {{endif}}
+                                        {{if pageData.site_settings.instagram_link}}
+                                        <li><a href="{$data.site_settings.instagram_link}" target="_blank" title="instagram" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Instagram Icon']);">
+                                            <img alt="pinterest" src="{$assets}img/instagram_icon.png" >
+                                        </a></li>
+                                        {{endif}}
+                                        {{if pageData.site_settings.tumblr_link}}
+                                        <li><a href="{$data.site_settings.tumblr_link}" target="_blank" title="tumblr" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Tumblr Icon']);">
+                                            <img alt="tumblr" src="{$assets}img/tumblr_icon.png" >
+                                        </a></li>
+                                        {{endif}}
+                                        {{if pageData.site_settings.flickr_link}}
+                                        <li><a href="{$data.site_settings.flickr_link}" target="_blank" title="flickr" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Flickr Icon']);">
+                                            <img alt="flickr" src="{$assets}img/flickr_icon.png" >
+                                        </a></li>
+                                        {{endif}}
+                                        {{if pageData.site_settings.youtube_link}}
+                                        <li><a href="{$data.site_settings.youtube_link}" target="_blank" title="youtube" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Youtube Icon']);">
+                                            <img alt="youtube" src="{$assets}img/youtube_icon.png" >
+                                        </a></li>
+                                        {{endif}}
+                                    {{endif}}
+                                	
+                                </ul>
+                            </div><!-- /.social -->
+                            
+                            
+                            
+                		{{ if pageData.phone and pageData.isPhoneValid }}
+                            <div class="call visible-xs"><a href="tel:{$data.phone}" onclick="_gaq.push(['_trackEvent', 'Contact', 'Call', 'Click-To-Call']);">Call</a></div><!-- /.call -->
+                        {{endif}}
+                            
+                            <div class="location">
+                            	{{if pageData.phone}}
+                            	<address>
+                                	{$"Phone"|i18n(pageInfo.theme_settings.Lang)}:<br>{$data.phone}
+                                </address>
+                                {{endif}}
+                                {{ if pageData.location }}
+                            	<address>
+                                	{$"Address"|i18n(pageInfo.theme_settings.Lang)}:<br>{$data.locationcommas}
+                                </address>
+                                {{ endif }}
+                                {{if data.hours}}
+                                    <address>
+                                    	{$"Hours"|i18n(pageInfo.theme_settings.Lang)}:<br/>
+                                        {{ if data.hours.mon_1_open }}
+                    {$"Monday"|i18n(pageInfo.theme_settings.Lang)}: {$data.hours.mon_1_open|date("g:ia")} - {$data.hours.mon_1_close|date("g:ia")}{{ if data.hours.mon_2_open }}, {$data.hours.mon_2_open|date("g:ia")} - {$data.hours.mon_2_close|date("g:ia")}{{ endif }}              
+                    <br />
+                                        {{ endif }}
+                
+                                        {{ if data.hours.tue_1_open }}
+                    {$"Tuesday"|i18n(pageInfo.theme_settings.Lang)}: {$data.hours.tue_1_open|date("g:ia")} - {$data.hours.tue_1_close|date("g:ia")}{{ if data.hours.tue_2_open }}, {$data.hours.tue_2_open|date("g:ia")} - {$data.hours.tue_2_close|date("g:ia")}{{ endif }}
+                    <br />
+                                        {{ endif }}
+                
+                                        {{ if data.hours.wed_1_open }}
+                    {$"Wednesday"|i18n(pageInfo.theme_settings.Lang)}: {$data.hours.wed_1_open|date("g:ia")} - {$data.hours.wed_1_close|date("g:ia")}{{ if data.hours.wed_2_open }}, {$data.hours.wed_2_open|date("g:ia")} - {$data.hours.wed_2_close|date("g:ia")}{{endif}}
+                    <br />                              
+                                        {{ endif }}
+                
+                                        {{ if data.hours.thu_1_open }}
+                    {$"Thursday"|i18n(pageInfo.theme_settings.Lang)}: {$data.hours.thu_1_open|date("g:ia")} - {$data.hours.thu_1_close|date("g:ia")}{{ if data.hours.thu_2_open }}, {$data.hours.thu_2_open|date("g:ia")} - {$data.hours.thu_2_close|date("g:ia")}{{endif}}
+                    <br />
+                                        {{ endif }}
+                
+                                        {{ if data.hours.fri_1_open }}
+                    {$"Friday"|i18n(pageInfo.theme_settings.Lang)}: {$data.hours.fri_1_open|date("g:ia")} - {$data.hours.fri_1_close|date("g:ia")}{{ if data.hours.fri_2_open }}, {$data.hours.fri_2_open|date("g:ia")} - {$data.hours.fri_2_close|date("g:ia")}{{endif}}
+                    <br />
+                                        {{ endif }}
+                
+                                        {{ if data.hours.sat_1_open }}
+                    {$"Saturday"|i18n(pageInfo.theme_settings.Lang)}: {$data.hours.sat_1_open|date("g:ia")} - {$data.hours.sat_1_close|date("g:ia")}{{ if data.hours.sat_2_open }}, {$data.hours.sat_2_open|date("g:ia")} - {$data.hours.sat_2_close|date("g:ia")}{{endif}}
+                    <br />
+                                        {{ endif }}
+                
+                                        {{ if data.hours.sun_1_open }}
+                    {$"Sunday"|i18n(pageInfo.theme_settings.Lang)}: {$data.hours.sun_1_open|date("g:ia")} - {$data.hours.sun_1_close|date("g:ia")}{{ if data.hours.sun_2_open }}, {$data.hours.sun_2_open|date("g:ia")} - {$data.hours.sun_2_close|date("g:ia")}{{endif}}
+                    <br />
+                                        {{ endif }}
+                                    </address>
+                            	{{endif}}
+                            </div><!-- /.location -->
+                            
+                            <div class="footer clearfix {{ if app.name == 'index'}}hidden-xs{{else}}visible-xs{{endif}}">
+                            <span class="copyright">&copy; {{ if data.name }}{$data.name}{{ endif }}</span>
+                                {{if data.site_settings.whitelabel_switch == 0}}
+                                <span class="powered">{$"Powered by"|i18n(pageInfo.theme_settings.Lang)} <a href="http://www.pagevamp.com" target="_blank">Pagevamp</a></span>
+                                {{else}}
+                                <span class="powered">{$data.site_settings.whitelabel}</span>
+                                {{endif}}
+                            </div><!-- /.footer -->
+                            
+                        </div>
+                    </div><!-- left ends -->
+                	<div class="col-lg-8 col-md-8 col-sm-8">
+                    	{{ autoescape false }}
+                        	{$output}
+                        {{ endautoescape }}
+                    </div><!-- right ends -->
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer clearfix {{ if app.name == 'index'}}hidden-xs{{else}}visible-xs{{endif}}">
+                            <span class="copyright">&copy; {{ if pageData.name }}{$pageData.name}{{ endif }}</span>
+                                {{if data.site_settings.whitelabel_switch == 0}}
+                                <span class="powered">{$"Powered by"|i18n(pageInfo.theme_settings.Lang)} <a href="http://www.pagevamp.com" target="_blank">Pagevamp</a></span>
+                                {{else}}
+                                <span class="powered">{$data.site_settings.whitelabel}</span>
+                                {{endif}}
+                        </div><!-- /.footer -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    
+    <!-- Javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <script src="{$assets}js/less-1.3.0.min.js"></script>
+    <script src="{$assets}js/bootstrap.min.js"></script>
+    <script src="{$assets}js/jquery.fancybox.js"></script>
+    <script src="{$assets}js/custom.js"></script>
+
+  </body>
+</html>

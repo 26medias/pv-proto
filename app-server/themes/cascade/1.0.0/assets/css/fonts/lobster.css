@@ -1,0 +1,96 @@
+
+/*Logo*/
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+
+/*Headers same as logo*/
+
+
+/*Text*/
+@import url(http://fonts.googleapis.com/css?family=Cabin:400,500,600,700,400italic,500italic,600italic,700italic);
+
+
+body {font-family: 'Cabin', sans-serif; font-weight: 400;}
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {font-family: 'Lobster', cursive; font-weight: 400;}
+
+h1 {font-size: 40px;}
+h2 {font-size: 36px;}
+h3 {font-size: 32px;}
+h4 {font-size: 28px;}
+h5 {font-size: 24px;}
+h6 {font-size: 20px;}
+
+#header .head-title h2 {font-size: 45px;}
+
+p {line-height: 2;}
+#content .event-list .caption p {line-height: 1.1;}
+
+#content .event.desc a.rsvp {line-height: 1.4; padding: 6px 15px 4px; font-weight: 400;}
+
+#header .home-content h2,
+#header h2 {font-family: 'Cabin', sans-serif; font-weight: 400; font-size: 45px;}
+
+#header .navbar-nav > li > a {font-family: 'Cabin', sans-serif; font-weight: 700;}
+
+#header .navbar-brand,
+#content .event-list .caption p a {font-family: 'Lobster', cursive; font-weight: 400;}
+
+#header .navbar-brand {font-size: 40px;}
+
+#blog ul.blog-post li .post .right h2 {font-family: 'Lobster', cursive; font-weight: 400; font-size: 32px;}
+#blog ul.blog-post li .post .left {font-size: 15px;}
+
+#footer {font-size: 16px;}
+
+#content .contact .contact_form .btn {font-family: 'Lobster', cursive; font-weight: 400;}
+
+a.left-back {font-weight: 700; font-size: 20px;}
+
+#header .navbar .dropdown-menu>li>a {font-family: 'Cabin', sans-serif; font-weight: 700;}
+
+@media only screen and (max-width: 767px) { 
+
+	body {font-size: 16px;}
+	h1 {font-size: 30px;}
+	h2 {font-size: 26px;}
+	h3 {font-size: 22px;}
+	h4 {font-size: 18px;}
+	h5 {font-size: 16px;}
+	h6 {font-size: 14px;}
+ 
+ 	#header .home-content h2,
+	#header h2,
+	#header .head-title h2 {font-size: 30px;}
+	
+	#blog ul.blog-post li .post .right h2 {font-size: 26px;}
+ 
+}
+
+@media (max-width: 480px) {
+
+	#header .home-content h2,
+	#header h2,
+	#header .head-title h2 {font-size: 24px;}
+
+}
+
+@media only screen and (max-width: 360px) {
+	
+	#header .home-content h2,
+	#header h2,
+	#header .head-title h2 {font-size: 24px;}
+	
+}
+
+@media (max-width: 320px) {
+
+	#header .home-content h2,
+	#header h2,
+	#header .head-title h2 {font-size: 20px;}
+	
+}
+

@@ -1,0 +1,40 @@
+<div class="content gutter">
+    <h2>{$widgets.pages.contact.label|i18n(pageInfo.theme_settings.Lang)}</h2>
+    {{ if data.phone }}
+    	<address>{$"Phone"|i18n(pageInfo.theme_settings.Lang)}: {$data.phone}</address>
+    {{ endif }}
+    {{ if data.location }}
+    	<address>{$"Address"|i18n(pageInfo.theme_settings.Lang)}: {$data.locationcommas}</address>
+    {{ endif }}
+</div><!-- /.content -->
+<div class="content">
+    {{ if data.location.latitude }}
+        <iframe width="660" scrolling="no" height="300" frameborder="0" src="https://maps.google.com/?q={$data.location.street}+{$data.location.city}+{$data.location.state}&hl=en&sll={$data.location.latitude},{$data.location.longitude}&amp;output=embed" marginwidth="0" marginheight="0"></iframe>
+        <p><a href="https://maps.google.com/?q={$data.location.street}+{$data.location.city}+{$data.location.state}&hl=en&sll={$data.location.latitude},{$data.location.longitude}" title="Larger Map" class="map" target="_blank">{$'View Larger Map'|i18n(pageInfo.theme_settings.Lang)}</a></p> 
+    {{ endif }}
+    
+</div><!-- /.content -->
+<div class="content gutter">
+    <h2>{$'Send Message'|i18n(pageInfo.theme_settings.Lang)}</h2>
+    <form id="contact_form" action="#contact_form" method="post">
+        <div class="contact_form">
+        	{{ if data.msg }}
+                <span class="message">{$data.msg}</span>
+            {{ endif }}
+            <div class="top">
+                <div class="left">
+                    <ul>
+                        <li><input name="p_name" type="text" placeholder="{$'Name'|i18n(pageInfo.theme_settings.Lang)}" class="required"></li>
+                        <li><input name="p_email" type="text" placeholder="{$'Email'|i18n(pageInfo.theme_settings.Lang)}" class="required"></li>
+                    </ul>
+                </div><!-- /.left -->
+                <div class="right">
+                    <textarea name="p_message" placeholder="{$'Message'|i18n(pageInfo.theme_settings.Lang)}" class="required"></textarea>
+                </div><!-- /.right -->
+            </div><!-- /.top -->
+            <div class="bottom">
+                <input type="submit" name="p_send" onclick="_gaq.push(['_trackEvent', 'Contact', 'Message', 'Send Button']);" class="btn" value="{$'Send'|i18n(pageInfo.theme_settings.Lang)}">
+            </div><!-- /.bottom -->
+        </div><!-- /.contact_form -->
+    </form>                        
+</div><!-- /.content -->

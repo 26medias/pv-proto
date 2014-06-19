@@ -1,0 +1,127 @@
+
+<script src="http://test.pagevamp.com/themes/blarney/1.0.0/assets/js/jquery.backstretch.js"></script>
+<script type="text/javascript">		
+	function last_msg_funtion() 
+	{	   
+		var totnum_li=$('#news > li').length;
+		
+		//$('#loader').fadeIn();
+		$('#loader').css('display','inline-block');
+		var ID=$(".content_box:last").attr("id");
+		var st = parseInt(ID)+1;
+		for(a=st;a<(st+7);a++)
+		{
+			$('#'+a).attr("class","content_box");
+			$('#'+a).delay(2000).fadeIn('slow');
+		}			
+		$('#loader').delay(2000).fadeOut();
+		
+		newst = st+7;
+		if(totnum_li<newst)
+		{
+			$('#viewMore').delay(2000).fadeOut();
+		}
+	}
+</script>
+
+	<!-- Wrap Properties
+    ================================================== -->
+    <div id="wrap">
+        
+        <!-- Blog
+        ================================================== -->
+        <div id="blog" class="scroll-pane">
+        
+			<ul>
+            	{{ for post in data.posts.data if loop.index <= 100 and (post.show) }}
+                    {{if loop.index<=25 }}
+                        <li id="{$loop.index}" {{if loop.index==25}} style="border: none;"{{endif}}>
+                            <div class="date">
+                                <a href="{$root}post?post={$post.id}" class="link">{$post.created_time|date("F")|i18n(pageInfo.theme_settings.Lang)} {$post.created_time|date("j")}, {$post.created_time|date("Y")}<!--October 28, 2013--></a>
+                                <ul class="social hidden-xs">
+                                    <li><a href="http://www.facebook.com/sharer.php?s=100&p[title]={$post.postURLname}&p[summary]={$post.urlmessage}&p[url]={$root}post?post={$post.id}&p[images[0]={$post.picture}" target="_blank" class="facebook">facebook</a></li>
+                                    <li><a href="http://twitter.com/share?url={$root}post?post={$post.id}&text={$post.postURLname}&via=pagevamp" target="_blank" class="twitter">twitter</a></li>
+                                    <li><a href="https://www.addthis.com/tellfriend.php?v=300&winname=addthis&pub=no-pub-ad&source=men-300&lng=en&s=email&url={$root}post?post={$post.id}&title={$post.postURLname}&ate=AT-no-pub-ad/-/-/51fa7fd9137aae60/4/50348d2c87400843&uid=50348d2c87400843&ufbl=1&uud=1&ct=1&ui_email_to=&ui_email_from=&ui_email_note=&pre=http%3A%2F%2Fwww.addthis.com%2F&tt=0&captcha_provider=nucaptcha&at3frame=true" target="_blank" class="mail">mail</a></li>
+                                </ul><!-- /.social -->
+                            </div><!-- /.date -->
+                            <div class="desc">
+                            	{{ autoescape false }}
+                                    {{ if (post.picture and post.source is empty)}}
+                                    <div class="img_holder"><img src="{$post.picture}" /></div><!-- /.img_holder -->
+                                    {{endif}}
+                                    {{ if (post.soundcloud.html or post.source)}}
+                                        {$post.soundcloud.html|raw}
+                                        {{if (post.source and post.soundcloud.html is empty)}}
+                                            <div class="img_holder">
+                                            	<iframe width="100%" height="{$post.iframeheight}" src="{$post.source}" frameborder="0" allowfullscreen></iframe>
+                                            </div>
+                                        {{endif}}
+                                    {{endif}}
+                                {{ endautoescape }}
+                                <div class="caption">
+                                    <p>
+                                    	{{ autoescape false }}
+                                            {{if (post.message)}}
+                                                {$post.message|raw|nl2br}
+                                            {{ endif }}
+                        				{{ endautoescape }}
+                                    </p>
+                                </div><!-- /.caption -->
+                            </div><!-- /.desc -->
+                            <ul class="social hidden-lg hidden-md hidden-sm">
+                                <li><a href="http://www.facebook.com/sharer.php?s=100&p[title]={$post.postURLname}&p[summary]={$post.urlmessage}&p[url]={$root}post?post={$post.id}&p[images[0]={$post.picture}" target="_blank" class="facebook">facebook</a></li>
+                                <li><a href="http://twitter.com/share?url={$root}post?post={$post.id}&text={$post.postURLname}&via=pagevamp" target="_blank" class="twitter">twitter</a></li>
+                                <li><a href="https://www.addthis.com/tellfriend.php?v=300&winname=addthis&pub=no-pub-ad&source=men-300&lng=en&s=email&url={$root}post?post={$post.id}&title={$post.postURLname}&ate=AT-no-pub-ad/-/-/51fa7fd9137aae60/4/50348d2c87400843&uid=50348d2c87400843&ufbl=1&uud=1&ct=1&ui_email_to=&ui_email_from=&ui_email_note=&pre=http%3A%2F%2Fwww.addthis.com%2F&tt=0&captcha_provider=nucaptcha&at3frame=true" target="_blank" class="mail">mail</a></li>
+                            </ul><!-- /.social -->
+                        </li>
+                    {{ else }}
+                        <li id="{$loop.index}" style="display:none;">
+                            <div class="date">
+                                <a href="#!" class="link">{$post.created_time|date("F")|i18n(pageInfo.theme_settings.Lang)} {$post.created_time|date("j")}, {$post.created_time|date("Y")}<!--October 28, 2013--></a>
+                                <ul class="social hidden-xs">
+                                    <li><a href="http://www.facebook.com/sharer.php?s=100&p[title]={$post.postURLname}&p[summary]={$post.urlmessage}&p[url]={$root}post?post={$post.id}&p[images[0]={$post.picture}" target="_blank" class="facebook">facebook</a></li>
+                                    <li><a href="http://twitter.com/share?url={$root}post?post={$post.id}&text={$post.postURLname}&via=pagevamp" target="_blank" class="twitter">twitter</a></li>
+                                    <li><a href="https://www.addthis.com/tellfriend.php?v=300&winname=addthis&pub=no-pub-ad&source=men-300&lng=en&s=email&url={$root}post?post={$post.id}&title={$post.postURLname}&ate=AT-no-pub-ad/-/-/51fa7fd9137aae60/4/50348d2c87400843&uid=50348d2c87400843&ufbl=1&uud=1&ct=1&ui_email_to=&ui_email_from=&ui_email_note=&pre=http%3A%2F%2Fwww.addthis.com%2F&tt=0&captcha_provider=nucaptcha&at3frame=true" target="_blank" class="mail">mail</a></li>
+                                </ul><!-- /.social -->
+                            </div><!-- /.date -->
+                            <div class="desc">
+                            	{{ autoescape false }}
+                                    {{ if (post.picture and post.source is empty)}}
+                                    <div class="img_holder"><img src="{$post.picture}" /></div><!-- /.img_holder -->
+                                    {{endif}}
+                                    {{ if (post.soundcloud.html or post.source)}}
+                                        {$post.soundcloud.html|raw}
+                                        {{if (post.source and post.soundcloud.html is empty)}}
+                                            <div class="img_holder">
+                                            	<iframe width="100%" height="{$post.iframeheight}" src="{$post.source}" frameborder="0" allowfullscreen></iframe>
+                                            </div>
+                                        {{endif}}
+                                    {{endif}}
+                                {{ endautoescape }}
+                                <div class="caption">
+                                    <p>
+                                    	{{ autoescape false }}
+                                            {{if (post.message)}}
+                                                {$post.message|raw|nl2br}
+                                            {{ endif }}
+                        				{{ endautoescape }}
+                                    </p>
+                                </div><!-- /.caption -->
+                            </div><!-- /.desc -->
+                            <ul class="social hidden-lg hidden-md hidden-sm">
+                                <li><a href="http://www.facebook.com/sharer.php?s=100&p[title]={$post.postURLname}&p[summary]={$post.urlmessage}&p[url]={$root}post?post={$post.id}&p[images[0]={$post.picture}" target="_blank" class="facebook">facebook</a></li>
+                                <li><a href="http://twitter.com/share?url={$root}post?post={$post.id}&text={$post.postURLname}&via=pagevamp" target="_blank" class="twitter">twitter</a></li>
+                                <li><a href="https://www.addthis.com/tellfriend.php?v=300&winname=addthis&pub=no-pub-ad&source=men-300&lng=en&s=email&url={$root}post?post={$post.id}&title={$post.postURLname}&ate=AT-no-pub-ad/-/-/51fa7fd9137aae60/4/50348d2c87400843&uid=50348d2c87400843&ufbl=1&uud=1&ct=1&ui_email_to=&ui_email_from=&ui_email_note=&pre=http%3A%2F%2Fwww.addthis.com%2F&tt=0&captcha_provider=nucaptcha&at3frame=true" target="_blank" class="mail">mail</a></li>
+                            </ul><!-- /.social -->
+                        </li>
+                    {{ endif }}
+                {{ endfor }}
+            </ul>
+          
+        </div>
+        
+        <div id="push"></div><!-- just for Pushing the footer -->
+        
+    </div>
+    
+    

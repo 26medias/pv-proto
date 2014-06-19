@@ -1,0 +1,14 @@
+/*Logo*/
+@import url(http://fonts.googleapis.com/css?family=La+Belle+Aurore);
+
+/*Headers*/
+@import url(http://fonts.googleapis.com/css?family=Flamenco:300,400);
+
+/*Text*/
+@import url(http://fonts.googleapis.com/css?family=Alice);
+
+
+#about h1 {
+    font-family: 'Flamenco', cursive;
+	font-weight: 400;
+}

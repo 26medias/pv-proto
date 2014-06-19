@@ -1,0 +1,51 @@
+{
+	"name":		"offline",
+	"authors":	[
+		{
+			"name":		"Vincent, Fred, Pradip, and Sujan",
+			"url":		"http://www.pagevamp.com/",
+			"email":	"support@pagevamp.com"
+		}
+	],
+	"versions":	{
+		"1.0.0":	{
+			"styles":	 {
+				"Font": {
+					"Oswald":		["css/fonts/oswald.css"],
+					"Comfortaa":	["css/fonts/comfortaa.css"],
+					"Lobster":		["css/fonts/lobster.css"]
+				},
+				"Color": {
+					"Lemon":		["css/colors/yellow.css"],
+					"Lime": 		["css/colors/lime.css"],
+					"Aqua": 		["css/colors/aqua.css"],
+					"Plum": 		["css/colors/plum.css"],
+					"Coral": 		["css/colors/coral.css"]
+				},
+				"Lang": {
+					"en_US": 	"en_US",
+					"es_ES": 	"es_ES",
+					"id_ID": 	"id_ID",
+					"pt_BR":	"pt_BR",
+					"ja_JP":	"ja_JP",
+					"vi_VN":	"vi_VN"
+				}
+			},
+			"pages":	 {
+				"index": {
+					"layout":	"main.html",
+					"template":	"index/index.html",
+					"app":		"index/index.php"
+				}
+			},
+			"services":	{
+				"theme_settings": {
+					"label":	"Theme Settings",
+					"template":	"admin/admin.html",
+					"app":		"admin/admin.php",
+					"backend":	true
+				}
+			}
+		}
+	}
+}

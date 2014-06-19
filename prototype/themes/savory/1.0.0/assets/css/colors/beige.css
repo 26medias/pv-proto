@@ -1,0 +1,91 @@
+    
+	/* Squash Skin
+    -------------------------------------------------- */
+	body {background: #FFFFDF!important; color: #ECB100!important;}
+	#header,
+	#banner .info .txt {background: rgba(236,177,0,.6)!important;}
+	#banner .info .facebook.default_icon {display: none!important;}
+	#banner .info .facebook.beige_icon {display: block!important;}
+	a,
+	#main,
+	#main .gallery ul li .caption a,
+	#main h2 span,
+	#main .info .map .title a,
+	#main .events ul.thumbs li .caption a,
+	#main .events .back a,
+	#main .events ul.desc li a.rsvp,
+	#footer,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6, .label, p {color: #ECB100!important;}
+	#main .events .back a {background: url(../../img/icon_back_beige.png) 0 0 no-repeat !important;}
+
+	#main .events ul.thumbs li, #main .events ul.desc li, #main .events ul.desc li a.rsvp {
+	border: 1px solid rgba(236, 177, 0, 0.5);
+	}
+
+	#main .events ul.thumbs li:hover, #main .events ul.desc li a.rsvp:hover {
+	border: 1px solid rgba(236, 177, 0, 0.9);
+	}
+
+	#main .gallery ul li:hover .img_holder, #main .album ul li:hover .img_holder{
+		outline: 1px solid #ECB100!important;
+	}
+
+	.navbar-toggle{background:url(../../img/arrow_down_beige.png) transparent no-repeat right !important;}
+	
+	.social .facebook2 {background: url(../../img/facebook_icon_beige.png) 0 0 no-repeat;}
+	.social .twitter {background: url(../../img/twitter_icon_beige.png) 0 0 no-repeat;}
+	.social .pinterest {background: url(../../img/pinterest_icon_beige.png) 0 0 no-repeat;}
+	.social .instagram {background: url(../../img/instagram_icon_beige.png) 0 0 no-repeat;}
+	.social .tumblr {background: url(../../img/tumblr_icon_beige.png) 0 0 no-repeat;}
+	.social .flickr {background: url(../../img/flickr_icon_beige.png) 0 0 no-repeat;}
+	.social .youtube {background: url(../../img/youtube_icon_beige.png) 0 0 no-repeat;}
+	
+	.dropdown-menu {background: rgba(236, 177, 0, 0.6) !important;}	
+	.dropdown-menu>li>a {color: #fff!important;}
+
+@media only screen and (max-width: 767px) {
+	.navbar-inverse .navbar-collapse {
+		background: #FFFFDF;
+		color: #ECB100;
+	}
+	.navbar-inverse .navbar-nav>li>a{
+		color: #ECB100!important;
+	}
+	.navbar-brand {
+		background: rgba(236,177,0,.6)!important;
+	}
+	
+		.social .facebook2 {background: url(../../img/facebook_icon_foot_beige.png) 0 0 no-repeat !important; width: 10px!important; height: 20px!important; display: inline-block!important;}
+		.social .twitter {background: url(../../img/twitter_icon_foot_beige.png) 0 0 no-repeat !important; width: 20px!important; height: 20px!important; display: inline-block!important;}
+		.social .pinterest {background: url(../../img/pinterest_icon_foot_beige.png) 0 0 no-repeat !important; width: 17px!important; height: 20px!important; display: inline-block!important;}
+		.social .instagram {background: url(../../img/instagram_icon_foot_beige.png) 0 0 no-repeat !important; width: 20px!important; height: 20px!important; display: inline-block!important;}
+		.social .tumblr {background: url(../../img/tumblr_icon_foot_beige.png) 0 0 no-repeat !important; width: 11px!important; height: 20px!important; display: inline-block!important;}
+		.social .flickr {background: url(../../img/flickr_icon_foot_beige.png) 0 0 no-repeat!important ; width: 31px!important; height: 20px!important; display: inline-block!important;}
+		.social .youtube {background: url(../../img/youtube_icon_foot_beige.png) 0 0 no-repeat !important; width: 25px!important; height: 20px!important; display: inline-block!important;}
+	
+}
+
+	.contact_form input[type="text"],
+	.contact_form input[type="password"],
+	.contact_form textarea {border: 1px solid #ECB100; background: rgba(255,255,255,.3); color: #ECB100;}
+	.contact_form .btn {background: #ECB100;}
+
+	::-webkit-input-placeholder {color: #ECB100;}
+	:-moz-placeholder 			{ /* Firefox 18- */color: #ECB100;}
+	::-moz-placeholder 			{  /* Firefox 19+ */color: #ECB100;}
+	:-ms-input-placeholder 		{color: #ECB100;}
+
+	.modal-content {border-radius: 8px !important; -moz-border-radius: 8px !important; -webkit-border-radius: 8px !important;}
+	.modal-body {background: #FFFFDF; border: 2px solid #ECB100 !important;}
+	.modal .inquire-holder input[type="text"],
+	.modal .inquire-holder input[type="password"],
+	.modal .inquire-holder textarea {border: 1px solid #ECB100; background: rgba(255,255,255,.3); color: #ECB100;}
+	
+	.modal .inquire-holder .btn {background: #ECB100;}
+	.modal .inquire-holder .rel-img {background: rgba(255,255,255,.3)}
+	.fancybox-skin {background: #FFFFDF!important; border: 2px solid #ECB100 !important; color: #ECB100!important;}

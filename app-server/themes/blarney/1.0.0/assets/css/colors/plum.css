@@ -1,0 +1,60 @@
+#main .content,
+#main .news .date, 
+#main .news .article {background: #8556AA; color: #fff;}
+
+a {background: none; color: #fff;}
+a:hover {color: #fff;}
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {color: #fff;}
+
+#main .more a {background: #8556AA; color: #fff;}
+
+.nav-tabs > li.active > a, 
+.nav-tabs > li.active > a:hover, 
+.nav-tabs > li.active > a:focus {background: none;}
+
+#main .content .gallery .holder .thumb:hover,
+#main .content .events ul li .thumbs:hover {border-color: #fff;}
+
+#main .content.title .back a {background: url(../../img/back-white.png) no-repeat scroll 0 6px rgba(0, 0, 0, 0); color: #fff;}
+
+#main .content .events ul li .thumbs .caption h5 a {color: #fff;}
+
+#main .content .gallery .nav-tabs > li.active > a, 
+#main .content .gallery .nav-tabs > li.active > a:hover, 
+#main .content .gallery .nav-tabs > li.active > a:focus,
+#main .content .gallery .nav-tabs > li > a:hover {color: #fff;}
+
+#main .content a.rsvp,
+.contact_form .bottom .btn {background: #fff; color: #8556AA;}
+
+.contact_form input[type="text"], 
+.contact_form input[type="password"], 
+.contact_form textarea {border-color: #552b76;}
+
+.fancybox-skin,
+.inquire,
+.modal-content {background: #8556AA!important; color: #fff!important;}
+
+.modal .inquire-holder input[type="text"], 
+.modal .inquire-holder input[type="password"], 
+.modal .inquire-holder textarea {border: 1px solid #552b76;}
+.modal .inquire-holder .rel-img {border: 1px solid #fff;}
+.modal .inquire-holder .btn {background: #fff; color: #8556AA;}
+
+ @media only screen and (max-width: 767px) {
+	#sidebar .navbar-inverse .navbar-toggle {background-color: #8556AA; color: #fff;}
+	#sidebar .navbar-inverse .navbar-toggle:hover, 
+	#sidebar .navbar-inverse .navbar-toggle:focus {background-color: #8556AA; color: #fff;}
+	
+	.footer {background-color: #8556AA; color: #fff;}
+	.footer span,
+	.footer a {color: #fff;}
+ }
+
+
+

@@ -1,0 +1,82 @@
+
+@import url(http://fonts.googleapis.com/css?family=Archivo+Narrow:400);
+@import url(http://fonts.googleapis.com/css?family=Archivo+Narrow:400italic);
+@import url(http://fonts.googleapis.com/css?family=Archivo+Narrow:700);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:600);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:700);
+
+body,
+#main .home h2 {font-family: 'Archivo Narrow', sans-serif; font-weight: 400;}
+
+body {font-size: 20px;}
+#footer {font-size: 16px;}
+
+.navbar-nav>li {font-family: 'Archivo Narrow', sans-serif; font-weight: 400; font-size: 20px;}
+#main h5 {font-family: 'Roboto Slab', serif; font-weight: 700; text-transform: uppercase; font-size: 18px;}
+#header .navbar-inverse .navbar-nav > li > a {font-size: 25px;}
+.navbar-inverse .navbar-nav>li>a:hover {}
+
+#banner .info .txt {font-size: 18px;}
+
+#main .home h2 {font-style: italic;}
+#main h2 {font-size: 40px; text-transform: lowercase;}
+#main h3 {font-size: 25px; text-transform: uppercase;}
+
+#main .info ul li .title,
+#main .events ul.desc li h2 {font-size: 30px;}
+#main .gallery ul li .caption {font-size: 18px;}
+#main .events ul.thumbs li .caption {font-size: 14px;}
+
+#widget_cont h1,
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6,
+#main .info ul li .title,
+.navbar-brand {font-family: 'Roboto Slab', serif !important; font-weight: 700 !important; text-transform: uppercase;}
+
+#banner .info .txt,
+#footer,
+#main .events ul.thumbs li .caption {font-family: 'Roboto Slab', serif; font-weight: 400;}
+#footer {font-size: 14px;}
+#main .info ul li .title, 
+#main .events ul.desc li h2 {font-size: 20px;}
+
+#main .home h2 {font-family: 'Archivo Narrow', sans-serif !important; font-weight: 400!important;}
+
+.header_title {font-family: 'Roboto Slab', serif; font-weight: 700;}
+#main .events ul.desc li h2 {text-transform: uppercase!important;}
+
+.font_change {font-family: 'Roboto Slab', serif!important; font-weight: 700!important;}
+#main h2 span {font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: 20px;}
+#banner .info .txt {font-size: 16px;}
+.fancybox-title {font-family: 'Archivo Narrow', sans-serif!important; font-weight: 400!important;}
+
+.contact_form .btn {font-family: 'Roboto Slab', serif !important; font-weight: 700 !important; text-transform: uppercase;}
+
+.dropdown-menu {top: 60px;}
+.dropdown-menu>li>a {font-family: 'Archivo Narrow', sans-serif; font-size: 24px; font-weight: 400;}
+.dropdown-menu>li>a:hover, 
+.dropdown-menu>li>a:focus {font-size: 24px;}
+
+	.widget-container h1,
+	.widget-container h2,
+	.widget-container h3,
+	.widget-container h4,
+	.widget-container h5,
+	.widget-container h6 {font-family: 'Roboto Slab', serif !important; font-weight: 700!important; text-transform: none!important;}
+	
+	.widget_title {text-transform: none!important;}
+
+@media only screen and (max-width: 767px) {
+	
+	.navbar-inverse .navbar-nav>li>a {font-size: 20px;}
+	.navbar-nav > li a.active,
+	.header_title {font-family: 'Roboto Slab', serif; font-weight: 700; font-size: 25px;}
+	
+}
+
+

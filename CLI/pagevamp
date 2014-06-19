@@ -1,0 +1,104 @@
+#!/usr/bin/env node
+
+var targz 		= require('tar.gz');
+var toolset 	= require('toolset');
+var sh 			= require("shelljs");
+var program 	= require('commander');
+var prompt 		= require('prompt');
+var lingo 		= require('lingo');
+var colors 		= require('colors');
+var path 		= require('path');
+var pv 			= require('./bin/pagevamp');
+pv.directory	= sh.pwd();	// Current working directory
+
+/// Beta stuffs
+var phantomjs		= require('phantomjs');
+var childProcess 	= require('child_process');
+
+colors.setTheme({
+	silly: 'rainbow',
+	input: 'grey',
+	verbose: 'cyan',
+	prompt: 'grey',
+	info: 'green',
+	data: 'grey',
+	help: 'cyan',
+	warn: 'yellow',
+	debug: 'blue',
+	error: 'red'
+});
+
+program.version('0.0.1');
+
+program.command('stash [name]').description('Save the current directory as a template').action(function(name){
+	if (!name) {
+		console.log(
+			"Error: Wrong or missing argument.\n".error,
+			"Use:\n".data,
+			"pagevamp stash ".warn+"[name]\n".info,
+			"where ".data+"name".info+" is the name of your new template.".verbose
+		);
+		return false;
+	}
+	
+	pv.stash(name);
+});
+program.command('create [type]').description('Create a new project').action(function(type){
+	if (!type) {
+		console.log(
+			"Error: Wrong or missing argument.\n".error,
+			"Use:\n".data,
+			"pagevamp create ".warn+"[type]\n".info,
+			"where ".data+"type".info+" can be ".data+"widget".verbose+", ".data+"theme or any of the custom project type you have saved..".verbose
+		);
+		return false;
+	}
+	
+	prompt.start()
+	prompt.message = "";
+	prompt.delimiter = "";
+	
+	var prompts = {
+		properties: {
+			name: {
+				pattern: /^[a-zA-Z0-9\s\.\-]+$/,
+				message: 'Name must be only numbers, letters, points, spaces, or dashes',
+				description: "Project name?",
+				required: true
+			}
+		}
+	};
+	
+	prompt.get(prompts, function (err, result) {
+		if (result && result.name) {
+			pv.createProject(type, lingo.camelcase(result.name));
+		} else {
+			console.log("Canceled".error);
+		}
+		
+	});
+});
+program.command('logout').action(function(){
+	pv.logout(function() {
+		console.log("You have been logged out.".error);
+	});
+});
+
+program.command('screenshot [url] [name]').action(function(url, name){
+	// Making a phantomjs screenshot
+	var childArgs = [
+		path.join(__dirname, 'data/scripts/screenshot.js'),
+		url,
+		pv.directory,
+		name
+	]
+	
+	childProcess.execFile(phantomjs.path, childArgs, function(err, stdout, stderr) {
+		console.log("Screenshot",err, stdout, stderr);
+	})
+});
+
+program.command('*').action(function(env){
+	console.log('Enter a Valid command');
+});
+program.parse(process.argv);

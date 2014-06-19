@@ -1,0 +1,89 @@
+<div class="title hidden-xs"><h2>{$widgets.pages.about.label|i18n(pageInfo.theme_settings.Lang)}</h2></div><!-- /.title -->
+                                        
+<!-- Content
+================================================== -->
+<div id="content">	
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="pages">
+                    
+                    <div class="about" style="padding-left: 1px">
+                        <div class="left">
+                            {{ for album in data.albums.data }}
+                                {{ if album.name == "Profile Pictures" }}
+                                    <div class="img_holder">
+                                        {{ for photo in album.photos.data if loop.index <= 1 }}
+                                    	<div class="fill" style="background:url({$photo.images}) center center no-repeat;background-size:cover;"></div>
+                                        {{endfor}}
+                                    </div><!-- /.img_holder -->
+                                {{endif}}
+                            {{endfor}}
+                        </div><!-- /.left -->
+                        <div class="right">
+                            <div class="txt_holder">
+                                {{ autoescape false }}
+                                {{if data.mission}}        
+                                <h3>{$"Mission"|i18n(pageInfo.theme_settings.Lang)}</h3>
+                                <p>{$data.mission|nl2br}</p>
+                                <p>&nbsp;</p>
+                                {{endif}}
+                                {{ endautoescape}}
+
+                                {{ autoescape false }}
+                                {{if data.about}}        
+                                <h3>{$"About"|i18n(pageInfo.theme_settings.Lang)}</h3>
+                                <p>{$data.about|nl2br}</p>
+                                <p>&nbsp;</p>
+                                {{endif}}
+                                {{ endautoescape}}                                
+
+                                {{ autoescape false }}
+                                {{if data.description}}      
+                                <h3>{$"Description"|i18n(pageInfo.theme_settings.Lang)}</h3>
+                                <p>{$data.description|nl2br}</p>
+                                <p>&nbsp;</p>
+                                {{endif}}
+                                {{ endautoescape}}
+
+
+                                {{ autoescape false }}
+                                {{if data.company_overview}}      
+                                <h3>{$"Company Overview"|i18n(pageInfo.theme_settings.Lang)}</h3>
+                                <p>{$data.company_overview|nl2br}</p>
+                                <p>&nbsp;</p>
+                                {{endif}}
+                                {{ endautoescape}}
+
+                                {{ autoescape false }}
+                                {{if data.general_info}}     
+                                <h3>{$"General Information"|i18n(pageInfo.theme_settings.Lang)}</h3>
+                                <p>{$data.general_info|nl2br}</p>
+                                <p>&nbsp;</p>
+                                {{endif}}
+                                {{ endautoescape}}
+
+                                {{ autoescape false }}
+                                {{if data.bio}}       
+                                <h3>{$"Bio"|i18n(pageInfo.theme_settings.Lang)}</h3>
+                                <p>{$data.bio|nl2br}</p>
+                                <p>&nbsp;</p>
+                                {{endif}}
+                                {{ endautoescape}}
+
+                                {{ autoescape false }}
+                                {{if data.culinary_team}}              
+                                <h3>{$"Culinary Team"|i18n(pageInfo.theme_settings.Lang)}</h3>
+                                <p>{$data.culinary_team|nl2br}</p>
+                                <p>&nbsp;</p>
+                                {{endif}}
+                                {{ endautoescape}}
+                            </div><!-- /.txt_holder -->
+                        </div><!-- /.right-->
+                    </div><!-- /.about -->
+                    
+                </div><!-- /.pages -->
+            </div>
+        </div>
+    </div>
+</div>

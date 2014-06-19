@@ -4,21 +4,21 @@
 		"email": "julien@twenty-six-medias.com",
 		"url": "http://www.twenty-six-medias.com/"
 	},
-	"name": "pagevamp-cli",
+	"name": "pagevamp",
 	"description": "Pagevamp CLI",
 	"version": "0.0.1",
-	"homepage": "https://github.com/26medias/mpr-cli",
+	"homepage": "https://github.com/26medias/pv-proto",
 	"licenses": [
 	{
 		"type": "BSD-2-Clause",
-		"url": "https://raw.github.com/26medias/mpr-cli/master/LICENSE"
+		"url": "https://raw.github.com/26medias/pv-proto/master/LICENSE"
 	}
 	],
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/26medias/mpr-cli.git"
+		"url": "git://github.com/26medias/pv-proto.git"
 	},
-	"main": "/mpr",
+	"main": "./pagevamp",
 	"engines": {
 		"node": "*"
 	},
@@ -26,16 +26,19 @@
 		"commander": 	"latest",
 		"underscore":	"latest",
 		"toolset":		"latest",
-		"tar.gz":		"latest"
+		"tar.gz":		"latest",
+		"shelljs":		"latest",
+		"prompt":		"latest",
+		"lingo":		"latest",
+		"colors":		"latest",
+		"open":			"latest",
+		"phantomjs":	"latest"
 	},
-	"devDependencies": {
-
-	},
+	"preferGlobal":		"true",
 	"bin": {
-		"uppercaseme": "./mpr"
+		"pagevamp": "./pagevamp"
 	},
-	"readme": "Not public yet.",
 	"readmeFilename": "README.md",
-	"_id": "express-boost@0.0.1",
-	"_from": "express-boost@*"
+	"_id": "pagevamp@0.0.1",
+	"_from": "pagevamp@*"
 }

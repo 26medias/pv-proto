@@ -1,0 +1,60 @@
+@import url(http://fonts.googleapis.com/css?family=Comfortaa);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+/*** LOGO ***/
+
+#header .navbar-brand {
+	font-family: 'Comfortaa';
+	font-weight: 500;
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: 'Comfortaa'; }
+/*** Hompage Short About ***/
+
+#home h1 {
+	font-family: 'Open Sans';
+}
+
+/*** Page Header ***/
+
+#content_holder h2, #gallery h2, .box > .header > .label {
+	font-family: 'Comfortaa';
+}
+
+/*** Subheader ***/
+
+#content .holder h3 {
+	font-family: 'Open Sans';
+}
+
+/*** Standard Text ***/
+
+body {
+	font-family: 'Open Sans';
+}
+
+/*** Album Titles ***/
+
+#gallery ul li p {
+	font-family: 'Open Sans';
+}
+
+/*** Contact Section Titles ***/
+
+#content_holder p span.contact_title {
+	font-family: 'Open Sans';
+}
+
+.contact_form * {font-family: 'Open Sans';}
+.contact_form .btn {font-family: 'Comfortaa'; letter-spacing: 1px;}
+
+.widget-container h1,
+.widget-container h2,
+.widget-container h3,
+.widget-container h4,
+.widget-container h5,
+.widget-container h6 {font-family: 'Comfortaa' !important;}
+
+.event li a.more {padding: 8px 12px 8px;}
+
+

@@ -1,0 +1,86 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="title"><h3>{$widgets.pages.news.label|i18n(pageInfo.theme_settings.Lang)}</h3></div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="news">
+            
+            {{ for post in data.posts.data if loop.index <= 50 and (post.show) }}
+        		{{if loop.index<=5 }}
+                <div class="row content_box" id="{$loop.index}">
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <div class="date">{$post.created_time|date("M")|i18n(pageInfo.theme_settings.Lang)} {$post.created_time|date("d")}</div><!-- /.date-->
+                    </div>
+                    <div class="col-lg-10 col-md-10 col-sm-10">
+                        <div class="desc">
+                        	{{ if (post.picture and post.source is empty)}}
+                                <div class="img-holder">
+                                	<img src="{$post.picture}" align="{$post.name}" />
+                                </div>
+                            {{endif}}
+                            {{ if (post.soundcloud.html or post.source)}}
+                                {$post.soundcloud.html|raw}
+                                {{if (post.source and post.soundcloud.html is empty)}}
+                                 	<iframe width="100%" height="{$post.iframeheight}" src="{$post.source}" frameborder="0" allowfullscreen></iframe>
+                                 {{endif}}
+                          	{{endif}}
+                            {{ autoescape false }}
+                                {{if (post.message)}}
+                                	<p>{$post.message|raw|nl2br}</p>
+                                {{ endif }}
+                            {{ endautoescape }}  
+                        </div><!-- /.desc -->
+                    </div>
+                </div>
+                {{else}}
+                <div id="{$loop.index}" class="row content_box_hidden" style="display:none;">
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <div class="date">{$post.created_time|date("M")|i18n(pageInfo.theme_settings.Lang)} {$post.created_time|date("d")}</div><!-- /.date-->
+                    </div>
+                    <div class="col-lg-10 col-md-10 col-sm-10">
+                        <div class="desc">
+                        	{{ if (post.picture and post.source is empty)}}
+                                <div class="img-holder">
+                                	<img src="{$post.picture}" align="{$post.name}" />
+                                </div>
+                            {{endif}}
+                            {{ if (post.soundcloud.html or post.source)}}
+                                {$post.soundcloud.html|raw}
+                                {{if (post.source and post.soundcloud.html is empty)}}
+                                 	<iframe width="100%" height="{$post.iframeheight}" src="{$post.source}" frameborder="0" allowfullscreen></iframe>
+                                 {{endif}}
+                          	{{endif}}
+                            {{ autoescape false }}
+                                {{if (post.message)}}
+                                	<p>{$post.message|raw|nl2br}</p>
+                                {{ endif }}
+                            {{ endautoescape }}  
+                        </div><!-- /.desc -->
+                    </div>
+                </div>
+                {{endif}}
+            {{endfor}}
+                
+              
+                <div class="row">
+                    <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
+                        <div class="date">&nbsp;</div><!-- /.date-->
+                    </div>
+                    <div class="col-lg-10 col-md-10 col-sm-10">
+                    	<div id="loader" style="display:none; text-align: center;float:left;"><img src="http://www.pagevamp.com/uploads/ajax-loader.gif" width="40" /></div>
+                        <div class="desc moreview no-bg">
+                            <p><a href="javascript:void(0);" onclick="last_msg_funtion();" title="View More" class="btn btn-default">View More</a></p>
+                        </div><!-- /.desc -->
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

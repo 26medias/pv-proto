@@ -1,0 +1,92 @@
+<script type="text/javascript">	
+	function last_msg_funtion() 
+	{	   
+		var totnum_li=$('.news_list > li').length;
+		
+		//$('#loader').fadeIn();
+		$('#loader').css('display','inline-block');
+		var ID=$(".content_box:last").attr("id");
+		var st = parseInt(ID)+1;
+		for(a=st;a<(st+7);a++)
+		{
+			$('#'+a).attr("class","content_box");
+			$('#'+a).delay(2000).fadeIn('slow');
+		}			
+		$('#loader').delay(2000).fadeOut();
+		
+		newst = st+7;
+		//alert(totnum_li+' -- '+st+' -- '+newst);
+		if(totnum_li<newst)
+		{
+			$('#viewMore').delay(2000).fadeOut();
+		}
+	}
+</script>
+<div class="news">
+    <h2 class="hidden-xs">{$widgets.pages.news.label|i18n(pageInfo.theme_settings.Lang)}</h2>
+    <ul>
+        {{ for post in data.posts.data if loop.index <= 50 and (post.show) }}
+            {{if loop.index<=7 }}
+                <li id="{$loop.index}" class="content_box">
+            <h5>{$post.created_time|date("M")|i18n(pageInfo.theme_settings.Lang)} {$post.created_time|date("d")}</h5>
+            <p>
+                {{ autoescape false }}
+                {{if (post.message)}}   
+                
+                {$post.message|raw|nl2br}
+     
+                {{ endif }}
+                {{ endautoescape }}
+            </p>
+            <p>
+            {{ if (post.picture and post.source is empty)}}
+            <img src="{$post.picture}" />
+            {{endif}}
+            {{ if (post.soundcloud.html or post.source)}}
+            {$post.soundcloud.html|raw}
+            {{if (post.source and post.soundcloud.html is empty)}}
+             <iframe width="100%" height="{$post.iframeheight}" src="{$post.source}" frameborder="0" allowfullscreen></iframe>
+             {{endif}}
+              {{endif}}
+            </p>
+        </li>
+            {{ else }}
+                <li id="{$loop.index}" class="content_box_hidden" style="display:none;">
+            <h5>{$post.created_time|date("M")|i18n(pageInfo.theme_settings.Lang)} {$post.created_time|date("d")}</h5>
+            <p>
+                {{ autoescape false }}
+                {{if (post.message)}}   
+                
+                {$post.message|raw|nl2br}
+     
+                {{ endif }}
+                {{ endautoescape }}
+            </p>
+            <p>
+            {{ if (post.picture and post.source is empty)}}
+            <img src="{$post.picture}" />
+            {{endif}}
+            {{ if (post.soundcloud.html or post.source)}}
+            {$post.soundcloud.html|raw}
+            {{if (post.source and post.soundcloud.html is empty)}}
+             <iframe width="100%" height="{$post.iframeheight}" src="{$post.source}" frameborder="0" allowfullscreen></iframe>
+             {{endif}}
+              {{endif}}
+            </p>
+        </li>
+            {{ endif }}
+        {{ endfor }}
+        <li id="viewMore">
+        	<div class="grid_3 alpha date"></div>
+            <div class="grid_21 omega desc">
+            <div class="full_news">
+                <div id="loader" style="display:none; text-align: center;"><img src="http://www.pagevamp.com/uploads/ajax-loader.gif" width="40" /></div>
+                <div class="button big green moreButton" onclick="last_msg_funtion();" style="display:inline;">{$"View More"|i18n(pageInfo.theme_settings.Lang)}</div> 
+            </div>                    
+        	</div>
+            <!--<a href="@" title="Title Here">(more)</a></div>-->
+        	<div class="clear"></div>	
+        	
+        </li>
+    </ul>
+</div><!-- /.news -->

@@ -1,0 +1,50 @@
+/*!
+		* Custom Coloring for Site.
+ */
+
+a,
+a:hover,
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {color: #D90000;}
+
+.btn-success,
+.btn-success:hover, 
+.btn-success:focus, 
+.btn-success:active, 
+.btn-success.active, 
+.open .dropdown-toggle.btn-success,
+#header .dropdown,
+#header .dropdown .dropdown-menu {background: #D90000;}
+
+#header .nav>li>a:hover, 
+#header .nav>li>a:focus, 
+#header .nav>li>a.active {border-bottom: 5px solid #D90000;}
+
+
+#mid_section .title {background-color: #E13333;}
+
+#content .pages ul.events li ul.inner li .left .img_holder .fill {background-color: #D90000;}
+
+.contact_form .btn {background: #E13333;}
+
+#content .pages ul.news-new li.with-pic .left,
+#content .pages ul.news-new li.without-pic .right {color: #D90000;}
+
+#header .navbar .dropdown-menu.inner>li>a {color: #D90000;}
+
+#header .navbar .dropdown-menu.inner>li>a:hover, 
+#header .navbar .dropdown-menu.inner>li>a:focus {color: #f95454;}
+
+#header .navbar .dropdown-menu.inner {border-top: 5px solid #D90000;}
+#header .navbar .dropdown-menu.inner:before {border-top: 8px solid #D90000;}
+
+@media only screen and (max-width: 767px) {
+
+}
+
+.modal .inquire-header {background: url(../../img/bg_ban.png) repeat #E13333;}
+.modal .inquire-holder .btn {background: #E13333;}

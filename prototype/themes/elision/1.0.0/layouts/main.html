@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>{$shared.title}{$data.name}</title>
+    <meta name="viewport" content="initial-scale = 1,user-scalable=no,maximum-scale=1.0">
+	{{ for metaname, metavalue in shared.metas }}
+    	<meta name="{$metaname}" content="{$metavalue}" />
+    {{ endfor }} 
+    
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <link href="{$assets}css/bootstrap.min.css" rel="stylesheet">
+    <link href="{$assets}css/custom.css" rel="stylesheet">
+    <link href="{$assets}css/modify.css" rel="stylesheet">
+    <link href="{$assets}css/responsive.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" media="all" type="text/css" href="{$assets}css/ie.css" />
+    <![endif]-->
+    
+    {{ for file in pageInfo.theme_styles }}
+    	<link href="{$assets}{$file}" rel="stylesheet/less" type="text/css">
+    {{ endfor }}
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="{$assets}js/html5shiv.js"></script>
+      <script src="{$assets}js/respond.min.js"></script>
+    <![endif]-->
+    
+    <script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-42761096-1');
+		ga('send', 'pageview');
+	</script>
+  	{{if data.site_settings.embed }}
+  		{$data.site_settings.embed|raw}
+  	{{endif}}
+  	 {{if data.site_settings.analytics }}
+        {$data.site_settings.analytics|raw}
+    {{endif}}
+  </head>
+
+  <body>    
+
+    <!-- Wrap Properties
+    ================================================== -->
+    <div id="wrap">
+    
+        <!-- Header
+        ================================================== -->
+        <div class="container">
+        	<div class="row">
+            	<div class="col-lg-12">
+                
+                    <div id="header">
+                    
+                        <nav class="navbar navbar-default" role="navigation">
+                          
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                            	{{if data.site_settings.logo_switch == 0}}	
+                              		<a class="navbar-brand" href="{$root}" title="Title Here">{$data.name}</a>
+                                {{else}}
+                                	<a href="{$root}"><img title="{$data.name} logo" class="customLogo" src="{$data.site_settings.logo}"/></a>
+                                {{endif}}
+                            </div>
+                        
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                              <ul class="nav navbar-nav">
+                             	{{ for pagename,pageinfo in widgets.pages_menu }}
+                                    {{ if pageinfo.children is empty }}
+                                    <li {{if app.name==pagename}}class="active"{{endif}}>
+                                        	<a href="{{if pageinfo.type == 'e'}}{$pagename}{{else}}{$root}{$pagename}{{endif}}">{$pageinfo.label|i18n(pageInfo.theme_settings.Lang)}</a> 
+                                    </li>
+                                    {{ else }}
+                                        <li {{if app.name==pagename}}class="active"{{endif}}>
+                                            <a class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown" href="{{if pageinfo.type == 'e'}}{$pagename}{{else}}{$root}{$pagename}{{endif}}">{$pageinfo.label|i18n(pageInfo.theme_settings.Lang)}</a>
+                                            <ul class="dropdown-menu">
+                                                {{ for pagename,pageinfo in pageinfo.children }}
+                                                    <li><a href="{{if pageinfo.type == 'e'}}{$pagename}{{else}}{$root}{$pagename}{{endif}}">{$pageinfo.label|i18n(pageInfo.theme_settings.Lang)}</a></li>
+                                                {{ endfor }}
+                                            </ul>
+                                        </li>
+                                    {{ endif }}
+                                    {{ if loop.last }}
+                     
+                                    {{ else }}
+                                    <li><span class="seprator">/</span></li>
+                                    {{ endif }}
+                                {{ endfor }}
+                              </ul>
+                            </div><!-- /.navbar-collapse -->
+                            
+                              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"></button>
+
+							{{ if data.phone and data.isPhoneValid }}
+                            <div class="call">
+                                <a href="tel:{$data.phone}" onclick="_gaq.push(['_trackEvent', 'Contact', 'Call', 'Click-To-Call']);">Call</a>
+                            </div><!-- /.call -->
+                            {{ endif }}
+                            
+                        </nav>
+                    
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+        
+        <!-- Content
+        ================================================== -->
+		<div class="container">
+        	<div class="row">
+            	<div class="col-lg-12">
+                	{{ autoescape false }}
+                    {$output}
+                    {{ endautoescape }}
+                	
+                </div>
+            </div>
+        </div>        
+    	
+        <div id="push"></div>
+                    
+    </div>
+    
+    <!-- Footer
+    ================================================== -->
+    <div class="container">
+    	<div class="row">
+        	<div class="col-lg-12">
+                <div id="footer">
+                
+                    <div class="social-wrap">
+                        <ul class="social hidden-lg hidden-md hidden-sm">
+                            <li><a href="http://facebook.com/{$pageInfo.pageid}" title="Facebook" target="_blank" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Facebook Icon']);"><img src="{$assets}images/facebook_icon.png" alt="Facebook"></a></li>
+                            {{ if data.site_settings.socialicons_switch == 1}}
+                                {{if data.site_settings.twitter_link}}
+                                <li><a href="{$data.site_settings.twitter_link}" target="_blank" title="twitter" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Twitter Icon']);">
+                                    <img alt="twitter" src="{$assets}images/twitter_icon.png" >
+                                </a></li>
+                                {{endif}}
+                                {{if data.site_settings.pinterest_link}}
+                                <li><a href="{$data.site_settings.pinterest_link}" target="_blank" title="pinterest" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Pinterest Icon']);">
+                                    <img alt="pinterest" src="{$assets}images/pinterest_icon.png" >
+                                </a></li>
+                                {{endif}}
+                                {{if data.site_settings.instagram_link}}
+                                <li><a href="{$data.site_settings.instagram_link}" target="_blank" title="instagram" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Instagram Icon']);">
+                                    <img alt="pinterest" src="{$assets}images/instagram_icon.png" >
+                                </a></li>
+                                {{endif}}
+                                {{if data.site_settings.tumblr_link}}
+                                <li><a href="{$data.site_settings.tumblr_link}" target="_blank" title="tumblr" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Tumblr Icon']);">
+                                    <img alt="tumblr" src="{$assets}images/tumblr_icon.png" >
+                                </a></li>
+                                {{endif}}
+                                {{if data.site_settings.flickr_link}}
+                                <li><a href="{$data.site_settings.flickr_link}" target="_blank" title="flickr" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Flickr Icon']);">
+                                    <img alt="flickr" src="{$assets}images/flickr_icon.png" >
+                                </a></li>
+                                {{endif}}
+                                {{if data.site_settings.youtube_link}}
+                                <li><a href="{$data.site_settings.youtube_link}" target="_blank" title="youtube" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Youtube Icon']);">
+                                    <img alt="youtube" src="{$assets}images/youtube_icon.png" >
+                                </a></li>
+                                {{endif}}
+                            {{endif}}
+                        </ul><!-- /.social -->
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8 col-sm-8 left">
+                            <span>&copy; {$data.name}</span>
+                            <ul class="social hidden-xs">
+                                <li><a href="http://facebook.com/{$pageInfo.pageid}" title="Facebook" target="_blank" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Facebook Icon']);"><img src="{$assets}images/facebook_icon.png" alt="Facebook"></a></li>
+                            {{ if data.site_settings.socialicons_switch == 1}}
+                                {{if data.site_settings.twitter_link}}
+                                <li><a href="{$data.site_settings.twitter_link}" target="_blank" title="twitter" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Twitter Icon']);">
+                                    <img alt="twitter" src="{$assets}images/twitter_icon.png" >
+                                </a></li>
+                                {{endif}}
+                                {{if data.site_settings.pinterest_link}}
+                                <li><a href="{$data.site_settings.pinterest_link}" target="_blank" title="pinterest" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Pinterest Icon']);">
+                                    <img alt="pinterest" src="{$assets}images/pinterest_icon.png" >
+                                </a></li>
+                                {{endif}}
+                                {{if data.site_settings.instagram_link}}
+                                <li><a href="{$data.site_settings.instagram_link}" target="_blank" title="instagram" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Instagram Icon']);">
+                                    <img alt="pinterest" src="{$assets}images/instagram_icon.png" >
+                                </a></li>
+                                {{endif}}
+                                {{if data.site_settings.tumblr_link}}
+                                <li><a href="{$data.site_settings.tumblr_link}" target="_blank" title="tumblr" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Tumblr Icon']);">
+                                    <img alt="tumblr" src="{$assets}images/tumblr_icon.png" >
+                                </a></li>
+                                {{endif}}
+                                {{if data.site_settings.flickr_link}}
+                                <li><a href="{$data.site_settings.flickr_link}" target="_blank" title="flickr" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Flickr Icon']);">
+                                    <img alt="flickr" src="{$assets}images/flickr_icon.png" >
+                                </a></li>
+                                {{endif}}
+                                {{if data.site_settings.youtube_link}}
+                                <li><a href="{$data.site_settings.youtube_link}" target="_blank" title="youtube" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Youtube Icon']);">
+                                    <img alt="youtube" src="{$assets}images/youtube_icon.png" >
+                                </a></li>
+                                {{endif}}
+                            {{endif}}
+                            </ul>
+                        </div>
+                        {{if data.site_settings.whitelabel_switch == 0}}
+                        <div class="col-lg-4 col-md-4 col-sm-4 right">{$"Powered by"|i18n(pageInfo.theme_settings.Lang)} <a href="http://www.pagevamp.com" title="Pagevamp" target="_blank">Pagevamp</a></div>
+                        {{else}}
+                        <div class="col-lg-4 col-md-4 col-sm-4 right">{$data.site_settings.whitelabel}</div>
+                        {{endif}}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {{ if app.name == 'gallery'}}
+    	<div class="modal fade" id="inquireModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    
+                    <div class="inquire-holder">
+                    
+                        <h2>{$"Inquire for Purchase"|i18n(pageInfo.theme_settings.Lang)}</h2>
+                        
+                        <div class="row">
+                        
+                            <div class="col-lg-7 col-md-7 col-sm-6">
+                                <div class="inquire-form">
+                                	<div class="inquire-loader">
+                                    	<img src="{$assets}images/pagevamp_loaders.GIF" />
+                                    </div>
+                                    <form id="inquireform" action="{$root}gallery" method="post">
+                                        <ul>
+                                            <li>
+                                            <input name="p_imgsrc" type="hidden" class="required">
+                                            <input name="p_address" type="text" value="" style="display:none;" />
+                                            <input name="p_name" type="text" placeholder="Name" class="required"></li>
+                                            <li><input name="p_email" type="text" placeholder="Email" class="required email"></li>
+                                            <li><input name="p_phone" type="text" placeholder="Phone (optional)" class=""></li>
+                                            <li><textarea name="p_message" cols="" rows="" placeholder="Message" class="required"></textarea></li>
+                                            <li><input name="p_inquirebtn" type="submit" class="btn" value="Send"></li>
+                                        </ul>
+                                    </form>
+                                </div><!-- /.inquire-form -->
+                            </div>
+                            
+                            <div class="col-lg-5 col-md-5 col-sm-6">
+                                <div class="rel-img"><img src="" alt="" class="inquire-img"></div><!-- /.rel-img -->
+                            </div>
+                            
+                        </div>
+                    
+                    </div><!-- /.inquire-holder -->
+                    
+                </div>
+            </div>
+
+            <button class="close" data-dismiss="modal"></button>
+            <button class="inquire initfancy" data-dismiss="modal">{$"BacK to Photo"|i18n(pageInfo.theme_settings.Lang)}</button>
+            
+          </div><!-- /.modal-body -->
+        </div><!-- /.madal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+    {{ endif }}
+    <!-- Javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{$assets}js/jquery-1.7.2.min.js"></script>
+    <script src="{$assets}js/bootstrap.min.js"></script>
+    <script src="{$assets}js/bootstrap-hover-dropdown.js"></script>
+    {{ if app.name == 'index' }}
+	<script>
+	function setContentMargin(){
+		console.log($('#footer').offset().top);
+		console.log($('#content').offset().top);
+		//console.log($('#footer').offset().top);
+		$('#content').css('margin-top', '0px');
+		var $diff = $('#footer').offset().top - $('#content').offset().top;
+		$diff = $diff - $('#content').height();
+		$diff = ($diff/2) - 13;
+		$('#content').css('margin-top', $diff + 'px');
+	}
+	
+	$(function(){
+		setContentMargin();
+	});
+	$(window).resize(function(){
+		setContentMargin();
+	});
+	</script>
+    {{endif}}
+    
+    {{if app.name=='gallery' and pageInfo.theme_settings.Store == 'enabled'}}
+    <script type="text/javascript" src="{$assets}js/jquery.fancybox.js"></script>
+    {{ else }}
+    <script type="text/javascript" src="{$assets}js/__jquery.fancybox.js"></script>
+    {{endif}}
+    {{if app.name=='contact' or app.name=='gallery'}}
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    {{endif}}
+    
+    <script src="{$assets}js/custom.js"></script>
+    
+    <script src="{$assets}js/less-1.3.0.min.js"></script>
+	<script>
+		// very simple to use!
+		$(document).ready(function() {
+		  $('.js-activated').dropdownHover().dropdown();
+		});
+    </script>
+    
+    </body>
+</html>

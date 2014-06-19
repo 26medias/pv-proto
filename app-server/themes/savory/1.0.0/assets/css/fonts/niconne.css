@@ -1,0 +1,64 @@
+
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:600);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:700);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:600italic);
+@import url(http://fonts.googleapis.com/css?family=Niconne);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:700);
+
+body,
+#footer,
+#main .home h2,
+#banner .info .txt,
+#main .events ul.thumbs li .caption {font-family: 'Josefin Sans', sans-serif; font-weight: 600;}
+
+body {font-size: 20px;}
+#footer {font-size: 16px;}
+
+.navbar-nav>li,
+#main h5 {font-family: 'Niconne', cursive; font-size: 20px;}
+#header .navbar-inverse .navbar-nav > li > a {font-size: 25px; font-style: normal; font-weight: normal;}
+.navbar-inverse .navbar-nav>li>a:hover {font-style: normal; font-weight: normal;}
+
+#banner .info .txt {font-size: 18px;}
+
+#main .home h2 {font-style: italic;}
+#main h2 {font-size: 50px;}
+#main h3 {font-size: 40px;}
+
+#main .info ul li .title,
+#main .events ul.desc li h2 {font-size: 30px;}
+#main .gallery ul li .caption {font-size: 18px;}
+#main .events ul.thumbs li .caption {font-size: 16px;}
+
+#widget_cont h1,
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6,
+#main .info ul li .title {font-family: 'Niconne', cursive;}
+
+.contact_form .btn {font-family: 'Niconne', cursive; text-transform: uppercase;}
+
+.dropdown-menu {top: 60px;}
+.dropdown-menu>li>a {font-size: 24px; font-weight: normal;}
+.dropdown-menu>li>a:hover {font-style: normal;}
+.dropdown-menu>li>a:hover, 
+.dropdown-menu>li>a:focus {font-size: 24px;}
+
+	.widget-container h1,
+	.widget-container h2,
+	.widget-container h3,
+	.widget-container h4,
+	.widget-container h5,
+	.widget-container h6 {font-family: 'Niconne', cursive !important; font-weight: 700!important; text-transform: none!important;}
+
+@media only screen and (max-width: 767px) {
+	
+	.navbar-inverse .navbar-nav>li>a {font-size: 20px;}
+	
+}
+
+

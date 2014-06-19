@@ -1,0 +1,34 @@
+<div class="row">
+
+	<div class="title gutter"><h2>News</h2></div>
+    <ul id="news">
+            {{ for post in data.posts.data if loop.index <= 7 and (post.caption or post.message or post.picture) }}
+    	<li>
+        
+        	<div class="grid_2 alpha omega res_2">
+            	<div class="date">{$post.created_time|date("M")}<br />{$post.created_time|date("j")}</div>
+            </div>
+            <div class="grid_12 alpha omega res_12">
+              <div class="desc">
+              		<div class="description">
+                    	{{ autoescape false }}
+						{{if (post.message or post.caption)}}   
+                        
+                        {$post.message}	<span class="fbcaption"><a href="{$post.link}" target="_blank">{$post.caption}</a></span>
+                        
+                        {{ endif }}
+                        {{ endautoescape }}
+                	</div>
+                {{if post.picture}}
+                    <div class="more"><a href="{$post.link}"><span></span></a></div>
+                {{endif}}
+                </div>        
+
+                
+            </div>
+            <div class="clear"></div>
+        </li>
+            {{ endfor }}
+    </ul><!-- news ends -->
+
+</div>

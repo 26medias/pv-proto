@@ -1,0 +1,107 @@
+<style type="text/css">
+@import url("http://www.google.com/uds/css/gsearch.css");
+@import url("http://www.google.com/uds/solutions/localsearch/gmlocalsearch.css");
+</style>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyB3Absd3SoWBrUnZh3pzdzhstUOZx6dUIw" 
+type="text/javascript"></script>
+<script src="http://www.google.com/uds/api?file=uds.js&amp;v=1.0" type="text/javascript"></script>
+<script src="http://www.google.com/uds/solutions/localsearch/gmlocalsearch.js" type="text/javascript"></script> 
+<script type="text/javascript">
+
+function initialize() {
+if (GBrowserIsCompatible()) {
+
+// Create and Center a Map
+var map = new GMap2(document.getElementById("map_canvas"));
+map.setCenter(new GLatLng(40.04,-75.30), 10);
+map.addControl(new GLargeMapControl());
+
+// bind a search control to the map, suppress result list
+map.addControl(new google.maps.LocalSearch(), new GControlPosition(G_ANCHOR_TOP_RIGHT, new GSize(5,5)));
+}
+}
+GSearch.setOnLoadCallback(initialize);
+</script>
+
+<!-- About Properties
+================================================== -->
+<div id="about" class="for_about_padding">
+
+    <h1>
+    	<span>{$widgets.pages.contact.label|i18n(pageInfo.theme_settings.Lang)}</span>
+        <div class="social hidden-sm hidden-xs">
+            <a href="http://facebook.com/{$pageInfo.pageid}" title="facebook" target="_blank" onClick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Facebook Icon']);" class="facebook">facebook</a>
+            {{ if data.site_settings.socialicons_switch == 1}}
+                {{if data.site_settings.twitter_link}}
+                <a href="{$data.site_settings.twitter_link}" target="_blank" title="twitter" onClick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Twitter Icon']);" class="twitter">twitter</a>
+                {{endif}}
+                {{if data.site_settings.pinterest_link}}
+                <a href="{$data.site_settings.pinterest_link}" target="_blank" title="pinterest" onClick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Pinterest Icon']);" class="pinterest">pinterest</a>
+                {{endif}}
+                {{if data.site_settings.instagram_link}}
+                <a href="{$data.site_settings.instagram_link}" target="_blank" title="instagram" onClick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Instagram Icon']);" class="instagram">instagram</a>
+                {{endif}}
+                {{if data.site_settings.tumblr_link}}
+                <a href="{$data.site_settings.tumblr_link}" target="_blank" title="tumblr" onClick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Tumblr Icon']);" class="tumblr">tumblr</a>
+                {{endif}}
+                {{if data.site_settings.flickr_link}}
+                <a href="{$data.site_settings.flickr_link}" target="_blank" title="flickr" onClick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Flickr Icon']);" class="flickr">flickr</a>
+                {{endif}}
+                {{if data.site_settings.youtube_link}}
+                <a href="{$data.site_settings.youtube_link}" target="_blank" title="youtube" onClick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Youtube Icon']);" class="youtube">youtube</a>
+                {{endif}}
+            {{endif}}
+        </div>
+    </h1>
+    
+    <div class="side_content hidden-sm">
+        {{ if data.location.latitude }}
+            <iframe width="100%" height="100%" scrolling="no" frameborder="0" src="https://maps.google.com/?q={$data.location.street}+{$data.location.city}+{$data.location.state}&hl=en&sll={$data.location.latitude},{$data.location.longitude}&amp;output=embed" marginwidth="0" marginheight="0"></iframe>
+        {{ endif }}
+     </div><!-- /.side_content -->
+    
+    <div class="content">
+        <div class="box_holder">
+            <dl class="dl-horizontal">
+            {{ if data.phone }}  
+                <dt>{$"Phone"|i18n(pageInfo.theme_settings.Lang)}: </dt>
+                <dd>{$data.phone}</dd>
+                {{ if data.isPhoneValid }} 
+                <div class="call"><a href="tel:{$data.phone}" onclick="_gaq.push(['_trackEvent', 'Contact', 'Call', 'Click-To-Call']);">Call</a></div><!-- /.call -->
+                {{ endif }}
+            {{ endif }}
+            {{ if data.location }}
+                <dt>{$"Address"|i18n(pageInfo.theme_settings.Lang)}:</dt>
+                <dd>{$data.locationcommas}</dd>
+            {{ endif }}
+            <dt>{$'Message'|i18n(pageInfo.theme_settings.Lang)}:</dt>
+            <dd>
+                <form id="contact_form" action="#contact_form" method="post">
+                    <div class="contact_form">
+                    	{{ if data.msg }}
+                            <span class="message">{$data.msg|i18n(pageInfo.theme_settings.Lang)}</span>
+                        {{ endif }}
+                        <ul>
+                            <li><input name="p_name" type="text" placeholder="{$'Name'|i18n(pageInfo.theme_settings.Lang)}" class="required" /></li>
+                            <li><input name="p_email" type="text" placeholder="{$'Email'|i18n(pageInfo.theme_settings.Lang)}" class="required email" /></li>
+                            <li><textarea name="p_message" cols="" rows="" placeholder="{$'Message'|i18n(pageInfo.theme_settings.Lang)}" class="required"></textarea></li>
+                            <li class="txt_center"><input name="p_send" type="submit" value="{$'Send'|i18n(pageInfo.theme_settings.Lang)}" class="btn" onclick="_gaq.push(['_trackEvent', 'Contact', 'Message', 'Send Button']);" /></li>
+                        </ul>
+                    </div>
+                </form>
+            </dd>
+         </dl>
+        </div><!-- /.box_holder -->
+    </div><!-- /.content -->
+    
+    <div class="side_content hidden-lg" style="padding-bottom: 60px;">
+        {{ if data.location.latitude }}
+            <iframe width="100%" height="100%" scrolling="no" frameborder="0" src="https://maps.google.com/?q={$data.location.street}+{$data.location.city}+{$data.location.state}&hl=en&sll={$data.location.latitude},{$data.location.longitude}&amp;output=embed" marginwidth="0" marginheight="0"></iframe>
+        {{ endif }}
+     </div><!-- /.side_content -->
+    
+    
+    <div class="top_cover"></div>
+    <div class="bottom_cover"></div>
+            
+</div>

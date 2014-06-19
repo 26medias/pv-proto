@@ -1,0 +1,58 @@
+<div class="head-title">
+    <h2>{$"Gallery"|i18n(pageInfo.theme_settings.Lang)}</h2>
+</div><!-- /.head-title -->
+
+</div>
+
+<div id="content">
+    
+    <div class="gallery">
+        <div class="container">
+            <div class="row">
+              {{ set count = 0 }}
+              {{ for album in data.albums.data}}            
+                  
+                  {{ set has_cover = false }}
+                  {{ if album.cover_photo }}
+                    {{ for photo in album.photos.data }}      
+                        {{ if album.cover_photo == photo.id }}
+                        {{ set has_cover = true }}
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="thumbnail">
+                        <div class="img-holder">
+                            <a href="{$root}album?album={$count}"><img src="{$assets}/img/blank.png"></a>
+                            <div class="fill" style="background-image: url('{$photo.source}');"></div>
+                        </div><!-- /.img-holder -->
+                        <div class="caption"><a href="{$root}album?album={$count}">{{ autoescape false }}{$album.name|i18n(pageInfo.theme_settings.Lang)} {{ endautoescape }}</a></div><!-- /.caption -->
+                    </div><!-- /.thumbnail -->
+                </div>
+                {{endif}}
+                    {{ endfor }}
+                  {{endif}} 
+                  {{ set firstimage = false }}
+                  
+                  {{if has_cover == false}}
+                    {{ for photo in album.photos.data if loop.index<2 }}
+                    {{ set firstimage = photo.id }}
+                                        
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="thumbnail">
+                        <div class="img-holder">
+                            <a href="{$root}album?album={$count}"><img src="{$assets}/img/blank.png"></a>
+                            <div class="fill" style="background-image: url('{$photo.source}');"></div>
+                        </div><!-- /.img-holder -->
+                        <div class="caption"><a href="{$root}album?album={$count}">{{ autoescape false }}{$album.name|i18n(pageInfo.theme_settings.Lang)} {{ endautoescape }}</a></div><!-- /.caption -->
+                    </div><!-- /.thumbnail -->
+                </div>
+                {{ endfor }}
+                  {{endif}}
+                  
+                  {{ set count = loop.index }}
+                          
+              {{ endfor}}
+                                        
+            </div>
+        </div>
+    </div><!-- /.gallery -->
+
+</div>

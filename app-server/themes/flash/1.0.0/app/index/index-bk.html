@@ -1,0 +1,114 @@
+    {{ autoescape false }}
+    <!-- Wrap Properties
+        ================================================== -->
+        <div id="wrap">
+            
+            <!-- Grid Gallery
+            ================================================== -->
+            <div id="grid_gallery">
+            
+                 <div id="hover-cap-4col" class="maso_container">
+                 
+                    <!-- Modal -->
+                    {{ set count = 0 }}
+                    {{ for album in data.albums.data if loop.index <=25 }} 
+                    	<div class="modal fade" id="model{$count}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        	<div class="modal-dialog">
+                        	<div class="modal-content">
+                            
+                                <div class="modal-body">
+                                
+                                    <div id="carousel-example-generic{$count}" class="carousel slide" data-ride="carousel">
+                                    
+                                      <!-- Wrapper for slides -->
+                                      <div class="carousel-inner">
+                                      	{{ set iCount = 0 }}
+                                      	{{ for photo in album.photos.data }}
+                                        <div class="item {{if iCount == 0 }}active{{endif}} ">
+                                          <img src="{$photo.source}" alt="{$album.name|i18n(pageInfo.theme_settings.Lang)}">
+                                        </div>
+                                        {{ set iCount = loop.index }}
+                                        {{ endfor }}
+                                      </div>
+                                    
+                                      <!-- Controls -->
+                                      <a class="left carousel-control" href="#carousel-example-generic{$count}" data-slide="prev">
+                                        &nbsp;
+                                      </a>
+                                      <a class="right carousel-control" href="#carousel-example-generic{$count}" data-slide="next">
+                                        &nbsp;
+                                      </a>
+                                    </div><!-- /.carousel -->                           
+                                
+                              </div><!-- /.modal-bod -->
+                            
+                            <div class="modal-footer">
+                            <ul class="social">
+                                <li><a href="#" class="facebook">facebook</a></li>
+                                <li><a href="#" class="twitter">twiiter</a></li>
+                                <li><a href="#" class="mail">mail</a></li>
+                            </ul><!-- /.social -->
+                            <div class="close_icon"><a href="#" data-dismiss="modal">Close</a></div><!-- /.close_icon -->
+                          </div>
+                            </div><!-- /.modal-content -->
+                      		</div><!-- /.modal-dialog -->		
+                          </div>
+                    {{ set count = loop.index }}
+                    {{ endfor}} 
+                     
+                     
+                    {{ set count = 0 }}
+                    {{ for posts in data.posts.data if loop.index <=25 }} 
+                    	{{if posts.picture }}
+                        	<div class="box">
+                                 <div class="article">
+                                    <img alt="{$posts.name|i18n(pageInfo.theme_settings.Lang)}" src="{$posts.picture}">
+                                    <div class="hover_caption"><a href="#" data-toggle="modal" data-target="#model{$count}">Click Here</a></div>
+                                 </div>
+                             </div><!-- /.box -->
+                    		{{ set count = loop.index }}
+                        {{endif}}
+                    {{ endfor}} 
+                    
+                      
+                    
+                    {{ set count = 0 }}
+                    {{ for album in data.albums.data if loop.index <=25 }}        	
+                        
+                            {{ set has_cover = false }}
+                            {{if album.cover_photo }}
+                                {{ for photo in album.photos.data }}      
+                                    {{if album.cover_photo == photo.id}}
+                                    {{ set has_cover = true }} 
+                                    <div class="box">
+                                         <div class="article">
+                                            <img alt="{$album.name|i18n(pageInfo.theme_settings.Lang)}" src="{$photo.source}">
+                                            <div class="hover_caption"><a href="#" data-toggle="modal" data-target="#model{$count}">Click Here</a></div>
+                                         </div>
+                                     </div><!-- /.box -->
+                                    {{endif}}
+                                {{ endfor }}
+                            {{endif}} 
+                            {{ set firstimage = false }}
+                            {{if has_cover == false}}
+                                {{ for photo in album.photos.data if loop.index<2 }} 
+                                    {{ set firstimage = photo.id }} 
+                                    <div class="box">
+                                         <div class="article">
+                                            <img alt="{$album.name|i18n(pageInfo.theme_settings.Lang)}" src="{$photo.source}">
+                                            <div class="hover_caption"><a href="#" data-toggle="modal" data-target="#2873462387463746">Click Here</a></div><!-- /.hover_caption -->
+                                         </div>
+                                     </div><!-- /.box -->
+                                {{ endfor }}
+                            {{endif}}
+                            {{ set count = loop.index }}
+                    {{ endfor}} 
+                     
+                  </div> <!-- /.maso_container -->
+              
+            </div>
+            
+            <div id="push"></div><!-- just for Pushing the footer -->
+            
+        </div>
+    {{ endautoescape }}

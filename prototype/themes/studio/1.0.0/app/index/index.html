@@ -1,0 +1,281 @@
+<!-- about starts -->
+<div id="about">
+	
+	<div class="title">{$widgets.pages.about.label|i18n(pageInfo.theme_settings.Lang)}</div><!-- title ends -->
+	
+    <div class="main">
+    <!--Mission-->
+    {{ if data.mission}}
+        <h2>{$"Mission"|i18n(pageInfo.theme_settings.Lang)}</h2>
+        <p>{{ autoescape false }}{$data.mission|nl2br}{{ endautoescape }}</p>
+    {{ endif}}
+    <!--Mission-->    
+    <!--Description-->    
+    {{ if data.description}}
+        <h2>{$"Description"|i18n(pageInfo.theme_settings.Lang)}</h2>
+        <p>{{ autoescape false }}{$data.description|nl2br}{{ endautoescape }}</p>
+    {{ endif}}
+    <!--Description--> 
+    <!--Company Overview-->
+     {{ if data.company_overview}}
+        <h2>{$"Company Overview"|i18n(pageInfo.theme_settings.Lang)}</h2>
+        <p>{{ autoescape false }}{$data.company_overview|nl2br}{{ endautoescape }}</p>
+    {{ endif}}
+    <!--Company Overview-->
+    <!--General Information-->
+    {{ if data.general_info}}
+        <h2>{$"General Information"|i18n(pageInfo.theme_settings.Lang)}</h2>
+        <p>{{ autoescape false }}{$data.general_info|nl2br}{{ endautoescape }}</p>
+    {{ endif}}
+    <!--General Information-->
+    <!--Bio-->
+    {{ if data.bio}}
+        <h2>{$"Bio"|i18n(pageInfo.theme_settings.Lang)}</h2>
+        <p>{{ autoescape false }}{$data.bio|nl2br}{{ endautoescape }}</p>
+    {{ endif}}
+    <!--Bio-->
+    <!--Culinary Team-->
+    {{ if data.culinary_team}}
+        <h2>{$"Culinary Team"|i18n(pageInfo.theme_settings.Lang)}</h2>
+        <p>{{ autoescape false }}{$data.culinary_team|nl2br}{{ endautoescape }}</p>
+    {{ endif}}
+    <!--Culinary Team-->
+
+    </div><!-- main ends -->
+
+</div>
+<!-- about ends -->
+
+<!-- news ends -->
+<div id="news">
+<script src="http://test.pagevamp.com/themes/blarney/1.0.0/assets/js/jquery.backstretch.js"></script>
+<script type="text/javascript">	
+	function last_msg_funtion() 
+	{	   
+		var totnum_li=$('.news > li').length;
+		
+		//$('#loader').fadeIn();
+		$('#loader').css('display','inline-block');
+		var ID=$(".content_box:last").attr("id");
+		var st = parseInt(ID)+1;
+		for(a=st;a<(st+3);a++)
+		{
+			$('#'+a).attr("class","content_box");
+			$('#'+a).delay(2000).fadeIn('slow');
+		}			
+		$('#loader').delay(2000).fadeOut();
+		
+		newst = st+3;
+		//alert(totnum_li+' -- '+st+' -- '+newst);
+		if(totnum_li<newst)
+		{
+			$('#viewMore').delay(2000).fadeOut();
+		}
+	}
+</script>
+	<div class="title">{$widgets.pages.news.label|i18n(pageInfo.theme_settings.Lang)}/{$"Events"|i18n(pageInfo.theme_settings.Lang)}</div><!-- title ends -->
+    
+    <div class="main">
+    
+    	<h2>{$"News"|i18n(pageInfo.theme_settings.Lang)}</h2>
+        <ul class="news">
+        {{ for post in data.posts.data if loop.index <=100 and (post.show) }}
+        	{{ if loop.index<=3 }}
+            <li id="{$loop.index}" class="content_box" style="padding-bottom: 25px;">
+            	<div class="grid_4 alpha omega date">{$post.created_time|date("M")|i18n(pageInfo.theme_settings.Lang)} {$post.created_time|date("j")}:</div>
+            	<div class="grid_19 alpha omega desc">   
+                <div class="full_post" style="padding-bottom: 20px;">                 
+                    	{{ autoescape false }}
+			{{if (post.message)}}   
+                        
+				{$post.message|raw|nl2br}
+             
+                        {{ endif }}
+                        {{ endautoescape }}               
+                 </div>
+                {{if post.picture and post.source is empty}}
+                    <img src="{$post.picture}" />
+                {{endif}}
+		{{ if (post.soundcloud.html or post.source)}}
+		{$post.soundcloud.html|raw}
+		{{if (post.source and post.soundcloud.html is empty)}}
+		 <iframe width="100%" height="{$post.iframeheight}" src="{$post.source}" frameborder="0" allowfullscreen></iframe>
+		 {{endif}}
+	      {{endif}}
+                </div>
+            </li>
+            {{ else }}
+            <li id="{$loop.index}" class="content_box_hidden" style="display:none; padding-bottom: 25px;">
+            	<div class="grid_4 alpha omega date">{$post.created_time|date("M")|i18n(pageInfo.theme_settings.Lang)} {$post.created_time|date("j")}:</div>
+            	<div class="grid_19 alpha omega desc">   
+                <div class="full_post" style="padding-bottom: 20px;">                 
+                    	{{ autoescape false }}
+			{{if (post.message)}}   
+                        
+				{$post.message|raw|nl2br}
+             
+                        {{ endif }}
+                        {{ endautoescape }}               
+                 </div>
+                {{if post.picture and post.source is empty}}
+                    <img src="{$post.picture}" />
+                {{endif}}
+		{{ if (post.soundcloud.html or post.source)}}
+		{$post.soundcloud.html|raw}
+		{{if (post.source and post.soundcloud.html is empty)}}
+		 <iframe width="100%" height="{$post.iframeheight}" src="{$post.source}" frameborder="0" allowfullscreen></iframe>
+		 {{endif}}
+	      {{endif}}
+                </div>
+            </li>
+            {{ endif }}
+		{{ endfor }}
+            <li id="viewMore">
+            	<div class="grid_4 alpha omega date"></div>
+            	<div class="grid_19 alpha omega desc">   
+                <div class="full_post">  
+                	<div class="button big green" onclick="last_msg_funtion();" style="display:inline-block;">{$"View More"|i18n(pageInfo.theme_settings.Lang)}</div>
+                	<div id="loader" style="display:none; text-align: center;"><img src="http://www.pagevamp.com/uploads/ajax-loader.gif" width="40" /></div>          
+                 </div>  
+                </div>
+            </li>
+        </ul><!-- news ends -->
+    	{{ if data.events }}<h2>{$"Events"|i18n(pageInfo.theme_settings.Lang)}</h2> {{ endif }}
+        <ul class="events">
+        	{{ for event in data.events.data if loop.index <=3}}
+                {{ if event.name }}        	
+            <li>
+            	<div class="event-holder">
+                	<a href="http://facebook.com/events/{$event.id}" title="{$data.name}" target="_blank">
+                    	<!-- Event Image Display -->
+                        {{if event.cover}}
+                            <img src="{$event.cover.source}" alt="{$event.name}" />
+                        {{else}}
+                            <img src="{$assets}images/facebook-event.png" />
+                        {{endif}}
+                    </a>
+                </div><!-- Event Image Display -->
+                            <!-- <img src="{$event.src}" /> -->
+                <p>{{ autoescape false}}{$event.name}:{{ endautoescape }}<br />{$event.start_time|date("F d,H:ia")}</p>
+            </li>
+                {{ endif }}
+		{{ endfor }}
+        </ul><!-- events ends -->
+    </div><!-- main ends -->
+
+</div>
+<!-- news ends -->
+
+<!-- gallery starts -->
+<div id="gallery">
+
+	<div class="title">{$widgets.pages.gallery.label|i18n(pageInfo.theme_settings.Lang)}</div><!-- title ends -->
+    
+    <div class="main">
+    	
+        <ul class="tab tab-title">
+        	<li><a title="Browse Photo" class="active" rel="tab1">{$"Photos"|i18n(pageInfo.theme_settings.Lang)}</a></li>
+            {{ if data.videos}}
+        	<li>|</li>
+        	<li><a title="Browse Video" rel="tab2">{$"Videos"|i18n(pageInfo.theme_settings.Lang)}</a></li>{{ endif }}
+        </ul><!-- tab ends -->
+        
+        <div class="tab_content" id="tab1">
+            <ul class="thumb">
+           
+                {{ for album in data.albums.data if loop.index <=25 }}        	
+                
+                    {{ set has_cover = false }}
+                    {{if album.cover_photo }}
+                    	{{ for photo in album.photos.data }}      
+                        	{{if album.cover_photo == photo.id}}
+                            {{ set has_cover = true }} 
+                            <li>
+                            <div class="img-holder nailthumb-container">    
+                                <a href="{$photo.source}" title="{$photo.name}" class="fancybox" rel="{{if album.name}}{$album.name}{{endif}}">
+                                    <div class="nailthumb-container thumb">
+                                    <img src="{$photo.source}" />
+                                    </div></a>
+                             </div>
+                             <p>{{autoescape false}}{$album.name|i18n(pageInfo.theme_settings.Lang)}{{endautoescape}}</p>
+                             </li>
+                            {{endif}}
+                    	{{ endfor }}
+                            
+                    {{endif}} 
+                    {{ set firstimage = false }}
+                    {{if has_cover == false}}
+                    	{{ for photo in album.photos.data if loop.index<2 }} 
+                        {{ set firstimage = photo.id }}
+                        <li>
+                        <div class="img-holder nailthumb-container">               
+                        	<a href="{$photo.source}" title="{$photo.name}" class="fancybox" rel="{{if album.name}}{$album.name}{{endif}}">
+                               
+                                <div class="nailthumb-container thumb">
+                                <img src="{$photo.source}" />
+                                </div></a>
+                         </div>
+                         <p>{{autoescape false}}{$album.name|i18n(pageInfo.theme_settings.Lang)}{{endautoescape}}</p>
+                         </li>
+                    	{{ endfor }}
+                    {{endif}}
+                    <div class="shift">
+                    {{ for photo in album.photos.data }} 
+                    	{{if album.cover_photo != photo.id}} 
+                        	{{if firstimage != photo.id}}               
+                        	<a href="{$photo.source}" title="{$photo.name}" class="fancybox" rel="{{if album.name}}{$album.name}{{endif}}" style="display:none;"></a>
+                            {{ endif }}
+                        {{ endif }}
+                    {{ endfor }}
+                    </div>	
+                        
+                    <!-- img-holder ends -->
+                    
+               
+            {{ endfor}} 
+            <br class="clearfix" />       
+            </ul><!-- thumb ends -->
+       </div>
+       
+        <div class="tab_content" id="tab2">
+            <div class="video-container">
+    {{ for video in data.videos.data if loop.index <= 6 and video.name }}
+    
+                    <div class="vid">
+                        <div class="header">
+                            <div  class="link toggle_trigger_{$video.id}" style="display:none;">{$"Details"|i18n(pageInfo.theme_settings.Lang)}</div>
+                            <h2>
+                                {{autoescape false}}{$video.name}{{endautoescape}}
+                            </h2>
+                        </div>
+                        <div class="content" data-widget="toggle" data-min="275" data-trigger=".toggle_trigger_{$video.id}">
+                            {{ autoescape false }}
+                                {$video.format[1].embed_html}
+                            {{ endautoescape }}
+                            <p>
+                                {{ if video.description }}
+                                    {$video.description|nl2br}
+                                {{ endif }}
+                            </p>
+                            <div class="clearfix"></div>
+                            <div class="text small align-right">{$"Posted by"|i18n(pageInfo.theme_settings.Lang)} {$video.from.name} {$"on"|i18n(pageInfo.theme_settings.Lang)} {$video.created_time|date("F jS, Y")} {$"at"|i18n(pageInfo.theme_settings.Lang)} {$video.created_time|date("g:ia")}</div>
+                        </div>
+                    </div>
+                    
+                    {{ endfor }}
+                    <br class="clearfix" />
+                    </div>
+            <br class="clearfix" />   
+        </div>   
+	</div><!-- main ends -->
+
+        </div><!-- gallery ends -->
+        
+{{ autoescape false }}
+    {{ for widget in widgets.blocks }}
+    <div id="{$pagename}" class="extrapage">
+        <div class="title"></div>
+        {$widget.render}
+    </div>
+    {{ endfor }}  
+{{ endautoescape }}

@@ -1,0 +1,52 @@
+#main .content,
+#main .news .date, 
+#main .news .article {background: #00B4BB; color: #fff;}
+
+a {background: none; color: #fff;}
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {color: #fff;}
+
+#main .more a {background: #00B4BB; color: #fff;}
+
+.nav-tabs > li.active > a, 
+.nav-tabs > li.active > a:hover, 
+.nav-tabs > li.active > a:focus {background: none;}
+
+#main .content .gallery .holder .thumb:hover,
+#main .content .events ul li .thumbs:hover {border-color: #fff;}
+
+#main .content.title .back a {background: url(../../img/back-white.png) no-repeat scroll 0 6px rgba(0, 0, 0, 0); color: #fff;}
+
+#main .content .events ul li .thumbs .caption h5 a {color: #fff;}
+
+#main .content a.rsvp,
+.contact_form .bottom .btn {background: #fff; color: #00B4BB;}
+
+.contact_form input[type="text"], 
+.contact_form input[type="password"], 
+.contact_form textarea {border-color: #00858a;}
+
+.fancybox-skin,
+.inquire,
+.modal-content {background: #00B4BB!important; color: #fff!important;}
+
+.modal .inquire-holder input[type="text"], 
+.modal .inquire-holder input[type="password"], 
+.modal .inquire-holder textarea {border: 1px solid #00858a;}
+.modal .inquire-holder .rel-img {border: 1px solid #fff;}
+.modal .inquire-holder .btn {background: #fff; color: #00B4BB;}
+
+@media only screen and (max-width: 767px) {
+	#sidebar .navbar-inverse .navbar-toggle {background-color: #00B4BB; color: #fff;}
+	#sidebar .navbar-inverse .navbar-toggle:hover, 
+	#sidebar .navbar-inverse .navbar-toggle:focus {background-color: #00B4BB; color: #fff;}
+	
+	.footer {background-color: #00B4BB; color: #fff;}
+	.footer span,
+	.footer a {color: #fff;}
+ }
+

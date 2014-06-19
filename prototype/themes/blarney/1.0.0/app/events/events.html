@@ -1,0 +1,55 @@
+<div class="content gutter title">
+	<h2>{$widgets.pages.events.label|i18n(pageInfo.theme_settings.Lang)}</h2>
+    {{ if data.isEvent }}
+    <div class="back"><a href="{$root}events" title="Back">{$"Back to all events"|i18n(pageInfo.theme_settings.Lang)}</a></div>
+    {{ endif }}
+</div><!-- /.content -->
+
+{{ if data.isEvent }}
+    <div class="content gutter">
+        <h4>{$data.eventOnly.name}</h4>
+        <p>{$data.eventOnly.start_time|date("F d, Y - h:ia")}</p>
+        {{ if data.eventOnly.description }} <p>{$data.eventOnly.description}</p> {{ endif }}
+        <p><a href="http://facebook.com/events/{$data.eventOnly.id}/" title="RSVP" class="rsvp" target="_blank" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Events', 'RSVP']);">RSVP</a></p>
+    </div><!-- /.content -->
+    <div class="content gutter">
+        <h4>{$"Location"|i18n(pageInfo.theme_settings.Lang)}</h4>
+        <p>{{ if data.eventOnly.location }}
+                {$data.eventOnly.location}<br/>
+            {{ endif }}
+            {$data.eventOnly.venue.street} {$data.eventOnly.venue.city} {$data.eventOnly.venue.state}</p>
+    </div><!-- /.content -->
+    <div class="content">
+    	{{ if data.eventOnly.venue.latitude }}
+            <iframe width="100%" scrolling="no" height="300" frameborder="0" src="https://maps.google.com/?q={$data.eventOnly.venue.street}+{$data.eventOnly.venue.city}+{$data.eventOnly.venue.state}&hl=en&sll={$data.eventOnly.venue.latitude},{$data.eventOnly.venue.longitude}&amp;output=embed" marginwidth="0" marginheight="0"></iframe>
+        {{ endif }}	
+    </div>
+{{ else}}
+<div class="content gutter">
+    <div class="events">
+    	{{ if data.events}}
+        <ul class="clearfix">
+        	{{ autoescape false }}
+            {{ set count = 0 }}
+            {{ for event in data.events.data if loop.index <=100}}
+            	{{ if event.name }}         	
+            <li>
+                <div class="thumbs">
+                    <div class="img-holder" style="background:url({{if event.cover.source}}{$event.cover.source}{{else}}{$assets}img/event.png{{endif}}) center center no-repeat rgba(0,0,0,.2);{{if event.cover.source}} background-size: cover;{{else}} background-size: inherit;{{endif}}"><a href="{$root}events?event={$count}" title="{$event.name}"><img src="assets/img/blank.png" alt="Title"></a></div><!-- /.img-holder -->
+                    <div class="caption">
+                        <h5><a href="{$root}events?event={$count}" title="{$data.eventOnly.name}">{$event.name}</a></h5>
+                        <p>{$event.start_time|date("F d, Y h:ia")}</p>
+                    </div><!-- /.caption -->
+                </div><!-- /.thumbs -->
+            </li>
+            	{{ endif }}
+                {{ set count = loop.index }}
+           {{ endfor }}
+           {{ endautoescape }}
+        </ul>
+        {{ else }}
+        <p class="text-left">{$"There are currently no upcoming events. Please check back later!"|i18n(pageInfo.theme_settings.Lang)}</p>
+        {{ endif }}
+    </div><!-- /.events -->
+</div>
+{{ endif }}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- 
+	This is the main layout.
+	-->
+	<head>
+		<meta charset="utf-8">
+		<title>{$title}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<!-- fancybox -->
+		<link href="{$assets}css/jquery.fancybox.css" rel="stylesheet">		
+        <!-- Thumbnail resizer -->		
+        <link href="{$assets}css/jquery.nailthumb.1.1.css" rel="stylesheet">		
+        <!-- Reset -->
+		<link href="{$assets}css/reset.css" rel="stylesheet">
+		<!-- Grids -->
+		<link href="{$assets}css/960.css" rel="stylesheet">
+		<!-- Actual Style / LessCSS -->
+		<link href="{$assets}css/theme.css" rel="stylesheet/less" type="text/css">
+		
+		<!-- Here I will include the css files from the styles selected by the user -->
+		{{ for file in pageInfo.theme_styles }}
+		<link href="{$assets}{$file}" rel="stylesheet/less" type="text/css">
+		{{ endfor }}
+		
+		<!-- End/Fix -->
+		<link href="{$assets}css/end.css" rel="stylesheet/less">
+		<link href="{$assets}css/style.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<!-- jQuery -->
+		<script src="{$assets}js/jquery-1.8.2.js"></script>
+		<!-- LessCSS -->
+		<script src="{$assets}js/less-1.3.0.min.js"></script>
+
+		<!-- Toogle Widget -->
+		<script src="{$assets}js/toggle.js"></script>
+        
+        <script src="{$assets}js/include.js"></script>	
+        <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>-->
+		<script type="text/javascript" src="{$assets}js/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="{$assets}js/jquery.plusanchor.js"></script>
+        <script type="text/javascript" src="{$assets}js/easyslider1.7.js"></script>
+        <script type="text/javascript" src="{$assets}js/scripts.js"></script>
+		<script type="text/javascript" src="{$assets}js/jquery.fancybox.js"></script>
+		<script type="text/javascript" src="{$assets}js/jquery.nailthumb.1.1.js"></script>	
+        <script type="text/javascript">
+			$(function(){
+				{{if app.name=="index"}}
+					$('.home').show();
+					$('.other').hide();
+					$('#pull_home').hide();
+				{{else}}
+					$('.home').hide();
+					$('.other').show();
+					$('.neverThinglink').hide();
+					$('#pull_home').hide();
+				{{endif}}
+				
+				
+				{{if app.name=="contact"}}
+					$('.hide_contact').hide();
+				{{endif}}
+
+			});
+		</script>
+        {{ set f = 1 }}
+        {{ for pagename,pageinfo in widgets.pages }}
+        	{{ set f = f+1}}
+        {{ endfor }} 
+        {{if f>1}}
+        <style type="text/css">
+			ul#nav li { width:8.4762em}
+			@media only screen and (min-width: 768px) and (max-width: 959px) {
+				ul#nav li { width:6.4762em}
+			}
+        </style>
+        {{endif}}
+    	</head>
+	<body>
+    
+    	<div id="nav_wrap_other" class="other">
+        
+        	<div class="container_24 center_align nav_width">
+                <ul id="nav" class="clearfix">
+                    {{ for pagename,pageinfo in widgets.pages }}
+                        <li {{if app.name==pagename}}class="active"{{endif}}>
+                            <a href="{$root}{$pagename}" id="widget{$loop.index}">{$pageinfo.label}</a>
+                         </li>
+                    {{ endfor }} 
+                </ul><!-- nav ends -->
+            </div>
+        </div><!-- nav_wrap ends -->
+                <a href="#" id="pull_other" class="all_round">Navigation</a><!--switching menus for mobile-->
+    
+        <div class="container_24 hide_contact head">
+        	<div class="grid_24">
+                <div class="header">
+                    <div class="logo"><a href="{$root}" title="PMBcreates">{{ autoescape false }}{{ if pageData.name }}{$pageData.name}{{ endif }}{{ endautoescape }}</a></div>
+                    <div class="social"><a href="http://facebook.com/{$pageInfo.pageid}" title="{$data.name}" target="_blank"><img src="{$assets}images/icon_facebook.png" alt="Facebook" /></a></div><!-- social ends -->
+                    <div class="clear"></div>
+                </div><!-- header ends -->
+            </div>
+        
+        </div><!-- container_24 ends -->
+        
+        <div class="clear"></div>
+     
+        <div id="nav_wrap" class="home">
+        
+        	<div class="container_24 center_align nav_width">
+                <ul id="nav" class="clearfix">
+                    <li {{if app.name=="index"}}class="active"{{endif}}><a href="{$root}">Home</a></li>
+                    <li {{if app.name=="about"}}class="active"{{endif}}><a href="{$root}about">About</a></li>
+                    <!--<li {{if app.name=="board"}}class="active"{{endif}}><a href="{$root}board">Board</a></li>-->
+                    <li {{if app.name=="news"}}class="active"{{endif}}><a href="{$root}news">News</a></li>
+                    <li {{if app.name=="gallery"}}class="active"{{endif}}><a href="{$root}gallery">Gallery</a></li>
+                    {{ for pagename,pageinfo in widgets.pages }}
+                        <li {{if app.name==pagename}}class="active"{{endif}}>
+                            <a href="{$root}{$pagename}" id="widget{$loop.index}">{$pageinfo.label}</a>
+                         </li>
+                    {{ endfor }}                     
+                    <li {{if app.name=="contact"}}class="active"{{endif}}><a href="{$root}contact">Contact</a></li>
+                </ul><!-- nav ends -->
+            </div>
+        </div><!-- nav_wrap ends -->
+                <a href="#" id="pull_home" class="all_round">Navigation</a><!--switching menus for mobile-->
+        
+        
+        <div class="container_24 full_width">
+        	<div class="grid_24 no-scroll " id="widget_cont">
+                {{ autoescape false }}
+                    {$output}
+                {{ endautoescape }}
+            </div>
+        </div>
+        
+        <div class="clear"></div>
+        
+        
+        <div class="footer hide_contact">
+            <div class="foot_left">&copy; {{ if pageData.name }}{$pageData.name}{{ endif }}</div>
+            <div class="foot_right">Powered by <a href="http://pagevamp.com/" target="_blank">PageVamp</a></div>
+        </div><!-- footer ends -->
+		         
+	</body>
+</html>

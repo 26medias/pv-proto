@@ -1,0 +1,63 @@
+<!-- content starts -->
+<div id="content">
+                    
+    <div class="contact">
+        <div class="row">
+            {{ if data.email or data.location.street or data.location.city or data.location.state or data.location.country or data.location.zip or data.phone}}
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="left-col">
+                	{{ if data.email }}
+                    <p>{$"Email"|i18n(pageInfo.theme_settings.Lang)}: {$data.email}</p>
+                    {{ endif }}
+                    
+                    {{ if data.location.street }}
+                    <p>{$"Street"|i18n(pageInfo.theme_settings.Lang)}: {$data.location.street}</p>
+                    {{ endif }}
+                    
+                    {{ if data.location.city }}
+                    <p>{$"City"|i18n(pageInfo.theme_settings.Lang)}: {$data.location.city}</p>
+                    {{ endif }}
+                    
+                    {{ if data.location.state }}
+                    <p>{$"State"|i18n(pageInfo.theme_settings.Lang)}: {$data.location.state}</p>
+                    {{ endif }}
+            
+                    {{ if data.location.country }}
+                    <p>{$"Country"|i18n(pageInfo.theme_settings.Lang)}: {$data.location.country}</p>
+                    {{ endif }}
+            
+                    {{ if data.location.zip }}
+                    <p>{$"Zip"|i18n(pageInfo.theme_settings.Lang)}: {$data.location.zip}</p>
+                    {{ endif }}
+                    
+                    {{ if data.phone }}
+                    <p>{$"Phone"|i18n(pageInfo.theme_settings.Lang)}: {$data.phone}</p>
+                    {{ endif }}
+                </div><!-- /.left-col -->
+            </div>
+            
+            <div class="col-lg-6 col-md-6 col-sm-6">
+            {{ else }}
+            <div class="col-lg-6 col-md-6 col-sm-6 centercontact ">
+            {{ endif }}
+                <form method="post" action="" id="contact_form">
+                    <div class="contact_form">
+                        <h2>{$'Contact Us'|i18n(pageInfo.theme_settings.Lang)}:</h2>
+                        {{ if data.msg }}
+                            <span class="message">{$data.msg|i18n(pageInfo.theme_settings.Lang)}</span>
+                        {{ endif }}
+                        <ul>
+                            <li><input name="p_name" type="text" placeholder="{$'Name'|i18n(pageInfo.theme_settings.Lang)}" class="required" /></li>
+                            <li><input name="p_email" type="text" placeholder="{$'Email'|i18n(pageInfo.theme_settings.Lang)}" class="required email" /></li>
+                            <li><textarea name="p_message" cols="" rows="" placeholder="{$'Message'|i18n(pageInfo.theme_settings.Lang)}" class="required"></textarea></li>
+                            <li class="txt_center"><input name="p_send" type="submit" value="{$'Send'|i18n(pageInfo.theme_settings.Lang)}" class="btn" onclick="_gaq.push(['_trackEvent', 'Contact', 'Message', 'Send Button']);" /></li>
+                        </ul>
+                    </div><!-- /.contact_form -->
+                </form>                                    
+            </div>
+            
+        </div>
+    </div><!-- /.contact -->
+    
+</div>
+<!-- content ends -->

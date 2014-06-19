@@ -1,0 +1,131 @@
+<!-- Wrap Properties
+        ================================================== -->
+        <div id="wrap">
+        	<div id="loader"><img src="{$assets}img/bigrotation2.gif" alt="Loading..." /></div>
+            
+            <!-- Grid Gallery
+            ================================================== -->
+            <div id="grid_gallery">
+                
+                 <div id="hover-cap-4col" class="maso_container">
+                 	{{if data.isalbumdac == 1 }}
+                        
+                    	{{ set iCount = 0 }}
+                        {{ for photo in data.albumsOnly.photos.data }}
+                        	{{ if iCount == 0 }}
+                            <div class="box first">
+                                 <div class="title">
+                                    {$data.albumsOnly.name}
+                                 </div>
+                                 <div class="border">&nbsp;</div>
+                             </div><!-- /.box -->
+                 			{{endif}}
+                            {{ if iCount == 1 }}
+                            <div class="box second">
+                                 <div class="title">
+                                    {$data.albumsOnly.name}
+                                 </div>
+                                 <div class="border">&nbsp;</div>
+                             </div><!-- /.box -->
+                 			{{endif}}
+                            {{ if iCount == 2 }}
+                            <div class="box third">
+                                 <div class="title">
+                                    {$data.albumsOnly.name}
+                                 </div>
+                                 <div class="border">&nbsp;</div>
+                             </div><!-- /.box -->
+                 			{{endif}}
+                            {{ if iCount == 3 }}
+                            <div class="box fourth">
+                                 <div class="title">
+                                    {$data.albumsOnly.name}
+                                 </div>
+                                 <div class="border">&nbsp;</div>
+                             </div><!-- /.box -->
+                 			{{endif}}
+                        	{{if iCount == 4 }}
+                            <div class="box fifth">
+                                 <div class="title">
+                                    {$data.albumsOnly.name}
+                                 </div>
+                                 <div class="border">&nbsp;</div>
+                             </div><!-- /.box -->
+                 			{{endif}}
+                            <div class="box">
+                                 <div class="article">
+                                    <img alt="{$photo.name|i18n(pageInfo.theme_settings.Lang)}" src="{$photo.source}">
+                                    <div class="hover_caption">
+                                    	<!--<a href="#" class="albumImage" rel="{$iCount}">Click Here</a>-->
+                                        <a href="{$photo.images}" title="{$photo.name}" class="fancybox" rel="photos"></a>
+                                    </div>
+                                 </div>
+                             </div><!-- /.box -->
+                        {{ set iCount = loop.index }}
+                        {{ endfor }}
+                    {{endif}}
+                    
+                    {{if data.isalbumdac == 0 }}
+                       <div class="noShow">{$data.isalbumdac}</div>
+                        {{ set count = 0 }}
+<<<<<<< HEAD
+                        {{ for album in data.albums.data if loop.index <=100 }}
+=======
+                        {{ for album in data.albums.data}}
+>>>>>>> c99f0a62d5c405da620e0c1c3a8c7c52e8795f9a
+                            {{ set count = loop.index }}
+                            {{ if (album.name != 'Timeline Photos') and (album.name != 'Cover Photos') and (album.name != 'Profile Pictures') }}        	
+                            
+                                {{ set has_cover = false }}
+                                {{if album.cover_photo }}
+                                    {{ for photo in album.photos.data }}      
+                                        {{if album.cover_photo == photo.id}}
+                                        {{ set has_cover = true }} 
+                                        <div class="box album">
+                                             <div class="article">
+                                                <img alt="{$album.name|i18n(pageInfo.theme_settings.Lang)}" src="{$photo.source}">
+                                                <div class="hover_caption">
+                                                    <div class="bottom">
+                                                    	<a href="{$root}gallery?album={$album.id}">
+                                                        <h3>{$album.name}</h3></a>
+                                                        <!--<p>Some description about some event. Or something like that. There’s some model or some place noted.</p>-->
+                                                    </div>
+                                                </div>
+                                                <!--<div class="hover_caption"><a href="{$root}gallery?album={$count}">Click Here</a></div>-->
+                                             </div>
+                                         </div><!-- /.box -->
+                                        {{endif}}
+                                    {{ endfor }}
+                                {{endif}} 
+                                {{ set firstimage = false }}
+                                {{if has_cover == false}}
+                                    {{ for photo in album.photos.data if loop.index<2 }}  
+                                    	{{ set firstimage = photo.id }} 
+                                        <div class="box">
+                                             <div class="article">
+                                                <img alt="{$album.name|i18n(pageInfo.theme_settings.Lang)}" src="{$photo.source}">
+                                                <div class="hover_caption">
+                                                	<!--<a href="#" data-toggle="modal" data-target="#2873462387463746">Click Here</a>-->
+                                                    <a href="{$photo.images}" title="{$photo.name}" class="fancybox" rel="photos"></a>
+                                                </div><!-- /.hover_caption -->
+                                             </div>
+                                         </div><!-- /.box -->
+                                    {{ endfor }}
+                                {{endif}}
+                            {{ endif }}
+                        {{ endfor}} 
+                    {{endif}}
+                  </div> <!-- /.maso_container -->
+              
+            </div>
+            
+            <div id="push"></div><!-- just for Pushing the footer -->
+            
+        </div>
+        <script>
+			$(document).ready(function(){
+				$("#loader").show();	
+				$("#grid_gallery").hide();
+			});
+        </script>
+        <script src="{$assets}js/base.js?ver=3.5"></script>

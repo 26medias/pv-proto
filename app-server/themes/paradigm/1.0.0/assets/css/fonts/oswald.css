@@ -1,0 +1,25 @@
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+@import url(http://fonts.googleapis.com/css?family=Lora);
+
+body {font-family: 'Lora', serif; font-weight: 400; font-size: 14px; line-height: 1;}
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {font-family: 'Oswald', sans-serif; font-weight: 400;}
+
+#header .navbar-brand,
+#home,
+#contact .holder .header .navbar-brand {font-family: 'Oswald', sans-serif; font-weight: 400;}
+
+#header .navbar-brand {font-size: 25px;}
+#home {font-size: 20px;}
+
+.navbar-nav > li,
+#gallery .nav-tabs > li,
+#gallery .head {font-family: 'Oswald', sans-serif; font-weight: 400;}
+
+.contact_form * {font-family: 'Lora', serif; font-weight: 400;}
+
+

@@ -1,0 +1,14 @@
+
+/*** NAVIGATION BAR ***/
+
+#nav_wrap {
+background: rgb(255, 176, 8);
+}
+
+#nav_wrap_other {
+background: rgb(255, 176, 8);
+}
+
+ul#nav li > a, ul#nav li .active > a:hover, ul#nav li .active > a:focus {
+color: #000000;
+}

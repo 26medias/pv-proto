@@ -1,0 +1,36 @@
+
+#about h1 {
+	border-left: 8px solid #FF4141;
+}
+
+.widget_title {
+	border-left: 8px solid #03B9FF;
+}
+
+.navbar-inverse .nav .active>a, .navbar-inverse .nav .active>a:hover, .navbar-inverse .nav .active>a:focus {
+	color: #FF4141 !important;
+}
+
+.navbar-inverse .navbar-nav > li > a.active, .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+	color: #FF4141 !important;
+}
+
+#grid_gallery .maso_container2 .box2 .article .hover_caption {
+	background: rgba(255, 65, 65, 0.6);
+}
+
+.contact_form .btn {background: #FF4141;}
+
+.dropdown-menu>li>a:hover, 
+.dropdown-menu>li>a:focus {color: #FF4141;}
+
+@media only screen and (max-width: 767px) {
+	
+		.call a {background: url(../../images/but-call-sca.png) no-repeat;}
+	
+	}
+	
+	#about .content .box_holder a.rsvp {background: #FF4141;}
+	
+	
+.inquire-holder .inquire-form ul li .btn {background: #FF4141;}

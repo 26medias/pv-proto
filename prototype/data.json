@@ -1,0 +1,29 @@
+{
+	id:			'8c43f7db126132c11ef45bd98349ea35',
+	name:		'Project Name',
+	type:		'theme or widget',
+	status:		'dev/test/published',
+	metas:		{
+		version:	{
+			major:	1,
+			minor:	2,
+			build:	10
+		},
+		authors:	[
+			{
+				name:		'John Doe',
+				email:		'john@doe.com',
+				website:	'http://www.johndoe.com',
+				role:		'Developer'
+			},{
+				name:		'Steve Smith',
+				email:		'steve@smith.com',
+				website:	'http://www.stevesmith.com',
+				role:		'Designer'
+			}
+		],
+		publish_date:		'2014-06-17 00:46:13.545Z'
+	},
+	logs:	[],
+	files:	['//cdn.pagevamp.com/appstore/helloWorld/1.2.10/file1.js','//cdn.pagevamp.com/appstore/helloWorld/1.2.10/file2.js','//cdn.pagevamp.com/appstore/helloWorld/1.2.10/style.css']
+}

@@ -1,0 +1,187 @@
+/*!
+		* Custom Responsive for Site.
+ */
+ 
+	/* Large desktop */
+	
+	@media (min-width: 1200px) {
+		.widgets.container {width: 1170px;height:auto;}
+	}
+	 
+	
+	
+	/* Portrait tablet to landscape and desktop */
+	@media (min-width: 768px) and (max-width : 1199px) { 
+			.widgets.container {width: 750px;height:auto;} 
+			#gallery .holder .thumb	{height: 240px;}
+			#gallery .holder .thumb a.img-holder {height: 200px;}
+			#content .event-list {min-height: 225px;}
+			#content .event-list .img-holder {height: 150px;}
+				
+		 }
+	@media (min-width: 992px) and (max-width : 1199px){
+		.widgets.container {width: 970px;height:auto;} 
+	} 
+	
+	@media (min-width: 768px) and (max-width : 979px) {
+		
+			#gallery .holder .thumb	{height: 280px;}
+			#gallery .holder .thumb a.img-holder {height: 240px;}
+			
+			#content .about {padding-right: 90px;}
+			
+			#content .event ul li {width: 259px;}
+			#content .event-list {min-height: 248px;}
+			#content .event-list .img-holder {height: 175px;}
+			
+			#content .event-list {min-height: 225px;}
+			#content .event-list .img-holder {height: 150px;}
+				
+		}
+		
+
+/*  #Mobile (Portrait)
+================================================== */
+
+    /* Note: Design for a width of 320px */
+
+    @media only screen and (max-width: 767px) {
+		.widgets.container {height:auto;}
+		h1 {font-size: 20px;}
+		h2 {font-size: 18px;}
+		h3 {font-size: 16px;}
+		h4 {font-size: 14px;}
+		h5 {font-size: 12px;}
+		h6 {font-size: 10px;}
+		
+		#wrap {margin: 0;}
+		#push,
+		#footer {height: auto;}
+		
+		#header .navbar-header {text-align: center;}
+		#header .navbar-default .navbar-brand {word-wrap: break-word;}
+		#header .navbar-toggle {float: none; background: url(../images/icon_collapse.png) no-repeat scroll 13px 11px #dfdfdf; border: 1px solid #bebebe; width: 25px; height: 20px; margin: 0 auto 35px; display: block; padding: 12px 25px 25px;}
+		#header .navbar-toggle:hover {background-position: 13px -19px; border: 1px solid #999999;}
+		#header .navbar-collapse {border: none; box-shadow: none; text-align: center;}
+		#header .seprator {display: none;}
+		#header .navbar-nav {margin: 0;}
+		#header .navbar-brand {font-size: 30px;}
+		#header .nav>li {margin-bottom: 15px;}
+		#header .nav > li > a {font-size: 20px;}
+		
+		#header .dropdown-menu {width: auto; min-width: 180px; margin-top: 18px; margin-left: 0px;}
+		.open > .dropdown-menu {display: inline-block;}
+		#header .dropdown-menu > li > a {padding: 5px 10px;}
+		#header .dropdown-menu:before {top: 30px;}
+		
+		#content {text-align: center;}
+		
+		#content .home h1 {font-size: 30px;}
+		
+		#content .about {padding: 0;}
+		
+		#content .event {text-align: center;}
+		#content .event-list {width: 300px; margin: 0 auto 30px;}
+		#content .event-desc .col-left {width: 100%; float: none; padding-right: 0; margin-bottom: 60px; text-align: center;}
+		#content .event-desc .col-right {width: 100%; float: none;}
+		#content .event-desc p {text-align: center!important;}
+		#content .back {margin-bottom: 25px; position: relative; right: 0; text-align: center; top: 0;}
+		
+		#content .contact .left-col {margin-bottom: 40px;}
+		#content .contact .left-col p {font-size: 18px;}
+		
+		#gallery {text-align: center;}
+		#gallery .nav-tabs {display: inline-block;}
+		#gallery .nav-tabs>li:first-child {margin: 0;}
+		#gallery .holder .thumb	{width: 300px; height: 260px;}
+		#gallery .holder .thumb a.img-holder {height: 220px;}
+		#gallery .holder .video {text-align: center;}
+		
+		#gallery .head .left,
+		#gallery .head .right {text-align: center;}
+		#gallery .head .left {margin-bottom: 30px;}
+						
+		#push {display: none;}
+		#footer {height: auto; padding: 30px 0; margin-top: 50px;}
+		#footer .left,
+		#footer .right {text-align: center;}
+		#footer .left {margin-bottom: 20px;}
+		#footer .left span {float: none; margin: 0; display: inline-block;}
+		#footer .social-wrap {margin-bottom: 20px; text-align: center;}
+		
+		.call {text-align: center; display: block;}
+		.call a {background: url(../images/but-call.png) no-repeat; width: 126px; height: 40px; display: inline-block; text-indent: -9999px;}
+		
+		#shortcodes {text-align: center;}
+		
+		.customLogo {max-height: 80px;}
+		
+		#viewMore {text-align: center;}
+		iframe {max-width: 100%;}
+		
+		.widget-type-widget_text p {text-align: left;}
+		
+		#footer ul.social li {margin-bottom: 15px;}
+		#footer .social-wrap {margin-bottom: 10px;}
+		
+		p {word-wrap: break-word;}
+		.modal {padding: 0 10%;}
+		.modal .inquire-holder .rel-img {width: 100%;}
+		.modal .inquire-holder .inquire-form {margin-bottom: 40px;}
+		.modal .inquire-holder h2 {text-align: center;}					
+		}
+		
+
+/* Smartphones (portrait) ----------- */
+	@media (max-width: 480px) {
+
+		iframe {width: auto; height: 100%; display: inline-block;}
+
+		}	
+		
+		
+/* Smartphones (portrait) ----------- */
+	@media only screen and (max-width: 360px) {
+
+			#gallery .holder .thumb {width: 90%;}
+			
+			#content .event-list {width: 100%!important;}
+			#content .event-list {min-height: 230px;}
+			#content .event-list .img-holder {height: 160px;}
+
+		}	
+	
+
+/* Smartphones (portrait) ----------- */
+	@media (max-width: 320px) {
+
+			#gallery .holder .thumb {width: 90%; height: 205px;}
+			#gallery .holder .thumb a.img-holder {height: 165px;}
+			
+			#content .event-list {width: 100%!important;}
+			#content .event-list {min-height: 210px;}
+			#content .event-list .img-holder {height: 120px;}
+				
+		}	
+	
+	
+/* #Print Website
+================================================== */
+
+	@media print {
+		* {background: transparent !important;color: black !important;box-shadow:none !important;text-shadow: none !important;filter:none !important;-ms-filter: none !important;} /* Black prints faster: h5bp.com/s */
+		a, a:visited { text-decoration: underline; }
+		a[href]:after { content: " (" attr(href) ")"; }
+		abbr[title]:after { content: " (" attr(title) ")"; }
+		 .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {content: "";}  /* Don't show links for images, or javascript/internal links */
+		pre, blockquote {border: 1px solid #999;page-break-inside: avoid;}
+		thead { display: table-header-group; } /* h5bp.com/t */
+		tr, img { page-break-inside: avoid; }
+		img { max-width: 100% !important; }
+		 @page {margin: 0.5cm;}
+		p, h2, h3 {orphans: 3;widows: 3;}
+		h2, h3 { page-break-after: avoid; }
+	}
+	
+
+

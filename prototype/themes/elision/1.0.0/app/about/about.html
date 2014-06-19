@@ -1,0 +1,55 @@
+<!-- content starts -->
+<div id="content">
+                    	
+    <div class="about">
+    
+    	<!-- Mission -->
+        {{ if data.mission }}
+        <h2>{$"Mission"|i18n(pageInfo.theme_settings.Lang)}</h2>
+        <p>{{ autoescape false }}{$data.mission|nl2br}{{ endautoescape}}</p>
+        {{ endif }}
+        <!-- Mission -->
+        
+        <!-- Description -->
+        {{ if data.description }}
+        <p>&nbsp;</p>
+        <h2>{$"Description"|i18n(pageInfo.theme_settings.Lang)}</h2>
+        <p>{{ autoescape false }}{$data.description|nl2br}{{ endautoescape}}</p>
+        {{ endif }}
+        <!-- Description -->
+        
+        <!-- Company Overview -->
+        {{ if data.company_overview }}
+        <p>&nbsp;</p>
+        <h2>{$"Company Overview"|i18n(pageInfo.theme_settings.Lang)}</h2>
+        <p>{{ autoescape false }}{$data.company_overview|nl2br}{{ endautoescape}}</p>
+        {{ endif }}
+        <!-- Company Overview -->
+        
+        <!-- General Info -->
+        {{ if data.general_info }}
+        <p>&nbsp;</p>
+        <h2>{$"General Information"|i18n(pageInfo.theme_settings.Lang)}</h2>
+        <p>{{ autoescape false }}{$data.general_info|nl2br}{{ endautoescape}}</p>
+        {{ endif }}
+        <!-- General Info -->
+	
+		<!-- General Info -->
+        {{ if data.bio }}
+        <p>&nbsp;</p>
+        <h2>{$"Bio"|i18n(pageInfo.theme_settings.Lang)}</h2>
+        <p>{{ autoescape false }}{$data.bio|nl2br}{{ endautoescape}}</p>
+        {{ endif }}
+        <!-- General Info -->
+        
+        <!-- Culinary Team -->
+        {{ if data.culinary_team }}
+        <h2>{$"Culinary Team"|i18n(pageInfo.theme_settings.Lang)}</h2>
+        <p>{$data.culinary_team|nl2br}</p>
+        {{ endif }}
+        <!-- Culinary Team -->
+        
+    </div><!-- /.about -->
+
+</div>
+<!-- content ends -->

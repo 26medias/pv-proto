@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>{$shared.title}{$pageData.name}</title>
+    <meta name="viewport" content="initial-scale = 1,user-scalable=no,maximum-scale=1.0">
+	{{ for metaname, metavalue in shared.metas }}
+        <meta name="{$metaname}" content="{$metavalue}" />
+    {{ endfor }}
+    
+    <!-- styles -->
+	<link href='http://fonts.googleapis.com/css?family=Grand+Hotel|Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
+    <link href="{$assets}/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{$assets}fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+    <link href="{$assets}/css/custom.css" rel="stylesheet">
+    <link href="{$assets}/css/responsive.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" media="all" type="text/css" href="{$assets}/css/ie.css" />
+    <![endif]-->
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="{$assets}/js/html5shiv.js"></script>
+      <script src="{$assets}/js/respond.min.js"></script>
+    <![endif]-->
+    
+    {{ for file in pageInfo.theme_styles }}
+    <link href="{$assets}{$file}" rel="stylesheet" type="text/css">
+    {{ endfor }}
+    
+	<script type="text/javascript">
+    
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-42761096-1']);
+        _gaq.push(['_trackPageview']);
+    
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    {{if pageData.site_settings.embed }}
+      {$pageData.site_settings.embed|raw}
+    {{endif}}
+    {{ if pageData.site_settings.analytics_switch == 1}}
+         {{if pageData.site_settings.analytics }}
+            {$pageData.site_settings.analytics|raw}
+        {{endif}}
+    {{endif}}
+    <script src="{$assets}/js/jquery-1.7.2.min.js"></script>
+    <script>
+	$(function(){
+		if(($('.navbar-header').width()+$('ul.navbar-right').width()) > 1100 && $(window).width() > 768)
+			$('#header').addClass('extra');
+	});
+    </script>
+  </head>
+
+  <body>    
+
+    <!-- Wrap Properties
+    ================================================== -->
+    <div id="wrap">
+    
+        <!-- Header
+        ================================================== -->
+        <div id="header">
+            
+            <nav class="navbar {{ if app.name == 'index' or app.name == 'post' }}home{{endif}}" role="navigation">
+              <div class="container">
+                <div class="navbar-header">
+                  {{if pageData.site_settings.logo_switch == 0}}
+                      <a class="navbar-brand" href="{$root}">{$pageData.name}</a>
+                  {{else}}
+                     <a class="navbar-brand" href="{$root}"><div class="logoWrap"><img title="{$pageData.name} logo" class="customLogo" src="{$pageData.site_settings.logo}"/></div></a>
+                  {{endif}}
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"></button>
+                </div>
+        
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                  <ul class="nav navbar-nav navbar-right">
+                  	{{ for pagename,pageinfo in widgets.pages }}
+                    	{{if pageinfo.label !=  "" }} 
+                            <li {{if app.name==pagename}}class="active"{{endif}}>
+                                <a href="{$root}{$pagename}">{$pageinfo.label|i18n(pageInfo.theme_settings.Lang)}</a>
+                            </li> 
+                        {{endif}}
+                  	{{ endfor }}
+                  </ul>
+                </div><!-- /.navbar-collapse -->
+              </div><!-- /.container -->
+            </nav>
+            
+            {{ autoescape false }}
+            	{$output}
+            {{ endautoescape }}
+        
+        <div id="push"></div>
+            
+    </div>
+    
+    <!-- Footer
+    ================================================== -->
+    <div id="footer" {{ if app.name != 'index' and app.name != 'post' }}class="dark"{{endif}}>
+        <div class="social-wrap">
+            <ul class="social hidden-lg hidden-md hidden-sm">
+                <li><a href="http://facebook.com/{$pageInfo.pageid}" title="facebook" target="_blank" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Facebook Icon']);">
+                        <img alt="facebook" src="{$assets}img/facebook_icon.png">
+                </a></li>
+                {{ if pageData.site_settings.socialicons_switch == 1}}
+                        {{if pageData.site_settings.twitter_link}}
+                        <li><a href="{$pageData.site_settings.twitter_link}" target="_blank" title="twitter" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Twitter Icon']);">
+                            <img alt="twitter" src="{$assets}img/twitter_icon.png" >
+                        </a></li>
+                        {{endif}}
+                        {{if pageData.site_settings.pinterest_link}}
+                        <li><a href="{$pageData.site_settings.pinterest_link}" target="_blank" title="pinterest" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Pinterest Icon']);">
+                            <img alt="pinterest" src="{$assets}img/pinterest_icon.png" >
+                        </a></li>
+                        {{endif}}
+                        {{if pageData.site_settings.instagram_link}}
+                       <li> <a href="{$pageData.site_settings.instagram_link}" target="_blank" title="instagram" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Instagram Icon']);">
+                            <img alt="pinterest" src="{$assets}img/instagram_icon.png" >
+                        </a></li>
+                        {{endif}}
+                        {{if pageData.site_settings.tumblr_link}}
+                        <li><a href="{$pageData.site_settings.tumblr_link}" target="_blank" title="tumblr" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Tumblr Icon']);">
+                            <img alt="tumblr" src="{$assets}img/tumblr_icon.png" >
+                        </a></li>
+                        {{endif}}
+                        {{if pageData.site_settings.flickr_link}}
+                        <li><a href="{$pageData.site_settings.flickr_link}" target="_blank" title="flickr" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Flickr Icon']);">
+                            <img alt="flickr" src="{$assets}img/flickr_icon.png" >
+                        </a></li>
+                        {{endif}}
+                        {{if pageData.site_settings.youtube_link}}
+                        <li><a href="{$pageData.site_settings.youtube_link}" target="_blank" title="youtube" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Youtube Icon']);">
+                            <img alt="youtube" src="{$assets}img/youtube_icon.png" >
+                        </a></li>
+                        {{endif}}
+                    {{endif}}
+            </ul><!-- /.social -->
+        </div><!-- /.social-wrap -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8 left">
+                    <span>&copy; {{ if pageData.name }}{$pageData.name}{{ endif }}</span>
+                    <ul class="social hidden-xs">
+                        <li><a href="http://facebook.com/{$pageInfo.pageid}" title="facebook" target="_blank" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Facebook Icon']);">
+                        <img alt="facebook" src="{$assets}img/facebook_icon.png">
+                </a></li>
+                {{ if pageData.site_settings.socialicons_switch == 1}}
+                        {{if pageData.site_settings.twitter_link}}
+                        <li><a href="{$pageData.site_settings.twitter_link}" target="_blank" title="twitter" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Twitter Icon']);">
+                            <img alt="twitter" src="{$assets}img/twitter_icon.png" >
+                        </a></li>
+                        {{endif}}
+                        {{if pageData.site_settings.pinterest_link}}
+                        <li><a href="{$pageData.site_settings.pinterest_link}" target="_blank" title="pinterest" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Pinterest Icon']);">
+                            <img alt="pinterest" src="{$assets}img/pinterest_icon.png" >
+                        </a></li>
+                        {{endif}}
+                        {{if pageData.site_settings.instagram_link}}
+                       <li> <a href="{$pageData.site_settings.instagram_link}" target="_blank" title="instagram" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Instagram Icon']);">
+                            <img alt="pinterest" src="{$assets}img/instagram_icon.png" >
+                        </a></li>
+                        {{endif}}
+                        {{if pageData.site_settings.tumblr_link}}
+                        <li><a href="{$pageData.site_settings.tumblr_link}" target="_blank" title="tumblr" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Tumblr Icon']);">
+                            <img alt="tumblr" src="{$assets}img/tumblr_icon.png" >
+                        </a></li>
+                        {{endif}}
+                        {{if pageData.site_settings.flickr_link}}
+                        <li><a href="{$pageData.site_settings.flickr_link}" target="_blank" title="flickr" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Flickr Icon']);">
+                            <img alt="flickr" src="{$assets}img/flickr_icon.png" >
+                        </a></li>
+                        {{endif}}
+                        {{if pageData.site_settings.youtube_link}}
+                        <li><a href="{$pageData.site_settings.youtube_link}" target="_blank" title="youtube" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Youtube Icon']);">
+                            <img alt="youtube" src="{$assets}img/youtube_icon.png" >
+                        </a></li>
+                        {{endif}}
+                    {{endif}}
+                    </ul><!-- /.social -->
+                </div>
+                {{if data.site_settings.whitelabel_switch == 0}}
+                <div class="col-lg-4 col-md-4 col-sm-4 right">Powered by <a href="http://www.pagevamp.com" title="Pagevamp" target="_blank">Pagevamp</a></div>
+                {{else}}
+                <div class="col-lg-4 col-md-4 col-sm-4 right">{$data.site_settings.whitelabel}</div>
+                {{endif}}
+            </div>
+        </div>
+    </div>
+    
+    <!-- Javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <script src="{$assets}/fancybox/source/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <script src="{$assets}/js/bootstrap.min.js"></script>
+    <script src="{$assets}/js/custom.js"></script>
+    <script type="text/javascript" src="{$assets}js/less-1.4.1.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        
+        <title>Pagevamp</title>
+        
+        <script type="text/javascript">
+            (function() {
+                if (!window.console) {
+                    window.console = {};
+                }
+                // union of Chrome, FF, IE, and Safari console methods
+                var m = [
+                "log", "info", "warn", "error", "debug", "trace", "dir", "group",
+                "groupCollapsed", "groupEnd", "time", "timeEnd", "profile", "profileEnd",
+                "dirxml", "assert", "count", "markTimeline", "timeStamp", "clear"
+                ];
+                // define undefined methods as noops to prevent errors
+                for (var i = 0; i < m.length; i++) {
+                    if (!window.console[m[i]]) {
+                        window.console[m[i]] = function() {};
+                    }
+                }
+            })();
+        </script>
+        <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Podkova:400,700' rel='stylesheet' type='text/css'>
+        <link href="{$assets}/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{$assets}/css/custom.css" rel="stylesheet">
+        <link href="{$assets}/css/responsive.css" rel="stylesheet">
+         
+        
+        <script type="text/javascript">
+            
+              var _gaq = _gaq || [];
+              _gaq.push(['_setAccount', 'UA-47229318-1']);
+              _gaq.push(['_trackPageview']);
+            
+              (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+              })();
+        </script>   
+    </head>
+    <body>
+    {{ autoescape false }}
+        {$output}
+    {{ endautoescape }}
+            
+
+    <!-- Footer
+    ================================================== -->
+    <div id="footer">&nbsp;</div>
+    
+    <!-- Javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{$assets}/js/bootstrap.min.js"></script>
+
+    </body>
+</html>
+
+   

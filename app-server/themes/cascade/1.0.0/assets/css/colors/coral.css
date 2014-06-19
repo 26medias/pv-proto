@@ -1,0 +1,24 @@
+
+/*** NAVIGATION BAR ***/
+
+#nav_wrap {
+background:rgb(255, 56, 56);
+}
+
+#nav_wrap_other {
+background: rgb(255, 56, 56);
+}
+
+ul#nav li > a, ul#nav li .active > a:hover, ul#nav li .active > a:focus {
+color: #ffffff;
+}
+
+a, a:active {
+text-shadow: 1px 1px 1px black;
+}
+
+/*** LOGO ***/
+
+div.header .logo a, .contact .contact_wrap .logo a {
+	text-shadow: none;
+}

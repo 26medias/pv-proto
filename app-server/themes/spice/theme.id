@@ -1,0 +1,90 @@
+{
+	"name":		"spice",
+	"authors":	[
+		{
+			"name":		"Vincent, Pradip, and Sujan",
+			"url":		"http://www.pagevamp.com/",
+			"email":	"support@pagevamp.com"
+		}
+	],
+	"versions":	{
+		"1.0.0":	{
+			"styles":	 {
+				"Color": {
+					"Red":				["css/colors/red.css"],
+					"Green":			["css/colors/green.css"],
+					"Orange":			["css/colors/orange.css"],
+					"Blue":				["css/colors/blue.css"]
+				},
+				"Font": {
+					"Elite":	["css/fonts/special.css"],
+					"Oswald":			["css/fonts/oswald.css"],
+					"Comfortaa":		["css/fonts/comfortaa.css"],
+					"Lobster":			["css/fonts/lobster.css"]
+				},
+				"Store": {
+					"enabled":		"enabled",
+					"disabled":		"disabled"
+				},
+				"Lang": {
+					"en_US": 	"en_US",
+					"es_ES": 	"es_ES",
+					"id_ID": 	"id_ID",
+					"pt_BR":	"pt_BR",
+					"ja_JP":	"ja_JP",
+					"vi_VN":	"vi_VN"
+				}
+			},
+			"pages":	 {
+				"index": {
+					"label":	"Home",
+					"layout":	"main.html",
+					"template":	"index/index.html",
+					"app":		"index/index.php"
+				},
+				"about": {
+					"label":	"About",
+					"layout":	"main.html",
+					"template":	"about/about.html",
+					"app":		"about/about.php"
+				},
+				"gallery": {
+					"label":	"Gallery",
+					"layout":	"main.html",
+					"template":	"gallery/gallery.html",
+					"app":		"gallery/gallery.php"
+				},
+				"news": {
+					"label":	"News",
+					"layout":	"main.html",
+					"template":	"news/news.html",
+					"app":		"news/news.php"
+				},
+				"events": {
+					"label":	"Events",
+					"layout":	"main.html",
+					"template":	"events/events.html",
+					"app":		"events/events.php"
+				},
+				"contact": {
+					"label":	"Contact",
+					"layout":	"main.html",
+					"template":	"contact/contact.html",
+					"app":		"contact/contact.php"
+				}
+			},
+			"services":	{
+				"get_pictures": {
+					"app":		"admin/get_pictures.php",
+					"backend":	false
+				},
+				"theme_settings": {
+					"label":	"Theme Settings",
+					"template":	"admin/admin.html",
+					"app":		"admin/admin.php",
+					"backend":	true
+				}
+			}
+		}
+	}
+}

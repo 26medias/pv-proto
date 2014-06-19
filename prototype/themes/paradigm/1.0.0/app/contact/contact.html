@@ -1,0 +1,148 @@
+<div id="canvas_holder">
+		<div id="map_canvas"></div>
+	</div><!-- End Google Maps Background -->
+<div class="container">
+        	<div class="row">
+            	<div class="col-lg-12">
+                
+					<div id="contact">
+                    
+                    	<div class="holder">
+                        	<div class="header clearfix">
+                              {{if data.site_settings.logo_switch == 0}}
+                              <a class="navbar-brand" href="{$root}" title="{$data.name}">{{ autoescape false }}{{ if data.name }}{$data.name}{{ endif }}{{ endautoescape }}</a>
+                              {{else}}
+                              <a href="{$root}" class="c_logo"><img title="{$data.name} logo" class="customLogo" src="{$data.site_settings.logo}"/></a>
+                              {{endif}}
+                              <div class="social">
+                                <ul>
+                                	<li><a href="http://facebook.com/{$pageInfo.pageid}" target="_blank" title="facebook" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Facebook Icon']);">
+                                                    <img alt="facebook" src="{$assets}img/facebook_icon.png" >
+                                                </a></li>
+                                    {{ if data.site_settings.socialicons_switch == 1}}
+                                        {{if data.site_settings.twitter_link}}
+                                        <li><a href="{$data.site_settings.twitter_link}" target="_blank" title="twitter" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Twitter Icon']);">
+                                            <img alt="twitter" src="{$assets}img/twitter_icon.png" >
+                                        </a></li>
+                                        {{endif}}
+                                        {{if data.site_settings.pinterest_link}}
+                                        <li><a href="{$data.site_settings.pinterest_link}" target="_blank" title="pinterest" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Pinterest Icon']);">
+                                            <img alt="pinterest" src="{$assets}img/pinterest_icon.png" >
+                                        </a></li>
+                                        {{endif}}
+                                        {{if data.site_settings.instagram_link}}
+                                        <li><a href="{$data.site_settings.instagram_link}" target="_blank" title="instagram" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Instagram Icon']);">
+                                            <img alt="pinterest" src="{$assets}img/instagram_icon.png" >
+                                        </a></li>
+                                        {{endif}}
+                                        {{if data.site_settings.tumblr_link}}
+                                        <li><a href="{$data.site_settings.tumblr_link}" target="_blank" title="tumblr" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Tumblr Icon']);">
+                                            <img alt="tumblr" src="{$assets}img/tumblr_icon.png" >
+                                        </a></li>
+                                        {{endif}}
+                                        {{if data.site_settings.flickr_link}}
+                                        <li><a href="{$data.site_settings.flickr_link}" target="_blank" title="flickr" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Flickr Icon']);">
+                                            <img alt="flickr" src="{$assets}img/flickr_icon.png" >
+                                        </a></li>
+                                        {{endif}}
+                                        {{if data.site_settings.youtube_link}}
+                                        <li><a href="{$data.site_settings.youtube_link}" target="_blank" title="youtube" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Youtube Icon']);">
+                                            <img alt="youtube" src="{$assets}img/youtube_icon.png" >
+                                        </a></li>
+                                        {{endif}}
+                                    {{endif}}
+                                </ul>
+                              </div><!-- /.social -->
+                              {{ if data.phone and data.isPhoneValid }}
+                              	<div class="call"><a href="tel:{$data.phone}">Call</a></div><!-- /.call -->
+                              {{endif}}
+                        	</div><!-- /.header -->
+                        </div><!-- /.holder -->  
+                    
+                    	<div class="holder">
+                        
+                            <h3>{$widgets.pages.contact.label|i18n(pageInfo.theme_settings.Lang)}</h3>
+                           {{ if data.phone}} <p>{$"Phone"|i18n(pageInfo.theme_settings.Lang)}: {$data.phone}</p> {{endif}}
+                           {{ if data.email}} <p>{$"Email"|i18n(pageInfo.theme_settings.Lang)}: {$data.email}</p> {{endif}}
+                           {{ if data.location }} <p>{$"Address"|i18n(pageInfo.theme_settings.Lang)}: {$data.locationcommas}</p>{{ endif }}
+                           
+                            <form id="contact_form" action="#contact_form" method="post">
+                                <div class="contact_form">
+                                    <div class="left_col">{$'Message'|i18n(pageInfo.theme_settings.Lang)}:</div><!---->
+                                    <div class="right_col">
+                                    	{{ if data.msg }}
+                                            <span class="message">{$data.msg}</span>
+                                        {{ endif }}
+                                        <div class="top">
+                                        	<div class="left">
+                                                <ul>
+                                                    <li><input name="p_name" type="text" placeholder="{$'Name'|i18n(pageInfo.theme_settings.Lang)}" class="required" /></li>
+                                                    <li><input name="p_email" type="text" placeholder="{$'Email'|i18n(pageInfo.theme_settings.Lang)}" class="required email" /></li>
+                                                </ul>
+                                            </div><!-- /.left -->
+                                            <div class="right">
+                                                <textarea name="p_message" cols="" rows="" placeholder="{$'Message'|i18n(pageInfo.theme_settings.Lang)}" class="required"></textarea>
+                                            </div><!-- /.right -->
+                                        </div><!-- /.top -->
+                                        <div class="bottom">
+                                            <input name="p_send" type="submit" value="{$'Send'|i18n(pageInfo.theme_settings.Lang)}" class="btn" onclick="_gaq.push(['_trackEvent', 'Contact', 'Message', 'Send Button']);"/>
+                                        </div><!-- /.bottom -->
+                                    </div><!---->
+                                </div><!-- /.contact_form -->
+                            </form>
+                                
+                        </div><!-- /.holder -->  
+                    
+                        <div class="holder footer">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="left">&copy; {{if data.name}}{$data.name}{{endif}}</div><!-- /.left -->
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="right">{$"Powered by"|i18n(pageInfo.theme_settings.Lang)} <a href="http://www.pagevamp.com" target="_blank">Pagevamp</a></div><!-- /.right -->
+                                </div>
+                            </div>
+                        </div><!-- /.holder -->  
+                               
+                    </div>
+                
+                </div>
+            </div>
+        </div>  
+<script>
+var map;
+
+function initialize() {
+	var latLng = new google.maps.LatLng({$data.location.latitude},{$data.location.longitude});
+	var latLngcenter = new google.maps.LatLng({$data.location.latitude},{$data.location.longitude+0.023});
+	
+	var myOptions = {
+		panControl: false,
+		zoomControl: false,
+		mapTypeControl: false,
+		scaleControl: false,
+		streetViewControl: false,
+		overviewMapControl: false,
+		draggable: true,
+		disableDoubleClickZoom: true,     //disable zooming
+		scrollwheel: false,
+		zoom: 15,
+		center: latLngcenter,
+		mapTypeId: google.maps.MapTypeId.HYBRID //   ROADMAP; SATELLITE; HYBRID; TERRAIN;
+	};
+	
+	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+				
+	var marker = new google.maps.Marker({
+		position: latLng,
+		title:"{$data.location.street},{{ if data.location.city }}{$data.location.city},{{ endif }} {{ if data.location.state }}{$data.location.state}{{ endif }}"
+	});
+	
+	marker.setMap(map);
+
+}//end initialize
+
+$(function(){
+	initialize();
+});
+</script>   

@@ -1,0 +1,148 @@
+<script type="text/javascript">	
+	function last_msg_funtion() 
+	{	   
+		var totnum_li=$('.news-new > li').length;
+		
+		//$('#loader').fadeIn();
+		$('#loader').css('display','inline-block');
+		var ID=$(".content_box:last").attr("id");
+		var st = parseInt(ID)+1;
+		for(a=st;a<(st+7);a++)
+		{
+			$('#'+a).addClass("content_box");
+			$('#'+a).delay(2000).fadeIn('slow');
+		}			
+		$('#loader').delay(2000).fadeOut();
+		
+		newst = st+7;
+		//alert(totnum_li+' -- '+st+' -- '+newst);
+		if(totnum_li<newst)
+		{
+			$('#viewMore').delay(2000).fadeOut();
+		}
+	}
+</script>
+<div class="title hidden-xs"><h2>{$widgets.pages.news.label|i18n(pageInfo.theme_settings.Lang)}</h2></div><!-- /.title -->
+                                        
+<!-- Content
+================================================== -->
+<div id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="pages">                   
+                    
+                    <ul class="news-new">
+                    
+                    	{{ for post in data.posts.data if loop.index <= 100 and (post.show) }}
+                            {{if loop.index<=7 }}
+                            <li id="{$loop.index}" class="content_box {{if(loop.index%2==0)}} with-pic{{else}} without-pic{{endif}}">
+                    	
+                        	<div class="hidden-xs">
+                                <div class="{{if(loop.index%2==0)}} left{{else}} right{{endif}}">{$post.created_time|date("M")|i18n(pageInfo.theme_settings.Lang)} {$post.created_time|date("d")}</div><!-- /.left -->
+                                <div class="{{if(loop.index%2==0)}} right{{else}} left{{endif}}">
+                                	{{ if (post.picture and post.source is empty)}}
+                                        <div class="img-holder-new"><img src="{$post.picture}"></div><!-- /.img_holder -->
+                                    {{endif}}
+                                    {{ if (post.soundcloud.html or post.source)}}
+                                    {$post.soundcloud.html|raw}
+                                    {{if (post.source and post.soundcloud.html is empty)}}
+                                    <iframe width="100%" height="{$post.iframeheight}" src="{$post.source}" frameborder="0" allowfullscreen></iframe>
+                                    {{endif}}
+                                    {{endif}}
+                                    
+                                    <div class="caption-new">
+                                        {{ autoescape false }}
+                                            {{if (post.message)}}
+                                                <p>{$post.message|raw|nl2br}</p>
+                                            {{ endif }}
+                                        {{ endautoescape }}
+                                    </div><!-- /.caption -->
+                                </div><!-- /.right -->
+                            </div>
+                        	<div class="visible-xs">
+                                <div class="{{if(loop.index%2==0)}} right{{else}} left{{endif}}">
+                                	{{ if (post.picture and post.source is empty)}}
+                                        <div class="img-holder-new"><img src="{$post.picture}"></div><!-- /.img_holder -->
+                                    {{endif}}
+                                    {{ if (post.soundcloud.html or post.source)}}
+                                    {$post.soundcloud.html|raw}
+                                    {{if (post.source and post.soundcloud.html is empty)}}
+                                    <iframe width="100%" height="{$post.iframeheight}" src="{$post.source}" frameborder="0" allowfullscreen></iframe>
+                                    {{endif}}
+                                    {{endif}}
+                                    
+                                    <div class="caption-new">
+                                    	<h5>{$post.created_time|date("F")|i18n(pageInfo.theme_settings.Lang)} {$post.created_time|date("d")}</h5>
+                                        {{ autoescape false }}
+                                            {{if (post.message)}}
+                                                <p>{$post.message|raw|nl2br}</p>
+                                            {{ endif }}
+                                        {{ endautoescape }}
+                                    </div><!-- /.caption -->
+                                </div><!-- /.right -->
+                            </div>
+                        </li>
+                    	
+                        {{ else }}
+                        	<li id="{$loop.index}" style="display:none;" class="{{if(loop.index%2==0)}} with-pic{{else}} without-pic{{endif}}">
+                    			<div class="hidden-xs">
+                                <div class="{{if(loop.index%2==0)}} left{{else}} right{{endif}}">{$post.created_time|date("M")|i18n(pageInfo.theme_settings.Lang)} {$post.created_time|date("d")}</div><!-- /.left -->
+                                <div class="{{if(loop.index%2==0)}} right{{else}} left{{endif}}">
+                                	{{ if (post.picture and post.source is empty)}}
+                                        <div class="img-holder-new"><img src="{$post.picture}"></div><!-- /.img_holder -->
+                                    {{endif}}
+                                    {{ if (post.soundcloud.html or post.source)}}
+                                    {$post.soundcloud.html|raw}
+                                    {{if (post.source and post.soundcloud.html is empty)}}
+                                    <iframe width="100%" height="{$post.iframeheight}" src="{$post.source}" frameborder="0" allowfullscreen></iframe>
+                                    {{endif}}
+                                    {{endif}}
+                                    
+                                    <div class="caption-new">
+                                        {{ autoescape false }}
+                                            {{if (post.message)}}
+                                                <p>{$post.message|raw|nl2br}</p>
+                                            {{ endif }}
+                                        {{ endautoescape }}
+                                    </div><!-- /.caption -->
+                                </div><!-- /.right -->
+                            </div>
+                        	<div class="visible-xs">
+                                <div class="{{if(loop.index%2==0)}} right{{else}} left{{endif}}">
+                                    {{ if (post.picture and post.source is empty)}}
+                                        <div class="img-holder-new"><img src="{$post.picture}"></div><!-- /.img_holder -->
+                                    {{endif}}
+                                    {{ if (post.soundcloud.html or post.source)}}
+                                    {$post.soundcloud.html|raw}
+                                    {{if (post.source and post.soundcloud.html is empty)}}
+                                    <iframe width="100%" height="{$post.iframeheight}" src="{$post.source}" frameborder="0" allowfullscreen></iframe>
+                                    {{endif}}
+                                    {{endif}}
+                                    <div class="caption-new">
+                                    	<h5>{$post.created_time|date("F")|i18n(pageInfo.theme_settings.Lang)} {$post.created_time|date("d")}</h5>
+                                        {{ autoescape false }}
+                                            {{if (post.message)}}
+                                                <p>{$post.message|raw|nl2br}</p>
+                                            {{ endif }}
+                                        {{ endautoescape }}
+                                    </div><!-- /.caption -->
+                                </div><!-- /.right -->
+                            </div>
+                        </li>
+                    	{{ endif }}
+        {{ endfor }}
+                        
+        <li id="viewMore">            
+            <div id="loader" style="display:none; text-align: center;width:50px; float:left;"><img src="http://www.pagevamp.com/uploads/ajax-loader.gif" width="40" /></div>
+            <div class="btn-default btn" onclick="last_msg_funtion();" style="display:inline-block;">{$"View More"|i18n(pageInfo.theme_settings.Lang)}</div>            
+            <div class="clear"></div>	        	
+        </li>
+                        
+                    </ul><!-- /.news-new-->
+
+                </div><!-- /.pages -->
+            </div>
+        </div>
+    </div>
+</div>

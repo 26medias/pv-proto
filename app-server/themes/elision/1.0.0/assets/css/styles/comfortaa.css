@@ -1,0 +1,25 @@
+@import url(http://fonts.googleapis.com/css?family=Comfortaa);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:100);
+
+@theme-header: 			'Comfortaa';
+@theme-text: 			'Open Sans';
+
+body {font-family: @theme-text; font-weight: 100; font-size: 14px;}
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {font-family: @theme-header; font-weight: 400;}
+
+#header .navbar-default .navbar-brand {font-family: @theme-header; font-weight: 400;}
+
+#header .nav > li > a {font-family: 'Lato', sans-serif; font-weight: 300;}
+#header .seprator {font-family: 'Lato', sans-serif; font-weight: 100;}
+
+#gallery .nav-tabs > li {font-family: @theme-header; font-size: 15px;}
+
+#gallery .head {font-family: @theme-header; font-size: 15px;}
+
+#header .dropdown-menu > li > a {font-family: 'Lato', sans-serif;}
+

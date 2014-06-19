@@ -1,0 +1,55 @@
+<!-- Slider
+================================================== -->
+<div>
+    <div id="prevthumb"></div>
+    <div id="nextthumb"></div>
+    
+    <!--Arrow Navigation-->
+    <a id="prevslide" class="load-item" style="z-index: 100;"><i class="icon-chevron-left"></i></a>
+    <a id="nextslide" class="load-item" style="z-index: 100;"><i class="icon-chevron-right"></i></a>
+    
+    <div id="thumb-tray" class="load-item">
+        <div id="thumb-back"></div>
+        <div id="thumb-forward"></div>
+    </div>
+    <!--<div id="slidecaption"></div>-->
+    <!--Thumb Tray button-->
+    <a id="tray-button"><i class="icon-reorder"></i></a>
+</div>
+
+<script type="text/javascript">
+	jQuery(function($){
+		
+		$.supersized({
+		
+			// Functionality
+			slide_interval          :   3000,		// Length between transitions
+			transition              :   1, 			// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
+			transition_speed		:	700,		// Speed of transition
+			vertical_center         :   1,
+			pause_hover             :   1,
+			
+													   
+			// Components							
+			slide_links				:	'blank',	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
+			slides 					:  	[			// Slideshow Images
+			{{ for album in data.albums.data }}
+			{{ if album.name == "Cover Photos" }}
+			{{ for cover in album.photos.data }}
+				{image : '{$cover.images}', thumb : '{$cover.picture}', url : ''},
+			{{ endfor }}
+			{{ endif }}
+			{{ endfor }}
+			]
+			
+		});
+		
+	});
+	
+	$(window).load(function(){
+		$('#tray-button').trigger('click');
+		$('#supersized').css('z-index', 1);
+	});
+	
+	
+</script>

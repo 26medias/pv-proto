@@ -1,0 +1,36 @@
+
+#about h1 {
+	border-left: 8px solid #03B9FF;
+}
+
+.widget_title {
+	border-left: 8px solid #03B9FF;
+}
+
+.navbar-inverse .nav .active>a, .navbar-inverse .nav .active>a:hover, .navbar-inverse .nav .active>a:focus {
+	color: #03B9FF !important;
+}
+
+.navbar-inverse .navbar-nav > li > a.active, .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+	color: #03B9FF !important;
+}
+
+#grid_gallery .maso_container2 .box2 .article .hover_caption {
+	background: rgba(3, 185, 255, 0.6);
+}
+
+.contact_form .btn {background: #03B9FF;}
+
+.dropdown-menu>li>a:hover, 
+.dropdown-menu>li>a:focus {color: #03B9FF;}
+
+@media only screen and (max-width: 767px) {
+	
+		.call a {background: url(../../images/but-call-sky.png) no-repeat;}
+	
+	}
+	
+	#about .content .box_holder a.rsvp {background: #03B9FF;}
+	
+	
+.inquire-holder .inquire-form ul li .btn {background: #03B9FF;}

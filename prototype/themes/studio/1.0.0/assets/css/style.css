@@ -1,0 +1,133 @@
+html {min-height: 100%; min-width: 100%;}
+
+/* 	Additional Properties
+	----------------------------------------------------------------------------------------------------*/
+	.flt-left {float: left;}
+	.flt-right {float: right;}
+	
+	.fixer {position: relative; z-index: 1;/* top: -673px;*/ top: 0;}
+    /* You can also use a <br class="fix" /> to clear columns */
+    .fix {clear: both; display: block; overflow: hidden; visibility: hidden; width: 0; height: 0;}
+	a#pull {display: none;}
+
+
+/* 	Header Properties
+	----------------------------------------------------------------------------------------------------*/
+	body.fancybox-lock{ overflow:auto !important; margin-right:0 !important;}
+	body > div.header {background: rgba(255,255,255,.9); position: fixed; width: 100%; z-index: 2;}
+	body > div.header .menu {overflow: hidden;}
+	body > div.header .menu li {float: left; text-transform: uppercase; font-style: normal; font-weight: 500px; line-height: 62px;}
+	body > div.header .menu li a {font-weight: 500;}
+	
+
+/* 	Fixed Properties
+	----------------------------------------------------------------------------------------------------*/
+	.fixed-head {overflow: hidden;}
+	.fixed-head .logo {line-height: 60px;}
+	.fixed-head .logo a,
+	body > div.header .menu li a {color: #5F5F5F; transition: all 0.8s ease 0s; -moz-transition: all 0.8s ease 0s; -webkit-transition: all 0.8s ease 0s;}
+	.fixed-head .logo a:hover,
+	body > div.header .menu li a:hover {color: #00A99D;}
+
+
+/* 	Wrap Properties
+	----------------------------------------------------------------------------------------------------*/
+	#wrap {background: url(../images/cropped.jpg) no-repeat scroll center top #fff; width: 100%;/* height: 735px;*/ position: relative; top: 62px; z-index: 0; background-size: cover; -webkit-background-size: cover; -moz-background-size: cover;}
+	#wrap .green-overlay {background: rgba(0, 169, 157, 0.8); width: 100%; padding-bottom: 265px; /*height: 735px;*/ z-index: 1;}
+	
+	
+/* 	Home Properties
+	----------------------------------------------------------------------------------------------------*/
+	#home {width: 944px; padding: 196px 0 0 0; margin: 0 auto; position: relative; word-wrap: break-word;}
+	#home p {font-family: 'Ubuntu', sans-serif; font-size: 60px; font-weight: 700; color: #fff; text-align: center; margin: 0;}
+
+	#home a { color:#454545;}
+/* 	About Properties
+	----------------------------------------------------------------------------------------------------*/
+	#about {background: rgb(54, 54, 54); position: relative;/* top: 217px;*/ color: #fff;/* margin-top: 224px;*/}
+	#about .title {background: rgb(80, 80, 80); width: 250px; padding: 0 30px; font-family: 'Arvo', sans-serif; font-size: 36px; line-height: 60px; color: #fff; text-align: center; text-transform: uppercase; position: absolute; left: 50%; top: -30px; margin-left: -125px;}
+	#about .main {padding: 80px 45px 20px;word-wrap: break-word;}
+	#about .main h2,
+	#news .main h2 {font-size: 30px; margin: 0 0 35px;}
+	#about .main p {font-family: 'Vollkorn', sans-serif; font-size: 24px; font-weight: 400; color: #fff; text-align: left; line-height: 1.2; margin-bottom: 30px;}
+
+
+/* 	News Properties
+	----------------------------------------------------------------------------------------------------*/
+	#news,
+	#gallery {border-top: 1px solid #a6a6a6; margin: 110px 0 0; padding: 75px 0 0; position: relative;}
+	#news .title {background: #C1C0C0; width: 380px; padding: 0 30px; font-family: 'Arvo', sans-serif; font-size: 36px; line-height: 60px; color: #5f5f5f; text-align: center; text-transform: uppercase; position: absolute; left: 50%; top: -14px; margin-left: -190px;}
+	#news .main {padding: 0 45px 20px;}
+	
+	#news ul.news {list-style-type: none; margin-bottom: 60px;}
+	#news ul.news li {margin-bottom: 24px; overflow: hidden; font-family: 'Vollkorn', sans-serif; font-size: 24px; font-weight: 400; color: #5F5F5F;}
+	#news ul.news li:last-child {margin-bottom: 0;}
+
+	#news ul.events {list-style-type: none; overflow: hidden;}
+	#news ul.events li {width: 204px; float: left; margin: 0 98px 30px 0;}
+	#news ul.events li:nth-child(4n+4) {margin-right: 0;}
+	#news ul.events li .event-holder {border: 2px solid #fff; /*width: 198px; height: 146px; */margin-bottom: 14px; overflow: hidden;}
+	#news ul.events li .event-holder img {/*width: 198px; height: 146px;*/}
+	#news ul.events li .event-holder:hover {border: 2px solid #00A99D;}
+	#news ul.events li p {font-family: 'Vollkorn', sans-serif; font-size: 18px; font-weight: 400; color: #5F5F5F;}
+
+
+/* 	Gallery Properties
+	----------------------------------------------------------------------------------------------------*/
+	#gallery {margin-top: 30px;}
+	#gallery .title {background: #C1C0C0; width: 214px; padding: 0; font-family: 'Arvo', sans-serif; font-size: 36px; line-height: 60px; color: #5f5f5f; text-align: center; text-transform: uppercase; position: absolute; left: 50%; top: -14px; margin-left: -107px;}
+	#gallery .main {}
+	
+	#gallery ul.tab {list-style-type: none; margin: 0 0 32px; overflow: hidden;}
+	#gallery ul.tab li {font-family: 'Ubuntu', sans-serif; font-size: 18px; font-weight: 500; color: #5F5F5F; float: left; margin: 0 15px 0 0; cursor:pointer}
+	#gallery ul.tab li a {color: #7F7F7F; transition: all 0.8s ease 0s; -moz-transition: all 0.8s ease 0s; -webkit-transition: all 0.8s ease 0s;}
+	#gallery ul.tab li a:hover,
+	#gallery ul.tab li a.active {color: #5F5F5F;}
+
+	#gallery ul.thumb {list-style-type: none; margin: 0; overflow: hidden;}
+	#gallery ul.thumb li {width: 356px; float: left; margin: 0 66px 45px 0;}
+	#gallery ul.thumb li:nth-child(3n+3) {margin-right: 0;}
+	#gallery ul.thumb li .img-holder {border: 2px solid #fff; overflow: hidden; margin-bottom: 10px;}
+	#gallery ul.thumb li .img-holder:hover {border: 2px solid #00A99D; overflow: hidden; margin-bottom: 10px;}
+	#gallery ul.thumb li p {font-family: 'Vollkorn', sans-serif; font-size: 18px; font-weight: 400; color: #5F5F5F; margin: 0;}
+
+
+/* 	Contact Properties
+	----------------------------------------------------------------------------------------------------*/
+	#contact {margin-bottom: 50px; position: relative;}
+	#contact .title {background: rgb(80, 80, 80); width: 350px; padding: 0; font-family: 'Arvo', sans-serif; font-size: 36px; line-height: 60px; color: #fff; text-align: center; text-transform: uppercase; position: absolute; left: 50%; top: -114px; margin-left: -175px;}
+	
+	#contact p {font-family: 'Ubuntu', sans-serif; font-size: 20px; font-weight: 300; color: #5F5F5F;}
+	#contact p span {color: #979797;}
+	
+	#contact span.view {display: block; margin-left: 28px; padding-top: 10px; text-align: left; line-height: 1.4}
+	#contact span.view a {color: #979797; text-shadow: 0 0 0;}
+	
+	#footer a{color: #979797; text-shadow:none;}
+	#footer a:hover{text-decoration:underline;}
+	img.bg { min-height: 100%; min-width:100%; width: 100%; height: auto; top: 0;left: 0;}
+	
+	
+	/*added later
+	
+	------------------------------------------------------------------------- */
+	
+	.extrapage{ position:relative;border-top: 1px solid #a6a6a6; margin: 60px 0 0; padding: 75px 0 25px; }
+	.extrapage .title{ background: #c1c0c0; width: 256px; padding: 0 30px; font-family: 'Arvo', sans-serif; font-size: 36px; line-height: 60px; color: #5f5f5f; text-align: center; text-transform: uppercase; position: absolute; left: 50%; top: -14px; margin-left: -165px; }
+	
+	.main .tab_content { text-align: center;}
+	.video-container{ overflow:hidden;}
+	
+	/*	 video tab*/	
+	#tab2 .vid {width: 356px; float: left; margin: 0 44px 45px 0;}
+/*	#tab2 .vid:nth-child(3n+3) {clear: both; display: block; overflow: hidden; visibility: hidden; width: 0; height: 0;}*/	
+	#tab2 h2 { font-size:12px; height:35px; line-height:20px; margin-bottom:10px;}
+	#tab2 .link{ color:#99CC00; float:right; font-size:0.75em;  line-height: 20px; cursor:pointer;}
+	.content > p { padding: 10px 0;}
+	
+	.social{/* position:absolute; bottom:20px;*/}
+	
+	.desc span { color: #787878; font-size: 15px;}
+
+	.more { float: left; font-style: italic;}
+	

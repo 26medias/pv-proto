@@ -1,0 +1,101 @@
+<link href="{$assets}/css/jquery.fancybox.css" rel="stylesheet">
+<div class="title hidden-xs"><h2>{$widgets.pages.gallery.label|i18n(pageInfo.theme_settings.Lang)}</h2></div><!-- /.title -->
+                                        
+<!-- Content
+================================================== -->
+<div id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="pages">                
+                    <div class="gallery">
+                    
+                        {{ if data.isalbumdac }}
+                        	<div class="go_back"><h4><a href="javascript: history.go(-1)">Back To Gallery</a></h4></div>
+                            <h6>{$data.albumsOnly.name}</h6>
+                            <div class="row">
+                            	{{ set count = 0 }}
+                                {{ for photo in data.albumsOnly.photos.data }}                 
+                                    <div class="col-sm-4 col-md-3 col-xs-6">
+                                        <div class="thumbnail">
+                                          <div class="img_holder">
+                                            <a href="{$photo.images}" title="{$photo.name}" class="fancybox" rel="{$data.name}">
+                                                <div class="hover_item"></div>
+                                                <div class="fill" style="background:url({$photo.source});"></div>
+                                            </a>
+                                          </div><!-- /.img_holder -->
+                                        </div><!-- /.thumbnail -->
+                                    </div>
+									{{ set count = loop.index }}
+                                {{ endfor}}                                               
+                            </div>
+                            
+                        {{ else }}
+                    
+                        	<div class="row"> 
+                            {{ set count = 0 }}
+    						{{ for album in data.albums.data}}
+        						{{ if (album.name != 'Cover Photos') }}
+                                	{{ set has_cover = false }}
+                                    
+                					{{if album.cover_photo }}
+                    					{{ for photo in album.photos.data }}      
+                        
+                        					{{if album.cover_photo == photo.id}}
+                        						{{ set has_cover = true }} 
+                                                    <div class="col-sm-4 col-md-3 col-xs-6">
+                                                        <div class="thumbnail">
+                                                          <div class="img_holder">
+                                                            <a href="{$root}gallery?album={$count}">
+                                                                <div class="hover_item"></div>
+                                                                <div class="fill" style="background:url({$photo.source});"></div>
+                                                            </a>
+                                                          </div><!-- /.img_holder -->
+                                                          <div class="caption">
+                                                            <p><a href="{$root}gallery?album={$count}">{{ autoescape false }}{$album.name|i18n(pageInfo.theme_settings.Lang)} {{ endautoescape }}</a></p>
+                                                          </div><!-- /.caption -->
+                                                        </div><!-- /.thumbnail -->
+                                                   </div>
+                            
+                        					{{endif}}
+                    					{{ endfor }}
+                        
+                					{{endif}} 
+                
+                					{{ set firstimage = false }}
+                					{{if has_cover == false}}
+                    					{{ for photo in album.photos.data if loop.index<2 }}  
+                        					{{ set firstimage = photo.id }} 
+                        
+                                            <div class="col-sm-4 col-md-3 col-xs-6">
+                                                <div class="thumbnail">
+                                                  <div class="img_holder">
+                                                    <a href="{$root}gallery?album={$count}">
+                                                        <div class="hover_item"></div>
+                                                        <div class="fill" style="background:url({$photo.source});"></div>
+                                                    </a>
+                                                  </div><!-- /.img_holder -->
+                                                  <div class="caption">
+                                                    <p><a href="{$root}gallery?album={$count}">{{ autoescape false }}{$album.name|i18n(pageInfo.theme_settings.Lang)} {{ endautoescape }}</a></p>
+                                                  </div><!-- /.caption -->
+                                                </div><!-- /.thumbnail -->
+                                            </div>
+                       
+                                        {{ endfor }}
+                                    {{endif}}                                    
+        						{{ endif }}
+        				
+                        		{{ set count = loop.index }}
+                              
+  							{{ endfor}}
+                            </div>
+    					{{ endif }}                    
+                       
+                                                                      
+                    </div><!-- /.gallery -->
+                    
+                </div><!-- /.pages -->
+            </div>
+        </div>
+    </div>
+</div>

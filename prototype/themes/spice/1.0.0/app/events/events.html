@@ -1,0 +1,93 @@
+
+<div class="title hidden-xs"><h2>{$widgets.pages.events.label|i18n(pageInfo.theme_settings.Lang)}</h2></div><!-- /.title -->
+                                        
+<!-- Content
+================================================== -->
+<div id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="pages">
+                    {{ if data.events }}
+                    <ul class="events">
+                    
+                    	{{ autoescape false }}
+    					{{ set count = 0 }}
+                        {{ set testcount = 1}}
+                        {{ set prev_month = null }}
+                        {{ for event in data.events.data if loop.index <=100}}
+                        
+            			{{ if event.name }} 
+                        
+                        {{ set current_month = event.start_time|date("F") }}
+                        	
+                        {{ if( current_month != prev_month ) }}
+                        {{ set testcount = 0}}
+                        <li>
+                            <div class="date">{$event.start_time|date("F Y")}</div>
+                            <ul class="inner">
+                         {{ endif }}
+                         
+                         
+                        
+                                <li>
+                                    <div class="left">
+                                        <div class="img_holder"><div class="fill" {{if event.cover.source}}style="background:url({$event.cover.source}) center center no-repeat rgba(255,255,255,.2); background-size: cover;" {{else}}style="background-size: inherit;"{{endif}}></div></div><!-- /.img_holder -->
+                                        <div class="rsvp hidden-xs hidden"><a href="http://facebook.com/events/{$event.id}/" class="btn btn-success" target="_blank" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Events', 'RSVP']);">click to RSVP</a></div><!-- /.rsvp -->
+                                        <div class="left_title visible-xs"><h6>{$event.name}</h6></div>
+                                    </div><!-- /.left -->
+                                    <div class="right">
+                                        <div class="txt_holder">
+                                            <div class="top">
+                                                <div class="info_title hidden-xs">
+                                                    <div class="row">
+                                                        <div class="col-md-9 col-sm-9 hidden-xs"><h6>{$event.name}</h6></div>
+                                                        <div class="col-md-3 col-sm-3 text-right"><a href="javascript:void(0)" class="more collapsed" data-toggle="collapse" data-target="#demo{$count}" onclick="$(this).parents('li:first').find('.rsvp').toggleClass('hidden');$(this).parents('li:first').find('iframe').attr('src', $(this).parents('li:first').find('iframe').attr('data-src'));">more info</a></div>
+                                                    </div>
+                                                </div><!-- /.info_title -->
+                                                <div class="row">
+                                                    <div class="col-md-6 col-sm-12"><span class="with_margin">{$event.start_time|date("l, F d, Y - h:ia")}</span></div>
+                                                    <div class="col-md-6 col-sm-12"><span>{$event.venue.street} {$event.venue.city} {$event.venue.state}</span></div>
+                                                </div>
+                                                <div class="info_title visible-xs">
+                                                    <div class="row">
+                                                        <div class="col-md-9 col-sm-9 hidden-xs"><h6>{$event.name}</h6></div>
+                                                        <div class="col-md-3 col-sm-3 text-right"><a href="javascript:void(0)" class="more collapsed" data-toggle="collapse" data-target="#demo{$count}" onclick="$(this).parents('li:first').find('.rsvp').toggleClass('hidden');$(this).parents('li:first').find('iframe').attr('src', $(this).parents('li:first').find('iframe').attr('data-src'));">more info</a></div>
+                                                    </div>
+                                                </div><!-- /.info_title -->
+                                            </div><!-- /.top -->
+                                            <div id="demo{$count}" class="info collapse">
+                                                <div class="info_left">
+                                                    <div class="rsvp visible-xs hidden"><a href="http://facebook.com/events/{$event.id}/" class="btn btn-success" target="_blank" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Events', 'RSVP']);">click to RSVP</a></div><!-- /.rsvp -->
+                                                    <p>{$event.description}</p>
+                                                </div><!-- /.info_left -->
+                                                <div class="info_right">
+                                                    {{ if event.venue.latitude }}
+                                                        <iframe width="375" scrolling="no" height="255" frameborder="0" src="https://maps.google.com/?q={$event.venue.street}+{$event.venue.city}+{$event.venue.state}&hl=en&sll={$event.venue.latitude},{$event.venue.longitude}&amp;output=embed" data-src="https://maps.google.com/?q={$event.venue.street}+{$event.venue.city}+{$event.venue.state}&hl=en&sll={$event.venue.latitude},{$event.venue.longitude}&amp;output=embed" marginwidth="0" marginheight="0"></iframe>
+                                                    {{ endif }}
+                                                </div><!-- /.info_right -->
+                                            </div><!-- /.info -->
+                                        </div><!-- /.txt_holder -->
+                                    </div><!-- /.right-->
+                                </li>
+                        {{ if( current_month != prev_month and testcount != 0 )}}
+                           
+                            </ul>
+                        </li>
+                        {{ endif }}
+                        {{ set prev_month = current_month }}
+						{{ endif }}
+                        {{ set count = loop.index }}
+                    {{ endfor }}
+                  {{ endautoescape }}
+                        
+
+                    </ul><!-- /.events -->
+                    {{ else }}
+    				<p>{$"There are currently no upcoming events. Please check back later!"|i18n(pageInfo.theme_settings.Lang)}</p>
+                    {{ endif }}
+                </div><!-- /.pages -->
+            </div>
+        </div>
+    </div>
+</div>

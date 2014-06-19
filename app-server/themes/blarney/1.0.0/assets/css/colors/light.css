@@ -1,0 +1,58 @@
+
+/***Text Box***/
+.holder {
+background: #00B4BB;
+}
+
+
+/*** Page Header ***/
+.title {
+background: #00B4BB;
+}
+
+h2 {
+color: #FFFFFF;
+}
+
+/*** Page Text ***/
+p {
+color: #FFFFFF;
+}
+
+/*** Gallery Tab (Photo/Video) ***/
+h3.tab-title a {
+color: #FFFFFF;
+}
+
+/*** Gallery Tab Active ***/
+.tab-title a.active {
+color: #000000;
+}
+
+/*** Album(photos) Titles ***/
+ul#gallery li p {
+color: #FFFFFF;
+}
+
+/*** Album(Video) Titles ***/
+.label {
+color: #FFFFFF;
+}
+
+/*** News lists ***/
+ul#news li .date {
+background-color: #00B4BB;
+color: #FFFFFF;
+}
+
+ul#news li .desc {
+background-color: #00B4BB;	
+color: #FFFFFF;
+}
+
+
+/*** Contact text ***/
+.contact p {
+color: #FFFFFF;
+}
+

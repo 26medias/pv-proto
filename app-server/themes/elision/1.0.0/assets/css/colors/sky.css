@@ -1,0 +1,40 @@
+@link-color:			#41BAFF;
+@link-color-hover:		#41BAFF;
+@theme-color:			#41BAFF;
+
+a {color: @link-color;}
+a:hover {color: @link-color-hover;}
+
+#header .navbar-default .navbar-brand {color: @link-color;}
+#header .navbar-default .navbar-nav > .active > a, 
+#header .navbar-default .navbar-nav > .active > a:hover, 
+#header .navbar-default .navbar-nav > .active > a:focus {color: @link-color;}
+#header .navbar-default .navbar-nav>li>a:hover, 
+#header .navbar-default .navbar-nav>li>a:focus {color: @link-color;}
+
+#header .navbar-default,
+#footer {border-color: @theme-color;}
+
+#content .event-desc a.rsvp, 
+#viewMore .btn,
+#content .contact .contact_form .btn {background: @theme-color;}
+
+#content .event-list a {color: @link-color;}
+
+#content .event-desc h4 {color: @link-color;}
+
+#gallery .nav-tabs > li > a {color: #777;}
+#gallery .nav-tabs > li > a:hover {color: @link-color;}
+
+#gallery .nav-tabs > li.active > a, 
+#gallery .nav-tabs > li.active > a:hover, 
+#gallery .nav-tabs > li.active > a:focus {color: @link-color;}
+
+#gallery .head a, 
+#gallery .head a:hover,
+#gallery .holder .thumb .caption a {color: @link-color;}
+
+.modal .inquire-holder .btn {background: @theme-color;}
+
+.dropdown-menu > li > a:hover, 
+.dropdown-menu > li > a:focus {color: @link-color-hover !important;}

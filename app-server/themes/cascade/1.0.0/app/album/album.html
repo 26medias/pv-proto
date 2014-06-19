@@ -1,0 +1,48 @@
+<div class="head-title">
+    <h2>{{ autoescape false }}{$data.albumsOnly.name|i18n(pageInfo.theme_settings.Lang)} {{ endautoescape }}</h2>
+</div><!-- /.head-title -->
+
+</div>
+
+<div id="content">
+    
+    <div class="gallery album">
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="back"><a href="{$root}gallery">{$"Back To Albums"|i18n(pageInfo.theme_settings.Lang)}</a></div>
+                </div>
+            </div>
+        </div>            	
+        
+        <div class="container">
+            <div class="row">
+            	{{ for photo in data.albumsOnly.photos.data }}
+                	{{ if photo.images[0] }}
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="thumbnail">
+                        <div class="img-holder">
+                            <a class="fancybox" rel="{$data.name}" href="{$photo.images}" title="{$photo.name}"><img src="{$assets}/img/blank.png"></a>
+                            <div class="fill" style="background-image: url('{$photo.source}');"></div>
+                        </div><!-- /.img-holder -->
+                    </div><!-- /.thumbnail -->
+                </div>
+                {{ else }}
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="thumbnail">
+                        <div class="img-holder">
+                            <a class="fancybox" rel="{$data.name}" href="{$photo.images}" title="{$photo.name}"><img src="{$assets}/img/blank.png"></a>
+                            <div class="fill" style="background-image: url('{$photo.source}');"></div>
+                        </div><!-- /.img-holder -->
+                    </div><!-- /.thumbnail -->
+                </div>
+                {{ endif }}
+                {{ endfor }}
+                                        
+            </div>
+        </div>
+        
+    </div><!-- /.gallery -->
+
+</div>

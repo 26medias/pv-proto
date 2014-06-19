@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{$shared.title}{$data.name}</title>
+        
+        <meta name="viewport" content="initial-scale = 1,user-scalable=no,maximum-scale=1.0">
+        {{ for metaname, metavalue in shared.metas }}
+            <meta name="{$metaname}" content="{$metavalue}" />
+        {{ endfor }}
+        
+        <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Podkova:400,700' rel='stylesheet' type='text/css'>
+        <link href="{$assets}/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{$assets}/css/custom.css" rel="stylesheet">
+        <link href="{$assets}/css/responsive.css" rel="stylesheet">
+        <!--[if lt IE 9]>
+            <link rel="stylesheet" media="all" type="text/css" href="assets/css/ie.css" />
+        <![endif]-->        
+        {{ for file in pageInfo.theme_styles }}
+            <link href="{$assets}{$file}" rel="stylesheet/less" type="text/css">
+        {{ endfor }}
+        
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="assets/js/html5shiv.js"></script>
+          <script src="assets/js/respond.min.js"></script>
+        <![endif]-->
+		<script src="{$assets}/js/less-1.3.0.min.js"></script>
+        <script src="{$assets}/js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-42761096-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+        
+        {{if pageData.site_settings.embed }}
+            {$pageData.site_settings.embed|raw}
+        {{endif}}
+        {{ if pageData.site_settings.analytics_switch == 1}}
+             {{if pageData.site_settings.analytics }}
+                {$pageData.site_settings.analytics|raw}
+            {{endif}}
+        {{endif}}
+    
+  	</head>
+	<body>
+    	
+    <!-- Wrap Properties
+    ================================================== -->
+    	{{ set bgimage = "" }}
+    	{{ for album in data.albums.data }}
+            {{ if album.name == "Cover Photos" }}
+                {{ for cover in album.photos.data if loop.index <= 1 }}
+                      {{if cover.images }}
+                        {{ set bgimage = cover.images }}
+                      {{ else }}
+                      {$cover.source}
+                       {{ set bgimage = cover.source }}
+                      {{ endif }}
+                     
+                {{ endfor }}
+            {{ endif }}
+        {{ endfor }}
+        
+        <div id="wrap" style="background:url({$bgimage}) center center no-repeat;background-size:cover;">
+        
+        <div class="cover"></div>
+                            
+            <!-- Header
+            ================================================== -->
+            <div id="header">
+            
+                <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+                  
+                    <div class="navbar-header">
+                    	{{if pageData.site_settings.logo_switch == 0}}
+                            <a class="navbar-brand" href="{$root}{$pagename}">{{ if pageData.name }}{$pageData.name}{{ endif }}</a>
+                        {{else}}
+                            <div class="logo-wrap">
+                            <a href="{$root}">
+                                <img title="{$data.name} logo" id="logoCustom" class="customLogo" src="{$data.site_settings.logo}"/>	
+                            </a>
+                            </div>
+                        {{endif}}
+                      
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">&nbsp;</button>
+                    </div>
+                            
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+                      <ul class="nav navbar-nav">
+                      	{{ for pagename,pageinfo in widgets.pages }}
+                            <li>
+                                <a href="{$root}{$pagename}" id="widget{$loop.index}" {{if app.name==pagename}}class="active"{{endif}}><span>{$pageinfo.label|i18n(pageInfo.theme_settings.Lang)}</span></a>
+                             </li>
+                        {{ endfor }}
+                      </ul>
+                    </div><!-- /.navbar-collapse -->
+                    
+                  
+                </nav><!-- /.nav -->
+                
+                <div class="social">
+                	<a href="http://facebook.com/{$pageInfo.pageid}"><img src="{$assets}/img/facebook_icon.png"></a>
+                	{{ if pageData.site_settings.socialicons_switch == 1}}
+                        {{if pageData.site_settings.twitter_link}}
+                        <a href="{$data.site_settings.twitter_link}" target="_blank" title="twitter">
+                            <img alt="twitter" src="{$assets}img/twitter_icon.png" >
+                        </a>
+                        {{endif}}
+                        {{if pageData.site_settings.pinterest_link}}
+                        <a href="{$data.site_settings.pinterest_link}" target="_blank" title="pinterest">
+                            <img alt="pinterest" src="{$assets}img/pinterest_icon.png" >
+                        </a>
+                        {{endif}}
+                        {{if pageData.site_settings.instagram_link}}
+                        <a href="{$data.site_settings.instagram_link}" target="_blank" title="instagram">
+                            <img alt="pinterest" src="{$assets}img/instagram_icon.png" >
+                        </a>
+                        {{endif}}
+                        {{if pageData.site_settings.tumblr_link}}
+                        <a href="{$data.site_settings.tumblr_link}" target="_blank" title="tumblr">
+                            <img alt="tumblr" src="{$assets}img/tumblr_icon.png" >
+                        </a>
+                        {{endif}}
+                        {{if pageData.site_settings.flickr_link}}
+                        <a href="{$data.site_settings.flickr_link}" target="_blank" title="flickr">
+                            <img alt="flickr" src="{$assets}img/flickr_icon.png" >
+                        </a>
+                        {{endif}}
+                        {{if pageData.site_settings.youtube_link}}
+                        <a href="{$data.site_settings.youtube_link}" target="_blank" title="youtube">
+                            <img alt="youtube" src="{$assets}img/youtube_icon.png" >
+                        </a>
+                        {{endif}}
+                    {{endif}}
+                    {{ if pageData.phone and pageData.isPhoneValid }}
+                    <a href="tel:{$pageData.phone}" class="call" onclick="_gaq.push(['_trackEvent', 'Contact', 'Call', 'Click-To-Call']);">Call</a>
+                	{{endif}}
+                
+                </div><!-- /.social -->
+                
+                <div class="bottom hidden-sm hidden-xs">
+                    <div class="left"><span class="text-left">&copy; {{ if pageData.name }}{$pageData.name}{{ endif }}</span></div>
+                    <div class="right">
+                        {{if data.site_settings.whitelabel_switch == 0}}
+                        <span class="text-right">{$"Powered by"|i18n(pageInfo.theme_settings.Lang)} <a href="http://www.pagevamp.com" target="_blank">Pagevamp</a></span>
+                        {{else}}
+                        <span class="text-right">{$data.site_settings.whitelabel}</span>
+                        {{endif}}
+                    </div>
+                </div><!-- /.bottom -->
+                
+            </div>
+            
+            {{ autoescape false }}
+            	{$output}
+            {{ endautoescape }}
+            
+           
+           
+            <!-- Footer
+            ================================================== -->
+            <div id="footer" class="hidden-md hidden-lg">
+                <div class="left"><span class="text-left">&copy; {{ if pageData.name }}{$pageData.name}{{ endif }}</span></div>
+                <div class="right">
+                    {{if data.site_settings.whitelabel_switch == 0}}
+                    <span class="text-right">{$"Powered by"|i18n(pageInfo.theme_settings.Lang)} <a href="http://www.pagevamp.com" target="_blank">Pagevamp</a></span>
+                    {{else}}
+                    <span class="text-right">{$data.site_settings.whitelabel}</span>
+                    {{endif}}
+                </div>
+            </div>
+        
+        </div>
+    
+    <!-- Javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{$assets}/js/bootstrap.min.js"></script>
+    <script src="{$assets}js/jquery.fancybox.js"></script>
+    <script src="{$assets}/js/custom.js"></script>
+    
+    </body>
+</html>

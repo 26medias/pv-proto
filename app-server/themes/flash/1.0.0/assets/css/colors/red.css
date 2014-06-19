@@ -1,0 +1,77 @@
+/*!
+		* Custom Coloring for Site.
+ */
+ 
+a:hover,
+#header .navbar-brand:hover {color: #D90000;}
+
+#header .container {border-bottom: 1px solid #D90000;}
+
+#header .navbar-inverse .navbar-nav>li>a:hover, 
+#header .navbar-inverse .navbar-nav>li>a:focus, 
+#header .navbar-inverse .navbar-nav>li>a.active {color: #D90000;}
+
+.menuAlbumInner {border: 1px solid #D90000;}
+#header .dropdown-menu>li>a {border-bottom: 1px solid #D90000; font-weight: 400;}
+#header .dropdown-menu>li>a:hover, 
+#header .dropdown-menu>li>a:focus {color: #D90000; font-weight: 400; font-style: italic;}
+
+#blog ul li {border-bottom: 1px solid #D90000;}
+#blog a:hover {color: #D90000;}
+
+#grid_gallery .maso_container .box .border {border: 1px solid #D90000;}
+.fancybox-prev span {background: url(../../img/arrow_left_red.png) no-repeat;}
+.fancybox-next span {background: url(../../img/arrow_right_red.png) no-repeat;}
+ul.social li a {background: url(../../img/social_sprite_red.png) no-repeat !important;}
+ul.social li a.facebook {background-position: 0 0;}
+ul.social li a.twitter {background-position: -20px -1px !important;}
+ul.social li a.mail {background-position: -50px 0 !important;}
+.fancybox-title .modal-footer .close_icon a {background: url(../../img/icon_close_red.png) 0 0 no-repeat !important;}
+.fancybox-title .modal-footer .close_icon a:hover {background: url(../../img/icon_close_red.png) 0 -26px no-repeat!important;}
+
+ul.social li a:hover.facebook {background-position: 0 -40px !important;}
+ul.social li a:hover.twitter {background-position: -20px -41px !important;}
+ul.social li a:hover.mail {background-position: -50px -40px !important;}
+
+#blog .post .goback a:before {background: url(../../img/back_sprite_red.png) no-repeat !important;}
+#blog .post .goback a:hover:before {background-position: 0 -29px !important;}
+#blog .post .goback a:hover {color: #D90000!important;}
+
+#footer {border-top: 1px solid #D90000;}
+#footer .right a:hover {color: #D90000;}
+
+.buynow_button:hover {background: #D90000; color: #fff!important;}
+
+#grid_gallery .maso_container .box .article .hover_caption { background: rgba(217, 0, 0, 0.3);}
+#grid_gallery .maso_container .box .article .hover_caption h3 {color: #fff;}
+
+@media only screen and (max-width: 767px) {
+	.navbar-collapse {
+	border-top: 1px solid #D90000 !important;
+	border-left: 1px solid #D90000 !important;
+	border-right: 1px solid #D90000 !important; }
+	
+	#blog .post .goback a:before,
+	#blog .post .goback-sm a:hover span {background: url(../../img/back_sprite_red.png) no-repeat !important;}
+	#blog .post .goback a:hover:before,
+	#blog .post .goback-sm a:hover span {background-position: 0 -29px !important;}
+	#blog .post .goback a:hover,
+	#blog .post .goback-sm a:hover, 
+	#blog .post .goback-sm a:focus {color: #D90000!important;}
+	
+}
+
+.contact_form .btn	{background: #D90000;}
+.contact_form input[type="text"],
+.contact_form input[type="password"],
+.contact_form textarea	{border: 1px solid #D90000;}
+
+.event .box:hover {border: 1px solid #D90000;}
+.event-desc .rsvp a {background: #D90000;}
+
+.modal .inquire-holder input[type="text"], 
+.modal .inquire-holder input[type="password"], 
+.modal .inquire-holder textarea {border: 1px solid #D90000;}
+.modal .inquire-holder .btn {background: #D90000;}
+
+.go-back:hover {background: #D90000; color: #fff!important;}

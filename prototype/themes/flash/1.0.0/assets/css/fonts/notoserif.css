@@ -1,0 +1,26 @@
+
+@import url(http://fonts.googleapis.com/css?family=Noto+Serif);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:700);
+
+/*** LOGO ***/
+
+body,
+#footer,
+#header {font-family: 'Noto Serif', serif !important;}
+
+#header .navbar-brand {text-transform: uppercase !important;}
+
+#header .navbar-inverse .navbar-nav>li>a {text-transform: none !important; font-size: 15px !important;}
+
+#blog .post .goback {font-family: 'Open Sans', sans-serif !important;}
+
+#info h2 {text-transform: none !important;}
+
+#widget_cont h1, 
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {font-family: 'Open Sans', sans-serif !important;}
+

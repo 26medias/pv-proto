@@ -1,0 +1,106 @@
+<!-- Wrap Properties
+================================================== -->
+<div id="wrap">
+	{{ if data.isEvent }}
+    
+    	<div id="blog">
+
+        	<div class="post">
+            
+            <div class="goback hidden-xs"><a href="{$root}events" title="Go to all posts">{$"BACK TO ALL EVENTS"|i18n(pageInfo.theme_settings.Lang)}</a></div><!-- /.goback -->
+            <div class="goback-sm hidden-md hidden-lg hidden-sm"><a href="javascript: history.go(-1)" title="Go to all posts"><span></span>BACK TO ALL POSTS</a></div><!-- /.goback -->
+            
+            <div class="main event-desc">
+                <div class="col date">
+                	<div class="rsvp"><a href="http://facebook.com/events/{$event.id}/" target="_blank" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Events', 'RSVP']);">RSVP</a></div><!-- /.rsvp -->
+                </div><!-- /.col.date -->
+                <div class="col desc">
+                    <h2>{$data.eventOnly.name}</h2>
+                    {{ if data.eventOnly.start_time }}
+                        <p><span class="date">{$data.eventOnly.start_time|date("F d, Y")}<br />{$data.eventOnly.start_time|date("h:ia")}</span></p>
+                    {{ endif }}
+                    
+                    {{ if data.eventOnly.description }}
+                    	<p>{$data.eventOnly.description}</p>
+                    {{ endif }}
+                    
+                    <p>
+                    {{ if data.eventOnly.location }}
+                        {$data.eventOnly.location}<br/>
+                    {{ endif }}
+                    {$data.eventOnly.venue.street} {$data.eventOnly.venue.city} {$data.eventOnly.venue.state}
+                    </p>
+                    
+                    <div class="map">
+                        {{ if data.eventOnly.venue.latitude }}
+                            <iframe width="100%" scrolling="no" height="280" frameborder="0" src="https://maps.google.com/?q={$data.eventOnly.venue.street}+{$data.eventOnly.venue.city}+{$data.eventOnly.venue.state}&hl=en&sll={$data.eventOnly.venue.latitude},{$data.eventOnly.venue.longitude}&amp;output=embed" marginwidth="0" marginheight="0"></iframe>
+                            <!--<div class="title"><a href="https://maps.google.com/?q={$data.eventOnly.venue.street}+{$data.eventOnly.venue.city}+{$data.eventOnly.venue.state}&hl=en&sll={$data.eventOnly.venue.latitude},{$data.eventOnly.venue.longitude}" style="text-align:left" target="_blank">View Larger Map</a></div>-->
+                        {{ endif }}
+                    </div><!-- /.map -->
+                </div><!-- /.col.desc -->
+            </div>
+            
+        </div><!-- /.post -->
+  
+		</div> 
+    
+    {{ else }}
+    
+    	<div id="grid_gallery">
+        	<div id="hover-cap-4col" class="maso_container event">                         
+            	{{ if data.events }}
+                            
+                {{ autoescape false }}
+                {{ set count = 0 }}
+                {{ for event in data.events.data if loop.index <=100}}
+                    {{ if event.name }} 
+                        <div class="box album">
+                             <div class="article">
+                             	<div class="img-holder">
+                                    <div class="fill">
+                                        <a href="{$root}events?event={$count}">
+                                            <!-- Event Image Display -->
+                                            {{if  event.cover}}
+                                                <img src="{$event.cover.source}" alt="{$event.name}" />
+                                            {{else}}
+                                            <img src="{$assets}img/event.png" />
+                                            {{endif}}
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="caption">
+                                    <h2><a href="{$root}events?event={$count}">{$event.name}</a></h2>
+                                    <p>{$event.start_time|date("F d, Y - h:ia")}</p>
+                                </div>
+                                
+                             </div>
+                         </div><!-- /.box -->
+                      {{ endif }}
+                                    
+                    {{ set count = loop.index }}
+                    
+                {{ endfor }}
+                {{ endautoescape }} 
+                   
+                         
+              </div>
+           </div>
+           {{ else }}
+            </div>
+           </div>
+                <p class="no_events">{$"There are currently no upcoming events. Please check back later!"|i18n(pageInfo.theme_settings.Lang)}</p>
+            {{ endif }} 
+        </div>
+    
+		<script>
+            $(document).ready(function(){
+                $("#loader").show();	
+                $("#grid_gallery").hide();
+            });
+        </script>
+    {{ endif }}  
+    
+            
+            <div id="push"></div><!-- just for Pushing the footer -->
+     
+</div>

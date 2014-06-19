@@ -1,0 +1,66 @@
+
+/*Logo*/
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,300,200,100,500,600,700,800,900);
+
+/*Headers same as logo*/
+
+
+/*Text*/
+@import url(http://fonts.googleapis.com/css?family=Sorts+Mill+Goudy:400,400italic);
+
+
+body {font-family: 'Sorts Mill Goudy', serif; font-weight: 400;}
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {font-family: 'Raleway', sans-serif; font-weight: 400;}
+
+h1 {font-size: 40px;}
+h2 {font-size: 36px;}
+h3 {font-size: 32px;}
+h4 {font-size: 28px;}
+h5 {font-size: 24px;}
+h6 {font-size: 20px;}
+
+#header .head-title h2 {font-size: 36px;}
+
+p {line-height: 2;}
+#content .event-list .caption p {line-height: 1.1;}
+
+#content .event.desc a.rsvp {line-height: 1.4; padding: 10px 15px 4px}
+
+#header .home-content h2,
+#header h2 {font-family: 'Sorts Mill Goudy', serif; font-weight: 400;}
+
+#header .navbar-nav > li > a {font-family: 'Raleway', sans-serif; font-weight: 700;}
+
+#header .navbar-brand,
+#content .event-list .caption p a {font-family: 'Raleway', sans-serif; font-weight: 500;}
+
+#header .navbar-brand {font-size: 40px;}
+
+#blog ul.blog-post li .post .right h2 {font-family: 'Oswald', sans-serif; font-weight: 400; font-size: 32px;}
+#blog ul.blog-post li .post .left {font-size: 15px;}
+
+#footer {font-size: 16px;}
+
+#content .contact .contact_form .btn {font-family: 'Raleway', sans-serif; font-weight: 500;}
+
+#header .navbar .dropdown-menu>li>a {font-family: 'Raleway', sans-serif; font-weight: 700;}
+
+@media only screen and (max-width: 767px) { 
+
+	body {font-size: 16px;}
+	h1 {font-size: 30px;}
+	h2 {font-size: 26px;}
+	h3 {font-size: 22px;}
+	h4 {font-size: 18px;}
+	h5 {font-size: 16px;}
+	h6 {font-size: 14px;}
+	
+	#blog ul.blog-post li .post .right h2 {font-size: 26px;}
+ 
+}
+

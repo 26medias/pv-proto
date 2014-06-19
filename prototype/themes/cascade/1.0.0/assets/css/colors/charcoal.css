@@ -1,0 +1,35 @@
+
+/*** NAVIGATION BAR ***/
+
+#nav_wrap {
+background:rgb(64, 64, 65);
+}
+
+#nav_wrap_other {
+background: rgb(64, 64, 65);
+}
+
+ul#nav li > a, ul#nav li .active > a:hover, ul#nav li .active > a:focus {
+color: #ffffff;
+}
+
+
+ul#nav li > a, ul#nav li .active > a:hover, ul#nav li .active > a:active {
+text-shadow: 1px 1px 1px black;
+}
+
+ul#nav li a:hover {
+	text-shadow: 1px 1px 1px black;
+}
+
+ul#nav li > .active > a:focus,
+	.active {background-color: #2E2E2E;
+}
+	
+ul#nav li a:hover {color: #fff; background-color: #303030;
+}
+/*** LOGO ***/
+
+div.header .logo a, .contact .contact_wrap .logo a {
+	text-shadow: none;
+}

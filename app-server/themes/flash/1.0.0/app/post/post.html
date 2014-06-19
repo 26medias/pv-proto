@@ -1,0 +1,66 @@
+
+	<!-- Wrap Properties
+    ================================================== -->
+    <div id="wrap">
+    
+    	<div id="blog">
+        
+			<div class="post">
+            	
+                <div class="goback hidden-xs"><a href="javascript: history.go(-1)" title="Go to all posts">BACK TO ALL POSTS</a></div><!-- /.goback -->
+                <div class="goback-sm hidden-md hidden-lg hidden-sm"><a href="javascript: history.go(-1)" title="Go to all posts"><span></span>BACK TO ALL POSTS</a></div><!-- /.goback -->
+                
+                <div class="main">
+                	<div class="col date">
+                    	<a class="link">{$data.postOnly.created_time|date("F")|i18n(pageInfo.theme_settings.Lang)} {$data.postOnly.created_time|date("j")}, {$data.postOnly.created_time|date("Y")}</a>
+                        <ul class="social hidden-xs">
+                            <li><a href="http://www.facebook.com/sharer.php?s=100&p[title]={$data.postOnly.postURLname}&p[summary]={$data.postOnly.urlmessage}&p[url]={$root}post?post={$data.postOnly.id}&p[images[0]={$data.postOnly.picture}" target="_blank" class="facebook">facebook</a></li>
+                            <li><a href="http://twitter.com/share?url={$root}post?post={$data.postOnly.id}&text={$data.postOnly.postURLname}&via=pagevamp" target="_blank" class="twitter">twitter</a></li>
+                            <li><a href="https://www.addthis.com/tellfriend.php?v=300&winname=addthis&pub=no-pub-ad&source=men-300&lng=en&s=email&url={$root}post?post={$data.postOnly.id}&title={$data.postOnly.postURLname}&ate=AT-no-pub-ad/-/-/51fa7fd9137aae60/4/50348d2c87400843&uid=50348d2c87400843&ufbl=1&uud=1&ct=1&ui_email_to=&ui_email_from=&ui_email_note=&pre=http%3A%2F%2Fwww.addthis.com%2F&tt=0&captcha_provider=nucaptcha&at3frame=true" target="_blank" class="mail">mail</a></li>
+                        </ul><!-- /.social -->
+                    </div><!-- /.col.date -->
+                	<div class="col desc">
+                    	{{ autoescape false }}
+                            {{ if (data.postOnly.picture and data.postOnly.source is empty)}}
+                            <div class="img_holder"><img src="{$data.postOnly.bigpicture}" /></div><!-- /.img_holder -->
+                            {{endif}}
+                            {{ if (data.postOnly.soundcloud.html or data.postOnly.source)}}
+                                {$data.postOnly.soundcloud.html|raw}
+                                {{if (data.postOnly.source and data.postOnly.soundcloud.html is empty)}}
+                                    <div class="img_holder">
+                                        <iframe width="100%" height="{$data.postOnly.iframeheight}" src="{$data.postOnly.source}" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                {{endif}}
+                            {{endif}}
+                        {{ endautoescape }}
+                    	<p>
+                        	{{ autoescape false }}
+                                {{if (data.postOnly.message)}}
+                                    {$data.postOnly.message|raw|nl2br}
+                                {{ endif }}
+                            {{ endautoescape }}
+                        </p>
+                    </div><!-- /.col.desc -->
+                    <ul class="social hidden-lg hidden-md hidden-sm">
+                        <li><a href="http://www.facebook.com/sharer.php?s=100&p[title]={$data.postOnly.postURLname}&p[summary]={$data.postOnly.urlmessage}&p[url]={$root}post?post={$data.postOnly.id}&p[images[0]={$data.postOnly.picture}" target="_blank" class="facebook">facebook</a></li>
+                        <li><a href="http://twitter.com/share?url={$root}post?post={$data.postOnly.id}&text={$data.postOnly.postURLname}&via=pagevamp" target="_blank" class="twitter">twitter</a></li>
+                        <li><a href="https://www.addthis.com/tellfriend.php?v=300&winname=addthis&pub=no-pub-ad&source=men-300&lng=en&s=email&url={$root}post?post={$data.postOnly.id}&title={$data.postOnly.postURLname}&ate=AT-no-pub-ad/-/-/51fa7fd9137aae60/4/50348d2c87400843&uid=50348d2c87400843&ufbl=1&uud=1&ct=1&ui_email_to=&ui_email_from=&ui_email_note=&pre=http%3A%2F%2Fwww.addthis.com%2F&tt=0&captcha_provider=nucaptcha&at3frame=true" target="_blank" class="mail">mail</a></li>
+                    </ul><!-- /.social -->
+                </div>
+                
+            </div><!-- /.post -->
+          
+        </div>
+    
+    
+    
+    
+    
+        
+        
+        
+        <div id="push"></div><!-- just for Pushing the footer -->
+        
+    </div>
+    
+    

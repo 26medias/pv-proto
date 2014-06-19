@@ -1,0 +1,82 @@
+{
+	"name":		"studio",
+	"authors":	[
+		{
+			"name":		"Vincent, Pradip, and Sujan",
+			"url":		"http://www.pagevamp.com/",
+			"email":	"support@pagevamp.com"
+		}
+	],
+	"versions":	{
+		"1.0.0":	{
+			"styles":	 {
+				"Font": {
+					"Cantata":	["css/styles/cantata.css"],
+					"Comfortaa":	["css/styles/comfortaa.css"],
+					"Oswald":	["css/styles/oswald.css"],
+					"Archivo":	["css/styles/archivo.css"],
+					"Lobster":	["css/styles/josefinsans.css"]
+				},
+				"Color": {
+					"Orange":	["css/colors/orange.css"],
+					"Royale": ["css/colors/royale.css"],
+					"Charcoal": ["css/colors/charcoal.css"],
+					"Magenta": ["css/colors/magenta.css"],
+					"Lucent":	["css/colors/nooverlay.css"]
+				},
+				"Lang": {
+					"en_US": 	"en_US",
+					"es_ES": 	"es_ES",
+					"id_ID": 	"id_ID",
+					"pt_BR":	"pt_BR",
+					"ja_JP":	"ja_JP"
+				}
+			},
+			"pages":	 {
+				"index": {
+					"label": "Home",
+					"layout":	"main.html",
+					"template":	"index/index.html",
+					"app":		"index/index.php"
+				},
+				"about": {
+					"label": "About",
+					"layout":	"main.html",
+					"template":	"index/index.html#about",
+					"app":		"index/index.php"
+				},
+				"news": {
+					"label": "News",
+					"layout":	"main.html",
+					"template":	"index/index.html#news",
+					"app":		"index/index.php"
+				},
+				"gallery": {
+					"label": "Gallery",
+					"layout":	"main.html",
+					"template":	"index/index.html#gallery",
+					"app":		"index/index.php"
+				},
+				"contact": {
+					"label": "Contact",
+					"layout":	"main.html",
+					"template":	"index/index.html#contact",
+					"app":		"index/index.php"
+				}
+
+			},
+			"services":	{
+				"get_pictures": {
+					"app":		"admin/get_pictures.php",
+					"backend":	false
+				},
+				"theme_settings": {
+					"label":	"Theme Settings",
+					"template":	"admin/admin.html",
+					"app":		"admin/admin.php",
+					"backend":	true
+				}
+			}
+		}
+	}
+}

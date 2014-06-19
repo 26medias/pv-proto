@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- 
+	This is the main layout.
+	-->
+	<head>
+		<meta charset="utf-8">
+		<title>{$title}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		
+		<!-- fancybox -->
+		<link href="{$assets}css/jquery.fancybox.css" rel="stylesheet">		
+        <!-- Thumbnail resizer -->		
+        <link href="{$assets}css/jquery.nailthumb.1.1.css" type="text/css" rel="stylesheet" />		
+		<!-- Reset -->
+		<link href="{$assets}css/reset.css" rel="stylesheet">
+		<!-- Grids -->
+		<link href="{$assets}css/960.css" rel="stylesheet">
+		<!-- Actual Style / LessCSS -->
+		<link href="{$assets}css/theme.css" rel="stylesheet/less" type="text/css">
+		
+		<!-- Here I will include the css files from the styles selected by the user -->
+		{{ for file in pageInfo.theme_styles }}
+		<link href="{$assets}{$file}" rel="stylesheet/less" type="text/css">
+		{{ endfor }}
+		
+		<!-- End/Fix -->
+		<link href="{$assets}css/end.css" rel="stylesheet/less">
+		<link href="{$assets}css/style.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<!-- jQuery -->
+		<script src="{$assets}js/jquery.1.7.1.min.js"></script>
+        <script src="{$assets}js/jquery.backstretch.js"></script>
+		<!-- LessCSS -->
+		<script src="{$assets}js/less-1.3.0.min.js"></script>
+		<!-- Toogle Widget -->
+		<script src="{$assets}js/toggle.js"></script>
+		<script type="text/javascript" src="{$assets}js/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="{$assets}js/jquery.plusanchor.js"></script>
+		<!-- Thumbnail resize -->
+    	<script type="text/javascript" src="{$assets}js/jquery.nailthumb.1.1.js"></script>
+		<!-- Fancybox -->
+		<script src="{$assets}js/jquery.fancybox.js"></script>	
+		<script>
+			$(function(){
+			
+				
+				
+				var c = 0;
+				$('.extranav').each(function(){
+					c++;
+					$(this).attr('href','#extra'+c);
+				});
+				var c = 0;
+				$('.extrapage').each(function(){
+					c++;
+					$(this).find('.title').html($('#widget'+c).html());
+					$(this).attr('id','extra'+c);
+				});
+				var c = 1;
+				if($(window).innerWidth() >320 && $(window).innerWidth()<=1010){
+				$('.vid').each(function(){
+					if(c % 2 == 0){
+						$(this).after('<br class="fix" />');
+					}	
+					c++;	
+					
+				});
+				}
+				else { 
+				$('.vid').each(function(){
+					if(c % 3 == 0){
+						$(this).after('<br class="fix" />');
+					}	
+					c++;	
+				});
+				}
+			});
+			
+			
+			
+			
+		</script>
+        <script src="{$assets}js/include.js"></script>
+       
+   	{{if pageData.site_settings.embed }}
+  		{$pageData.site_settings.embed|raw}
+  	{{endif}}
+  	 {{ if pageData.site_settings.analytics_switch == 1}}
+	  	 {{if pageData.site_settings.analytics }}
+	        {$pageData.site_settings.analytics|raw}
+	    {{endif}}
+	{{endif}}     
+</head>
+	<body>
+   
+		<div class="header">
+        	<div class="container_24 top-head">
+            	<div class="fixed-head">
+                    <div class="grid_5 alpha omega logo"><div id="#home"><div class="logo"><a href="#home">{$data.name}</a></div></div></div>          <div class="holder">          
+                        <ul class="menu right">
+                            <li><a href="#about" title="About">{$"About"|i18n(pageInfo.theme_settings.Lang)}</a></li>
+                            <li><a href="#news" title="News/Events">{$"News"|i18n(pageInfo.theme_settings.Lang)}/{$"Events"|i18n(pageInfo.theme_settings.Lang)}</a></li>
+                            <li><a href="#gallery" title="Gallery">{$"Gallery"|i18n(pageInfo.theme_settings.Lang)}</a></li>
+                            {{ for pagename,pageinfo in widgets.pages }}
+								<li {{if app.name==pagename}}class="active"{{endif}}>
+                                	<a href="" id="widget{$loop.index}" class="extranav">{$pageinfo.label|i18n(pageInfo.theme_settings.Lang)}</a>
+                                 </li>
+							{{ endfor }}   
+                            {{ if data.location }}<li><a href="#footer" title="Contact">{$"Contact"|i18n(pageInfo.theme_settings.Lang)}</a></li>{{ endif }}
+                            
+                        </ul>
+                    <div class="fix"></div>
+                    <a href="#" id="pull">{$"Navigation"|i18n(pageInfo.theme_settings.Lang)}</a><!--switching menus for mobile-->
+                </div><!--holder-->
+                </div> 
+            </div>
+		</div>
+<!--        <div class="container_12">
+            <ul id="nav">
+            	<li {{if app.name=="about"}}class="active"{{endif}}><a href="{$root}about">About</a> /</li>
+            	<li {{if app.name=="news"}}class="active"{{endif}}><a href="{$root}news">News</a> /</li>
+            	<li {{if app.name=="contact"}}class="active"{{endif}}><a href="{$root}contact">Contact</a></li>
+                <br class="clear">
+            </ul>
+        </div>
+-->		
+		<div class="main-wrap">
+            <!-- wrap starts -->
+            <div id="wrap">
+                <div class="green-overlay">
+                <!-- home starts -->
+                <div id="home">
+                    <p>{{ autoescape false }}{$data.about}{{ endautoescape }}</p>
+                </div>
+                <!-- home ends -->
+                </div><!-- Just the overlay -->
+                
+            </div>
+            <!-- wrap footer -->
+            <div class="container_24 fixer">
+                {{ autoescape false }}
+                    {$output}
+                    {{ endautoescape }}
+            </div>
+        </div><!-- main-wrap ends -->
+        
+		<div class="clearfix"></div>
+        
+		<div class="footer" id="footer">
+            
+			<div class="container_24 fixer">
+            
+            	<!-- contact starts -->
+                <div id="contact">
+                {{ if data.location}}
+                	<div class="title">{$"Contact"|i18n(pageInfo.theme_settings.Lang)}</div><!-- title ends --> {{ endif }}
+                
+                	<div class="grid_9  alpha omega address">
+                    {{ if data.location }}
+                    	{{ if data.email }}
+                        <p><span class="contact">{$"Email"|i18n(pageInfo.theme_settings.Lang)}: {$data.email}</span></p>
+                        {{ endif }}
+                        
+                        {{ if data.location.street }}
+                        <p><span class="contact">{$"Street"|i18n(pageInfo.theme_settings.Lang)}: {$data.location.street}</span></p>
+                        {{ endif }}
+                        
+                        {{ if data.location.city }}
+                        <p><span class="contact">{$"City"|i18n(pageInfo.theme_settings.Lang)}: {$data.location.city}</span></p>
+                        {{ endif }}
+                        
+                        {{ if data.location.state }}
+                        <p><span class="contact">{$"State"|i18n(pageInfo.theme_settings.Lang)}: {$data.location.state}</span></p>
+                        {{ endif }}
+                        
+                        {{ if data.phone }}
+                        <p><span class="contact">{$"Phone"|i18n(pageInfo.theme_settings.Lang)}: {$data.phone}</span></p>
+                        {{ endif }}
+                         {{ endif }}
+                        <div class="social"><a href="http://facebook.com/{$pageInfo.pageid}" title="{$data.name}" target="_blank"><img src="{$assets}images/social.png"></a></div>
+                    </div>
+                    <div class="grid_15 float-right alpha omega align-right map">
+                     {{ if data.location }}
+                    {{ if data.location.latitude }}
+                    	<iframe width="700" scrolling="no" height="350" frameborder="0" src="https://maps.google.com/?q={$data.location.street}+{$data.location.city}+{$data.location.state}&hl=en&sll={$data.location.latitude},{$data.location.longitude}&amp;output=embed" marginwidth="0" marginheight="0"></iframe>
+                    	<span class="view"><a href="https://maps.google.com/?q={$data.location.street}+{$data.location.city}+{$data.location.state}&hl=en&sll={$data.location.latitude},{$data.location.longitude}" style="text-align:left" target="_blank">View Larger Map</a></span>
+                    {{ endif }}
+                 {{ endif }}
+                    </div>
+                    
+                    <div class="clear"></div>
+                
+                </div>
+               
+                
+
+            	<!-- contact ends -->
+                
+            	<div class="container_24 foot">
+                    <div class="grid_4 alpha omega flt-left foot-left"><p>&copy; {$data.name}</p></div>
+                    <div class="grid_4 alpha omega float-right foot-right"><p class="align-right">{$"Powered by"|i18n(pageInfo.theme_settings.Lang)} <a href="http://pagevamp.com/">Pagevamp</a></p></div>
+                </div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="clearfix"></div>
+		<script>
+		$(function(){
+			{{ for album in data.albums.data }}
+					{{ if album.name == "Cover Photos" }}
+						{{ for cover in album.photos.data if loop.index <= 1 }}
+							$("#wrap").backstretch("{$cover.images}");
+		   				{{ endfor }}
+					{{ endif }}
+				{{ endfor }}
+		});
+		</script>	
+	</body>
+</html>

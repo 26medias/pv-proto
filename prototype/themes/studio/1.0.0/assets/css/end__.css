@@ -1,0 +1,267 @@
+
+
+/* ==|== non-semantic helper classes ========================================
+   Please define your styles before this section.
+   ========================================================================== */
+
+/* For image replacement */
+.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; }
+.ir br { display: none; }
+
+/* Hide from both screenreaders and browsers: h5bp.com/u */
+.hidden { display: none !important; visibility: hidden; }
+
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+/* Contain floats: h5bp.com/q */ 
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+
+
+/* ==|== media queries ======================================================
+   PLACEHOLDER Media Queries for Responsive Design.
+   These override the primary ('mobile first') styles
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 480px) {
+  /* Style adjustments for viewports 480px and over go here */
+
+}
+
+@media only screen and (min-width: 768px) {
+  /* Style adjustments for viewports 768px and over go here */
+
+}
+
+
+/* #Tablet (Landscape)
+================================================== */
+
+    /* Note: Design for a width of 1020px */
+
+	@media only screen and (min-width : 768px) and (max-width : 1024px) {
+		
+		body {min-width: 980px;}
+		#home{width:744px;}
+		.container_24 {width: 980px;}
+		#news ul.news li {font-size: 20px;}
+		.container_24 .grid_19 {width: 710px;}
+		.container_24 .grid_15 {width: 550px;}
+		#news ul.events li {margin: 0 24px 30px 0;}
+		#gallery ul.thumb li {margin: 0 30px 45px 0; width: 306px;}
+		#contact .map iframe {width: 550px;}
+		
+		
+		.video-container {
+			margin: 0 auto;
+			overflow: hidden;
+			width: 800px;
+		}
+    	
+	}
+
+/* #Tablet (Portrait)
+================================================== */
+
+    /* Note: Design for a width of 768px */
+
+    @media only screen and (min-width: 768px) and (max-width: 959px) {
+		
+		body {min-width: 728px;}
+		.container_24 {width: 728px;}
+		#home {width: 728px;}
+		#home p {font-size: 50px;}
+		#about .main h2, #news .main h2 {font-size: 24px;}
+		#about .main p {font-size: 20px;}
+		#news ul.events li {width: 152px; margin: 0 10px 20px 0;}
+		#news ul.events li p {font-size: 14px;}
+		.container_24 .grid_19 {width: 500px;}
+		#news ul.news li {font-size: 16px;}
+		#news ul.news li .date {width: 140px;}
+		#news ul.news li .desc {width: 495px;}
+		#gallery ul.thumb li {width: 232px; margin: 0 15px 25px 0;}
+		#gallery ul.thumb li p {font-size: 16px;}
+		#contact .address {width: 260px;}
+		#contact p {font-size: 15px;}
+		#contact .map {width: 450px;}
+		#contact .map iframe {width: 450px;}
+		#contact span.view {margin-left: 0;}
+		
+		#tab2 .vid { float: left;  margin: 0 64px 45px 0; width: 300px;}
+		.video-container { margin: 0 auto;    width: 728px;}		
+	}
+	
+	
+
+/*  #Mobile (Portrait)
+================================================== */
+
+    /* Note: Design for a width of 320px */
+
+    @media only screen and (max-width: 767px) {
+		
+		body {min-width: 300px;}
+		body > div.header {position: fixed; height: auto;}
+		body > div.header .menu.right {float: none;}
+		.top-head {width: 300px;}
+		.fixed-head {text-align: center;}
+		.fixed-head .logo {float: none; line-height: 1; padding: 15px 0 15px; text-align: center;}
+		body > div.header .menu {float: none;}
+		body > div.header .menu.right {float: none; display: none; zoom: 1;}
+		body > div.header .menu li {float: none; padding: 0; line-height: 20px; margin-bottom: 10px;}
+		#wrap {top: 0;}
+		.fixer {width: 300px;}
+		#home {width: 100%; padding: 160px 0 0;}
+		#home p {font-size: 30px;}
+		#about {/*margin-top: 80px;*/ margin-top: -80px; }
+		#about .main {text-align: center;}
+		#about .main p {text-align: center; font-size: 14px; line-height: 1.4;}
+		#about .title {width: 140px; font-size: 26px; margin-left: -70px; text-align: center; padding: 0;}
+		#about .main h2, #news .main h2 {font-size: 18px; margin-bottom: 20px; text-align: center;}
+		#news .title {width: 205px; font-size: 20px; margin-left: -102px; padding: 0;}
+		#news .main {padding: 0; text-align: center;}
+		#news ul.news li {font-size: 16px;}
+		#news ul.news li .date {width: 100%; float: none; display: block; margin-bottom: 5px; text-align: center;}
+		#news ul.news li .desc {width: 100%; float: none; display: block; line-height: 1.3; text-align: center;}
+		#news ul.events {display: inline-block; zoom: 1;}
+		#news ul.events li {width: auto; margin: 0; float: none;}
+		#news ul.events li:nth-child(2n+2) {float: none;}
+		#news ul.events li:nth-child(4n+4) {margin: 0;}
+		#news ul.events li p {font-size: 14px; text-align: center;}
+		#gallery {text-align: center; margin-bottom: 30px;}
+		#gallery .main {text-align: center;}
+		#gallery ul.tab {display: inline-block; zoom: 1;}
+		#gallery .title {width: 150px; font-size: 20px; margin-left: -75px;}
+		#gallery ul.thumb li {width: 300px; float: none; margin: 0 0 25px;}
+		#gallery ul.thumb li p {text-align: center; font-size: 14px;}
+		#contact .title {width: 154px; font-size: 20px; margin-left: -77px;}
+		#contact .address {width: 100%; margin-bottom: 15px;}
+		#contact p {font-size: 16px; text-align: center;}
+		#contact .map {width: 300px; float: none;}
+		#contact .map iframe {width: 300px; float: none;}
+		#contact span.view {margin: 0; text-align: center;}
+		.foot {width: 100%;}
+		.foot p {font-size: 12px; text-align: center;}
+		.foot .foot-left {width: 100px!important; float: none; margin-bottom: 10px;}
+		.foot .foot-right {width: 150px!important; float: none;}
+		.main-wrap {position: relative; top: 83px;}
+		.holder{ text-align:center;}
+		a#pull {padding: 0 0 15px; display: block; outline: none; color: #5F5F5F; font-family: 'Ubuntu',sans-serif; font-size: 14px; font-weight: 500; text-transform: uppercase;}
+		.extrapage{ position:relative;border-top: 1px solid #a6a6a6; margin: 110px 0 0; padding: 75px 0 60px; }
+		.extrapage .title {width: 140px; font-size: 22px; margin-left: -70px; text-align: center; padding: 0;}
+		.social {text-align: center;}
+		#gallery ul.thumb li .img-holder{ margin: 0 auto;}
+		.more { float: none; font-style: italic;}
+
+	}
+
+
+/* #Mobile (Landscape)
+================================================== */
+
+    /* Note: Design for a width of 480px */
+
+    @media only screen and (min-width: 480px) and (max-width: 767px) {
+
+		body {min-width: 440px;}
+		body > div.header {position: fixed; height: auto;}
+		body > div.header .logo {text-align: center;}
+		body > div.header .menu.right {float: none; display: inline-block; zoom: 1;}
+		.top-head {width: 440px;}
+		.fixed-head {text-align: center;}
+		.fixed-head .logo {float: none; line-height: 1; padding: 15px 0 0;}
+		body > div.header .menu {float: none;}
+		body > div.header .menu li {float: left; padding: 0 20px 0 0; line-height: 40px;}
+		body > div.header .menu li:last-child {padding: 0;}
+		#wrap {top: 0;}
+		.fixer {width: 400px;}
+		#home {width: 100%; padding: 36px 0 0;}
+		#home p {font-size: 30px;}
+		#about {/*margin-top: 80px;*/ margin-top: -80px; }
+		#about .title {width: 140px; font-size: 26px; margin-left: -70px; text-align: center; padding: 0;}
+		#about .main h2, #news .main h2 {font-size: 24px; margin-bottom: 25px;}
+		#about .main p {font-size: 18px;}
+		#news .title {width: 230px; font-size: 24px; margin-left: -115px; padding: 0;}
+		#news .main {padding: 0;}
+		#news ul.news li {font-size: 16px;}
+		#news ul.news li .date {width: 100%; float: none; display: block; margin-bottom: 5px;}
+		#news ul.news li .desc {width: 100%; float: none; display: block; line-height: 1.3;}
+		#news ul.events li {width: 195px; margin: 0; float: left;}
+		#news ul.events li:nth-child(2n+2) {float: right;}
+		#news ul.events li:nth-child(4n+4) {margin: 0;}
+		#news ul.events li p {text-align: center; font-size: 16px;}
+		#gallery .main {text-align: center;}
+		#gallery .title {width: 170px; font-size: 24px; margin-left: -85px;}
+		#gallery ul.tab {display: inline-block; zoom: 1;}
+		#gallery ul.tab li:last-child {margin: 0;}
+		#gallery ul.thumb {display: inline-block; zoom: 1;}
+		#gallery ul.thumb li {float: none; margin: 0 0 25px;}
+		#gallery ul.thumb li p {font-size: 14px; text-align: center;}
+		#contact .title {width: 170px; font-size: 24px; margin-left: -85px;word-wrap: break-word;}
+		#contact .address {width: 100%;}
+		#contact p {font-size: 16px; text-align: center;}
+		#contact .map {width: 100%; float: none;}
+		#contact .map iframe {width: 100%; float: none;}
+		#contact span.view {margin: 0;}
+		#contact .address {margin-bottom: 25px;}
+		.foot {width: 100%;}
+		.foot p {font-size: 12px;}
+		.foot .foot-left {width: 100px!important;}
+		.foot .foot-right {width: 150px!important;}
+		.main-wrap {position: relative; top: 91px;}
+		body > div.header .logo {text-align: center;}
+		body > div.footer {margin: 126px 0 0;}
+		a#pull {display: none;}
+		
+
+
+    }
+
+@media only screen and (min-width: 1024px) and (max-width: 1260px) {
+	body {min-width: 980px;}
+		#home{width:744px;}
+		.container_24 {width: 980px;}
+		#news ul.news li {font-size: 20px;}
+		.container_24 .grid_19 {width: 710px;}
+		.container_24 .grid_15 {width: 550px;}
+		#news ul.events li {margin: 0 24px 30px 0;}
+		#gallery ul.thumb li {margin: 0 30px 45px 0; width: 306px;}
+		#contact .map iframe {width: 550px;}
+		
+		
+.video-container {
+    margin: 0 auto;
+    overflow: hidden;
+    width: 800px;
+}
+}
+
+/* ==|== print styles =======================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+ 
+@media print {
+  * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
+  a, a:visited { text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* h5bp.com/t */
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}

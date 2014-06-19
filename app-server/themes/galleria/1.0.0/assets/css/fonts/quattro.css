@@ -1,0 +1,29 @@
+@import url(http://fonts.googleapis.com/css?family=Quattrocento:400,700);
+@import url(http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,400italic,700,700italic);
+
+h1 {font-family: 'Quattrocento', serif !important; font-weight: 400; text-transform: none !important; font-size: 28px;}
+h2 {font-family: 'Quattrocento', serif !important; font-weight: 400; text-transform: none !important; font-size: 25px !important;}
+h3 {font-family: 'Quattrocento', serif !important; font-weight: 400; text-transform: none !important; font-size: 18px !important;}
+h4 {font-family: 'Quattrocento', serif !important; font-weight: 400; text-transform: none !important; font-size: 15px !important;}
+h5 {font-family: 'Quattrocento', serif !important; font-weight: 400; text-transform: none !important;}
+h6 {font-family: 'Quattrocento', serif !important; font-weight: 400; text-transform: none !important;}
+
+.navbar>.container_nav .navbar-brand {
+	font-family: 'Quattrocento', serif !important; font-weight: 400; text-transform: none !important; font-size: 30px;
+}
+
+.widget_title{font-family: 'Quattrocento', serif !important; font-weight: 400; text-transform: none !important; font-size: 28px;}
+
+
+dt {font-family: 'Quattrocento', serif !important; font-weight: 400; font-size: 20px !important;}
+
+p { font-family: 'Quattrocento Sans', sans-serif !important; font-size: 15px;}
+
+dd{ font-family: 'Quattrocento Sans', sans-serif !important; font-size: 15px;}
+
+.navbar-nav > li > a { font-family: 'Quattrocento Sans', sans-serif !important; text-transform: none !important; font-weight: 400; letter-spacing: 1px; font-size: 16px;}
+
+.dropdown-menu>li>a {font-family: 'Quattrocento Sans', sans-serif !important; font-weight: 500; text-transform: none;}
+
+.contact_form * {font-family: 'Quattrocento Sans', sans-serif !important; font-weight: 400;}
+.contact_form .btn {font-family: 'Quattrocento', serif !important; font-weight: 400;}

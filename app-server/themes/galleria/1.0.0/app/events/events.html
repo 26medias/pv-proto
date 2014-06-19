@@ -1,0 +1,130 @@
+{{ if data.isEvent }}
+	<div id="about" class="for_about_padding">	
+    <h1>
+    	<span>{$"Events"|i18n(pageInfo.theme_settings.Lang)}</span>
+        <div class="social hidden-sm hidden-xs">
+            <a href="http://facebook.com/{$pageInfo.pageid}" title="facebook" target="_blank" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Facebook Icon']);">
+                        <img alt="facebook" src="{$assets}images/facebook_icon.png">
+                    </a>
+                    {{ if data.site_settings.socialicons_switch == 1}}
+                        {{if data.site_settings.twitter_link}}
+                        <a href="{$data.site_settings.twitter_link}" target="_blank" title="twitter" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Twitter Icon']);">
+                            <img alt="twitter" src="{$assets}images/twitter_icon.png" >
+                        </a>
+                        {{endif}}
+                        {{if data.site_settings.pinterest_link}}
+                        <a href="{$data.site_settings.pinterest_link}" target="_blank" title="pinterest" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Pinterest Icon']);">
+                            <img alt="pinterest" src="{$assets}images/pinterest_icon.png" >
+                        </a>
+                        {{endif}}
+                        {{if data.site_settings.instagram_link}}
+                        <a href="{$data.site_settings.instagram_link}" target="_blank" title="instagram" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Instagram Icon']);">
+                            <img alt="pinterest" src="{$assets}images/instagram_icon.png" >
+                        </a>
+                        {{endif}}
+                        {{if data.site_settings.tumblr_link}}
+                        <a href="{$data.site_settings.tumblr_link}" target="_blank" title="tumblr" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Tumblr Icon']);">
+                            <img alt="tumblr" src="{$assets}images/tumblr_icon.png" >
+                        </a>
+                        {{endif}}
+                        {{if data.site_settings.flickr_link}}
+                        <a href="{$data.site_settings.flickr_link}" target="_blank" title="flickr" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Flickr Icon']);">
+                            <img alt="flickr" src="{$assets}images/flickr_icon.png" >
+                        </a>
+                        {{endif}}
+                        {{if data.site_settings.youtube_link}}
+                        <a href="{$data.site_settings.youtube_link}" target="_blank" title="youtube" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Social Icons', 'Youtube Icon']);">
+                            <img alt="youtube" src="{$assets}images/youtube_icon.png" >
+                        </a>
+                        {{endif}}
+                    {{endif}}
+        </div>
+    </h1>
+    
+    <div class="side_content hidden-xs hidden-sm">
+        <div class="map">
+            {{ if data.eventOnly.venue.latitude }}
+                <iframe width="100%" scrolling="no" height="100%" frameborder="0" src="https://maps.google.com/?q={$data.eventOnly.venue.street}+{$data.eventOnly.venue.city}+{$data.eventOnly.venue.state}&hl=en&sll={$data.eventOnly.venue.latitude},{$data.eventOnly.venue.longitude}&amp;output=embed" marginwidth="0" marginheight="0"></iframe>
+            {{ endif }}
+        </div><!-- /.map -->
+    </div><!-- /.side_content -->
+    
+    <div class="content">
+        <div class="box_holder">
+            {{ autoescape false }}
+            {{ if data.eventOnly.name }}    
+                <h2>{$data.eventOnly.name}</h2>
+                <p>{$data.eventOnly.start_time|date("F d, Y @ h:ia")}<br />
+                {{ if data.eventOnly.location }}
+                    {$data.eventOnly.location}<br/>
+                {{ endif }}
+                {$data.eventOnly.venue.street} {$data.eventOnly.venue.city} {$data.eventOnly.venue.state}
+                </p>
+                {{ if data.eventOnly.description }}  
+                	<p>{$data.eventOnly.description}</p>
+                {{ endif }}
+                <p><a href="http://facebook.com/events/{$data.eventOnly.id}/" class="rsvp" target="_blank" onclick="_gaq.push(['_trackEvent', 'Engagement', 'Events', 'RSVP']);">RSVP</a></p>
+                <p><a href="{$root}events" title="back" class="back">&laquo; {$"Back to all events"|i18n(pageInfo.theme_settings.Lang)}</a></p>
+            {{ endif }}
+            {{ endautoescape}}
+        </div><!-- /.box_holder -->
+    </div><!-- /.content -->
+    
+    <div class="side_content hidden-md hidden-lg" style="padding-bottom: 60px;">
+        <div class="map">
+            {{ if data.eventOnly.venue.latitude }}
+                <iframe width="100%" scrolling="no" height="100%" frameborder="0" src="https://maps.google.com/?q={$data.eventOnly.venue.street}+{$data.eventOnly.venue.city}+{$data.eventOnly.venue.state}&hl=en&sll={$data.eventOnly.venue.latitude},{$data.eventOnly.venue.longitude}&amp;output=embed" marginwidth="0" marginheight="0"></iframe>
+            {{ endif }}
+        </div><!-- /.map -->
+    </div><!-- /.side_content -->
+    
+    <div class="top_cover"></div>
+    <div class="bottom_cover"></div>
+            
+</div>
+
+{{ else }}
+
+    
+<!-- Blogs
+================================================== -->
+<div id="blogs" style="height: 100%;">
+    <div id="hover-cap-4col"  class="event">
+    {{ if data.events }}
+    	{{ autoescape false }}
+        {{ set count = 0 }}
+        <ul class="clearfix">
+        {{ for event in data.events.data if loop.index <=100}}
+        
+            {{ if event.name }}
+            
+                <li>
+                    <div class="event-box">
+                        <div class="img_holder" style="{{if event.cover.source}}background-image:url({$event.cover.source});background-size:cover;{{else}}background-size:inherit;{{endif}}">
+                            <a href="{$root}events?event={$count}" class="fancybox"><img class="mediapost" src="{$assets}images/blank.gif" />
+                            <div class="hover_caption fancybox" href="{$post.picture}">
+                                <div class="icon"><i class="icon-plus"></i></div>
+                            </div></a>
+                        </div><!-- /.img_holder -->
+                        <div class="caption">
+                            <h2><a href="{$root}events?event={$count}">{$event.name}</a></h2>
+                            <p>{$event.start_time|date("F d, Y")}<br/>{$event.start_time|date("h:ia")} </p>
+                        </div><!-- /.caption -->
+                    </div><!-- /.event-box -->
+                </li>
+           
+            {{ endif }}
+                        
+            {{ set count = loop.index }}
+            
+        {{ endfor }}
+         </ul>
+        {{ endautoescape }}  
+     {{ else }}
+        <p class="no-events">{$"There are currently no upcoming events. Please check back later!"|i18n(pageInfo.theme_settings.Lang)}</p>
+    {{ endif }}   
+    </div><!-- /.maso_container -->
+</div>
+
+
+{{ endif }}
